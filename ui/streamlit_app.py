@@ -1,6 +1,5 @@
 import streamlit as st
 from pathlib import Path
-import yaml, json
 
 st.set_page_config(page_title="LexDomus–PI MVP", layout="wide")
 st.title("LexDomus–PI — MVP (RAGA+MCP, sin LLM)")
@@ -13,9 +12,9 @@ with st.sidebar:
     if policy_path.exists():
         st.code(policy_path.read_text(), language="yaml")
 
-tab1, tab2, tab3 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Cláusula + EEE + A2J"])
+tab1, tab2, tab3 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J"])
 
-# Estado simple en sesión
+# Estado
 if "last_result" not in st.session_state:
     st.session_state["last_result"] = None
 if "last_input" not in st.session_state:
@@ -31,8 +30,7 @@ with tab1:
         st.session_state["last_result"] = res
         st.session_state["last_input"] = {"clause": clause, "juris": juris}
         st.success("Análisis completado. Revisa las pestañas 2 y 3.")
-
-    st.caption("Nota: esta demo funciona sin LLM; usa RAG+heurísticas para EEE/flags.")
+    st.caption("Nota: esta demo funciona sin LLM; usa RAG+heurísticas para EEE/flags/redacción.")
 
 with tab2:
     st.subheader("Evidencias (por nodo)")
@@ -62,13 +60,28 @@ with tab3:
     if not res:
         st.info("Ejecuta el análisis en la pestaña 1.")
     else:
-        eee = res["EEE"]
         st.markdown("### EEE")
-        st.write(eee)
+        st.write(res["EEE"])
         st.markdown("### Flags")
         st.write(res["flags"] or "—")
+
+        st.markdown("### Análisis")
+        st.markdown(res["opinion"]["analysis_md"])
+
+        colA, colB = st.columns(2)
+        with colA:
+            st.markdown("### Pros")
+            st.write(res["opinion"]["pros"] or "—")
+        with colB:
+            st.markdown("### Contras")
+            st.write(res["opinion"]["cons"] or "—")
+
+        st.markdown("### Lectura alternativa (Devil’s Advocate)")
+        st.json(res["opinion"]["devils_advocate"])
+
         st.markdown("### Cláusula alternativa (base)")
         st.code(res["alternative_clause"])
+
         st.markdown("### Resumen A2J (plantilla)")
         a2j = Path(__file__).resolve().parents[1] / "templates" / "RESUMEN_A2J.md"
         st.write(a2j.read_text() if a2j.exists() else "—")
