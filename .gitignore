@@ -8,10 +8,14 @@ __pycache__/
 .env.*
 *.egg-info/
 
-# Datos/índices locales
-data/docs_raw/
-data/docs_chunks/
-indices/
-
-# Streamlit
+# Streamlit / cachés locales
 .streamlit/
+
+# ⚠️ Permitimos versionar estos artefactos ligeros de demo
+# (queremos que GitHub Actions los comitee)
+# data/docs_raw puede crecer -> lo ignoramos
+data/docs_raw/
+
+# Sí versionamos:
+!data/docs_chunks/**
+!indices/**
