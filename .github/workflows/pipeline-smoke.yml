@@ -34,5 +34,8 @@ jobs:
           python scripts/build_index.py
 
       - name: Run smoke tests
+        env:
+          PYTHONPATH: .
         run: |
-          python tests/smoke.py
+          python -m tests.smoke
+
