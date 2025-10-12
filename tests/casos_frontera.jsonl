@@ -1,0 +1,5 @@
+{"id": "case_renuncia_moral_es", "jurisdiction": "ES", "clause": "El Autor renuncia a todos sus derechos morales sobre la Obra para cualquier modo de explotación presente y futuro.", "expected_flag": "renuncia moral general"}
+{"id": "case_worldwide_vago", "jurisdiction": "INT", "clause": "La cesión es worldwide por la duración máxima permitida en cualquier país.", "expected_flag": "territorialidad ambigua"}
+{"id": "case_modalidades_abiertas", "jurisdiction": "EU", "clause": "Se ceden todos los derechos sobre cualquier soporte conocido o por conocerse.", "expected_flag": "modalidades genéricas"}
+{"id": "case_cesion_futura", "jurisdiction": "ES", "clause": "Se ceden asimismo las obras futuras del Autor sin limitación.", "expected_flag": "cesión futura genérica"}
+{"id": "case_licencia_equilibrada", "jurisdiction": "ES", "clause": "Licencia no exclusiva para reproducción y distribución en España por 3 años, en soportes digitales enumerados en Anexo I, con royalty del 8% y cita del autor en todo uso.", "expected_flag": "OK"}
