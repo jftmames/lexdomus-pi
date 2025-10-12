@@ -24,7 +24,12 @@ with tab1:
 
 with tab2:
     st.subheader("Evidencias")
-    st.write("Aquí se mostrarán los pasajes recuperados (lex_domus.retriever + rag_pipeline) con citas pinpoint y conflictos.")
+    q = st.text_input("Escribe una consulta de prueba (e.g., 'derechos morales autor LPI 14')")
+    if st.button("Buscar evidencias"):
+        from lex_domus.rag_pipeline import source_required_answer
+        res = source_required_answer(q, k=8)
+        st.json(res)
+    st.caption("Mostrando candidatos citables con policy + 'source-required'.")
 
 with tab3:
     st.subheader("Dictamen")
