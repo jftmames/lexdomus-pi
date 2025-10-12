@@ -1,13 +1,13 @@
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List
 from pathlib import Path
-import json, os
+import json
 
-# Módulos internos
 from verdiktia.inquiry_engine import decompose_clause
 from lex_domus.rag_pipeline import source_required_answer, load_policy
 from lex_domus.flagger import detect_flags, propose_alternative
 from metrics_eee.scorer import score_eee
 from metrics_eee.logger import append_log
+from app.writer import draft_opinion
 
 LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "logs" / "ledger.jsonl"
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -25,46 +25,49 @@ def _read_last_hash() -> str:
 def analyze_clause(clause: str, jurisdiction: str) -> Dict[str, Any]:
     policy = load_policy()
 
-    # 1) Inquiry Graph (descomposición)
+    # 1) Inquiry Graph
     nodes = decompose_clause(clause, jurisdiction)
 
-    # 2) Recuperación (RAG) por nodo (simple: pregunta + cláusula)
+    # 2) Recuperación por nodo
     per_node = []
     for n in nodes:
         q = f"{n['pregunta']} | Jurisdicción: {jurisdiction} | Cláusula: {clause[:400]}"
         res = source_required_answer(q, k=policy["rag"]["retrieval"]["top_k"])
         per_node.append({"node": n, "retrieval": res})
 
-    # 3) Proposiciones para EEE (T: citas con pinpoint; J/P heurísticos)
+    # 3) EEE (heurístico: T = % nodos con al menos una cita pinpoint)
     propos = []
     for item in per_node:
         cit_ok = False
-        if item["retrieval"]["status"] == "OK":
-            # cuenta como pinpoint si alguna cita lo marca
-            cit_ok = any(c.get("meta", {}).get("pinpoint") for c in item["retrieval"].get("citations", []))
+        retr = item["retrieval"]
+        if retr["status"] == "OK":
+            cit_ok = any(c.get("meta", {}).get("pinpoint") for c in retr.get("citations", []))
         propos.append({"cita_pinpoint": cit_ok})
 
-    analysis = {
+    analysis_stub = {
         "proposiciones": propos,
-        "tiene_rha": any(p["cita_pinpoint"] for p in propos),  # regla→hechos→aplicación (heurística)
-        "alternativas": True  # hay alternativa mínima del devil's advocate implícita/flagger
+        "tiene_rha": any(p["cita_pinpoint"] for p in propos),
+        "alternativas": True
     }
+    T, J, P, flags_in = score_eee(analysis_stub)
 
-    T, J, P, flags_in = score_eee(analysis)
-
-    # 4) Flags por contenido de cláusula
+    # 4) Flags por contenido
     flags = sorted(set(flags_in + detect_flags(clause, jurisdiction)))
 
-    # 5) Alternativa base (sin LLM)
+    # 5) Redactor determinista (sin LLM)
+    opinion = draft_opinion(clause, jurisdiction, per_node, flags)
+
+    # 6) Alternativa base
     alternative = propose_alternative(clause, jurisdiction)
 
-    # 6) Agregado y logging
+    # 7) Ensamble y logging
     result = {
         "jurisdiction": jurisdiction,
         "inquiry_nodes": nodes,
         "per_node": per_node,
         "EEE": {"T": T, "J": J, "P": P},
         "flags": flags,
+        "opinion": opinion,
         "alternative_clause": alternative,
         "policy": {
             "min_citations": policy["rag"]["thresholds"]["min_citations"],
