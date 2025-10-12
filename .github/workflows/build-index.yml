@@ -1,3 +1,5 @@
+name: Build RAG indices
+
 on:
   workflow_dispatch:
   push:
@@ -17,9 +19,60 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0         # <— importante para poder rebasear
+          fetch-depth: 0            # necesario para poder rebasear
           persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ingest corpus -> chunks
+        run: |
+          python scripts/ingest.py
+
+      - name: Build indices (BM25 + opcional FAISS)
+        run: |
+          python scripts/build_index.py
+
+      - name: Commit artifacts (chunks + indices)
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="${GITHUB_REF_NAME:-main}"
+
+          # Identidad del bot
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Preparar cambios
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Build indices from corpus (auto)"
+
+          # Evitar non-fast-forward: rebase sobre la rama remota antes de empujar
+          git fetch origin "$BRANCH"
+          if ! git pull --rebase --autostash origin "$BRANCH"; then
+            echo "Rebase failed; attempting soft fallback."
+            git rebase --abort || true
+            git fetch origin "$BRANCH"
+            git reset --soft origin/"$BRANCH"
+            git commit -m "Build indices from corpus (auto)"
+          fi
+
+          # Push final
+          git push origin HEAD:"$BRANCH"
