@@ -4,3 +4,4 @@ sentence-transformers
 rank-bm25
 rapidfuzz
 pyyaml
+openai>=1.0.0
