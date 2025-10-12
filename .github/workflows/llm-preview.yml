@@ -1,0 +1,58 @@
+name: LLM preview (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      clause:
+        description: "Cláusula a analizar"
+        required: true
+        type: string
+      jurisdiction:
+        description: "Jurisdicción"
+        required: true
+        type: choice
+        options: [ES, EU, US, INT]
+      model:
+        description: "Modelo OpenAI (por defecto gpt-4o-mini)"
+        required: false
+        default: "gpt-4o-mini"
+        type: string
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ensure chunks & indices exist
+        run: |
+          python scripts/ingest.py
+          python scripts/build_index.py
+
+      - name: Run LLM preview (Responses API)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ inputs.model }}
+          CLAUSE: ${{ inputs.clause }}
+          JURISDICTION: ${{ inputs.jurisdiction }}
+        run: |
+          python scripts/llm_preview.py
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: llm-preview-output
+          path: llm_preview_output.json
