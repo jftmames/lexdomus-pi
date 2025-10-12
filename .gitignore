@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+.env.*
+*.egg-info/
+
+# Datos/índices locales
+data/docs_raw/
+data/docs_chunks/
+indices/
+
+# Streamlit
+.streamlit/
