@@ -1,0 +1,673 @@
+Directiva - 2001/29 - EN - EUR-Lex
+×
+Skip to main content
+Log in
+My EUR-Lex
+My EUR-Lex
+Sign in
+Register
+My recent searches (0)
+English
+English
+Select your language
+Official EU languages:
+bg
+български
+es
+Español
+cs
+Čeština
+da
+Dansk
+de
+Deutsch
+et
+Eesti keel
+el
+Ελληνικά
+en
+English
+fr
+Français
+ga
+Gaeilge
+hr
+Hrvatski
+it
+Italiano
+lv
+Latviešu valoda
+lt
+Lietuvių kalba
+hu
+Magyar
+mt
+Malti
+nl
+Nederlands
+pl
+Polski
+pt
+Português
+ro
+Română
+sk
+Slovenčina
+sl
+Slovenščina
+fi
+Suomi
+sv
+Svenska
+EUR-Lex
+Access to European Union law
+<a href="https://eur-lex.europa.eu/content/help/eurlex-content/experimental-features.html" target="_blank">More about the experimental features corner</a>
+Experimental features
+×
+Choose the experimental features you want to try
+Do you want to help improving EUR-Lex ? This is a list of experimental features that you can enable. These features are still under development; they are not fully tested, and might reduce EUR-Lex stability. Don't forget to give your feedback!
+Warning! Experimental feature conflicts detected.
+Replacement of CELEX identifiers by short titles - experimental feature. It replaces clickable CELEX identifiers of treaties and case-law by short titles.
+Visualisation of document relationships. It displays a dynamic graph with relations between the act and related documents. It is currently only available for legal acts.
+Deep linking. It enables links to other legal acts referred to within the documents. It is currently only available for documents smaller than 900 KB.
+Apply
+EUR-Lex
+Access to European Union law
+This document is an excerpt from the EUR-Lex website
+You are here
+EUROPA
+EUR-Lex home
+Directiva - 2001/29 - EN - EUR-Lex
+Help
+Print
+Menu
+EU law
+Treaties
+Treaties currently in force
+Founding Treaties
+Accession Treaties
+Other treaties and protocols
+Chronological overview
+Legal acts
+Consolidated texts
+International agreements
+Preparatory documents
+EFTA documents
+Lawmaking procedures
+Summaries of EU legislation
+Browse by EU institutions
+European Parliament
+European Council
+Council of the European Union
+European Commission
+Court of Justice of the European Union
+European Central Bank
+European Court of Auditors
+European Economic and Social Committee
+European Committee of the Regions
+Browse by EuroVoc
+EU case-law
+Case-law
+Reports of cases
+Directory of case-law
+Official Journal
+Access the Official Journal
+Official Journal L series daily view
+Official Journal C series daily view
+Browse the Official Journal
+Legally binding printed editions
+Special editions
+National law and case-law
+National transposition
+National case-law
+JURE case-law
+Information
+Themes in focus
+EUR-Lex developments
+Statistics
+ELI register
+About ELI
+Technical information
+ELI implementation overview
+Resources for implementing ELI
+ELI highlights
+ELI testimonials
+Legislation in schema.org
+EU budget online
+Quick search
+Use quotation marks to search for an "exact phrase". Append an asterisk (
+*
+) to a search term to find variations of it (transp
+*
+, 32019R
+*
+). Use a question mark (
+?
+) instead of a single character in your search term to find variations of it (ca
+?
+e finds case, cane, care).
+Search tips
+Need more search options? Use the
+Advanced search
+Document 32001L0029
+Help
+Print
+Text
+Document information
+Procedure
+National transposition
+Document summary
+Up-to-date link
+Permanent link
+Download notice
+Save to My items
+Create an email alert
+Create an RSS alert
+Access current version (06/06/2019)
+06/06/2019
+All consolidated versions
+Hide consolidated versions
+06/06/2019
+10/10/2017
+22/06/2001
+Legal act
+​
+Directive 2001/29/EC of the European Parliament and of the Council of 22 May 2001 on the harmonisation of certain aspects of copyright and related rights in the information society
+Directiva 2001/29/CE del Parlamento Europeo y del Consejo, de 22 de mayo de 2001, relativa a la armonización de determinados aspectos de los derechos de autor y derechos afines a los derechos de autor en la sociedad de la información
+Directiva 2001/29/CE del Parlamento Europeo y del Consejo, de 22 de mayo de 2001, relativa a la armonización de determinados aspectos de los derechos de autor y derechos afines a los derechos de autor en la sociedad de la información
+DO L 167 de 22.6.2001, pp. 10–19
+(ES, DA, DE, EL, EN, FR, IT, NL, PT, FI, SV)
+Este documento se ha publicado en una o varias ediciones especiales
+(CS, ET, LV, LT, HU, MT, PL, SK, SL, BG, RO, HR)
+⏵
+Este documento se ha publicado en una o varias ediciones especiales
+(CS, ET, LV, LT, HU, MT, PL, SK, SL, BG, RO, HR)
+edición especial en checo: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en estonio: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en letón: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en lituano: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en húngaro Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en maltés: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en polaco: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en eslovaco: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en esloveno: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en búlgaro: Capítulo 17 Tomo 001 p. 230 - 239
+edición especial en rumano: Capítulo 17 Tomo 001 p. 230 - 239
+Edición especial en croata: Capítulo 17 Tomo 001 p. 119 - 128
+In force: This act has been changed.
+Current consolidated version:
+06/06/2019
+ELI:
+http://data.europa.eu/eli/dir/2001/29/oj
+Expand all
+Collapse all
+Languages, formats and link to OJ
+Language
+BG
+ES
+CS
+DA
+DE
+ET
+EL
+EN
+FR
+GA
+HR
+IT
+LV
+LT
+HU
+MT
+NL
+PL
+PT
+RO
+SK
+SL
+FI
+SV
+HTML
+EN
+Toggle Dropdown
+BG
+ES
+CS
+DA
+DE
+ET
+EL
+EN
+FR
+GA
+HR
+IT
+LV
+LT
+HU
+MT
+NL
+PL
+PT
+RO
+SK
+SL
+FI
+SV
+PDF
+EN
+Toggle Dropdown
+BG
+ES
+CS
+DA
+DE
+ET
+EL
+EN
+FR
+GA
+HR
+IT
+LV
+LT
+HU
+MT
+NL
+PL
+PT
+RO
+SK
+SL
+FI
+SV
+Official Journal
+EN
+Toggle Dropdown
+BG
+ES
+CS
+DA
+DE
+ET
+EL
+EN
+FR
+GA
+HR
+IT
+LV
+LT
+HU
+MT
+NL
+PL
+PT
+RO
+SK
+SL
+FI
+SV
+Multilingual display
+Language 1
+English (en)
+Bulgarian (bg)
+Spanish (es)
+Czech (cs)
+Danish (da)
+German (de)
+Estonian (et)
+Greek (el)
+English (en)
+French (fr)
+Croatian (hr)
+Italian (it)
+Latvian (lv)
+Lithuanian (lt)
+Hungarian (hu)
+Maltese (mt)
+Dutch (nl)
+Polish (pl)
+Portuguese (pt)
+Romanian (ro)
+Slovak (sk)
+Slovenian (sl)
+Finnish (fi)
+Swedish (sv)
+Language 2
+Please choose
+Bulgarian (bg)
+Spanish (es)
+Czech (cs)
+Danish (da)
+German (de)
+Estonian (et)
+Greek (el)
+English (en)
+French (fr)
+Croatian (hr)
+Italian (it)
+Latvian (lv)
+Lithuanian (lt)
+Hungarian (hu)
+Maltese (mt)
+Dutch (nl)
+Polish (pl)
+Portuguese (pt)
+Romanian (ro)
+Slovak (sk)
+Slovenian (sl)
+Finnish (fi)
+Swedish (sv)
+Language 3
+Please choose
+Bulgarian (bg)
+Spanish (es)
+Czech (cs)
+Danish (da)
+German (de)
+Estonian (et)
+Greek (el)
+English (en)
+French (fr)
+Croatian (hr)
+Italian (it)
+Latvian (lv)
+Lithuanian (lt)
+Hungarian (hu)
+Maltese (mt)
+Dutch (nl)
+Polish (pl)
+Portuguese (pt)
+Romanian (ro)
+Slovak (sk)
+Slovenian (sl)
+Finnish (fi)
+Swedish (sv)
+Display
+Text
+Avis juridique important
+|
+32001L0029
+Directiva 2001/29/CE del Parlamento Europeo y del Consejo, de 22 de mayo de 2001, relativa a la armonización de determinados aspectos de los derechos de autor y derechos afines a los derechos de autor en la sociedad de la información
+Diario Oficial n° L 167 de 22/06/2001 p. 0010 - 0019
+Directiva 2001/29/CE del Parlamento Europeo y del Consejo
+de 22 de mayo de 2001
+relativa a la armonización de determinados aspectos de los derechos de autor y derechos afines a los derechos de autor en la sociedad de la información
+EL PARLAMENTO EUROPEO Y EL CONSEJO DE LA UNIÓN EUROPEA,
+Visto el Tratado constitutivo de la Comunidad Europea, y en particular el apartado 2 de su artículo 47 y sus artículos 55 y 95,
+Vista la propuesta de la Comisión(1),
+Visto el dictamen del Comité Económico y Social(2),
+De conformidad con el procedimiento establecido en el artículo 251 del Tratado(3),
+Considerando lo siguiente:
+(1) El Tratado prevé la creación de un mercado interior y la instauración de un sistema que garantice que la competencia dentro del mercado interior no sea falseada. La armonización de las normativas de los Estados miembros sobre los derechos de autor y derechos afines a los derechos de autor contribuye a la realización de estos objetivos.
+(2) En su reunión de Corfú del 24 y 25 de junio de 1994, el Consejo Europeo hizo hincapié en la necesidad de crear un marco jurídico general y flexible de ámbito comunitario para fomentar el desarrollo de la sociedad de la información en Europa. Para ello, es necesario, entre otras cosas, disponer de un mercado interior para los nuevos productos y servicios. Se han adoptado ya, o se encuentran en vías de adopción, normas comunitarias importantes para el establecimiento de dicho marco normativo. Los derechos de autor y derechos afines a los derechos de autor desempeñan un papel importante en este contexto, al proteger y estimular el desarrollo y la comercialización de nuevos productos y servicios y la creación y explotación de su contenido creativo.
+(3) La armonización propuesta contribuye a la aplicación de las cuatro libertades del mercado interior y se inscribe en el respeto de los principios generales del Derecho y, en particular, el derecho de propiedad, incluida la propiedad intelectual, la libertad de expresión y el interés general.
+(4) La existencia de un marco jurídico armonizado en materia de derechos de autor y de derechos afines a los derechos de autor fomentará, mediante un mayor grado de seguridad jurídica y el establecimiento de un nivel elevado de protección de la propiedad intelectual, un aumento de la inversión en actividades de creación e innovación, incluida la infraestructura de red, lo que a su vez se traducirá en el desarrollo de la industria europea y en el incremento de su competitividad, tanto por lo que respecta al ámbito del suministro de contenido y de la tecnología de la información como, de modo más general, a una amplia gama de sectores de la industria y la cultura. Esta situación preservará el empleo e impulsará la creación de nuevos puestos de trabajo.
+(5) El desarrollo tecnológico ha multiplicado y diversificado los vectores de creación, producción y explotación. Si bien la protección de la propiedad intelectual no requiere que se definan nuevos conceptos, las actuales normativas en materia de derechos de autor y derechos afines a los derechos de autor deben adaptarse y completarse para responder adecuadamente a realidades económicas tales como las nuevas formas de explotación.
+(6) Sin una armonización a nivel comunitario, las actividades legislativas a nivel nacional, que se han emprendido ya en algunos Estados miembros para hacer frente a los desafíos tecnológicos, pueden crear diferencias significativas de protección y, por ende, restringir la libre circulación de los servicios o productos que incorporen obras protegidas o se basen en ellas, dando lugar a una nueva fragmentación del mercado interior y a incoherencias de orden legislativo. Las repercusiones de tales diferencias legislativas y de esta inseguridad jurídica resultarán más significativas a medida que siga desarrollándose la sociedad de la información, que ya ha dado lugar a un considerable aumento de la explotación transfronteriza de la propiedad intelectual. Dicho desarrollo puede y debe proseguir. La existencia de diferencias legislativas y la inseguridad jurídica en materia de protección puede impedir las economías de escala para los nuevos productos y servicios protegidos por derechos de autor y derechos afines a los derechos de autor.
+(7) Por tanto, el marco jurídico comunitario para la protección de los derechos de autor y derechos afines a los derechos de autor debe también adaptarse y completarse en la medida en que resulte necesario para el correcto funcionamiento del mercado interior. A tal fin, deben reajustarse aquellas disposiciones nacionales sobre los derechos de autor y derechos afines a los derechos de autor en las que existan diferencias considerables de un Estado miembro a otro o que ocasionen una inseguridad jurídica que dificulte el correcto funcionamiento del mercado interior y el adecuado desarrollo de la sociedad de la información en Europa, y deben evitarse las incoherencias entre las respuestas nacionales a los avances tecnológicos, no siendo necesario suprimir o evitar aquellas diferencias que no repercutan negativamente en el funcionamiento del mercado interior.
+(8) Las diversas implicaciones sociales y culturales de la sociedad de la información exigen que se tenga en cuenta la especificidad del contenido de los productos y servicios.
+(9) Toda armonización de los derechos de autor y derechos afines a los derechos de autor debe basarse en un elevado nivel de protección, dado que tales derechos son primordiales para la creación intelectual. Su protección contribuye a preservar y desarrollar la creatividad en interés de los autores, los intérpretes, los productores, los consumidores, la cultura, la industria y el público en general. Por lo tanto, la propiedad intelectual ha sido reconocida como una parte integrante del derecho de propiedad.
+(10) Para que los autores y los intérpretes puedan continuar su labor creativa y artística, deben recibir una compensación adecuada por el uso de su obra, al igual que los productores, para poder financiar esta labor. La inversión necesaria para elaborar productos tales como fonogramas, películas o productos multimedia, y servicios tales como los servicios "a la carta", es considerable. Es indispensable una protección jurídica adecuada de los derechos de propiedad intelectual para garantizar la disponibilidad de tal compensación y ofrecer la oportunidad de obtener un rendimiento satisfactorio de tal inversión.
+(11) Un sistema eficaz y riguroso de protección de los derechos de autor y derechos afines a los derechos de autor constituye uno de los instrumentos fundamentales para asegurar a la creación y a la producción cultural europea los recursos necesarios y para garantizar autonomía y dignidad a los creadores e intérpretes.
+(12) La adecuada tutela de las obras protegidas mediante derechos de autor y de las prestaciones protegidas mediante derechos afines a los derechos de autor tiene gran importancia desde el punto de vista cultural. El artículo 151 del Tratado exige que la Comunidad tome en consideración los aspectos culturales en su actuación.
+(13) Es fundamental la búsqueda común y la aplicación coherente, a escala europea, de medidas tecnológicas tendentes a proteger las obras y prestaciones y a asegurar la información necesaria sobre los derechos, dado que el objetivo último de estas medidas tecnológicas es hacer operativos los principios y garantías establecidos por las normas jurídicas.
+(14) La presente Directiva aspira a fomentar el aprendizaje y la cultura mediante la protección de las obras y prestaciones, permitiendo al mismo tiempo excepciones o limitaciones en interés general para fines educativos y docentes.
+(15) La Conferencia Diplomática celebrada en diciembre de 1996 bajo los auspicios de la Organización Mundial de la Propiedad Intelectual (OMPI) llevó a la adopción de dos nuevos Tratados, el "Tratado de la OMPI sobre derechos de autor" y el "Tratado de la OMPI sobre interpretación o ejecución y fonogramas", que versan respectivamente sobre la protección de los autores y sobre la protección de los intérpretes o ejecutantes y de los productores de fonogramas. Estos Tratados actualizan de forma significativa la protección internacional de los derechos de autor y derechos afines a los derechos de autor, incluso en relación con la denominada "agenda digital", y mejoran los medios para combatir la piratería a nivel mundial. La Comunidad y la mayoría de los Estados miembros han firmado ya dichos Tratados y se están tomando las oportunas disposiciones para la ratificación de los mismos por la Comunidad y los Estados miembros. La presente Directiva está destinada también a dar cumplimiento a algunas de las nuevas obligaciones internacionales.
+(16) La cuestión de la responsabilidad que se deriva de las actividades realizadas en el contexto de red no sólo se refiere a los derechos de autor y derechos afines a los derechos de autor sino también a otros sectores, tales como la difamación, la publicidad engañosa o la violación de marcas registradas, y se trata de manera horizontal en la Directiva 2000/31/CE del Parlamento Europeo y del Consejo, de 8 de junio de 2000, relativa a determinados aspectos jurídicos de los servicios de la sociedad de la información, en particular el comercio electrónico, en el mercado interior ("Directiva sobre el comercio electrónico")(4), que aclara y armoniza diversos aspectos jurídicos relacionados con los servicios de la sociedad de la información, incluido el comercio electrónico. La presente Directiva debe aplicarse respetando un calendario similar al de la aplicación de la Directiva sobre el comercio electrónico, puesto que dicha Directiva dispone un marco armonizado de los principios y normas relativos, entre otras, a ciertas partes importantes de la presente Directiva. La presente Directiva se entenderá sin perjuicio de las normas sobre responsabilidad previstas en la citada Directiva.
+(17) Es necesario, especialmente a la luz de las exigencias derivadas del entorno digital, garantizar que las sociedades de gestión colectiva de los derechos de autor y de los derechos afines a los derechos de autor consigan un nivel más alto de racionalización y transparencia en el respeto de las normas de competencia.
+(18) La presente Directiva no afectará a las disposiciones que existen en los Estados miembros en materia de gestión de derechos, como las licencias colectivas ampliadas.
+(19) El derecho moral de los titulares de derechos debe ejercerse de conformidad con lo dispuesto en la legislación de los Estados miembros, en el Convenio de Berna para la protección de las obras literarias y artísticas, en el Tratado de la OMPI sobre derechos de autor y en el Tratado de la OMPI sobre interpretación o ejecución y fonogramas. Dicho derecho moral no entra en el ámbito de aplicación de la presente Directiva.
+(20) La presente Directiva se basa en principios y normas ya establecidos por las Directivas vigentes en la materia, en particular, las Directivas 91/250/CEE(5), 92/100/CEE(6), 93/83/CEE(7), 93/98/CEE(8) y 96/9/CE(9), y los desarrolla e integra en la perspectiva de la sociedad de la información. Las disposiciones de la presente Directiva deben entenderse sin perjuicio de las disposiciones de dichas Directivas, salvo disposición en contrario de la presente Directiva.
+(21) La presente Directiva debe definir el alcance de los actos protegidos por el derecho de reproducción en relación con los distintos beneficiarios. Ello debe efectuarse en consonancia con el acervo comunitario. Es necesaria una definición general de tales actos para garantizar la seguridad jurídica dentro del mercado interior.
+(22) El objetivo de un apoyo eficaz a la difusión de la cultura no podrá alcanzarse si no se protegen rigurosamente los derechos o si no se combaten las formas ilegales de comercialización de las obras culturales falsificadas o piratas.
+(23) La presente Directiva debe armonizar en mayor medida el derecho de autor de la comunicación al público. Este derecho debe entenderse en un sentido amplio que incluya todo tipo de comunicación al público no presente en el lugar en el que se origina la comunicación. Este derecho debe abarcar cualquier tipo de transmisión o retransmisión de una obra al público, sea con o sin hilos, incluida la radiodifusión. Este derecho no debe abarcar ningún otro tipo de actos.
+(24) El derecho de poner a disposición del público las prestaciones contempladas en el apartado 2 del artículo 3 se entiende que abarca todo acto por el cual tales prestaciones se pongan a disposición del público no presente en el lugar en el que se generó dicho acto, y ningún otro acto distinto del mismo.
+(25) La inseguridad jurídica en cuanto a la naturaleza y el nivel de protección de los actos de transmisión a la carta, a través de redes, de obras protegidas por derechos de autor y prestaciones protegidas por derechos afines a los derechos de autor debe superarse mediante el establecimiento de una protección armonizada a nivel comunitario. Debe precisarse que todos los titulares de derechos reconocidos por la presente Directiva tienen el derecho exclusivo de poner a disposición del público obras protegidas por derechos de autor o cualquier prestación protegida mediante transmisiones interactivas a la carta. Tales transmisiones interactivas a la carta se caracterizan por el hecho de que cualquier persona pueda acceder a ellas desde el lugar y en el momento que ella misma elija.
+(26) Por lo que respecta a la puesta a disposición en servicios a la carta por organismos de radiodifusión de sus producciones de radio o televisivas que incluyan música de fonogramas comerciales como parte integrante de las mismas, deben fomentarse acuerdos de licencia colectiva para facilitar el pago de los derechos de que se trate.
+(27) La mera puesta a disposición de las instalaciones materiales necesarias para facilitar o efectuar una comunicación no equivale en sí misma a una comunicación en el sentido de la presente Directiva.
+(28) La protección de los derechos de autor, a efectos de la presente Directiva, incluye el derecho exclusivo a controlar la distribución de la obra incorporada en un soporte tangible. La primera venta en la Comunidad del original de una obra o de copias de la misma por el titular del derecho o con su consentimiento agotará el derecho a controlar la reventa de dicho objeto en la Comunidad. Este derecho no se agota cuando se aplica al original o a sus copias vendidas por el titular del derecho o con su consentimiento fuera de la Comunidad. En la Directiva 92/100/CEE se establecieron los derechos de alquiler y préstamo de los autores. El derecho de distribución previsto en la presente Directiva deberá entenderse sin perjuicio de las disposiciones en materia de derechos de alquiler y préstamo del Capítulo I de dicha Directiva.
+(29) El problema del agotamiento no se plantea en el caso de los servicios, y en particular de los servicios en línea. Ello se aplica también a las copias materiales de una obra o prestación efectuadas por un usuario de dicho servicio con el consentimiento del titular del derecho. Por consiguiente, cabe aplicar lo mismo al alquiler y préstamo del original y de copias de las obras o prestaciones que por su naturaleza constituyan servicios. A diferencia del CD-ROM o CD-I, en los que la propiedad intelectual está incorporada a un soporte material, esto es, una mercancía, cada servicio en línea es, de hecho, un acto que debe quedar sujeto a autorización cuando así lo exijan los derechos de autor o derechos afines a los derechos de autor.
+(30) Los derechos a que se refiere la presente Directiva pueden ser transmitidos o cedidos o ser objeto de licencias contractuales, sin perjuicio de la normativa nacional pertinente sobre derechos de autor y derechos afines a los derechos de autor.
+(31) Debe garantizarse un justo equilibrio entre los derechos e intereses de las diferentes categorías de titulares de derechos, así como entre las distintas categorías de titulares de derechos y usuarios de prestaciones protegidas. Las actuales excepciones y limitaciones a los derechos previstas en los Estados miembros deben revaluarse a la luz de los avances logrados en la electrónica. Las diferencias existentes en las excepciones y limitaciones a determinados actos restringidos inciden directa y negativamente en el funcionamiento del mercado interior de derechos de autor y derechos afines a los derechos de autor. Tales diferencias podrían perfectamente acentuarse a medida que se desarrollen la explotación transfronteriza de las obras y las actividades transfronterizas. Para garantizar el correcto funcionamiento del mercado interior, resulta oportuno definir de manera más armonizada tales excepciones y limitaciones. El grado de armonización de las mismas debe estar en función de sus efectos sobre el correcto funcionamiento del mercado interior.
+(32) La presente Directiva establece una lista exhaustiva de excepciones y limitaciones a los derechos de reproducción y de comunicación al público. Algunas de las excepciones o limitaciones sólo se aplican al derecho de reproducción cuando resulta pertinente. La lista toma oportunamente en consideración las diferentes tradiciones jurídicas de los Estados miembros, y está destinada al mismo tiempo a garantizar el funcionamiento del mercado interior. Los Estados miembros deben aplicar con coherencia dichas excepciones y limitaciones, lo que será comprobado en un futuro examen de las medidas de transposición.
+(33) Conviene establecer una excepción al derecho exclusivo de reproducción para permitir determinados actos de reproducción provisionales, que sean reproducciones transitorias o accesorias, que formen parte integrante y esencial de un proceso tecnológico desarrollado con la única finalidad de permitir una transmisión eficaz en una red entre terceras partes, a través de un intermediario, o bien la utilización lícita de una obra o prestación. Tales actos de reproducción deben carecer en sí de valor económico. En la medida en que cumplan estas condiciones, la excepción mencionada debe cubrir asimismo los actos que permitan hojear o crear ficheros de almacenamiento provisional, incluidos los que permitan el funcionamiento eficaz de los sistemas de transmisión, siempre y cuando el intermediario no modifique la información y no interfiera en la utilización lícita de tecnología ampliamente reconocida y utilizada por el sector con el fin de obtener datos sobre la utilización de la información. La utilización se considerará lícita en caso de que la autorice el titular del derecho o de que no se encuentre restringida por la ley.
+(34) Debe ofrecerse a los Estados miembros la posibilidad de establecer determinadas excepciones o limitaciones en casos tales como aquellos en que se persiga una finalidad educativa o científica, en beneficio de organismos públicos, tales como bibliotecas y archivos, con fines de información periodística, para citas, para uso por personas minusválidas, para usos relacionados con la seguridad pública y para uso en procedimientos administrativos y judiciales.
+(35) En determinados casos de excepciones o limitaciones, los titulares de los derechos deberían recibir una compensación equitativa para recompensarles adecuadamente por el uso que se haya hecho de sus obras o prestaciones protegidas. A la hora de determinar la forma, las modalidades y la posible cuantía de esa compensación equitativa, deben tenerse en cuenta las circunstancias de cada caso concreto. Un criterio útil para evaluar estas circunstancias sería el posible daño que el acto en cuestión haya causado a los titulares de los derechos. Cuando los titulares de los derechos ya hayan recibido una retribución de algún tipo, por ejemplo, como parte de un canon de licencia, puede ocurrir que no haya que efectuar un pago específico o por separado. El nivel de compensación equitativa deberá determinarse teniendo debidamente en cuenta el grado de utilización de las medidas tecnológicas de protección contempladas en la presente Directiva. Determinadas situaciones en las que el perjuicio causado al titular del derecho haya sido mínimo no pueden dar origen a una obligación de pago.
+(36) Los Estados miembros pueden prever una compensación equitativa a los titulares de los derechos también cuando apliquen las disposiciones facultativas relativas a las excepciones o limitaciones que no requieren dicha compensación.
+(37) Cuando existen, los actuales regímenes nacionales en materia de reprografía no suponen un obstáculo importante para el mercado interior. Debe facultarse a los Estados miembros para establecer una excepción o limitación en relación con la reprografía.
+(38) Debe facultarse a los Estados miembros para que establezcan una excepción o limitación al derecho de reproducción en relación con determinados tipos de reproducción de material sonoro, visual y audiovisual para uso privado, mediante una compensación equitativa. Ello puede suponer la introducción o el mantenimiento de los sistemas de retribución para compensar a los titulares de los derechos por los perjuicios sufridos. Aunque las diferencias existentes entre tales sistemas de retribución afecten al funcionamiento del mercado interior, en lo que respecta a la reproducción privada analógica, dichas diferencias no deben tener efectos significativos en el desarrollo de la sociedad de la información. La copia privada digital puede propagarse mucho más y tener mayor impacto económico. Por consiguiente, deben tenerse debidamente en cuenta las diferencias entre la copia privada digital y la analógica, y debe establecerse entre ellas una distinción en determinados aspectos.
+(39) Al aplicar la excepción o limitación relativa a la copia privada, los Estados miembros deben tener en cuenta el desarrollo económico y tecnológico, en particular, en lo relativo a la copia digital privada y a los sistemas de retribución, siempre que existan medidas tecnológicas de protección eficaces. Dichas excepciones o limitaciones no deben impedir ni el uso de medidas tecnológicas ni su aplicación en caso de elusión.
+(40) Los Estados miembros pueden establecer una excepción o limitación en beneficio de determinados establecimientos sin fines lucrativos, como bibliotecas accesibles al público y entidades similares, así como archivos. No obstante, dicha excepción o limitación debe limitarse a una serie de casos específicos en los que se aplique el derecho de reproducción. Tal excepción o limitación no debe aplicarse a las utilizaciones realizadas en el contexto de la entrega en línea de obras o prestaciones protegidas. La presente Directiva debe entenderse sin perjuicio de la facultad de los Estados miembros de establecer excepciones al derecho exclusivo de préstamo al público, de conformidad con lo dispuesto en el artículo 5 de la Directiva 92/100/CEE. Conviene, por tanto, fomentar los contratos o licencias específicas que favorezcan de manera equilibrada a dichas entidades y sus objetivos en el campo de la difusión.
+(41) Al aplicar la excepción o limitación por lo que respecta a las grabaciones efímeras realizadas por organismos de radiodifusión, debe entenderse que los medios propios de dichos organismos incluyen los de las personas que actúen en nombre y bajo la responsabilidad de dichos organismos.
+(42) Al aplicar la excepción o limitación en el caso de fines educativos o de investigación científica no comerciales incluida la educación a distancia, la naturaleza no comercial de la actividad de que se trate debe venir dada por la actividad en sí. La estructura institucional y los medios de financiación de la entidad de que se trate no son los factores decisivos a este respecto.
+(43) Es importante, en cualquier caso, que los Estados miembros adopten todas las medidas pertinentes para favorecer el acceso a las obras a quienes sufran una minusvalía que constituya un obstáculo a la utilización de las obras en sí mismas, prestando especial atención a los formatos accesibles.
+(44) Al aplicar las excepciones y limitaciones previstas en la presente Directiva, éstas deben ejercerse de acuerdo con las obligaciones internacionales. Las citadas excepciones y limitaciones no deben aplicarse ni de tal forma que los intereses legítimos del titular del derecho se vean perjudicados ni de manera contraria a la explotación normal de su obra o prestación. El establecimiento de dichas excepciones o limitaciones por los Estados miembros debe, en particular, reflejar debidamente el creciente impacto económico que pueden tener las mismas a la luz de los avances logrados en la electrónica. Por consiguiente, puede resultar necesario limitar aún más el alcance de determinadas excepciones o limitaciones en lo tocante a ciertas nuevas utilizaciones de obras protegidas por derechos de autor y prestaciones protegidas por derechos afines a los derechos de autor.
+(45) Las excepciones y limitaciones a que se refieren los apartados 2, 3 y 4, del artículo 5 no deben ser un obstáculo para el establecimiento de relaciones contractuales encaminadas a asegurar una compensación equitativa a los titulares de los derechos de autor, en la medida permitida por el Derecho nacional.
+(46) El recurso a la mediación podría ayudar a los usuarios y titulares de derechos a solucionar los litigios. La Comisión debería realizar, en cooperación con los Estados miembros y en el seno del Comité de contacto, un estudio orientado a encontrar nuevas formas jurídicas para solucionar los litigios sobre los derechos de autor y derechos afines a los derechos de autor.
+(47) El desarrollo tecnológico permitirá a los titulares de derechos recurrir a medidas tecnológicas destinadas a impedir o restringir actos que no cuenten con la autorización del titular de cualesquiera derechos de autor, de derechos afines a los derechos de autor o del derecho sui generis en materia de bases de datos. No obstante, existe el riesgo de que se lleven a cabo actividades ilegales para permitir o facilitar la elusión de la protección técnica que suponen tales medidas. Con vistas a evitar planteamientos jurídicos fragmentados que pudieran dificultar el funcionamiento del mercado interior, resulta necesario establecer una protección jurídica armonizada frente a la elusión de medidas tecnológicas efectivas y frente al suministro de dispositivos y productos o servicios para tal fin.
+(48) Dicha protección jurídica debe cubrir las medidas tecnológicas que restringen de manera efectiva los actos no autorizados por los titulares de cualesquiera derechos de autor, de derechos afines a los derechos de autor o del derecho sui generis en materia de bases de datos, sin por ello impedir el funcionamiento normal de los equipos electrónicos y su desarrollo técnico. Dicha protección jurídica no debe suponer una obligación de conformar los dispositivos, productos, componentes o servicios con dichas medidas tecnológicas, siempre que esos dispositivos, productos, componentes o servicios no se encuentren incluidos por otras razones en la prohibición del artículo 6. Dicha protección jurídica debe respetar el principio de proporcionalidad y no debe prohibir aquellos dispositivos o actividades cuyo empleo o finalidad comercial principal persiga objetivos distintos de la elusión de la protección técnica. Esta protección no debe suponer obstáculos, especialmente, para la investigación sobre criptografía.
+(49) La protección jurídica de las medidas tecnológicas se entenderá sin perjuicio de la aplicación de cualesquiera disposiciones nacionales que puedan prohibir la posesión privada de dispositivos, productos o componentes para la elusión de las medidas tecnológicas.
+(50) Dicha protección jurídica armonizada no afecta a las disposiciones específicas de protección previstas en la Directiva 91/250/CEE. En concreto, no debe aplicarse a la protección de medidas tecnológicas utilizadas en relación con programas informáticos, la cual está contemplada exclusivamente en dicha Directiva. Tampoco debe impedir ni obstaculizar el desarrollo o la utilización de cualquier medio destinado a neutralizar una medida tecnológica necesaria para hacer posibles actos realizados de conformidad con lo dispuesto en el apartado 3 del artículo 5 y en el artículo 6 de la Directiva 91/250/CEE. Los artículos 5 y 6 de dicha Directiva establecen únicamente excepciones a los derechos exclusivos a los programas informáticos.
+(51) La protección jurídica de las medidas tecnológicas se aplica sin perjuicio de las medidas de orden público, tal como contempla el artículo 5, o de la seguridad pública. Los Estados miembros deben fomentar que los titulares de derechos adopten medidas voluntarias, como el establecimiento y aplicación de acuerdos entre titulares y otros interesados, con el fin de posibilitar la consecución de los objetivos de determinadas excepciones o limitaciones previstas en el ordenamiento jurídico nacional de conformidad con la presente Directiva. De no adoptarse tales medidas o acuerdos voluntarios en un plazo razonable, los Estados miembros deben tomar las medidas pertinentes para que los titulares de los derechos faciliten a los beneficiarios de tales excepciones o limitaciones los medios adecuados para disfrutarlas, ya sea modificando una medida tecnológica existente, ya sea por otros medios. No obstante, con el fin de evitar abusos en la aplicación de tales medidas tomadas por los titulares de los derechos, inclusive en el marco de acuerdos, o por un Estado miembro, toda medida tecnológica adoptada en aplicación de tales medidas debe estar protegida jurídicamente.
+(52) Al aplicar una excepción o limitación de copia privada de acuerdo con la letra b) del apartado 2 del artículo 5, los Estados miembros deben fomentar asimismo el recurso a medidas voluntarias con el fin de posibilitar la consecución de los objetivos de dicha excepción o limitación. De no adoptarse en un plazo razonable tales medidas voluntarias para hacer posible la reproducción para uso privado, los Estados miembros podrán adoptar medidas para que los beneficiarios de la excepción o limitación de que se trate puedan acogerse a la misma. Las medidas voluntarias adoptadas por los titulares de derechos, incluidos los acuerdos entre estos últimos y otros interesados, así como las medidas adoptadas por los Estados miembros no impiden a los titulares de derechos utilizar medidas tecnológicas que sean compatibles con las excepciones o limitaciones en materia de copia privada establecidas en su derecho nacional de acuerdo con la letra b) del apartado 2 del artículo 5, teniendo en cuenta la condición de compensación equitativa prevista en dicha disposición y la posible diferenciación entre diversas condiciones de uso de acuerdo con el apartado 5 del artículo 5, como el control del número de reproducciones. Con el fin de evitar abusos en la aplicación de dichas medidas, toda medida tecnológica adoptada en aplicación de las mismas debe disfrutar de protección jurídica.
+(53) La protección de las medidas tecnológicas debe garantizar un entorno seguro para la prestación de servicios interactivos a la carta, de forma que el público pueda tener acceso a las obras u otras prestaciones desde el lugar y en el momento que prefiera. Cuando dichos servicios estén regulados por acuerdos contractuales, no deben aplicarse los párrafos primero y segundo del apartado 4 del artículo 6. Las formas no interactivas de servicios en línea deben seguir sometidas a dichas disposiciones.
+(54) Se han logrado importantes progresos en materia de normalización internacional de los sistemas técnicos de identificación de las obras y prestaciones protegidas digitales. En un contexto en el que tienen cada vez más importancia los sistemas de red, las diferencias entre medidas tecnológicas podrían conducir a una incompatibilidad de los sistemas dentro de la Comunidad. Debe impulsarse la compatibilidad e interoperabilidad de los sistemas. Sería muy conveniente fomentar el desarrollo de sistemas globales.
+(55) El desarrollo tecnológico facilitará la distribución de las obras, en particular a través de redes, y ello implicará para los titulares de los derechos la necesidad de identificar mejor la obra o la prestación, al autor de la obra o el titular del derecho y de proporcionar información sobre las condiciones y modalidades de utilización de la obra o la prestación, con objeto de simplificar la gestión de los derechos vinculados a la obra o prestación. Debe alentarse a los titulares de los derechos a emplear marcados que indiquen, además de la mencionada información, entre otras cosas, su autorización cuando incluyan en redes las obras o prestaciones protegidas.
+(56) No obstante, existe el riesgo de que se lleven a cabo actividades ilegales con vistas a suprimir o alterar la información para la gestión electrónica de los derechos de autor vinculada a la obra, así como a distribuir, importar para su distribución, emitir por radiodifusión, comunicar al público o poner a disposición del público obras o prestaciones protegidas a las que se haya suprimido tal información sin autorización. Con vistas a evitar planteamientos jurídicos fragmentados que pudieran dificultar el funcionamiento del mercado interior, resulta necesario establecer una protección jurídica armonizada frente a cualesquiera actividades de este tipo.
+(57) En función de su diseño, los sistemas de información para la gestión de derechos mencionados pueden, simultáneamente, procesar los datos personales sobre hábitos de consumo de las prestaciones protegidas por parte de personas individuales y permitir el seguimiento de los comportamientos en línea. Dichas medidas técnicas deben incluir, en sus funciones técnicas, garantías de respeto de la intimidad de conformidad con lo dispuesto en la Directiva 95/46/CE del Parlamento Europeo y del Consejo, de 24 de octubre de 1995, relativa a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos(10).
+(58) Los Estados miembros deben prever sanciones y vías de recurso efectivas contra la vulneración de los derechos y las obligaciones establecidos en la presente Directiva. Deben adoptar todas las medidas necesarias para garantizar que se apliquen tales sanciones y vías de recurso. Las sanciones previstas deben ser efectivas, proporcionadas y disuasorias y deben llevar aparejadas la posibilidad de solicitar reparación de daños y perjuicios y/o medidas cautelares y, cuando proceda, la incautación del material ilícito.
+(59) Sobre todo en el entorno digital, es posible que terceras partes utilicen cada vez con mayor frecuencia los servicios de intermediarios para llevar a cabo actividades ilícitas. En muchos casos, estos intermediarios son quienes están en mejor situación de poner fin a dichas actividades ilícitas. Así pues, y sin perjuicio de otras sanciones o recursos contemplados, los titulares de los derechos deben tener la posibilidad de solicitar medidas cautelares contra el intermediario que transmita por la red la infracción contra la obra o prestación protegidas cometida por un tercero. Esta posibilidad debe estar abierta aun cuando los actos realizados por el intermediario estén exentos en virtud del artículo 5. Debe corresponder a la legislación nacional de los Estados miembros regular las condiciones y modalidades de dichas medidas cautelares.
+(60) La protección otorgada en virtud de la presente Directiva debe entenderse sin perjuicio de las disposiciones nacionales o comunitarias vigentes en otros ámbitos, como, por ejemplo, la propiedad industrial, la protección de datos, el acceso condicional, el acceso a los documentos públicos o la normativa sobre la cronología de la explotación de los medios de comunicación, que puedan afectar a la protección de los derechos de autor u otros derechos afines a los derechos de autor.
+(61) Para ajustarse a lo dispuesto en el Tratado de la OMPI sobre interpretación o ejecución y fonogramas, resulta oportuno modificar las Directivas 92/100/CEE y 93/98/CEE,
+HAN ADOPTADO LA PRESENTE DIRECTIVA:
+CAPÍTULO I
+OBJECTIVO Y ÁMBITO DE APLICACIÓN
+Artículo 1
+Ámbito de aplicación
+1. La presente Directiva trata de la protección jurídica de los derechos de autor y otros derechos afines a los derechos de autor en el mercado interior, con particular atención a la sociedad de la información.
+2. Salvo en los casos mencionados en el artículo 11, la presente Directiva dejará intactas y no afectará en modo alguno las disposiciones comunitarias vigentes relacionadas con:
+a) la protección jurídica de los programas de ordenador;
+b) el derecho de alquiler, el derecho de préstamo y determinados derechos afines a los derechos de autor en el ámbito de la propiedad intelectual;
+c) los derechos de autor y derechos afines a los derechos de autor aplicables a la radiodifusión de programas vía satélite y la retransmisión por cable;
+d) la duración de la protección de los derechos de autor y determinados derechos afines a los derechos de autor;
+e) la protección jurídica de las bases de datos.
+CAPÍTULO II
+DERECHOS Y EXCEPCIONES
+Artículo 2
+Derecho de reproducción
+Los Estados miembros establecerán el derecho exclusivo a autorizar o prohibir la reproducción directa o indirecta, provisional o permanente, por cualquier medio y en cualquier forma, de la totalidad o parte:
+a) a los autores, de sus obras;
+b) a los artistas, intérpretes o ejecutantes, de las fijaciones de sus actuaciones;
+c) a los productores de fonogramas, de sus fonogramas;
+d) a los productores de las primeras fijaciones de películas, del original y las copias de sus películas;
+e) a los organismos de radiodifusión, de las fijaciones de sus emisiones, con independencia de que éstas se transmitan por procedimientos alámbricos o inalámbricos, inclusive por cable o satélite.
+Artículo 3
+Derecho de comunicación al público de obras y derecho de poner a disposición del público prestaciones protegidas
+1. Los Estados miembros establecerán en favor de los autores el derecho exclusivo a autorizar o prohibir cualquier comunicación al público de sus obras, por procedimientos alámbricos o inalámbricos, incluida la puesta a disposición del público de sus obras de tal forma que cualquier persona pueda acceder a ellas desde el lugar y en el momento que elija.
+2. Los Estados miembros concederán el derecho exclusivo a autorizar o prohibir la puesta a disposición del público, por procedimientos alámbricos o inalámbricos, de tal forma que cualquier persona pueda tener acceso a ellos desde el lugar y en el momento que elija:
+a) a los artistas, intérpretes o ejecutantes, de las fijaciones de sus actuaciones;
+b) a los productores de fonogramas, de sus fonogramas;
+c) a los productores de las primeras fijaciones de películas, del original y las copias de sus películas;
+d) a los organismos de radiodifusión, de las fijaciones de sus emisiones, con independencia de que éstas se transmitan por procedimientos alámbricos o inalámbricos, inclusive por cable o satélite.
+3. Ningún acto de comunicación al público o de puesta a disposición del público con arreglo al presente artículo podrá dar lugar al agotamiento de los derechos a que se refieren los apartados 1 y 2.
+Artículo 4
+Derecho de distribución
+1. Los Estados miembros establecerán en favor de los autores, respecto del original de sus obras o copias de ellas, el derecho exclusivo de autorizar o prohibir toda forma de distribución al público, ya sea mediante venta o por cualquier otro medio.
+2. El derecho de distribución respecto del original o de copias de las obras no se agotará en la Comunidad en tanto no sea realizada en ella la primera venta u otro tipo de cesión de la propiedad del objeto por el titular del derecho o con su consentimiento.
+Artículo 5
+Excepciones y limitaciones
+1. Los actos de reproducción provisional a que se refiere el artículo 2, que sean transitorios o accesorios y formen parte integrante y esencial de un proceso tecnológico y cuya única finalidad consista en facilitar:
+a) una transmisión en una red entre terceras partes por un intermediario, o
+b) una utilización lícita
+de una obra o prestación protegidas, y que no tengan por sí mismos una significación económica independiente, estarán exentos del derecho de reproducción contemplado en el artículo 2.
+2. Los Estados miembros podrán establecer excepciones o limitaciones al derecho de reproducción contemplado en el artículo 2 en los siguientes casos:
+a) en relación con reproducciones sobre papel u otro soporte similar en las que se utilice una técnica fotográfica de cualquier tipo u otro proceso con efectos similares, a excepción de las partituras, siempre que los titulares de los derechos reciban una compensación equitativa;
+b) en relación con reproducciones en cualquier soporte efectuadas por una persona física para uso privado y sin fines directa o indirectamente comerciales, siempre que los titulares de los derechos reciban una compensación equitativa, teniendo en cuenta si se aplican o no a la obra o prestación de que se trate las medidas tecnológicas contempladas en el artículo 6;
+c) en relación con actos específicos de reproducción efectuados por bibliotecas, centros de enseñanza o museos accesibles al público, o por archivos, que no tengan intención de obtener un beneficio económico o comercial directo o indirecto;
+d) cuando se trate de grabaciones efímeras de obras, realizadas por organismos de radiodifusión por sus propios medios y para sus propias emisiones; podrá autorizarse la conservación de estas grabaciones en archivos oficiales, a causa de su carácter documental excepcional;
+e) en relación con reproducciones de radiodifusiones efectuadas por instituciones sociales que no persigan fines comerciales, como hospitales o prisiones, a condición de que los titulares de los derechos reciban una compensación equitativa.
+3. Los Estados miembros podrán establecer excepciones o limitaciones a los derechos a que se refieren los artículos 2 y 3 en los siguientes casos:
+a) cuando el uso tenga únicamente por objeto la ilustración con fines educativos o de investigación científica, siempre que, salvo en los casos en que resulte imposible, se indique la fuente, con inclusión del nombre del autor, y en la medida en que esté justificado por la finalidad no comercial perseguida;
+b) cuando el uso se realice en beneficio de personas con minusvalías, guarde una relación directa con la minusvalía y no tenga un carácter comercial, en la medida en que lo exija la minusvalía considerada;
+c) cuando la prensa reproduzca o se quiera comunicar o poner a disposición del público artículos publicados sobre temas de actualidad económica, política o religiosa, o emisiones de obras o prestaciones del mismo carácter, en los casos en que dicho uso no esté reservado de manera expresa, y siempre que se indique la fuente, incluido el nombre del autor, o bien cuando el uso de obras o prestaciones guarde conexión con la información sobre acontecimientos de actualidad, en la medida en que esté justificado por la finalidad informativa y siempre que, salvo en los casos en que resulte imposible, se indique la fuente, con inclusión del nombre del autor;
+d) cuando se trate de citas con fines de crítica o reseña, siempre y cuando éstas se refieran a una obra o prestación que se haya puesto ya legalmente a disposición del público, se indique, salvo en los casos en que resulte imposible, la fuente, con inclusión del nombre del autor, y se haga buen uso de ellas, y en la medida en que lo exija el objetivo específico perseguido;
+e) cuando el uso se realice con fines de seguridad pública o para garantizar el correcto desarrollo de procedimientos administrativos, parlamentarios o judiciales, o para asegurar una cobertura adecuada de dichos procedimientos;
+f) cuando se trate de discursos políticos y de extractos de conferencias públicas u obras o prestaciones protegidas similares en la medida en que lo justifique la finalidad informativa y siempre que, salvo en los casos en que resulte imposible, se indique la fuente, con inclusión del nombre del autor;
+g) cuando el uso se realice durante celebraciones religiosas o celebraciones oficiales organizadas por una autoridad pública;
+h) cuando se usen obras, tales como obras de arquitectura o escultura, realizadas para estar situadas de forma permanente en lugares públicos;
+i) cuando se trate de una inclusión incidental de una obra o prestación en otro material;
+j) cuando el uso tenga la finalidad de anunciar la exposición pública o la venta de obras de arte, en la medida en que resulte necesaria para promocionar el acto, con exclusión de cualquier otro uso comercial;
+k) cuando el uso se realice a efectos de caricatura, parodia o pastiche;
+l) cuando se use en relación con la demostración o reparación de equipos;
+m) cuando se use una obra de arte en forma de edificio o dibujo o plano de un edificio con la intención de reconstruir dicho edificio;
+n) cuando el uso consista en la comunicación a personas concretas del público o la puesta a su disposición, a efectos de investigación o de estudio personal, a través de terminales especializados instalados en los locales de los establecimientos mencionados en la letra c) del apartado 2, de obras y prestaciones que figuran en sus colecciones y que no son objeto de condiciones de adquisición o de licencia;
+o) cuando el uso se realice en otros casos de importancia menor en que ya se prevean excepciones o limitaciones en el Derecho nacional, siempre se refieran únicamente a usos analógicos y que no afecten a la libre circulación de bienes y servicios en el interior de la Comunidad, sin perjuicio de las otras excepciones y limitaciones previstas en el presente artículo.
+4. Cuando los Estados miembros puedan establecer excepciones o limitaciones al derecho de reproducción en virtud de los apartados 2 y 3, podrán igualmente establecer excepciones o limitaciones al derecho de distribución previsto en el artículo 4, siempre que lo justifique la finalidad del acto de reproducción autorizado.
+5. Las excepciones y limitaciones contempladas en los apartados 1, 2, 3 y 4 únicamente se aplicarán en determinados casos concretos que no entren en conflicto con la explotación normal de la obra o prestación y no perjudiquen injustificadamente los intereses legítimos del titular del derecho.
+CAPÍTULO III
+PROTECCIÓN DE MEDIDAS TECNOLÓGICAS E INFORMACIÓN PARA LA GESTIÓN DE DERECHOS
+Artículo 6
+Obligaciones relativas a medidas tecnológicas
+1. Los Estados miembros establecerán una protección jurídica adecuada contra la elusión de cualquier medida tecnológica efectiva, cometida por una persona a sabiendas, o teniendo motivos razonables para saber que persigue ese objetivo.
+2. Los Estados miembros establecerán una protección jurídica adecuada frente a la fabricación, importación, distribución, venta, alquiler, publicidad para la venta o el alquiler, o posesión con fines comerciales, de cualquier dispositivo, producto o componente o la prestación de servicios que:
+a) sea objeto de una promoción, de una publicidad o de una comercialización con la finalidad de eludir la protección, o
+b) sólo tenga una finalidad o uso comercial limitado al margen de la elusión de la protección, o
+c) esté principalmente concebido, producido, adaptado o realizado con la finalidad de permitir o facilitar la elusión de la protección
+de cualquier medida tecnológica eficaz.
+3. A efectos de la presente Directiva, se entenderá por "medidas tecnológicas" toda técnica, dispositivo o componente que, en su funcionamiento normal, esté destinado a impedir o restringir actos referidos a obras o prestaciones protegidas que no cuenten con la autorización del titular de los derechos de autor o de los derechos afines a los derechos de autor establecidos por ley o el derecho sui generis previsto en el Capítulo III de la Directiva 96/9/CE. Las medidas tecnológicas se considerarán "eficaces" cuando el uso de la obra o prestación protegidas esté controlado por los titulares de los derechos mediante la aplicación de un control de acceso o un procedimiento de protección, por ejemplo, codificación, aleatorización u otra transformación de la obra o prestación o un mecanismo de control del copiado, que logre este objetivo de protección.
+4. No obstante la protección jurídica prevista en el apartado 1, en caso de que los titulares de los derechos no adopten medidas voluntarias, incluidos los acuerdos con otros interesados, los Estados miembros tomarán las medidas pertinentes para que los titulares de los derechos faciliten al beneficiario de una excepción o limitación establecida por el Derecho nacional de conformidad con las letras a), c), d), y e) del apartado 2 del artículo 5 o con las letras a), b) y e) del apartado 3 del mismo artículo, los medios adecuados para disfrutar de dicha excepción o limitación, en la medida necesaria para ese disfrute, siempre y cuando dicho beneficiario tenga legalmente acceso a la obra o prestación protegidas.
+Un Estado miembro podrá adoptar asimismo tales medidas respecto del beneficiario de una excepción o limitación establecida en virtud de la letra b) del apartado 2 del artículo 5, a menos que los titulares de los derechos hayan hecho ya posible la reproducción para uso privado en la medida necesaria para el disfrute de la excepción o limitación contemplada y de conformidad con lo dispuesto en la letra b) del apartado 2 del artículo 5 y en el apartado 5 del mismo artículo, sin impedir a los titulares de los derechos la adopción de medidas adecuadas respecto del número de reproducciones de conformidad con tales disposiciones.
+Tanto las medidas tecnológicas adoptadas voluntariamente por los titulares de los derechos, incluidas las derivadas de acuerdos voluntarios, como las adoptadas en aplicación de medidas adoptadas por los Estados miembros, disfrutarán de la protección jurídica prevista en el apartado 1.
+Lo dispuesto en los párrafos primero y segundo no será de aplicación a obras o prestaciones que se hayan puesto a disposición del público con arreglo a lo convenido por contrato, de tal forma que personas concretas del público puedan acceder a ellas desde un lugar y en un momento que ella misma haya elegido.
+Cuando el presente artículo se aplique en el contexto de las Directivas 92/100/CEE y 96/9/CE, el presente apartado se aplicará mutatis mutandis.
+Artículo 7
+Obligaciones relativas a la información para la gestión de derechos
+1. Los Estados miembros establecerán una protección jurídica adecuada frente a todas aquellas personas que a sabiendas lleven a cabo sin autorización cualquiera de los siguientes actos:
+a) supresión o alteración de toda información para la gestión electrónica de derechos,
+b) distribución, importación para distribución, emisión por radiodifusión, comunicación o puesta a disposición del público de obras o prestaciones protegidas de conformidad con lo dispuesto en la presente Directiva o en el Capítulo III de la Directiva 96/9/CE en las que se haya suprimido o alterado sin autorización la información para la gestión electrónica de derechos,
+sabiendo, o teniendo motivos razonables para saber que al hacerlo inducen, permiten, facilitan o encubren una violación de los derechos de autor o los derechos afines a los derechos de autor establecidos por una norma jurídica, o el derecho sui generis previsto en el Capítulo III de la Directiva 96/9/CE.
+2. A efectos de la presente Directiva, se entenderá por "información para la gestión de derechos" toda información facilitada por los titulares de los derechos que identifique la obra o prestación protegida contemplada en la presente Directiva, o a que se refiere el derecho sui generis previsto en el Capítulo III de la Directiva 96/9/CE, al autor o cualquier otro derechohabiente, o información sobre las condiciones de utilización de la obra o prestación protegida, así como cualesquiera números o códigos que representen dicha información.
+El párrafo primero se aplicará cuando alguno de estos elementos de información vaya asociado a una copia de una obra o prestación o aparezca en conexión con la comunicación al público de una obra o prestación protegida prevista en la presente Directiva o cubierta por el derecho sui generis previsto en el Capítulo III de la Directiva 96/9/CE.
+CAPÍTULO IV
+DISPOSICIONES COMUNES
+Artículo 8
+Sanciones y vías de recurso
+1. Los Estados miembros establecerán las sanciones y vías de recurso adecuadas en relación con la violación de los derechos y las obligaciones previstos en la presente Directiva y adoptarán cuantas disposiciones resulten necesarias para garantizar que se apliquen tales sanciones y vías de recurso. Las sanciones deberán ser efectivas, proporcionadas y disuasorias.
+2. Cada uno de los Estados miembros adoptará las medidas necesarias para garantizar que los titulares de los derechos cuyos intereses se vean perjudicados por una actividad ilícita llevada a cabo en su territorio puedan interponer una acción de resarcimiento de daños y perjuicios y/o solicitar medidas cautelares y, en su caso, que se incaute el material ilícito y los dispositivos, productos o componentes a que se refiere el apartado 2 del artículo 6.
+3. Los Estados miembros velarán por que los titulares de los derechos estén en condiciones de solicitar medidas cautelares contra los intermediarios a cuyos servicios recurra un tercero para infringir un derecho de autor o un derecho afín a los derechos de autor.
+Artículo 9
+Continuación de la vigencia de otras disposiciones legales
+La presente Directiva se entenderá sin perjuicio de las disposiciones relativas, en particular, a los derechos de patente, las marcas comerciales, los dibujos y modelos, los modelos de utilidad, las topografías de productos semiconductores, los tipos de caracteres de imprenta, el acceso condicional, el acceso al cable por parte de los servicios de radiodifusión, la protección del patrimonio nacional, los requisitos sobre depósito legal, la legislación sobre prácticas restrictivas y competencia desleal, el secreto comercial, la seguridad, la confidencialidad, la protección de datos y el derecho a la intimidad, el acceso a los documentos públicos y el derecho de contratos.
+Artículo 10
+Aplicación en el tiempo
+1. Las disposiciones de la presente Directiva se aplicarán a todas las obras y prestaciones a que se refiere la presente Directiva que, el 22 de diciembre de 2002, estén protegidos por la legislación de los Estados miembros en materia de derechos de autor y derechos afines a los derechos de autor o cumplan los requisitos para su protección de acuerdo con lo previsto en la presente Directiva o en las disposiciones a que se hace referencia en el apartado 2 de su artículo 1.
+2. La presente Directiva se aplicará sin perjuicio de los actos celebrados y de los derechos adquiridos antes del.
+Artículo 11
+Adaptaciones técnicas
+1. La Directiva 92/100/CEE queda modificada del siguiente modo:
+a) se suprime el artículo 7,
+b) el apartado 3 del artículo 10 se sustituye por el texto siguiente: "3. Las limitaciones únicamente se aplicarán en determinados casos especiales que no entren en conflicto con la explotación normal de la prestación en cuestión y no perjudiquen injustificadamente los intereses legítimos del titular del derecho.".
+2. El apartado 2 del artículo 3 de la Directiva 93/98/CEE se sustituye por el texto siguiente: "2. Los derechos de los productores de fonogramas expirarán cincuenta años después de que se haya hecho la grabación. No obstante, si el fonograma se publica lícitamente durante dicho período, los derechos expirarán cincuenta años después de la fecha de la primera publicación lícita. Si durante el citado período no se efectúa publicación lícita alguna pero el fonograma se comunica lícitamente al público, dichos derechos expirarán cincuenta años después de la fecha de la primera comunicación lícita al público.
+No obstante, si debido a la expiración del plazo de protección concedido en virtud del presente apartado en su versión anterior a la modificación por la Directiva 2001/29/CE del Parlamento Europeo y del Consejo, de 22 de mayo de 2001, relativa a la armonización de determinados aspectos de los derechos de autor y derechos afines a los derechos de autor en la sociedad de la información(11), los derechos de los productores de fonogramas ya no están protegidos el 22 de diciembre de 2002, el presente apartado no surtirá el efecto de proteger nuevamente dichos derechos.".
+Artículo 12
+Disposiciones finales
+1. A más tardar el, y posteriormente cada tres años, la Comisión presentará al Parlamento Europeo, al Consejo y al Comité Económico y Social un informe sobre la aplicación de la presente Directiva, en el que, basándose, entre otras cosas, en la información específica facilitada por los Estados miembros, se examinará en particular la aplicación de los artículos 5, 6 y 8 a la vista del desarrollo del mercado digital. En el caso del artículo 6, se estudiará en particular si dicho artículo confiere un nivel de protección suficiente y si los actos permitidos por la legislación se están viendo afectados negativamente por el uso de medidas tecnológicas eficaces. En su caso, a fin de garantizar en particular el correcto funcionamiento del mercado interior con arreglo a lo dispuesto en el artículo 14 del Tratado, la Comisión presentará propuestas de modificación de la presente Directiva.
+2. La protección de los derechos afines a los derechos de autor con arreglo a la presente Directiva no afectará en ningún modo a la protección garantizada a los derechos de autor.
+3. Se creará un Comité de contacto formado por representantes de las autoridades competentes de los Estados miembros. Estará presidido por un representante de la Comisión. Este Comité se reunirá bien a iniciativa del presidente, bien a petición de la delegación de un Estado miembro.
+4. Las funciones del Comité serán las siguientes:
+a) examinar las repercusiones de la presente Directiva sobre el funcionamiento del mercado interior y señalar las dificultades que puedan surgir;
+b) organizar consultas acerca de todas las cuestiones que plantee la aplicación de la presente Directiva;
+c) facilitar el intercambio de información sobre todos los aspectos significativos de la evolución de la legislación y la jurisprudencia, así como las novedades económicas, sociales, culturales y tecnológicas significativas;
+d) actuar como un foro de evaluación del mercado digital de las obras y otras prestaciones, incluidos la copia privada y el uso de medidas tecnológicas.
+Artículo 13
+Aplicación
+1. Los Estados miembros pondrán en vigor las disposiciones legales, reglamentarias y administrativas necesarias para dar cumplimiento a lo dispuesto en la presente Directiva antes del 22 de diciembre de 2002. Informarán de ello inmediatamente a la Comisión.
+Cuando los Estados miembros adopten dichas disposiciones, éstas contendrán una referencia a la presente Directiva o irán acompañadas de tal referencia en el momento de su publicación oficial. Los Estados miembros establecerán las modalidades de la mencionada referencia.
+2. Los Estados miembros comunicarán a la Comisión el texto de las disposiciones de Derecho interno que adopten en el ámbito regulado por la presente Directiva.
+Artículo 14
+Entrada en vigor
+La presente Directiva entrará en vigor el día de su publicación en el Diario Oficial de las Comunidades Europeas.
+Artículo 15
+Destinatarios
+Los destinatarios de la presente Directiva serán los Estados miembros.
+Hecho en Bruselas, el 22 de mayo de 2001.
+Por el Parlamento Europeo
+La Presidenta
+N. Fontaine
+Por el Consejo
+El Presidente
+M. Winberg
+(1) DO C 108 de 7.4.1998, p. 6, y
+DO C 180 de 25.6.1999, p. 6.
+(2) DO C 407 de 28.12.1998, p. 30.
+(3) Dictamen del Parlamento Europeo de 10 de febrero de 1999 (DO C 150 de 28.5.1999, p. 171), Posición común del Consejo de 28 de septiembre de 2000 (DO C 344 de 1.12.2000, p. 1) y Decisión del Parlamento Europeo de 14 de febrero de 2001 (no publicada aún en el Diario Oficial). Decisión del Consejo de 9 de abril de 2001.
+(4) DO L 178 de 17.7.2000, p. 1.
+(5) Directiva 91/250/CEE del Consejo, de 14 de mayo de 1991, sobre la protección jurídica de programas de ordenador (DO L 122 de 17.5.1991, p. 42). Directiva modificada por la Directiva 93/98/CEE.
+(6) Directiva 92/100/CEE del Consejo, de 19 de noviembre de 1992, sobre derechos de alquiler y préstamo y otros derechos afines a los derechos de autor en el ámbito de la propiedad intelectual (DO L 346 de 27.11.1992, p. 61). Directiva modificada por la Directiva 93/98/CEE.
+(7) Directiva 93/83/CEE del Consejo, de 27 de septiembre de 1993, sobre coordinación de determinadas disposiciones relativas a los derechos de autor y derechos afines a los derechos de autor en el ámbito de la radiodifusión vía satélite y de la distribución por cable (DO L 248 de 6.10.1993, p. 15).
+(8) Directiva 93/98/CEE del Consejo, de 29 de octubre de 1993, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines (DO L 290 de 24.11.1993, p. 9).
+(9) Directiva 96/9/CE del Parlamento Europeo y del Consejo, de 11 de marzo de 1996, sobre la protección jurídica de las bases de datos (DO L 77 de 27.3.1996, p. 20).
+(10) DO L 281 de 23.11.1995, p. 31.
+(11) DO L 167 de 22.6.2001, p. 10.
+Top
+This site is managed by the
+Publications Office of the European Union
+Need help?
+Help pages
+Contact
+Sitemap
+Follow us
+X
+Legal
+Legal notice
+Cookies policy
+Accessibility
+Privacy statement
+Information
+About EUR-Lex
+Newsletter
+Useful links
+Other services
+European Data
+EU tenders
+EU research results
+EU Whoiswho
+EU publications
+N-Lex
+EU Law Tracker
+Discover more on
+europa.eu
+Contact the EU
+Call us 00 800 6 7 8 9 10 11
+Use other telephone options
+Write to us via our contact form
+Meet us at one of the EU centres
+Social media
+Search for EU social media channels
+Legal
+Languages on our websites
+Privacy policy
+Legal notice
+Cookies
+EU institutions
+European Parliament
+European Council
+Council of the European Union
+European Commission
+Court of Justice of the European Union (CJEU)
+European Central Bank (ECB)
+European Court of Auditors
+European External Action Service (EEAS)
+European Economic and Social Committee
+European Committee of Regions (CoR)
+European Investment Bank
+European Ombudsman
+European Data Protection Supervisor (EDPS)
+European Data Protection Board
+European Personnel Selection Office
+Publications Office of the European Union
+Agencies
+Switch to mobile
+Switch to desktop
