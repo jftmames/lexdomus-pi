@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   promote_and_rebuild:
@@ -50,20 +51,6 @@ jobs:
       - name: Recompute reforms report (should be 0 changes)
         run: |
           python scripts/check_reforms.py
-          
-      - name: Build rebuild summary (MOCK by default)
-        env:
-          # Si quieres activar evaluación con LLM, cambia a '1' y añade el secreto
-          ENABLE_LLM_EVAL: '0'
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          python scripts/rebuild_summary.py
-
-      - name: Comment summary on PR
-        uses: peter-evans/create-or-update-comment@v4
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body-file: rebuild_comment.md
 
       - name: Commit artifacts (rebase-safe)
         shell: bash
@@ -75,9 +62,24 @@ jobs:
           git add -A
           if git diff --cached --quiet; then
             echo "No changes to commit."
-            exit 0
+          else
+            git commit -m "post-merge: promote baseline + rebuild indices (auto)"
+            git fetch origin "$BRANCH"
+            git pull --rebase --autostash origin "$BRANCH" || true
+            git push origin HEAD:"$BRANCH"
           fi
-          git commit -m "post-merge: promote baseline + rebuild indices (auto)"
-          git fetch origin "$BRANCH"
-          git pull --rebase --autostash origin "$BRANCH" || true
-          git push origin HEAD:"$BRANCH"
+
+      - name: Build rebuild summary (MOCK by default)
+        env:
+          ENABLE_LLM_EVAL: '0'                  # pon '1' si quieres usar LLM en la mini-eval
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          APP_URL: ${{ vars.APP_URL }}          # configura Settings → Actions → Variables → APP_URL
+        run: |
+          python scripts/rebuild_summary.py
+
+      - name: Comment summary on PR
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: rebuild_comment.md
+
