@@ -60,3 +60,11 @@ jobs:
             - Tras revisar, puedes **aceptar** los cambios moviendo `proposed` a `baseline` o ejecutar el workflow de **fetch & rebuild** después del merge.
           labels: reforms, corpus, needs-review
           commit-message: "watch: reforms detected (auto)"
+      - name: Comment initial watch summary
+        if: env.CHANGED_COUNT != '0'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ steps.cpr.outputs.pull-request-number }}
+          body: |
+            Se han detectado cambios en el corpus oficial. Revisa `data/status/reforms_report.json` y los parches adjuntos.
+
