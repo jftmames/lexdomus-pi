@@ -48,7 +48,7 @@ jobs:
           OPENAI_MODEL: ${{ inputs.model }}
           CLAUSE: ${{ inputs.clause }}
           JURISDICTION: ${{ inputs.jurisdiction }}
-          PYTHONPATH: .
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           python -m scripts.llm_preview
 
