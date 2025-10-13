@@ -4,7 +4,6 @@ from rapidfuzz import fuzz
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 INDICES = ROOT / "indices"
-CHUNKS = ROOT / "data" / "docs_chunks" / "chunks.jsonl"
 
 # Carga BM25
 with open(INDICES / "bm25.pkl", "rb") as f:
@@ -13,15 +12,22 @@ bm25 = bm25_pack["bm25"]
 tokenized = bm25_pack["tokenized"]
 metas = bm25_pack["metas"]
 
-# Intenta cargar FAISS
+# Intenta FAISS + embeddings
 try:
     import faiss, numpy as np
-    from sentence_transformers import SentenceTransformer
+    from sentence_transformers import SentenceTransformer, CrossEncoder
     model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
     X = np.load(INDICES / "embeddings.npy")
     faiss_index = faiss.read_index(str(INDICES / "faiss.index"))
 except Exception:
     model, X, faiss_index = None, None, None
+
+# Cross-encoder (reranker denso) — fallback a None si no disponible
+try:
+    from sentence_transformers import CrossEncoder
+    CE = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+except Exception:
+    CE = None
 
 def policy_filter(doc_meta: Dict[str, Any], policy: Dict[str, Any]) -> bool:
     allowed = policy["sources"]["allowed"]
@@ -45,29 +51,32 @@ def _faiss_scores(query: str, k: int) -> List[Tuple[int, float]]:
     return list(zip(I[0].tolist(), D[0].tolist()))
 
 def _merge_scores(bm: List[Tuple[int,float]], dn: List[Tuple[int,float]], alpha=0.6) -> List[Tuple[int,float]]:
-    # fusiones por doc_id con ponderación
     scores = {}
-    for i,s in bm:
-        scores[i] = scores.get(i, 0.0) + alpha*s
-    for i,s in dn:
-        scores[i] = scores.get(i, 0.0) + (1-alpha)*s
+    for i,s in bm: scores[i] = scores.get(i, 0.0) + alpha*s
+    for i,s in dn: scores[i] = scores.get(i, 0.0) + (1-alpha)*s
     return sorted(scores.items(), key=lambda x: x[1], reverse=True)
 
-def _rerank(query: str, candidates: List[int], top_rerank=10) -> List[int]:
-    # Rerank ligero por similitud textual (sin cross-encoder)
+def _rerank_ce(query: str, cand_ids: List[int], top_rerank=32) -> List[int]:
+    # Cross-encoder si está disponible
+    if CE is not None:
+        pairs = [[query, metas[i]["text"]] for i in cand_ids[:top_rerank]]
+        scores = CE.predict(pairs).tolist()
+        order = sorted(list(zip(cand_ids[:top_rerank], scores)), key=lambda x: x[1], reverse=True)
+        return [i for i,_ in order] + cand_ids[top_rerank:]
+    # Fallback: similitud textual
     scored = []
-    for idx in candidates[:top_rerank]:
-        txt = metas[idx]["text"]
-        scored.append((idx, fuzz.token_set_ratio(query, txt)))
+    for idx in cand_ids[:top_rerank]:
+        scored.append((idx, fuzz.token_set_ratio(query, metas[idx]["text"])))
     scored.sort(key=lambda x: x[1], reverse=True)
-    return [i for i,_ in scored] + candidates[top_rerank:]
+    return [i for i,_ in scored] + cand_ids[top_rerank:]
 
 def retrieve_candidates(query: str, k: int = 8) -> List[Dict[str, Any]]:
-    bm = _bm25_scores(query, max(k*5, 20))
-    dn = _faiss_scores(query, max(k*5, 20))
+    bm = _bm25_scores(query, max(k*6, 30))
+    dn = _faiss_scores(query, max(k*6, 30))
     merged = _merge_scores(bm, dn, alpha=0.7)
     ranked_ids = [i for i,_ in merged]
-    reranked = _rerank(query, ranked_ids, top_rerank=15)
+    reranked = _rerank_ce(query, ranked_ids, top_rerank=32)
+
     out = []
     for idx in reranked[:k]:
         m = metas[idx]
@@ -77,7 +86,11 @@ def retrieve_candidates(query: str, k: int = 8) -> List[Dict[str, Any]]:
                 "source": m["source"],
                 "jurisdiction": m["jurisdiction"],
                 "title": m["title"],
-                "ref": m.get("ref","")
+                "url": m.get("url",""),
+                "ref": m.get("ref",""),
+                "pinpoint": bool(m.get("pinpoint", False)),
+                "line_start": m.get("line_start"),
+                "line_end": m.get("line_end"),
             },
             "text": m["text"]
         })
