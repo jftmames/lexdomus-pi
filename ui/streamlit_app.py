@@ -17,6 +17,11 @@ except Exception:
     pass
 
 from app.pipeline import analyze_clause
+# Comprobación opcional
+try:
+    import lex_domus, verdiktia, metrics_eee  # noqa: F401
+except Exception as _e:
+    st.warning(f"Aviso de import: {_e}")
 
 st.set_page_config(page_title="LexDomus–PI MVP", layout="wide")
 st.title("LexDomus–PI — MVP (RAGA+MCP)")
