@@ -48,8 +48,9 @@ jobs:
           OPENAI_MODEL: ${{ inputs.model }}
           CLAUSE: ${{ inputs.clause }}
           JURISDICTION: ${{ inputs.jurisdiction }}
+          PYTHONPATH: .
         run: |
-          python scripts/llm_preview.py
+          python -m scripts.llm_preview
 
       - name: Upload result artifact
         uses: actions/upload-artifact@v4
