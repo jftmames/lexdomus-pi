@@ -1,20 +1,18 @@
 from typing import Dict, Any, List
 from pathlib import Path
-import json
+import json, os
 
 from verdiktia.inquiry_engine import decompose_clause
 from lex_domus.rag_pipeline import source_required_answer, load_policy
 from lex_domus.flagger import detect_flags, propose_alternative
 from metrics_eee.scorer import score_eee
 from metrics_eee.logger import append_log
-import os
 from app.writer import draft_opinion as draft_opinion_mock
 try:
-    # carga perezosa del redactor LLM
     from app.writer_llm import draft_opinion_llm
 except Exception:
     draft_opinion_llm = None
-
+from app.eee_gate import apply_gate
 
 LOG_PATH = Path(__file__).resolve().parents[1] / "data" / "logs" / "ledger.jsonl"
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -61,20 +59,22 @@ def analyze_clause(clause: str, jurisdiction: str) -> Dict[str, Any]:
     # 4) Flags por contenido
     flags = sorted(set(flags_in + detect_flags(clause, jurisdiction)))
 
-    # 5) Redactor determinista (sin LLM)
-  
+    # 5) Redactor (LLM si USE_LLM=1 y disponible)
     use_llm = os.getenv("USE_LLM", "").strip() == "1" and draft_opinion_llm is not None
     if use_llm:
         opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags)
+        engine = "LLM"
     else:
         opinion = draft_opinion_mock(clause, jurisdiction, per_node, flags)
+        engine = "MOCK"
 
     # 6) Alternativa base
     alternative = propose_alternative(clause, jurisdiction)
 
-    # 7) Ensamble y logging
+    # 7) Ensamble
     result = {
         "jurisdiction": jurisdiction,
+        "engine": engine,
         "inquiry_nodes": nodes,
         "per_node": per_node,
         "EEE": {"T": T, "J": J, "P": P},
@@ -87,11 +87,16 @@ def analyze_clause(clause: str, jurisdiction: str) -> Dict[str, Any]:
         }
     }
 
+    # 8) Gate (bloquea si no cumple evidencia/EEE)
+    result = apply_gate(result, policy)
+
+    # 9) Logging encadenado
     prev = _read_last_hash()
     append_log(str(LOG_PATH), {
         "input": {"clause": clause, "jurisdiction": jurisdiction},
-        "output": {"EEE": result["EEE"], "flags": flags},
+        "output": {"EEE": result["EEE"], "flags": result["flags"], "gate": result["gate"]},
         "nodes": nodes
     }, prev)
 
     return result
+
