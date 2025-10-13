@@ -93,17 +93,17 @@ with tab2:
     if not res:
         st.info("Ejecuta el análisis en la pestaña 1.")
     else:
-        for i, item in enumerate(res["per_node"], start=1):
+        for i, item in enumerate(res.get("per_node", []), start=1):
             col1, col2 = st.columns([1, 3])
             with col1:
                 st.markdown(f"**Nodo {i}**")
-                st.json(item["node"])
+                st.json(item.get("node", {}))
             with col2:
-                retr = item["retrieval"]
-                if retr["status"] == "OK":
+                retr = item.get("retrieval", {})
+                if retr.get("status") == "OK":
                     st.write("Citas:")
-                    for c in retr["citations"]:
-                        meta = c["meta"]
+                    for c in retr.get("citations", []):
+                        meta = c.get("meta", {})
                         ref = meta.get("ref_label", "")
                         url = meta.get("ref_url", "")
                         pin = "✅" if meta.get("pinpoint", False) else "—"
@@ -119,7 +119,7 @@ with tab2:
                                 st.markdown(f"Ref: [{ref}]({url}) · líneas {ls}–{le}")
                             else:
                                 st.markdown(f"Ref: {ref} · líneas {ls}–{le}")
-                        st.code(c["text"][:800])
+                        st.code(c.get("text", "")[:800])
                 else:
                     st.warning("No concluyente: falta evidencia con pinpoint")
 
@@ -130,28 +130,61 @@ with tab3:
         st.info("Ejecuta el análisis en la pestaña 1.")
     else:
         st.markdown("### Gate")
-        st.json(res["gate"])
-        st.markdown("### EEE")
-        st.write(res["EEE"])
-        st.markdown("### Flags")
-        st.write(res["flags"] or "—")
+        st.json(res.get("gate", {}))
 
+        st.markdown("### EEE")
+        st.write(res.get("EEE", {}))
+
+        st.markdown("### Flags")
+        st.write(res.get("flags") or "—")
+
+        # ---- Opinión con fallbacks seguros ----
+        opinion = res.get("opinion", {}) or {}
         st.markdown("### Análisis")
-        st.markdown(res["opinion"]["analysis_md"])
+        analysis_md = (
+            opinion.get("analysis_md")
+            or opinion.get("analysis")
+            or "*Sin análisis detallado: el motor no devolvió `analysis_md`.*"
+        )
+        if not isinstance(analysis_md, str):
+            analysis_md = str(analysis_md)
+        st.markdown(analysis_md)
+
+        def _to_list(x):
+            if x is None:
+                return []
+            if isinstance(x, list):
+                return x
+            if isinstance(x, str):
+                return [x]
+            # cualquier otra cosa, lo mostramos como string
+            return [str(x)]
 
         colA, colB = st.columns(2)
         with colA:
             st.markdown("### Pros")
-            st.write(res["opinion"]["pros"] or "—")
+            pros = _to_list(opinion.get("pros"))
+            st.write(pros or "—")
         with colB:
             st.markdown("### Contras")
-            st.write(res["opinion"]["cons"] or "—")
+            cons = _to_list(opinion.get("cons"))
+            st.write(cons or "—")
 
         st.markdown("### Lectura alternativa (Devil’s Advocate)")
-        st.json(res["opinion"]["devils_advocate"])
+        dev = opinion.get("devils_advocate") or opinion.get("devil_advocate") or {}
+        if not isinstance(dev, dict):
+            st.write(str(dev))
+        else:
+            # relleno amable si faltan campos
+            dev = {
+                "hipotesis": dev.get("hipotesis", "—"),
+                "lectura": dev.get("lectura", "—"),
+                "cuando_mejor": dev.get("cuando_mejor", "—"),
+            }
+            st.json(dev)
 
         st.markdown("### Cláusula alternativa (base)")
-        st.code(res["alternative_clause"])
+        st.code(res.get("alternative_clause", "—"))
 
         st.markdown("### Resumen A2J (plantilla)")
         a2j = ROOT / "templates" / "RESUMEN_A2J.md"
@@ -224,5 +257,6 @@ with tab4:
             if fam2:
                 st.markdown("**Delta por familia**")
                 st.line_chart(df2.set_index("timestamp")[fam2])
+
 
 
