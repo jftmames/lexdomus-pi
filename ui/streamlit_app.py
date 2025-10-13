@@ -1,6 +1,14 @@
-import streamlit as st
+# --- Bootstrap de paths para que Streamlit (carpeta ui/) encuentre el paquete app/ ---
 from pathlib import Path
-import os
+import sys, os, json
+
+ROOT = Path(__file__).resolve().parents[1]  # raíz del repo
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+os.environ.setdefault("PYTHONPATH", str(ROOT))
+
+import streamlit as st
+from app.pipeline import analyze_clause
 
 st.set_page_config(page_title="LexDomus–PI MVP", layout="wide")
 st.title("LexDomus–PI — MVP (RAGA+MCP)")
@@ -15,7 +23,6 @@ with st.sidebar:
     # Estado de reformas
     report_path = Path(__file__).resolve().parents[1] / "data" / "status" / "reforms_report.json"
     if report_path.exists():
-        import json
         rep = json.loads(report_path.read_text(encoding="utf-8"))
         changed = rep.get("changed_count", 0)
         if changed > 0:
@@ -31,8 +38,9 @@ with st.sidebar:
     engine = st.radio("Motor de redacción", ["MOCK (sin LLM)", "LLM (OpenAI)"], index=0)
     os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
 
-
-tab1, tab2, tab3, tab4 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J", "4) Tendencia del corpus"])
+tab1, tab2, tab3, tab4 = st.tabs(
+    ["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J", "4) Tendencia del corpus"]
+)
 
 if "last_result" not in st.session_state:
     st.session_state["last_result"] = None
@@ -41,10 +49,17 @@ if "last_input" not in st.session_state:
 
 with tab1:
     st.subheader("Entrada")
-    clause = st.text_area("Pega aquí la cláusula a analizar", height=220, value=st.session_state["last_input"]["clause"])
-    juris = st.selectbox("Jurisdicción objetivo", ["ES","EU","US","INT"], index=["ES","EU","US","INT"].index(st.session_state["last_input"]["juris"]))
+    clause = st.text_area(
+        "Pega aquí la cláusula a analizar",
+        height=220,
+        value=st.session_state["last_input"]["clause"],
+    )
+    juris = st.selectbox(
+        "Jurisdicción objetivo",
+        ["ES", "EU", "US", "INT"],
+        index=["ES", "EU", "US", "INT"].index(st.session_state["last_input"]["juris"]),
+    )
     if st.button("Analizar"):
-        from app.pipeline import analyze_clause
         res = analyze_clause(clause, juris)
         st.session_state["last_result"] = res
         st.session_state["last_input"] = {"clause": clause, "juris": juris}
@@ -58,7 +73,7 @@ with tab2:
         st.info("Ejecuta el análisis en la pestaña 1.")
     else:
         for i, item in enumerate(res["per_node"], start=1):
-            col1, col2 = st.columns([1,3])
+            col1, col2 = st.columns([1, 3])
             with col1:
                 st.markdown(f"**Nodo {i}**")
                 st.json(item["node"])
@@ -68,18 +83,22 @@ with tab2:
                     st.write("Citas:")
                     for c in retr["citations"]:
                         meta = c["meta"]
-                        ref = meta.get("ref_label","")
-                        url = meta.get("ref_url","")
+                        ref = meta.get("ref_label", "")
+                        url = meta.get("ref_url", "")
                         pin = "✅" if meta.get("pinpoint", False) else "—"
                         ls, le = meta.get("line_start"), meta.get("line_end")
-                        head = f"**{meta.get('title','')}** · `{meta.get('source','')}` · `{meta.get('jurisdiction','')}` · pin:{pin}"
+                        head = (
+                            f"**{meta.get('title','')}** · "
+                            f"`{meta.get('source','')}` · "
+                            f"`{meta.get('jurisdiction','')}` · pin:{pin}"
+                        )
                         st.markdown(head)
                         if ref:
                             if url:
                                 st.markdown(f"Ref: [{ref}]({url}) · líneas {ls}–{le}")
                             else:
                                 st.markdown(f"Ref: {ref} · líneas {ls}–{le}")
-                        st.code(c['text'][:800])
+                        st.code(c["text"][:800])
                 else:
                     st.warning("No concluyente: falta evidencia con pinpoint")
 
@@ -119,31 +138,52 @@ with tab3:
 
 with tab4:
     st.subheader("Histórico de familias (chunks)")
-    import pandas as pd
+    import pandas as pd  # local import para no cargar si no se usa la pestaña
+
     hist = Path(__file__).resolve().parents[1] / "data" / "status" / "families_history.csv"
     delt = Path(__file__).resolve().parents[1] / "data" / "status" / "families_deltas.csv"
     if not hist.exists():
         st.info("Aún no hay histórico. Ejecuta un rebuild para generar los CSV.")
     else:
         df = pd.read_csv(hist)
-        df['timestamp'] = pd.to_datetime(df['timestamp'])
-        df = df.sort_values('timestamp')
-        families = [c for c in df.columns if c not in ('timestamp','total')]
-        st.markdown("**Total de chunks**")
-        st.line_chart(df.set_index('timestamp')['total'])
-        if families:
-            st.markdown("**Chunks por familia**")
-            st.line_chart(df.set_index('timestamp')[families])
+        if not df.empty:
+            df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+            df = df.dropna(subset=["timestamp"]).sort_values("timestamp")
+            # convierte columnas numéricas si hiciera falta
+            if "total" in df.columns:
+                df["total"] = pd.to_numeric(df["total"], errors="coerce").fillna(0)
+            families = [c for c in df.columns if c not in ("timestamp", "total")]
+            for fam in families:
+                df[fam] = pd.to_numeric(df[fam], errors="coerce").fillna(0)
+
+            st.markdown("**Total de chunks**")
+            st.line_chart(df.set_index("timestamp")["total"])
+            if families:
+                st.markdown("**Chunks por familia**")
+                st.line_chart(df.set_index("timestamp")[families])
+        else:
+            st.info("Histórico vacío.")
 
     st.divider()
     st.subheader("Deltas por rebuild")
     if delt.exists():
         df2 = pd.read_csv(delt)
-        df2['timestamp'] = pd.to_datetime(df2['timestamp'])
-        df2 = df2.sort_values('timestamp')
-        fam2 = [c for c in df2.columns if c not in ('timestamp','total')]
-        st.markdown("**Delta total**")
-        st.line_chart(df2.set_index('timestamp')['total'])
-        if fam2:
-            st.markdown("**Delta por familia**")
-            st.line_chart(df2.set_index('timestamp')[fam2])
+        if not df2.empty:
+            df2["timestamp"] = pd.to_datetime(df2["timestamp"], errors="coerce")
+            df2 = df2.dropna(subset=["timestamp"]).sort_values("timestamp")
+            if "total" in df2.columns:
+                df2["total"] = pd.to_numeric(df2["total"], errors="coerce").fillna(0)
+            fam2 = [c for c in df2.columns if c not in ("timestamp", "total")]
+            for fam in fam2:
+                df2[fam] = pd.to_numeric(df2[fam], errors="coerce").fillna(0)
+
+            st.markdown("**Delta total**")
+            st.line_chart(df2.set_index("timestamp")["total"])
+            if fam2:
+                st.markdown("**Delta por familia**")
+                st.line_chart(df2.set_index("timestamp")[fam2])
+        else:
+            st.info("Sin deltas todavía.")
+    else:
+        st.info("No existe `families_deltas.csv`. Genera deltas en el próximo rebuild.")
+
