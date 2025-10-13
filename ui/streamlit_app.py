@@ -11,8 +11,26 @@ with st.sidebar:
     if policy_path.exists():
         st.code(policy_path.read_text(), language="yaml")
     st.divider()
+
+    # Estado de reformas
+    report_path = Path(__file__).resolve().parents[1] / "data" / "status" / "reforms_report.json"
+    if report_path.exists():
+        import json
+        rep = json.loads(report_path.read_text(encoding="utf-8"))
+        changed = rep.get("changed_count", 0)
+        if changed > 0:
+            st.error(f"Corpus: {changed} documento(s) con cambios pendientes de revisión.")
+            with st.expander("Ver detalle"):
+                st.json(rep)
+        else:
+            st.success("Corpus al día (sin cambios detectados).")
+    else:
+        st.info("Sin reporte de reformas aún.")
+
+    st.divider()
     engine = st.radio("Motor de redacción", ["MOCK (sin LLM)", "LLM (OpenAI)"], index=0)
     os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
+
 
 tab1, tab2, tab3 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J"])
 
