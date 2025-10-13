@@ -40,6 +40,12 @@ jobs:
       - name: Build indices
         run: |
           python scripts/build_index.py
+      - name: Build EEE badge (endpoint JSON)
+        env:
+          ENABLE_LLM_EVAL: '0'
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/make_badge.py
 
       - name: Commit artifacts (rebase-safe)
         shell: bash
