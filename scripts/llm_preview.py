@@ -1,12 +1,18 @@
 import os, json, sys
 from pathlib import Path
 
-# --- Garantiza que el repo raíz esté en sys.path (import app.*) ---
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from app.pipeline import analyze_clause
+try:
+    from app.pipeline import analyze_clause
+except ModuleNotFoundError as e:
+    # Diagnóstico útil en el runner
+    print("[DEBUG] sys.path:", sys.path)
+    print("[DEBUG] ROOT exists:", ROOT.exists())
+    print("[DEBUG] app package path:", ROOT / "app")
+    raise
 
 def main():
     clause = os.getenv("CLAUSE", "").strip()
