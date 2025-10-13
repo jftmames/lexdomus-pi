@@ -10,8 +10,8 @@ if str(ROOT) not in sys.path:
 def analyze_clause(clause: str, jurisdiction: str):
     """
     Orquesta el análisis: Inquiry -> RAG -> Flags -> Gate -> Opinión -> Alternativa -> EEE.
-    Importa dependencias LAZY y llama a source_required_answer con un dispatcher
-    que soporta distintas firmas (con/sin 'jurisdiction', posicional o keyword).
+    Importa dependencias LAZY y usa dispatchers que soportan firmas distintas
+    (con/sin 'jurisdiction', posicional/keyword).
     """
     # --- Imports perezosos + fallbacks seguros ---
     try:
@@ -21,17 +21,20 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     # RAG + Policy
     try:
-        from lex_domus.rag_pipeline import source_required_answer as _sra_real, load_policy as _load_policy_real
+        from lex_domus.rag_pipeline import (
+            source_required_answer as _sra_real,
+            load_policy as _load_policy_real,
+        )
     except Exception:
         _sra_real = None
         _load_policy_real = None
 
-    # Flags + alternativa
+    # Flags + alternativa (pueden tener firmas distintas según tu repo)
     try:
-        from lex_domus.flagger import detect_flags, propose_alternative
+        from lex_domus.flagger import detect_flags as _df_real, propose_alternative as _pa_real
     except Exception:
-        def detect_flags(_clause, _jur, _per_node): return []
-        def propose_alternative(_clause, _jur, _flags): return ""
+        _df_real = None
+        _pa_real = None
 
     # EEE (scoring)
     try:
@@ -57,14 +60,13 @@ def analyze_clause(clause: str, jurisdiction: str):
                 "devils_advocate": {},
             }
 
-    # --- Helpers locales: load_policy y SRA de respaldo ---
+    # --- Helpers: load_policy & fallbacks SRA/flags/alt ---
     def _safe_load_policy():
         if _load_policy_real:
             try:
                 return _load_policy_real()
             except Exception:
                 pass
-        # fallback YAML local
         try:
             import yaml  # type: ignore
             policy_path = ROOT / "policies" / "policy.yaml"
@@ -72,14 +74,12 @@ def analyze_clause(clause: str, jurisdiction: str):
                 return yaml.safe_load(policy_path.read_text(encoding="utf-8"))
         except Exception:
             pass
-        # Política mínima por defecto
         return {
             "sources": {"allowed": ["BOE", "EUR-Lex", "WIPO", "USC"]},
             "privacy": {"block_biometrics": True},
         }
 
     def _safe_sra(question: str, jurisdiction: str, policy: dict):
-        """Fallback mínimo si no hay SRA real; intenta retriever directo."""
         try:
             from lex_domus.retriever import retrieve_candidates  # type: ignore
             cands = retrieve_candidates(question, k=4) or []
@@ -88,48 +88,14 @@ def analyze_clause(clause: str, jurisdiction: str):
         status = "OK" if cands else "NO_EVIDENCE"
         return {"status": status, "citations": cands}
 
-    # Dispatcher que prueba firmas distintas sin romper
-    def _sra_dispatch(sra_fn, question: str, jurisdiction: str, policy: dict):
-        """
-        Prueba, en orden:
-         1) sra_fn(question, jurisdiction=..., policy=...)
-         2) sra_fn(question, jurisdiction, policy)
-         3) sra_fn(question, policy=...)
-         4) sra_fn(question, policy)
-         5) sra_fn(question)
-        y normaliza la salida a {'status': 'OK'|'NO_EVIDENCE', 'citations': list}
-        """
-        # si no hay función real, usa el fallback
-        if sra_fn is None:
-            ret = _safe_sra(question, jurisdiction, policy)
-            return _normalize_retrieval(ret)
+    def _safe_detect_flags(_clause, _jur=None, _per_node=None):
+        return []
 
-        # prueba distintas firmas
-        for call in (
-            lambda: sra_fn(question, jurisdiction=jurisdiction, policy=policy),
-            lambda: sra_fn(question, jurisdiction, policy),
-            lambda: sra_fn(question, policy=policy),
-            lambda: sra_fn(question, policy),
-            lambda: sra_fn(question),
-        ):
-            try:
-                ret = call()
-                return _normalize_retrieval(ret)
-            except TypeError:
-                continue
-            except Exception:
-                # si la función interna revienta por otra razón,
-                # sigue intentando con la siguiente firma
-                continue
-        # último recurso: fallback interno
-        ret = _safe_sra(question, jurisdiction, policy)
-        return _normalize_retrieval(ret)
+    def _safe_propose_alt(_clause, _jur=None, _flags=None):
+        return ""
 
+    # --- Normalizadores/dispatchers ---
     def _normalize_retrieval(ret):
-        """
-        Acepta dict/list/None y devuelve {'status': ..., 'citations': [...]}
-        No asume estructura de cada 'citation'; solo asegura lista.
-        """
         if ret is None:
             return {"status": "NO_EVIDENCE", "citations": []}
         if isinstance(ret, list):
@@ -139,17 +105,86 @@ def analyze_clause(clause: str, jurisdiction: str):
             cits = ret.get("citations")
             if isinstance(cits, list) and status:
                 return {"status": status, "citations": cits}
-            # otros campos comunes (e.g., 'results')
             if "results" in ret and isinstance(ret["results"], list):
                 return {"status": "OK" if ret["results"] else "NO_EVIDENCE", "citations": ret["results"]}
-            # por defecto, intenta inferir
             inferred = ret.get("items") or ret.get("data") or []
             if not isinstance(inferred, list):
                 inferred = []
             st = status or ("OK" if inferred else "NO_EVIDENCE")
             return {"status": st, "citations": inferred}
-        # tipos inesperados
         return {"status": "NO_EVIDENCE", "citations": []}
+
+    def _sra_dispatch(sra_fn, question: str, jurisdiction: str, policy: dict):
+        if sra_fn is None:
+            return _normalize_retrieval(_safe_sra(question, jurisdiction, policy))
+        for call in (
+            lambda: sra_fn(question, jurisdiction=jurisdiction, policy=policy),
+            lambda: sra_fn(question, jurisdiction, policy),
+            lambda: sra_fn(question, policy=policy),
+            lambda: sra_fn(question, policy),
+            lambda: sra_fn(question),
+        ):
+            try:
+                return _normalize_retrieval(call())
+            except TypeError:
+                continue
+            except Exception:
+                continue
+        return _normalize_retrieval(_safe_sra(question, jurisdiction, policy))
+
+    def _flags_dispatch(df_fn, clause: str, jurisdiction: str, per_node):
+        """
+        Soporta:
+          detect_flags(clause, jurisdiction, per_node)
+          detect_flags(clause, jurisdiction)
+          detect_flags(clause, per_node)
+          detect_flags(clause)
+          detect_flags(text=..., jurisdiction=..., per_node=...)
+        """
+        if df_fn is None:
+            return _safe_detect_flags(clause, jurisdiction, per_node)
+        for call in (
+            lambda: df_fn(clause, jurisdiction, per_node),
+            lambda: df_fn(clause, jurisdiction),
+            lambda: df_fn(clause, per_node),
+            lambda: df_fn(clause),
+            lambda: df_fn(text=clause, jurisdiction=jurisdiction, per_node=per_node),
+        ):
+            try:
+                ret = call()
+                return ret or []
+            except TypeError:
+                continue
+            except Exception:
+                continue
+        return _safe_detect_flags(clause, jurisdiction, per_node)
+
+    def _alt_dispatch(pa_fn, clause: str, jurisdiction: str, flags):
+        """
+        Soporta:
+          propose_alternative(clause, jurisdiction, flags)
+          propose_alternative(clause, flags)
+          propose_alternative(clause, jurisdiction)
+          propose_alternative(clause)
+          propose_alternative(text=..., jurisdiction=..., flags=...)
+        """
+        if pa_fn is None:
+            return _safe_propose_alt(clause, jurisdiction, flags)
+        for call in (
+            lambda: pa_fn(clause, jurisdiction, flags),
+            lambda: pa_fn(clause, flags),
+            lambda: pa_fn(clause, jurisdiction),
+            lambda: pa_fn(clause),
+            lambda: pa_fn(text=clause, jurisdiction=jurisdiction, flags=flags),
+        ):
+            try:
+                ret = call()
+                return ret or ""
+            except TypeError:
+                continue
+            except Exception:
+                continue
+        return _safe_propose_alt(clause, jurisdiction, flags)
 
     # --- Policy ---
     policy = _safe_load_policy()
@@ -170,8 +205,8 @@ def analyze_clause(clause: str, jurisdiction: str):
         retr = _sra_dispatch(_sra_real, q, jurisdiction, policy)
         per_node.append({"node": node, "retrieval": retr})
 
-    # --- Flags + Gate ---
-    flags = detect_flags(clause, jurisdiction, per_node) or []
+    # --- Flags + Gate (con dispatcher flexible) ---
+    flags = _flags_dispatch(_df_real, clause, jurisdiction, per_node) or []
     gate_status = "OK" if any(
         (it.get("retrieval", {}).get("status") == "OK" and it.get("retrieval", {}).get("citations"))
         for it in per_node
@@ -180,12 +215,11 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     # --- Opinión LLM / MOCK ---
     opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
-    # sanea estructura mínima
     if "analysis_md" not in opinion and "analysis" in opinion:
         opinion["analysis_md"] = opinion.get("analysis")
 
-    # --- Cláusula alternativa ---
-    alternative = propose_alternative(clause, jurisdiction, flags) or ""
+    # --- Cláusula alternativa (con dispatcher flexible) ---
+    alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
 
     # --- EEE ---
     score = score_eee(per_node=per_node, flags=flags, gate=gate)
@@ -206,6 +240,3 @@ def analyze_clause(clause: str, jurisdiction: str):
         pass
 
     return result
-
-
-
