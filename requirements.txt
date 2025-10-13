@@ -5,3 +5,6 @@ rank-bm25
 rapidfuzz
 pyyaml
 openai>=1.0.0
+requests
+beautifulsoup4
+lxml
