@@ -72,6 +72,12 @@ jobs:
             git pull --rebase --autostash origin "$BRANCH" || true
             git push origin HEAD:"$BRANCH"
           fi
+      - name: Build EEE badge (endpoint JSON)
+        env:
+          ENABLE_LLM_EVAL: '0'                 # pon '1' si quieres que compute con LLM
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/make_badge.py
 
       - name: Build rebuild summary (MOCK by default)
         env:
