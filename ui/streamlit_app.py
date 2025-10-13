@@ -32,7 +32,7 @@ with st.sidebar:
     os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
 
 
-tab1, tab2, tab3 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J"])
+tab1, tab2, tab3, tab4 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J", "4) Tendencia del corpus"])
 
 if "last_result" not in st.session_state:
     st.session_state["last_result"] = None
