@@ -23,13 +23,13 @@ st.title("LexDomus–PI — MVP (RAGA+MCP)")
 
 with st.sidebar:
     st.header("Proyecto")
-    policy_path = Path(__file__).resolve().parents[1] / "policies" / "policy.yaml"
+    policy_path = ROOT / "policies" / "policy.yaml"
     if policy_path.exists():
         st.code(policy_path.read_text(), language="yaml")
     st.divider()
 
     # Estado de reformas
-    report_path = Path(__file__).resolve().parents[1] / "data" / "status" / "reforms_report.json"
+    report_path = ROOT / "data" / "status" / "reforms_report.json"
     if report_path.exists():
         rep = json.loads(report_path.read_text(encoding="utf-8"))
         changed = rep.get("changed_count", 0)
@@ -154,20 +154,38 @@ with tab3:
         st.code(res["alternative_clause"])
 
         st.markdown("### Resumen A2J (plantilla)")
-        a2j = Path(__file__).resolve().parents[1] / "templates" / "RESUMEN_A2J.md"
+        a2j = ROOT / "templates" / "RESUMEN_A2J.md"
         st.write(a2j.read_text() if a2j.exists() else "—")
 
 with tab4:
     st.subheader("Histórico de familias (chunks)")
-    import pandas as pd  # carga local para esta pestaña
 
-    hist = Path(__file__).resolve().parents[1] / "data" / "status" / "families_history.csv"
-    delt = Path(__file__).resolve().parents[1] / "data" / "status" / "families_deltas.csv"
-    if not hist.exists():
-        st.info("Aún no hay histórico. Ejecuta un rebuild para generar los CSV.")
+    # Helpers seguros para CSVs
+    @st.cache_data(show_spinner=False)
+    def _read_csv_safe(path: Path):
+        try:
+            import pandas as pd  # lazy import
+        except Exception as e:
+            return None, f"ImportError de pandas: {e}"
+        if not path.exists():
+            return None, f"No existe el archivo: {path}"
+        try:
+            df = pd.read_csv(path)
+            return df, None
+        except Exception as e:
+            return None, f"Error leyendo CSV {path.name}: {e}"
+
+    hist = ROOT / "data" / "status" / "families_history.csv"
+    delt = ROOT / "data" / "status" / "families_deltas.csv"
+
+    df, err = _read_csv_safe(hist)
+    if err:
+        st.info(err + ". Ejecuta un rebuild para generar los CSV.")
     else:
-        df = pd.read_csv(hist)
-        if not df.empty:
+        import pandas as pd  # ya debería existir si _read_csv_safe pasó
+        if df.empty:
+            st.info("Histórico vacío.")
+        else:
             df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
             df = df.dropna(subset=["timestamp"]).sort_values("timestamp")
             if "total" in df.columns:
@@ -181,14 +199,18 @@ with tab4:
             if families:
                 st.markdown("**Chunks por familia**")
                 st.line_chart(df.set_index("timestamp")[families])
-        else:
-            st.info("Histórico vacío.")
 
     st.divider()
     st.subheader("Deltas por rebuild")
-    if delt.exists():
-        df2 = pd.read_csv(delt)
-        if not df2.empty:
+
+    df2, err2 = _read_csv_safe(delt)
+    if err2:
+        st.info(err2 + ". Se generará en el próximo rebuild.")
+    else:
+        import pandas as pd
+        if df2.empty:
+            st.info("Sin deltas todavía.")
+        else:
             df2["timestamp"] = pd.to_datetime(df2["timestamp"], errors="coerce")
             df2 = df2.dropna(subset=["timestamp"]).sort_values("timestamp")
             if "total" in df2.columns:
@@ -202,9 +224,5 @@ with tab4:
             if fam2:
                 st.markdown("**Delta por familia**")
                 st.line_chart(df2.set_index("timestamp")[fam2])
-        else:
-            st.info("Sin deltas todavía.")
-    else:
-        st.info("No existe `families_deltas.csv`. Genera deltas en el próximo rebuild.")
 
 
