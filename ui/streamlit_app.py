@@ -53,11 +53,21 @@ with tab2:
                     st.write("Citas:")
                     for c in retr["citations"]:
                         meta = c["meta"]
-                        st.markdown(f"- **{meta.get('title','')}** · `{meta.get('source','')}` · `{meta.get('jurisdiction','')}` · pin:{meta.get('pinpoint',False)}")
-                        st.code(c["text"][:600])
+                        ref = meta.get("ref") or meta.get("title","")
+                        src = meta.get("source","")
+                        jur = meta.get("jurisdiction","")
+                        url = meta.get("url","")
+                        pin = "✅ pin" if meta.get("pinpoint") else "—"
+                        rng = ""
+                        if meta.get("line_start") is not None:
+                            rng = f" · {meta['line_start']}-{meta.get('line_end','')}"
+                        if url:
+                            st.markdown(f"- [{ref}]({url}) · `{src}/{jur}` · {pin}{rng}")
+                        else:
+                            st.markdown(f"- **{ref}** · `{src}/{jur}` · {pin}{rng}")
+                        st.code(c["text"][:800])
                 else:
                     st.warning("No concluyente: falta evidencia con pinpoint")
-
 with tab3:
     st.subheader("Dictamen & A2J")
     res = st.session_state["last_result"]
