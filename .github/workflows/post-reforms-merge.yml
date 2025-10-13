@@ -50,6 +50,20 @@ jobs:
       - name: Recompute reforms report (should be 0 changes)
         run: |
           python scripts/check_reforms.py
+          
+      - name: Build rebuild summary (MOCK by default)
+        env:
+          # Si quieres activar evaluación con LLM, cambia a '1' y añade el secreto
+          ENABLE_LLM_EVAL: '0'
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/rebuild_summary.py
+
+      - name: Comment summary on PR
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: rebuild_comment.md
 
       - name: Commit artifacts (rebase-safe)
         shell: bash
