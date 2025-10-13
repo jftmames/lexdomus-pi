@@ -81,7 +81,7 @@ def analyze_clause(clause: str, jurisdiction: str):
     def _safe_sra(question: str, jurisdiction: str, policy: dict):
         try:
             from lex_domus.retriever import retrieve_candidates  # type: ignore
-            cands = retrieve_candidates(question, k=4) or []
+            cands = retrieve_candidates(question, k=6) or []
         except Exception:
             cands = []
         status = "OK" if cands else "NO_EVIDENCE"
@@ -229,12 +229,27 @@ def analyze_clause(clause: str, jurisdiction: str):
     else:
         nodes = [{"title": "Cláusula", "question": "Validez y alcance", "jurisdiction": jurisdiction}]
 
-    # --- RAG por nodo ---
+    # --- RAG por nodo (2 intentos: pregunta del nodo -> cláusula completa) ---
     per_node = []
     for node in nodes:
-        q = node.get("question") if isinstance(node, dict) else str(node)
-        retr = _sra_dispatch(_sra_real, q, jurisdiction, policy)
-        per_node.append({"node": node, "retrieval": retr})
+        q_base = node.get("question") if isinstance(node, dict) else str(node)
+        tries = [
+            q_base,
+            f"{q_base}\n\n[Texto de la cláusula]\n{clause}\n\n[Jurisdicción objetivo] {jurisdiction}",
+        ]
+        used_q = q_base
+        retr = {"status": "NO_EVIDENCE", "citations": []}
+        for q_try in tries:
+            r = _sra_dispatch(_sra_real, q_try, jurisdiction, policy)
+            # nos quedamos con el primer intento que traiga citas
+            if r.get("status") == "OK" and r.get("citations"):
+                retr = r
+                used_q = q_try
+                break
+            # guarda el último intento incluso si no hay evidencia (para debug)
+            retr = r
+            used_q = q_try
+        per_node.append({"node": node, "retrieval": retr, "used_query": used_q})
 
     # --- Flags + Gate ---
     flags = _flags_dispatch(_df_real, clause, jurisdiction, per_node) or []
@@ -271,4 +286,3 @@ def analyze_clause(clause: str, jurisdiction: str):
         pass
 
     return result
-
