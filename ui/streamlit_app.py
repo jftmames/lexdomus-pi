@@ -1,8 +1,9 @@
 import streamlit as st
 from pathlib import Path
+import os
 
 st.set_page_config(page_title="LexDomus–PI MVP", layout="wide")
-st.title("LexDomus–PI — MVP (RAGA+MCP, sin LLM)")
+st.title("LexDomus–PI — MVP (RAGA+MCP)")
 
 with st.sidebar:
     st.header("Proyecto")
@@ -11,6 +12,10 @@ with st.sidebar:
     policy_path = Path(__file__).resolve().parents[1] / "policies" / "policy.yaml"
     if policy_path.exists():
         st.code(policy_path.read_text(), language="yaml")
+    st.divider()
+    engine = st.radio("Motor de redacción", ["MOCK (sin LLM)", "LLM (OpenAI)"], index=0)
+    # Fija USE_LLM para el backend del pipeline
+    os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
 
 tab1, tab2, tab3 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J"])
 
@@ -29,8 +34,7 @@ with tab1:
         res = analyze_clause(clause, juris)
         st.session_state["last_result"] = res
         st.session_state["last_input"] = {"clause": clause, "juris": juris}
-        st.success("Análisis completado. Revisa las pestañas 2 y 3.")
-    st.caption("Nota: esta demo funciona sin LLM; usa RAG+heurísticas para EEE/flags/redacción.")
+        st.success(f"Análisis completado con motor {res.get('engine')} · Gate={res['gate']['status']}")
 
 with tab2:
     st.subheader("Evidencias (por nodo)")
@@ -55,11 +59,13 @@ with tab2:
                     st.warning("No concluyente: falta evidencia con pinpoint")
 
 with tab3:
-    st.subheader("Dictamen (demo)")
+    st.subheader("Dictamen & A2J")
     res = st.session_state["last_result"]
     if not res:
         st.info("Ejecuta el análisis en la pestaña 1.")
     else:
+        st.markdown("### Gate")
+        st.json(res["gate"])
         st.markdown("### EEE")
         st.write(res["EEE"])
         st.markdown("### Flags")
