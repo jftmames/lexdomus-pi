@@ -1,4 +1,11 @@
-import os, json
+import os, json, sys
+from pathlib import Path
+
+# --- Garantiza que el repo raíz esté en sys.path (import app.*) ---
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from app.pipeline import analyze_clause
 
 def main():
