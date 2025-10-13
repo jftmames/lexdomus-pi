@@ -33,6 +33,9 @@ jobs:
       - name: Ingest -> chunks
         run: |
           python scripts/ingest.py
+      - name: Update families history
+        run: |
+          python scripts/family_trends.py
 
       - name: Build indices
         run: |
