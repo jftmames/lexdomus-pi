@@ -1,4 +1,4 @@
-# app/pipeline.py — robusto para firmas variadas y entornos Streamlit/Actions
+# app/pipeline.py — robusto para firmas variadas (SRA, flags, alt, EEE) y entornos Streamlit/Actions
 from pathlib import Path
 import sys, os
 
@@ -10,8 +10,7 @@ if str(ROOT) not in sys.path:
 def analyze_clause(clause: str, jurisdiction: str):
     """
     Orquesta el análisis: Inquiry -> RAG -> Flags -> Gate -> Opinión -> Alternativa -> EEE.
-    Importa dependencias LAZY y usa dispatchers que soportan firmas distintas
-    (con/sin 'jurisdiction', posicional/keyword).
+    Imports perezosos y dispatchers para soportar firmas distintas.
     """
     # --- Imports perezosos + fallbacks seguros ---
     try:
@@ -29,18 +28,18 @@ def analyze_clause(clause: str, jurisdiction: str):
         _sra_real = None
         _load_policy_real = None
 
-    # Flags + alternativa (pueden tener firmas distintas según tu repo)
+    # Flags + alternativa (firmas variables según repo)
     try:
         from lex_domus.flagger import detect_flags as _df_real, propose_alternative as _pa_real
     except Exception:
         _df_real = None
         _pa_real = None
 
-    # EEE (scoring)
+    # EEE (scoring) — firma variable
     try:
-        from metrics_eee.scorer import score_eee
+        from metrics_eee.scorer import score_eee as _eee_real
     except Exception:
-        def score_eee(**_kwargs): return {"T": 0.0, "J": 0.0, "P": 0.0}
+        _eee_real = None
 
     # Logging de trazabilidad (opcional)
     try:
@@ -60,7 +59,7 @@ def analyze_clause(clause: str, jurisdiction: str):
                 "devils_advocate": {},
             }
 
-    # --- Helpers: load_policy & fallbacks SRA/flags/alt ---
+    # --- Helpers: load_policy & fallbacks SRA/flags/alt/EEE ---
     def _safe_load_policy():
         if _load_policy_real:
             try:
@@ -93,6 +92,9 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     def _safe_propose_alt(_clause, _jur=None, _flags=None):
         return ""
+
+    def _safe_eee(_per_node=None, _flags=None, _gate=None):
+        return {"T": 0.0, "J": 0.0, "P": 0.0}
 
     # --- Normalizadores/dispatchers ---
     def _normalize_retrieval(ret):
@@ -133,14 +135,6 @@ def analyze_clause(clause: str, jurisdiction: str):
         return _normalize_retrieval(_safe_sra(question, jurisdiction, policy))
 
     def _flags_dispatch(df_fn, clause: str, jurisdiction: str, per_node):
-        """
-        Soporta:
-          detect_flags(clause, jurisdiction, per_node)
-          detect_flags(clause, jurisdiction)
-          detect_flags(clause, per_node)
-          detect_flags(clause)
-          detect_flags(text=..., jurisdiction=..., per_node=...)
-        """
         if df_fn is None:
             return _safe_detect_flags(clause, jurisdiction, per_node)
         for call in (
@@ -160,14 +154,6 @@ def analyze_clause(clause: str, jurisdiction: str):
         return _safe_detect_flags(clause, jurisdiction, per_node)
 
     def _alt_dispatch(pa_fn, clause: str, jurisdiction: str, flags):
-        """
-        Soporta:
-          propose_alternative(clause, jurisdiction, flags)
-          propose_alternative(clause, flags)
-          propose_alternative(clause, jurisdiction)
-          propose_alternative(clause)
-          propose_alternative(text=..., jurisdiction=..., flags=...)
-        """
         if pa_fn is None:
             return _safe_propose_alt(clause, jurisdiction, flags)
         for call in (
@@ -185,6 +171,51 @@ def analyze_clause(clause: str, jurisdiction: str):
             except Exception:
                 continue
         return _safe_propose_alt(clause, jurisdiction, flags)
+
+    def _normalize_eee(ret):
+        # Devuelve dict con T, J, P (floats)
+        if isinstance(ret, dict):
+            T = float(ret.get("T", 0) or 0)
+            J = float(ret.get("J", 0) or 0)
+            P = float(ret.get("P", 0) or 0)
+            return {"T": T, "J": J, "P": P}
+        if isinstance(ret, (list, tuple)) and len(ret) >= 3:
+            try:
+                return {"T": float(ret[0]), "J": float(ret[1]), "P": float(ret[2])}
+            except Exception:
+                return {"T": 0.0, "J": 0.0, "P": 0.0}
+        if isinstance(ret, (int, float)):
+            v = float(ret)
+            return {"T": v, "J": v, "P": v}
+        return {"T": 0.0, "J": 0.0, "P": 0.0}
+
+    def _eee_dispatch(eee_fn, per_node, flags, gate):
+        """
+        Prueba, en orden:
+          score_eee(per_node=..., flags=..., gate=...)
+          score_eee(per_node, flags, gate)
+          score_eee(per_node, flags)
+          score_eee(per_node)
+          score_eee({"per_node":..., "flags":..., "gate":...})
+          score_eee()
+        """
+        if eee_fn is None:
+            return _safe_eee(per_node, flags, gate)
+        for call in (
+            lambda: eee_fn(per_node=per_node, flags=flags, gate=gate),
+            lambda: eee_fn(per_node, flags, gate),
+            lambda: eee_fn(per_node, flags),
+            lambda: eee_fn(per_node),
+            lambda: eee_fn({"per_node": per_node, "flags": flags, "gate": gate}),
+            lambda: eee_fn(),
+        ):
+            try:
+                return _normalize_eee(call())
+            except TypeError:
+                continue
+            except Exception:
+                continue
+        return _safe_eee(per_node, flags, gate)
 
     # --- Policy ---
     policy = _safe_load_policy()
@@ -205,7 +236,7 @@ def analyze_clause(clause: str, jurisdiction: str):
         retr = _sra_dispatch(_sra_real, q, jurisdiction, policy)
         per_node.append({"node": node, "retrieval": retr})
 
-    # --- Flags + Gate (con dispatcher flexible) ---
+    # --- Flags + Gate ---
     flags = _flags_dispatch(_df_real, clause, jurisdiction, per_node) or []
     gate_status = "OK" if any(
         (it.get("retrieval", {}).get("status") == "OK" and it.get("retrieval", {}).get("citations"))
@@ -218,11 +249,11 @@ def analyze_clause(clause: str, jurisdiction: str):
     if "analysis_md" not in opinion and "analysis" in opinion:
         opinion["analysis_md"] = opinion.get("analysis")
 
-    # --- Cláusula alternativa (con dispatcher flexible) ---
+    # --- Cláusula alternativa ---
     alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
 
-    # --- EEE ---
-    score = score_eee(per_node=per_node, flags=flags, gate=gate)
+    # --- EEE (dispatcher robusto) ---
+    score = _eee_dispatch(_eee_real, per_node, flags, gate)
 
     result = {
         "engine": "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK",
@@ -240,3 +271,4 @@ def analyze_clause(clause: str, jurisdiction: str):
         pass
 
     return result
+
