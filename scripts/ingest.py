@@ -1,123 +1,116 @@
-import os, json, re, hashlib, pathlib
-from typing import Dict, List, Tuple
+import os, json, re, pathlib
+from typing import List, Dict
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CORPUS_DIR = ROOT / "data" / "corpus"
 CHUNKS_DIR = ROOT / "data" / "docs_chunks"
 CHUNKS_DIR.mkdir(parents=True, exist_ok=True)
 
-# ---- Mapeo por archivo -> metadatos de fuente oficial ----
-DOC_META = {
-    # España — LPI
-    "es_lpi":  {"source": "BOE",      "jurisdiction": "ES",  "title": "LPI (España)", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8932"},
-    # UE — InfoSoc
-    "eu_infosoc": {"source": "EUR-Lex","jurisdiction": "EU",  "title": "Directiva 2001/29/CE (InfoSoc)", "url": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32001L0029"},
-    # OMPI — Berna
-    "berne":   {"source": "WIPO/OMPI","jurisdiction": "INT", "title": "Convenio de Berna", "url": "https://www.wipo.int/wipolex/es/"},
-    # EEUU — 17 U.S.C.
-    "us_usc_17": {"source": "USC (Cornell/LII)","jurisdiction": "US","title": "17 U.S.C.","url": "https://www.law.cornell.edu/uscode/text/17"}
-}
+# --------- Helpers de metadatos ---------
 
-# ---- Detectores de artículo/§/apartado por corpus ----
-RE_ART_ES = re.compile(r"(Artículo\s+(\d{1,3})(?:\s*[\.\-]|\s))", re.IGNORECASE)
-RE_ART_BERNA = re.compile(r"(Artículo\s+(\d{1,3})(bis)?)", re.IGNORECASE)
-RE_SEC_US = re.compile(r"(§\s*(\d{2,3})([a-z]*)\b)", re.IGNORECASE)
+def detect_meta(path: pathlib.Path) -> Dict[str, str]:
+    name = path.name.lower()
+    if "lpi" in name:
+        return {"source": "BOE", "jurisdiction": "ES", "title": "Ley de Propiedad Intelectual (España)", "family": "LPI"}
+    if "infosoc" in name or "2001_29" in name:
+        return {"source": "EUR-Lex", "jurisdiction": "EU", "title": "Directiva 2001/29/CE (InfoSoc)", "family": "INFOSOC"}
+    if "berne" in name or "berna" in name:
+        return {"source": "WIPO/OMPI", "jurisdiction": "INT", "title": "Convenio de Berna", "family": "BERNE"}
+    if "usc_17" in name or "us_usc_17" in name:
+        return {"source": "USC (Cornell/LII)", "jurisdiction": "US", "title": "17 U.S.C.", "family": "USC17"}
+    return {"source": "UNKNOWN", "jurisdiction": "INT", "title": path.stem, "family": "GEN"}
 
-def chunk_text(txt: str, size=1000, overlap=150) -> List[Tuple[int, int, str]]:
-    """Devuelve lista de (start, end, chunk_text) con solape."""
+def build_ref(chunk_text: str, family: str) -> Dict[str, str]:
+    t = chunk_text
+    # LPI: Artículo N
+    if family == "LPI":
+        m = re.search(r"(Artículo|Art\.)\s+(\d+)\b", t, re.IGNORECASE)
+        if m:
+            art = m.group(2)
+            return {
+                "ref_label": f"LPI art. {art}",
+                "ref_url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930",  # enlace general consolidado
+            }
+    # InfoSoc (no tiene art. tipo LPI en tu extracto mínimo)
+    if family == "INFOSOC":
+        m = re.search(r"(Art(í|i)culo|Article)\s+(\d+)", t, re.IGNORECASE)
+        label = f"InfoSoc art. {m.group(3)}" if m else "InfoSoc (considerandos/art.)"
+        return {
+            "ref_label": label,
+            "ref_url": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32001L0029",
+        }
+    # Berna: 6bis
+    if family == "BERNE":
+        if re.search(r"\b6bis\b", t, re.IGNORECASE):
+            return {
+                "ref_label": "Berna art. 6bis",
+                "ref_url": "https://www.wipo.int/wipolex/es/text/283698",
+            }
+        m = re.search(r"(Art(í|i)culo|Article)\s+(\d+)\b", t, re.IGNORECASE)
+        if m:
+            return {
+                "ref_label": f"Berna art. {m.group(3)}",
+                "ref_url": "https://www.wipo.int/wipolex/es/text/283698",
+            }
+        return {"ref_label": "Berna (general)", "ref_url": "https://www.wipo.int/wipolex/es/text/283698"}
+    # 17 USC: §106 / §201 / §302
+    if family == "USC17":
+        for sec in ("106", "201", "302"):
+            if re.search(rf"(\b§\s*{sec}\b|\b{sec}\b)", t):
+                return {
+                    "ref_label": f"17 USC §{sec}",
+                    "ref_url": f"https://www.law.cornell.edu/uscode/text/17/{sec}",
+                }
+        return {"ref_label": "17 USC (general)", "ref_url": "https://www.law.cornell.edu/uscode/text/17"}
+    return {"ref_label": "", "ref_url": ""}
+
+def group_lines(lines: List[str], max_chars=900, overlap_lines=2):
+    """Agrupa líneas en bloques ~max_chars controlando un solape pequeño (por líneas)."""
     chunks = []
-    i = 0
-    n = len(txt)
-    while i < n:
-        end = min(i + size, n)
-        chunks.append((i, end, txt[i:end]))
-        if end == n: break
-        i = end - overlap
+    start = 0
+    while start < len(lines):
+        size = 0
+        end = start
+        while end < len(lines) and size + len(lines[end]) + 1 <= max_chars:
+            size += len(lines[end]) + 1
+            end += 1
+        # bloque
+        text = "\n".join(lines[start:end]).strip()
+        if text:
+            chunks.append((start+1, end, text))  # líneas 1-indexed
+        # avanza con solape
+        start = max(end - overlap_lines, end) if end > start else end + 1
     return chunks
 
-def detect_doc_key(path: pathlib.Path) -> str:
-    name = path.stem.lower()
-    for key in DOC_META:
-        if key in name:
-            return key
-    # fallback por nombre
-    if "lpi" in name: return "es_lpi"
-    if "infosoc" in name: return "eu_infosoc"
-    if "berne" in name or "berna" in name: return "berne"
-    if "usc" in name or "us_17" in name: return "us_usc_17"
-    return "unknown"
-
-def sectionize(txt: str, key: str) -> List[Dict]:
-    """
-    Divide el texto en secciones por artículo/§ y devuelve lista con:
-    {'ref_str': 'LPI art. 14', 'start': i, 'end': j, 'text': ...}
-    """
-    spans = []
-    if key == "es_lpi":
-        it = list(RE_ART_ES.finditer(txt))
-        for i, m in enumerate(it):
-            start = m.start()
-            end = it[i+1].start() if i+1 < len(it) else len(txt)
-            num = m.group(2)
-            spans.append({"ref_str": f"LPI art. {num}", "start": start, "end": end, "text": txt[start:end]})
-    elif key == "berne":
-        it = list(RE_ART_BERNA.finditer(txt))
-        for i, m in enumerate(it):
-            start = m.start()
-            end = it[i+1].start() if i+1 < len(it) else len(txt)
-            num = m.group(2) + (m.group(3) or "")
-            spans.append({"ref_str": f"Berna art. {num}", "start": start, "end": end, "text": txt[start:end]})
-    elif key == "us_usc_17":
-        it = list(RE_SEC_US.finditer(txt))
-        for i, m in enumerate(it):
-            start = m.start()
-            end = it[i+1].start() if i+1 < len(it) else len(txt)
-            num = m.group(2) + (m.group(3) or "")
-            spans.append({"ref_str": f"17 U.S.C. §{num}", "start": start, "end": end, "text": txt[start:end]})
-    else:
-        # InfoSoc u otros: sin marcadores finos; lo dejamos entero
-        spans.append({"ref_str": "", "start": 0, "end": len(txt), "text": txt})
-    return spans
+# --------- Main ---------
 
 def main():
     out_path = CHUNKS_DIR / "chunks.jsonl"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-
     with open(out_path, "w", encoding="utf-8") as out:
         for f in sorted(CORPUS_DIR.glob("*.txt")):
+            meta_base = detect_meta(f)
             raw = f.read_text(encoding="utf-8")
-            # Normaliza espacios
-            txt = re.sub(r"\s+", " ", raw).strip()
-
-            key = detect_doc_key(f)
-            meta_base = DOC_META.get(key, {"source":"UNKNOWN","jurisdiction":"INT","title":f.stem,"url":""})
-
-            # Secciones por artículo/§, luego chunk dentro
-            sections = sectionize(txt, key)
-
-            for s_idx, sec in enumerate(sections):
-                sec_text = sec["text"]
-                sec_start = sec["start"]
-                chunks = chunk_text(sec_text, size=1100, overlap=180)
-                for c_idx, (c_start, c_end, ch) in enumerate(chunks):
-                    # Rango absoluto respecto del documento
-                    abs_start = sec_start + c_start
-                    abs_end = sec_start + c_end
-                    rec = {
-                        "doc_id": f"{f.stem}#s{s_idx:03d}c{c_idx:03d}",
-                        "source": meta_base["source"],
-                        "jurisdiction": meta_base["jurisdiction"],
-                        "title": meta_base["title"],
-                        "url": meta_base["url"],
-                        "ref": sec["ref_str"],            # ej: "LPI art. 14"
-                        "pinpoint": bool(sec["ref_str"]), # true si hay artículo/§ detectado
-                        "line_start": abs_start,
-                        "line_end": abs_end,
-                        "text": ch
-                    }
-                    out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-
-    print(f"[ingest] Chunks escritos en {out_path}")
+            # normaliza saltos de línea (mejor para anchors de línea)
+            raw = re.sub(r"\r\n?", "\n", raw).strip()
+            lines = [ln.strip() for ln in raw.split("\n") if ln.strip()]
+            for idx, (l0, l1, text) in enumerate(group_lines(lines, max_chars=1000, overlap_lines=2)):
+                doc_id = f"{f.stem}#c{idx:03d}"
+                ref = build_ref(text, meta_base["family"])
+                record = {
+                    "doc_id": doc_id,
+                    "source": meta_base["source"],
+                    "jurisdiction": meta_base["jurisdiction"],
+                    "title": meta_base["title"],
+                    "family": meta_base["family"],
+                    "ref_label": ref["ref_label"],
+                    "ref_url": ref["ref_url"],
+                    "pinpoint": bool(ref["ref_label"]),   # True si detectamos referencia
+                    "line_start": l0,
+                    "line_end": l1,
+                    "text": text
+                }
+                out.write(json.dumps(record, ensure_ascii=False) + "\n")
+    print(f"[ingest] Chunks -> {out_path}")
 
 if __name__ == "__main__":
     main()
