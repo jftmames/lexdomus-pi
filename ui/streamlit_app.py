@@ -8,6 +8,14 @@ if str(ROOT) not in sys.path:
 os.environ.setdefault("PYTHONPATH", str(ROOT))
 
 import streamlit as st
+
+# Intenta cargar OPENAI_API_KEY desde Secrets (Streamlit Cloud) y propágalo al entorno
+try:
+    if "OPENAI_API_KEY" in st.secrets and not os.getenv("OPENAI_API_KEY"):
+        os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+except Exception:
+    pass
+
 from app.pipeline import analyze_clause
 
 st.set_page_config(page_title="LexDomus–PI MVP", layout="wide")
@@ -35,8 +43,18 @@ with st.sidebar:
         st.info("Sin reporte de reformas aún.")
 
     st.divider()
-    engine = st.radio("Motor de redacción", ["MOCK (sin LLM)", "LLM (OpenAI)"], index=0)
-    os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
+
+    # Motor de redacción con guardas por clave
+    has_openai = bool(os.getenv("OPENAI_API_KEY", "").strip())
+    options = ["MOCK (sin LLM)"] + (["LLM (OpenAI)"] if has_openai else [])
+    engine = st.radio("Motor de redacción", options, index=0)
+
+    # Si no hay clave, fuerza MOCK y avisa; si hay, respeta la elección
+    if engine.startswith("LLM") and not has_openai:
+        st.warning("No hay OPENAI_API_KEY configurada en esta app. Usaré el motor MOCK.")
+        os.environ["USE_LLM"] = "0"
+    else:
+        os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
 
 tab1, tab2, tab3, tab4 = st.tabs(
     ["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J", "4) Tendencia del corpus"]
@@ -60,10 +78,13 @@ with tab1:
         index=["ES", "EU", "US", "INT"].index(st.session_state["last_input"]["juris"]),
     )
     if st.button("Analizar"):
-        res = analyze_clause(clause, juris)
-        st.session_state["last_result"] = res
-        st.session_state["last_input"] = {"clause": clause, "juris": juris}
-        st.success(f"Análisis completado con motor {res.get('engine')} · Gate={res['gate']['status']}")
+        try:
+            res = analyze_clause(clause, juris)
+            st.session_state["last_result"] = res
+            st.session_state["last_input"] = {"clause": clause, "juris": juris}
+            st.success(f"Análisis completado con motor {res.get('engine')} · Gate={res['gate']['status']}")
+        except Exception as e:
+            st.error(f"Error al analizar: {type(e).__name__}: {e}")
     st.caption("La demo usa RAG+heurísticas/LLM con disciplina 'source-required'.")
 
 with tab2:
@@ -138,7 +159,7 @@ with tab3:
 
 with tab4:
     st.subheader("Histórico de familias (chunks)")
-    import pandas as pd  # local import para no cargar si no se usa la pestaña
+    import pandas as pd  # carga local para esta pestaña
 
     hist = Path(__file__).resolve().parents[1] / "data" / "status" / "families_history.csv"
     delt = Path(__file__).resolve().parents[1] / "data" / "status" / "families_deltas.csv"
@@ -149,7 +170,6 @@ with tab4:
         if not df.empty:
             df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
             df = df.dropna(subset=["timestamp"]).sort_values("timestamp")
-            # convierte columnas numéricas si hiciera falta
             if "total" in df.columns:
                 df["total"] = pd.to_numeric(df["total"], errors="coerce").fillna(0)
             families = [c for c in df.columns if c not in ("timestamp", "total")]
@@ -186,4 +206,5 @@ with tab4:
             st.info("Sin deltas todavía.")
     else:
         st.info("No existe `families_deltas.csv`. Genera deltas en el próximo rebuild.")
+
 
