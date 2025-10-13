@@ -1,0 +1,62 @@
+name: Watch legal reforms (corpus drift)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *"   # diario 04:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetch official corpus (fresh)
+        run: |
+          python scripts/fetch_corpus.py
+
+      - name: Check reforms vs baseline
+        id: watch
+        run: |
+          python scripts/check_reforms.py
+          # expone CHANGED_COUNT para pasos siguientes
+          echo "CHANGED_COUNT=$(jq '.changed_count' data/status/reforms_report.json)" >> $GITHUB_ENV
+
+      - name: Commit status & proposed (if any)
+        if: env.CHANGED_COUNT != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/status/ data/snapshots/proposed/
+          git commit -m "watch: reforms detected ($(date -u +%F))" || echo "no changes"
+
+      - name: Create PR with diffs
+        if: env.CHANGED_COUNT != '0'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/reforms-${{ github.run_id }}
+          title: "Watcher: cambios detectados en corpus oficial"
+          body: |
+            Se detectaron cambios en el corpus oficial. Revisa `data/status/reforms_report.json` y los parches `data/status/*.patch`.
+
+            - Este PR añade archivos `data/snapshots/proposed/*` (texto propuesto).
+            - Tras revisar, puedes **aceptar** los cambios moviendo `proposed` a `baseline` o ejecutar el workflow de **fetch & rebuild** después del merge.
+          labels: reforms, corpus, needs-review
+          commit-message: "watch: reforms detected (auto)"
