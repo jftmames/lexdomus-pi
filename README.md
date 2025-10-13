@@ -1,6 +1,7 @@
 # LexDomus–PI — MVP (RAGA+MCP)
 
 **Objetivo:** asistente jurídico deliberativo para cesión/licencia de DPI con trazabilidad (EEE-Gate v2), RAG híbrido y políticas de gobernanza (AI Act).
+![Reforms Watch](https://github.com/jftmames/lexdomus-pi/actions/workflows/reforms-watch.yml/badge.svg)
 
 ## Módulos
 - **verdiktia/**: descomposición y deliberación (Planner / Devil’s Advocate).
