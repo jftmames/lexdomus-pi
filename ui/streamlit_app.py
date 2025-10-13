@@ -1,6 +1,6 @@
-# --- Bootstrap de paths para que Streamlit (carpeta ui/) encuentre el paquete app/ ---
+# --- Bootstrap de paths para que Streamlit (carpeta ui/) encuentre el repo ---
 from pathlib import Path
-import sys, os, json
+import sys, os, json, importlib, importlib.util
 
 ROOT = Path(__file__).resolve().parents[1]  # raíz del repo
 if str(ROOT) not in sys.path:
@@ -16,12 +16,31 @@ try:
 except Exception:
     pass
 
-from app.pipeline import analyze_clause
-# Comprobación opcional
-try:
-    import lex_domus, verdiktia, metrics_eee  # noqa: F401
-except Exception as _e:
-    st.warning(f"Aviso de import: {_e}")
+# --- Cargador robusto del pipeline (evita KeyError 'app' y ModuleNotFound) ---
+def _get_analyzer():
+    """
+    Devuelve app.pipeline.analyze_clause.
+    1) Intenta import normal (paquete 'app').
+    2) Si falla, carga por ruta directa app/pipeline.py (importlib.util).
+    """
+    # 1) import normal
+    try:
+        mod = importlib.import_module("app.pipeline")
+        if hasattr(mod, "analyze_clause"):
+            return mod.analyze_clause
+    except Exception:
+        pass
+    # 2) carga por ruta
+    pl_path = ROOT / "app" / "pipeline.py"
+    if not pl_path.exists():
+        raise FileNotFoundError(f"No encuentro {pl_path}. ¿Está el repo completo?")
+    spec = importlib.util.spec_from_file_location("app.pipeline", pl_path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    if not hasattr(module, "analyze_clause"):
+        raise AttributeError("app.pipeline no expone analyze_clause")
+    return module.analyze_clause
 
 st.set_page_config(page_title="LexDomus–PI MVP", layout="wide")
 st.title("LexDomus–PI — MVP (RAGA+MCP)")
@@ -53,10 +72,8 @@ with st.sidebar:
     has_openai = bool(os.getenv("OPENAI_API_KEY", "").strip())
     options = ["MOCK (sin LLM)"] + (["LLM (OpenAI)"] if has_openai else [])
     engine = st.radio("Motor de redacción", options, index=0)
-
-    # Si no hay clave, fuerza MOCK y avisa; si hay, respeta la elección
     if engine.startswith("LLM") and not has_openai:
-        st.warning("No hay OPENAI_API_KEY configurada en esta app. Usaré el motor MOCK.")
+        st.warning("No hay OPENAI_API_KEY configurada. Usaré el motor MOCK.")
         os.environ["USE_LLM"] = "0"
     else:
         os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
@@ -84,6 +101,7 @@ with tab1:
     )
     if st.button("Analizar"):
         try:
+            analyze_clause = _get_analyzer()  # import perezoso/robusto
             res = analyze_clause(clause, juris)
             st.session_state["last_result"] = res
             st.session_state["last_input"] = {"clause": clause, "juris": juris}
@@ -127,6 +145,11 @@ with tab2:
                         st.code(c.get("text", "")[:800])
                 else:
                     st.warning("No concluyente: falta evidencia con pinpoint")
+            # (Opcional) Mostrar consulta usada por el RAG si está disponible
+            uq = item.get("used_query", "")
+            if uq:
+                with st.expander("Consulta usada por el RAG"):
+                    st.code(uq)
 
 with tab3:
     st.subheader("Dictamen & A2J")
@@ -143,7 +166,7 @@ with tab3:
         st.markdown("### Flags")
         st.write(res.get("flags") or "—")
 
-        # ---- Opinión con fallbacks seguros ----
+        # Opinión con fallbacks seguros
         opinion = res.get("opinion", {}) or {}
         st.markdown("### Análisis")
         analysis_md = (
@@ -162,25 +185,21 @@ with tab3:
                 return x
             if isinstance(x, str):
                 return [x]
-            # cualquier otra cosa, lo mostramos como string
             return [str(x)]
 
         colA, colB = st.columns(2)
         with colA:
             st.markdown("### Pros")
-            pros = _to_list(opinion.get("pros"))
-            st.write(pros or "—")
+            st.write(_to_list(opinion.get("pros")) or "—")
         with colB:
             st.markdown("### Contras")
-            cons = _to_list(opinion.get("cons"))
-            st.write(cons or "—")
+            st.write(_to_list(opinion.get("cons")) or "—")
 
         st.markdown("### Lectura alternativa (Devil’s Advocate)")
         dev = opinion.get("devils_advocate") or opinion.get("devil_advocate") or {}
         if not isinstance(dev, dict):
             st.write(str(dev))
         else:
-            # relleno amable si faltan campos
             dev = {
                 "hipotesis": dev.get("hipotesis", "—"),
                 "lectura": dev.get("lectura", "—"),
@@ -196,9 +215,8 @@ with tab3:
         st.write(a2j.read_text() if a2j.exists() else "—")
 
 with tab4:
-    st.subheader("Histórico de familias (chunks)")
+    st.subheader("Tendencia del corpus")
 
-    # Helpers seguros para CSVs
     @st.cache_data(show_spinner=False)
     def _read_csv_safe(path: Path):
         try:
@@ -220,7 +238,7 @@ with tab4:
     if err:
         st.info(err + ". Ejecuta un rebuild para generar los CSV.")
     else:
-        import pandas as pd  # ya debería existir si _read_csv_safe pasó
+        import pandas as pd
         if df.empty:
             st.info("Histórico vacío.")
         else:
