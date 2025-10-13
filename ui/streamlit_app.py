@@ -7,19 +7,15 @@ st.title("LexDomus–PI — MVP (RAGA+MCP)")
 
 with st.sidebar:
     st.header("Proyecto")
-    st.write("Asistente deliberativo para DPI (cesión/licencia)")
-    st.divider()
     policy_path = Path(__file__).resolve().parents[1] / "policies" / "policy.yaml"
     if policy_path.exists():
         st.code(policy_path.read_text(), language="yaml")
     st.divider()
     engine = st.radio("Motor de redacción", ["MOCK (sin LLM)", "LLM (OpenAI)"], index=0)
-    # Fija USE_LLM para el backend del pipeline
     os.environ["USE_LLM"] = "1" if engine.startswith("LLM") else "0"
 
 tab1, tab2, tab3 = st.tabs(["1) Inquiry Graph", "2) Citas & Comparativa", "3) Dictamen & A2J"])
 
-# Estado
 if "last_result" not in st.session_state:
     st.session_state["last_result"] = None
 if "last_input" not in st.session_state:
@@ -35,6 +31,7 @@ with tab1:
         st.session_state["last_result"] = res
         st.session_state["last_input"] = {"clause": clause, "juris": juris}
         st.success(f"Análisis completado con motor {res.get('engine')} · Gate={res['gate']['status']}")
+    st.caption("La demo usa RAG+heurísticas/LLM con disciplina 'source-required'.")
 
 with tab2:
     st.subheader("Evidencias (por nodo)")
@@ -53,21 +50,21 @@ with tab2:
                     st.write("Citas:")
                     for c in retr["citations"]:
                         meta = c["meta"]
-                        ref = meta.get("ref") or meta.get("title","")
-                        src = meta.get("source","")
-                        jur = meta.get("jurisdiction","")
-                        url = meta.get("url","")
-                        pin = "✅ pin" if meta.get("pinpoint") else "—"
-                        rng = ""
-                        if meta.get("line_start") is not None:
-                            rng = f" · {meta['line_start']}-{meta.get('line_end','')}"
-                        if url:
-                            st.markdown(f"- [{ref}]({url}) · `{src}/{jur}` · {pin}{rng}")
-                        else:
-                            st.markdown(f"- **{ref}** · `{src}/{jur}` · {pin}{rng}")
-                        st.code(c["text"][:800])
+                        ref = meta.get("ref_label","")
+                        url = meta.get("ref_url","")
+                        pin = "✅" if meta.get("pinpoint", False) else "—"
+                        ls, le = meta.get("line_start"), meta.get("line_end")
+                        head = f"**{meta.get('title','')}** · `{meta.get('source','')}` · `{meta.get('jurisdiction','')}` · pin:{pin}"
+                        st.markdown(head)
+                        if ref:
+                            if url:
+                                st.markdown(f"Ref: [{ref}]({url}) · líneas {ls}–{le}")
+                            else:
+                                st.markdown(f"Ref: {ref} · líneas {ls}–{le}")
+                        st.code(c['text'][:800])
                 else:
                     st.warning("No concluyente: falta evidencia con pinpoint")
+
 with tab3:
     st.subheader("Dictamen & A2J")
     res = st.session_state["last_result"]
@@ -101,3 +98,4 @@ with tab3:
         st.markdown("### Resumen A2J (plantilla)")
         a2j = Path(__file__).resolve().parents[1] / "templates" / "RESUMEN_A2J.md"
         st.write(a2j.read_text() if a2j.exists() else "—")
+
