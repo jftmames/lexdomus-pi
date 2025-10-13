@@ -51,6 +51,10 @@ jobs:
       - name: Recompute reforms report (should be 0 changes)
         run: |
           python scripts/check_reforms.py
+          
+      - name: Update families history
+        run: |
+          python scripts/family_trends.py
 
       - name: Commit artifacts (rebase-safe)
         shell: bash
