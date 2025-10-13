@@ -1,4 +1,4 @@
-import os, sys, json, datetime
+import os, sys, json, datetime, csv
 from pathlib import Path
 from typing import Dict, Any, List
 
@@ -9,6 +9,8 @@ if str(ROOT) not in sys.path:
 
 STATUS_DIR = ROOT / "data" / "status"
 STATUS_DIR.mkdir(parents=True, exist_ok=True)
+
+HIST_CSV = STATUS_DIR / "families_history.csv"
 
 def read_jsonl_count(path: Path) -> int:
     if not path.exists(): return 0
@@ -76,6 +78,34 @@ def eval_cases(cases_path: Path, use_llm: bool) -> Dict[str, Any]:
         "engine": engine_seen
     }
 
+def load_history_last3(path: Path) -> Dict[str, Any]:
+    """Devuelve (rows_ultimos_3, familias, familias_top4_por_última_fila)."""
+    if not path.exists():
+        return {"rows": [], "families": [], "top_fams": []}
+    with path.open("r", encoding="utf-8", newline="") as f:
+        rdr = list(csv.DictReader(f))
+    if not rdr:
+        return {"rows": [], "families": [], "top_fams": []}
+    cols = rdr[0].keys()
+    fams = [c for c in cols if c not in ("timestamp","total")]
+    last3 = rdr[-3:] if len(rdr) >= 3 else rdr
+    # Ordena por timestamp ascendente dentro de los últimos 3
+    try:
+        last3 = sorted(last3, key=lambda r: r["timestamp"])
+    except Exception:
+        pass
+    # Top familias por valor en la última fila
+    last = last3[-1]
+    fam_vals = []
+    for fam in fams:
+        try:
+            fam_vals.append((fam, int(last.get(fam, "0") or 0)))
+        except ValueError:
+            fam_vals.append((fam, 0))
+    fam_vals.sort(key=lambda x: x[1], reverse=True)
+    top_fams = [f for f,_ in fam_vals[:4]] if fam_vals else []
+    return {"rows": last3, "families": fams, "top_fams": top_fams}
+
 def main():
     ts = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
@@ -114,12 +144,27 @@ def main():
         except Exception:
             changed = -1
 
-    # Eval rápida (por defecto MOCK). Actívala con ENABLE_LLM_EVAL=1 + OPENAI_API_KEY en el workflow.
+    # Eval rápida (MOCK por defecto). Actívala con ENABLE_LLM_EVAL=1 + OPENAI_API_KEY en el workflow.
     use_llm = os.getenv("ENABLE_LLM_EVAL", "0").strip() == "1" and os.getenv("OPENAI_API_KEY", "")
     eval_res = eval_cases(ROOT / "tests" / "casos_frontera.jsonl", bool(use_llm))
 
     # App URL (si está desplegada y configurada)
     app_url = os.getenv("APP_URL", "").strip()
+
+    # Mini-tabla (últimos 3 puntos)
+    hist3 = load_history_last3(HIST_CSV)
+    table_lines: List[str] = []
+    if hist3["rows"]:
+        cols = ["Fecha", "Total"] + hist3["top_fams"]
+        table_lines.append("| " + " | ".join(cols) + " |")
+        table_lines.append("| " + " | ".join(["---"]*len(cols)) + " |")
+        for r in hist3["rows"]:
+            fecha = r.get("timestamp","")
+            total = r.get("total","0")
+            vals = [r.get(fam, "0") for fam in hist3["top_fams"]]
+            table_lines.append("| " + " | ".join([fecha, total] + vals) + " |")
+    else:
+        table_lines.append("_Sin histórico suficiente para tabla (genera `families_history.csv` en el próximo rebuild)._")
 
     # Render comentario
     lines: List[str] = []
@@ -133,6 +178,10 @@ def main():
 
     lines.append("### Cambios por familia (respecto al rebuild anterior)")
     lines.extend(fam_diff_lines)
+    lines.append("")
+
+    lines.append("### Tendencia (últimos 3 puntos)")
+    lines.extend(table_lines)
     lines.append("")
 
     lines.append("### Watcher")
@@ -170,3 +219,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
