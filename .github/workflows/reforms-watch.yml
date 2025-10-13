@@ -35,7 +35,6 @@ jobs:
         id: watch
         run: |
           python scripts/check_reforms.py
-          # expone CHANGED_COUNT para pasos siguientes
           echo "CHANGED_COUNT=$(jq '.changed_count' data/status/reforms_report.json)" >> $GITHUB_ENV
 
       - name: Commit status & proposed (if any)
@@ -46,8 +45,9 @@ jobs:
           git add data/status/ data/snapshots/proposed/
           git commit -m "watch: reforms detected ($(date -u +%F))" || echo "no changes"
 
-      - name: Create PR with diffs
+      - name: Create Pull Request
         if: env.CHANGED_COUNT != '0'
+        id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -57,14 +57,14 @@ jobs:
             Se detectaron cambios en el corpus oficial. Revisa `data/status/reforms_report.json` y los parches `data/status/*.patch`.
 
             - Este PR añade archivos `data/snapshots/proposed/*` (texto propuesto).
-            - Tras revisar, puedes **aceptar** los cambios moviendo `proposed` a `baseline` o ejecutar el workflow de **fetch & rebuild** después del merge.
+            - Tras revisar, puedes **aceptar** los cambios (merge) y se reconstruirán índices automáticamente.
           labels: reforms, corpus, needs-review
           commit-message: "watch: reforms detected (auto)"
+
       - name: Comment initial watch summary
         if: env.CHANGED_COUNT != '0'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ steps.cpr.outputs.pull-request-number }}
           body: |
-            Se han detectado cambios en el corpus oficial. Revisa `data/status/reforms_report.json` y los parches adjuntos.
-
+            Se han detectado cambios en el corpus oficial. Puedes abrir la app si ya está desplegada para contrastar: **${{ vars.APP_URL }}**
