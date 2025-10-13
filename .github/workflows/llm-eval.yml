@@ -1,0 +1,62 @@
+name: LLM evaluation (casos frontera)
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Modelo OpenAI"
+        required: false
+        default: "gpt-4o-mini"
+        type: string
+      cases_path:
+        description: "Ruta del JSONL de casos"
+        required: false
+        default: "tests/casos_frontera.jsonl"
+        type: string
+      strict:
+        description: "Fallar si pass-rate < 60%"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false","true"]
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ensure chunks & indices exist
+        run: |
+          python scripts/ingest.py
+          python scripts/build_index.py
+
+      - name: Run LLM evaluation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ inputs.model }}
+          CASES_PATH: ${{ inputs.cases_path }}
+          STRICT: ${{ inputs.strict == 'true' && '1' || '0' }}
+        run: |
+          python scripts/llm_eval.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: llm-eval-results
+          path: |
+            llm_eval_results.csv
+            llm_eval_details.json
