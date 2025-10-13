@@ -117,3 +117,33 @@ with tab3:
         a2j = Path(__file__).resolve().parents[1] / "templates" / "RESUMEN_A2J.md"
         st.write(a2j.read_text() if a2j.exists() else "—")
 
+with tab4:
+    st.subheader("Histórico de familias (chunks)")
+    import pandas as pd
+    hist = Path(__file__).resolve().parents[1] / "data" / "status" / "families_history.csv"
+    delt = Path(__file__).resolve().parents[1] / "data" / "status" / "families_deltas.csv"
+    if not hist.exists():
+        st.info("Aún no hay histórico. Ejecuta un rebuild para generar los CSV.")
+    else:
+        df = pd.read_csv(hist)
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
+        df = df.sort_values('timestamp')
+        families = [c for c in df.columns if c not in ('timestamp','total')]
+        st.markdown("**Total de chunks**")
+        st.line_chart(df.set_index('timestamp')['total'])
+        if families:
+            st.markdown("**Chunks por familia**")
+            st.line_chart(df.set_index('timestamp')[families])
+
+    st.divider()
+    st.subheader("Deltas por rebuild")
+    if delt.exists():
+        df2 = pd.read_csv(delt)
+        df2['timestamp'] = pd.to_datetime(df2['timestamp'])
+        df2 = df2.sort_values('timestamp')
+        fam2 = [c for c in df2.columns if c not in ('timestamp','total')]
+        st.markdown("**Delta total**")
+        st.line_chart(df2.set_index('timestamp')['total'])
+        if fam2:
+            st.markdown("**Delta por familia**")
+            st.line_chart(df2.set_index('timestamp')[fam2])
