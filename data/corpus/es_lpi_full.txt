@@ -415,24 +415,42 @@ Disposición final segunda
 Disposición final tercera
 ANEXO
 [Bloque 1: #preambulo]
-La disposición final segunda de la Ley 27/1995, de 11 de octubre, de incorporación al Derecho español de la Directiva 93/98/CEE, del Consejo, de 29 de octubre, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines, autorizó al Gobierno para que, antes del 30 de junio de 1996, aprobara un texto que refundiese las disposiciones legales vigentes en materia de propiedad intelectual, regularizando, aclarando y armonizando los textos que hubieran de ser refundidos. El alcance temporal de esta habilitación legislativa es el relativo a las disposiciones legales que se encontrarán vigentes a 30 de junio de 1996.
+La disposición final segunda de la
+Ley 27/1995, de 11 de octubre
+, de incorporación al Derecho español de la Directiva 93/98/CEE, del Consejo, de 29 de octubre, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines, autorizó al Gobierno para que, antes del 30 de junio de 1996, aprobara un texto que refundiese las disposiciones legales vigentes en materia de propiedad intelectual, regularizando, aclarando y armonizando los textos que hubieran de ser refundidos. El alcance temporal de esta habilitación legislativa es el relativo a las disposiciones legales que se encontrarán vigentes a 30 de junio de 1996.
 En consecuencia, se ha elaborado un texto refundido que se incorpora como anexo a este Real Decreto Legislativo, y que tiene por objeto dar cumplimiento al mandato legal.
 En su virtud, a propuesta de la Ministra de Cultura, de acuerdo con el Consejo de Estado y previa deliberación del Consejo de Ministros en su reunión del día 12 de abril de 1996,
 D I S P O N G O :
 Subir
 [Bloque 2: #aunico]
 Artículo único. Objeto de la norma.
-Se aprueba el texto refundido de la Ley de Propiedad Intelectual, regularizando, aclarando y armonizando las disposiciones legales vigentes sobre la materia, que figura como anexo al presente Real Decreto legislativo.
+Se aprueba el texto refundido de la
+Ley de Propiedad Intelectual
+, regularizando, aclarando y armonizando las disposiciones legales vigentes sobre la materia, que figura como anexo al presente Real Decreto legislativo.
 Subir
 [Bloque 3: #ddunica]
 Disposición derogatoria única. Derogación normativa.
 Quedan derogadas las siguientes Leyes:
-1. Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual.
-2. Ley 20/1992, de 7 de julio, de modificación de la Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual.
-3. Ley 16/1993, de 23 de diciembre, de incorporación al Derecho español de la Directiva 91/250/CEE, de 14 de mayo, sobre la protección jurídica de programas de ordenador.
-4. Ley 43/1994, de 30 de diciembre, de incorporación al Derecho español de la Directiva 92/100/CEE, de 19 de noviembre, sobre derechos de alquiler y préstamo y otros derechos afines a los derechos de autor en el ámbito de la propiedad intelectual.
-5. Ley 27/1995, de 11 de octubre, de incorporación al Derecho español de la Directiva 93/98/CEE, del Consejo, de 29 de octubre, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines.
-6. Ley 28/1995, de 11 de octubre, de incorporación al Derecho español de la Directiva 93/83/CEE, del Consejo, de 27 de septiembre, sobre coordinación de determinadas disposiciones relativas a los derechos de autor y derechos afines a los derechos de autor en el ámbito de la radiodifusión vía satélite y de la distribución por cable.
+1.
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual.
+2.
+Ley 20/1992, de 7 de julio
+, de modificación de la
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual.
+3.
+Ley 16/1993, de 23 de diciembre
+, de incorporación al Derecho español de la Directiva 91/250/CEE, de 14 de mayo, sobre la protección jurídica de programas de ordenador.
+4.
+Ley 43/1994, de 30 de diciembre
+, de incorporación al Derecho español de la Directiva 92/100/CEE, de 19 de noviembre, sobre derechos de alquiler y préstamo y otros derechos afines a los derechos de autor en el ámbito de la propiedad intelectual.
+5.
+Ley 27/1995, de 11 de octubre
+, de incorporación al Derecho español de la Directiva 93/98/CEE, del Consejo, de 29 de octubre, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines.
+6.
+Ley 28/1995, de 11 de octubre
+, de incorporación al Derecho español de la Directiva 93/83/CEE, del Consejo, de 27 de septiembre, sobre coordinación de determinadas disposiciones relativas a los derechos de autor y derechos afines a los derechos de autor en el ámbito de la radiodifusión vía satélite y de la distribución por cable.
 Téngase en cuenta que la sentencia del TS de 1 de marzo de 2001
 Ref. BOE-A-2001-9551
 declara subsistente el art. 109.1 de la Ley derogada por el apartado 1
@@ -448,7 +466,8 @@ La Ministra de Cultura,
 CARMEN ALBORCH BATALLER
 Subir
 [Bloque 6: #texto]
-TEXTO REFUNDIDO DE LA LEY DE PROPIEDAD INTELECTUAL
+TEXTO REFUNDIDO DE LA
+LEY DE PROPIEDAD INTELECTUAL
 Subir
 [Bloque 7: #li]
 LIBRO PRIMERO
@@ -503,7 +522,9 @@ Artículo 7. Obra en colaboración.
 2. Para divulgar y modificar la obra se requiere el consentimiento de todos los coautores. En defecto de acuerdo, el Juez resolverá.
 Una vez divulgada la obra, ningún coautor puede rehusar injustificadamente su consentimiento para su explotación en la forma en que se divulgó.
 3. A reserva de lo pactado entre los coautores de la obra en colaboración, éstos podrán explotar separadamente sus aportaciones, salvo que causen perjuicio a la explotación común.
-4. Los derechos de propiedad intelectual sobre una obra en colaboración corresponden a todos los autores en la proporción que ellos determinen. En lo no previsto en esta Ley, se aplicarán a estas obras las reglas establecidas en el Código Civil para la comunidad de bienes.
+4. Los derechos de propiedad intelectual sobre una obra en colaboración corresponden a todos los autores en la proporción que ellos determinen. En lo no previsto en esta Ley, se aplicarán a estas obras las reglas establecidas en el
+Código Civil
+para la comunidad de bienes.
 Subir
 [Bloque 18: #a8]
 Artículo 8. Obra colectiva.
@@ -617,7 +638,7 @@ Quedan excluidas del concepto de alquiler la puesta a disposición con fines de 
 Se entenderá que no existe beneficio económico o comercial directo ni indirecto cuando el préstamo efectuado por un establecimiento accesible al público dé lugar al pago de una cantidad que no exceda de lo necesario para cubrir los gastos de funcionamiento. Esta cantidad no podrá incluir total o parcialmente el importe del derecho de remuneración que deba satisfacerse a los titulares de derechos de propiedad intelectual conforme a lo dispuesto en el artículo 37.2.
 Quedan excluidas del concepto de préstamo las operaciones mencionadas en el párrafo segundo del apartado 3 y las que se efectúen entre establecimientos accesibles al público.
 5. Lo dispuesto en este artículo en cuanto al alquiler y al préstamo no se aplicará a los edificios ni a las obras de artes aplicadas.
-Se modifica el apartado 4 por el art. 1.1  de la Ley 21/2014, de 4 de noviembre.
+Se modifica el apartado 4 por el art. 1.1 de la Ley 21/2014, de 4 de noviembre.
 Ref. BOE-A-2014-11404
 .
 Se modifica el apartado 4 por la disposición final 1.1 de la Ley 10/2007, de 22 de junio.
@@ -667,7 +688,9 @@ d) Cuando el titular de derechos autorice la emisión, radiodifusión vía saté
 e) Lo dispuesto en los párrafos b), c) y d) de este apartado 4 no se aplicará a los derechos ejercidos por las entidades de radiodifusión respecto de sus propias emisiones, radiodifusiones vía satélite o transmisiones, con independencia de que los referidos derechos sean suyos o les hayan sido transferidos por otros titulares de derechos de autor.
 f) Cuando, por falta de acuerdo entre las partes, no se llegue a celebrar un contrato para la autorización de la retransmisión por cable, las partes podrán acceder, por vía de mediación, a la Comisión Mediadora y Arbitral de la Propiedad Intelectual.
 Será aplicable a la mediación contemplada en el párrafo anterior lo previsto en el artículo 193 y en el real decreto de desarrollo de dicha disposición.
-g) Cuando alguna de las partes, en abuso de su posición negociadora, impida la iniciación o prosecución de buena fe de las negociaciones para la autorización de la retransmisión por cable, u obstaculice, sin justificación válida, las negociaciones o la mediación a que se refiere el párrafo anterior, se aplicará lo dispuesto en el Título I, capítulo I, de la Ley 16/1989, de 17 de julio, de Defensa de la Competencia.
+g) Cuando alguna de las partes, en abuso de su posición negociadora, impida la iniciación o prosecución de buena fe de las negociaciones para la autorización de la retransmisión por cable, u obstaculice, sin justificación válida, las negociaciones o la mediación a que se refiere el párrafo anterior, se aplicará lo dispuesto en el Título I, capítulo I, de la
+Ley 16/1989, de 17 de julio
+, de Defensa de la Competencia.
 Se modifica la letra f) del apartado 2 por el art. 80.1 del Real Decreto-ley 24/2021, de 2 de noviembre.
 Ref. BOE-A-2021-17910
 Se modifican el tercer párrafo de la letra c) y el segundo párrafo de la letra f) del apartado 4 por el art. único.1 de la Ley 2/2019, de 1 de marzo.
@@ -717,7 +740,9 @@ Artículo 24. Derecho de participación.
 2. El derecho de participación se reconoce al autor de la obra y a sus derechohabientes tras la muerte o declaración de fallecimiento.
 3. La protección del derecho de participación se reconoce a los autores españoles, a los autores nacionales de otros Estados miembros de la Unión Europea, así como a los nacionales de terceros países con residencia habitual en España. Para los autores que sean nacionales de terceros países y no tengan residencia habitual en España, el derecho de participación se reconocerá únicamente cuando la legislación del país de que el autor sea nacional reconozca a su vez el derecho de participación a los autores de los Estados miembros de la Unión Europea y a sus derechohabientes.
 4. El derecho se aplicará a todas las reventas en las que participen, como vendedores, compradores o intermediarios, profesionales del mercado del arte tales como salas de venta, salas de subastas, galerías de arte, marchantes de obras de arte y, en general, cualquier persona física o jurídica que realice habitualmente actividades de intermediación en este mercado.
-5. El derecho se aplicará igualmente cuando los profesionales del mercado del arte lleven a cabo las actividades descritas a través de prestadores de servicios de la sociedad de la información, de conformidad con lo establecido en la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico.
+5. El derecho se aplicará igualmente cuando los profesionales del mercado del arte lleven a cabo las actividades descritas a través de prestadores de servicios de la sociedad de la información, de conformidad con lo establecido en la
+Ley 34/2002, de 11 de julio
+, de Servicios de la Sociedad de la Información y de Comercio Electrónico.
 6. Se exceptúan de los apartados 4 y 5 los actos de reventa de la obra que haya sido comprada por una galería de arte directamente al autor, siempre que el período transcurrido entre esta primera adquisición y la reventa no supere tres años y el precio de reventa no exceda de 10.000 euros excluidos impuestos.
 7. El derecho de participación de los autores nacerá cuando el precio de la reventa sea igual o superior a 800 euros, excluidos los impuestos, por obra vendida o conjunto concebido con carácter unitario.
 8. El importe de la participación que corresponderá a los autores estará en función de los siguientes porcentajes:
@@ -790,7 +815,9 @@ a) La determinación de la cuantía de la compensación equitativa se calculará
 3.º El impacto del límite legal de copia privada sobre la venta de ejemplares de las obras, teniendo en cuenta el grado de sustitución real de estos por las copias privadas realizadas y el efecto que supone que el adquirente de un ejemplar o copia original tenga la posibilidad de realizar copias privadas.
 4.º El precio de la unidad de cada modalidad reproducida.
 5.º El carácter digital o analógico de las reproducciones efectuadas al amparo del límite legal de copia privada, o la calidad y el tiempo de conservación de las reproducciones.
-6.º La disponibilidad, grado de aplicación y efectividad de las medidas tecnológicas a las que se refiere el artículo 160.3 del texto refundido de la Ley de Propiedad Intelectual y su impacto en las reproducciones realizadas al amparo del límite legal de copia privada.
+6.º La disponibilidad, grado de aplicación y efectividad de las medidas tecnológicas a las que se refiere el artículo 160.3 del texto refundido de la
+Ley de Propiedad Intelectual
+y su impacto en las reproducciones realizadas al amparo del límite legal de copia privada.
 7.º Las cuantías de la compensación equitativa por copia privada que resulte de aplicación en otros Estados miembros de la Unión Europea siempre que existan bases homogéneas de comparación.
 b) No darán origen a una obligación de compensación aquellas situaciones en las que el perjuicio causado al titular del derecho de reproducción haya sido mínimo, que se determinarán mediante real decreto.
 c) No tendrán la consideración de reproducciones para uso privado las siguientes:
@@ -801,7 +828,9 @@ d) Los equipos, aparatos y soportes materiales de reproducción concebidos manif
 a) Para los fabricantes en tanto actúen como distribuidores y para los adquirentes de equipos, aparatos y soportes materiales fuera del territorio español con destino a su distribución comercial en este, en el momento en que se produzca por parte del deudor la transmisión de la propiedad o, en su caso, la cesión del uso o disfrute de cualquiera de aquellos.
 b) Para los adquirentes de equipos, aparatos y soportes materiales fuera del territorio español con destino a su utilización dentro de dicho territorio, desde el momento de su adquisición.
 7. Quedarán exceptuadas del pago de la compensación, las siguientes adquisiciones de equipos, aparatos y soportes materiales de reproducción:
-a) Las realizadas por las entidades que integran el sector público según se establezca en el texto refundido de la Ley de Contratos del Sector Público, aprobado por Real Decreto Legislativo 3/2011, de 14 de noviembre, así como por el Congreso de los Diputados, el Senado, el Consejo General del Poder Judicial, el Tribunal de Cuentas, el Defensor del Pueblo, las Asambleas legislativas de las Comunidades Autónomas y las instituciones autonómicas análogas al Tribunal de Cuentas y al Defensor del Pueblo. Esta exceptuación se podrá acreditar a los deudores y, en su caso, a los responsables solidarios:
+a) Las realizadas por las entidades que integran el sector público según se establezca en el
+texto refundido de la Ley de Contratos del Sector Público, aprobado por Real Decreto Legislativo 3/2011, de 14 de noviembre
+, así como por el Congreso de los Diputados, el Senado, el Consejo General del Poder Judicial, el Tribunal de Cuentas, el Defensor del Pueblo, las Asambleas legislativas de las Comunidades Autónomas y las instituciones autonómicas análogas al Tribunal de Cuentas y al Defensor del Pueblo. Esta exceptuación se podrá acreditar a los deudores y, en su caso, a los responsables solidarios:
 1.º Mediante una certificación emitida por el órgano competente de la Administración General del Estado, de las Administraciones de las Comunidades Autónomas, de las Entidades que integran la Administración Local, de las entidades gestoras y los servicios comunes de la Seguridad Social, de las Universidades Públicas así como del Congreso de los Diputados, el Senado, el Consejo General del Poder Judicial, el Consejo de Estado, el Tribunal de Cuentas, el Defensor del Pueblo, las Asambleas legislativas de las Comunidades Autónomas y las instituciones autonómicas análogas al Consejo de Estado, Tribunal de Cuentas y al Defensor del Pueblo.
 2.º Mediante una certificación emitida por el órgano de dirección y tutela respecto de las mutuas colaboradoras con la Seguridad Social.
 3.º Mediante una certificación emitida por la administración territorial de la que dependan o a la que estén vinculados el resto de entes que conforman el sector público.
@@ -1127,7 +1156,9 @@ No será considerada transformación que exija consentimiento del autor la parod
 Subir
 [Bloque 61: #a40]
 Artículo 40. Tutela del derecho de acceso a la cultura.
-Si a la muerte o declaración de fallecimiento del autor, sus derechohabientes ejerciesen su derecho a la no divulgación de la obra, en condiciones que vulneren lo dispuesto en el artículo 44 de la Constitución, el Juez podrá ordenar las medidas adecuadas a petición del Estado, las Comunidades Autónomas, las Corporaciones locales, las instituciones públicas de carácter cultural o de cualquier otra persona que tenga un interés legítimo.
+Si a la muerte o declaración de fallecimiento del autor, sus derechohabientes ejerciesen su derecho a la no divulgación de la obra, en condiciones que vulneren lo dispuesto en el
+artículo 44 de la Constitución
+, el Juez podrá ordenar las medidas adecuadas a petición del Estado, las Comunidades Autónomas, las Corporaciones locales, las instituciones públicas de carácter cultural o de cualquier otra persona que tenga un interés legítimo.
 Subir
 [Bloque 62: #a40bis]
 Artículo 40 bis. Disposición común a todas las del presente capítulo.
@@ -1612,7 +1643,9 @@ c) Quienes pongan en circulación o tengan con fines comerciales cualquier instr
 Subir
 [Bloque 135: #a103]
 Artículo 103. Medidas de protección.
-El titular de los derechos reconocidos en el presente Título podrá instar las acciones y procedimientos que, con carácter general, se disponen en el Título I, Libro III de la presente Ley y las medidas cautelares procedentes, conforme a lo dispuesto en la Ley de Enjuiciamiento Civil.
+El titular de los derechos reconocidos en el presente Título podrá instar las acciones y procedimientos que, con carácter general, se disponen en el Título I, Libro III de la presente Ley y las medidas cautelares procedentes, conforme a lo dispuesto en la
+Ley de Enjuiciamiento Civil
+.
 Se modifica por la disposición final 2.2 de la Ley 1/2000, de 7 de enero.
 Ref. BOE-A-2000-323
 .
@@ -1709,7 +1742,9 @@ Artículo 110. Contrato de trabajo y de arrendamiento de servicios.
 1. Si la interpretación o ejecución se realiza en cumplimiento de un contrato de trabajo o de arrendamiento de servicios, se entenderá, salvo estipulación en contrario, que el empresario o el arrendatario adquieren sobre aquéllas los derechos exclusivos de autorizar la reproducción y la comunicación pública previstos en este título y que se deduzcan de la naturaleza y objeto del contrato.
 2. Lo establecido en el apartado anterior no será de aplicación a los derechos de remuneración reconocidos en los apartados 3, 4 y 5 del artículo 108.
 3. A la remuneración pactada por el artista, intérprete o ejecutante con el empresario o arrendatario por la cesión de sus derechos, le será aplicable lo dispuesto en el artículo 47.
-4. El derecho de revocación regulado en artículo 48 bis, y las obligaciones de información del cesionario o licenciatario de derechos de propiedad intelectual, establecidas en el artículo 75 del Real Decreto-ley 24/2021, de 2 de noviembre, de transposición de directivas de la Unión Europea en las materias de bonos garantizados, distribución transfronteriza de organismos de inversión colectiva, datos abiertos y reutilización de la información del sector público, ejercicio de derechos de autor y derechos afines aplicables a determinadas transmisiones en línea y a las retransmisiones de programas de radio y televisión, exenciones temporales a determinadas importaciones y suministros, de personas consumidoras y para la promoción de vehículos de transporte por carretera limpios y energéticamente eficientes, serán aplicables con respecto a los artistas, intérpretes o ejecutantes en los términos establecidos en el citado artículo 48 bis y en dicha legislación.
+4. El derecho de revocación regulado en artículo 48 bis, y las obligaciones de información del cesionario o licenciatario de derechos de propiedad intelectual, establecidas en el
+artículo 75 del Real Decreto-ley 24/2021, de 2 de noviembre
+, de transposición de directivas de la Unión Europea en las materias de bonos garantizados, distribución transfronteriza de organismos de inversión colectiva, datos abiertos y reutilización de la información del sector público, ejercicio de derechos de autor y derechos afines aplicables a determinadas transmisiones en línea y a las retransmisiones de programas de radio y televisión, exenciones temporales a determinadas importaciones y suministros, de personas consumidoras y para la promoción de vehículos de transporte por carretera limpios y energéticamente eficientes, serán aplicables con respecto a los artistas, intérpretes o ejecutantes en los términos establecidos en el citado artículo 48 bis y en dicha legislación.
 Se modifica por el art. 80.6 del Real Decreto-ley 24/2021, de 2 de noviembre.
 Ref. BOE-A-2021-17910
 Se modifica por el art. único.13 de la Ley 23/2006, de 7 de julio.
@@ -1948,7 +1983,9 @@ Estos derechos no podrán ser invocados frente a los autores y otros titulares d
 3. Las editoriales de publicaciones de prensa y agencias de noticias podrán autorizar el ejercicio de los derechos reconocidos en el apartado 1 del presente artículo a los prestadores de servicios de la sociedad de la información. La negociación de dichas autorizaciones se realizará de acuerdo con los principios de buena fe contractual, diligencia debida, transparencia y respeto a las reglas de la libre competencia, excluyendo el abuso de posición de dominio en la negociación.
 Dicha autorización se recogerá en un acuerdo celebrado al efecto con el prestador de servicios de la sociedad de la información, que deberá reunir los siguientes requisitos:
 a) Se deberá respetar la independencia editorial de las editoriales de publicaciones de prensa y agencias de noticias.
-b) El prestador de servicios de la sociedad de la información, en el marco de la relación contractual que establezca con la editorial de publicaciones de prensa o agencia de noticias, deberá informar de forma detallada y suficiente sobre los parámetros principales que rigen la clasificación de los contenidos y la importancia relativa de dichos parámetros principales, atendiendo a lo establecido en el Reglamento (UE) 2019/1150 del Parlamento Europeo y del Consejo, de 20 de junio de 2019, sobre el fomento de la equidad y la transparencia para los usuarios profesionales de servicios de intermediación en línea. Esta información deberá mantenerse actualizada.
+b) El prestador de servicios de la sociedad de la información, en el marco de la relación contractual que establezca con la editorial de publicaciones de prensa o agencia de noticias, deberá informar de forma detallada y suficiente sobre los parámetros principales que rigen la clasificación de los contenidos y la importancia relativa de dichos parámetros principales, atendiendo a lo establecido en el
+Reglamento (UE) 2019/1150 del Parlamento Europeo y del Consejo, de 20 de junio de 2019
+, sobre el fomento de la equidad y la transparencia para los usuarios profesionales de servicios de intermediación en línea. Esta información deberá mantenerse actualizada.
 c) No cabrá establecer otros contratos o prestaciones vinculados a este acuerdo que no se refieran a las explotaciones de las publicaciones de prensa.
 d) Será competente para conocer de las cuestiones litigiosas sobre el acuerdo la Sección Primera de la Comisión de Propiedad Intelectual, contra cuyas resoluciones cabrá recurso ante los órganos jurisdiccionales españoles que resulten competentes.
 4. No obstante lo establecido en el apartado anterior, las editoriales de publicaciones de prensa y agencias de noticias podrán otorgar las autorizaciones para el ejercicio de los derechos reconocidos en el apartado 1 a través de los mecanismos de gestión colectiva, según lo establecido en la presente ley. En estos casos, deberán también respetarse los requisitos del apartado anterior.
@@ -2032,7 +2069,9 @@ Subir
 [Bloque 178: #a133]
 Artículo 133. Objeto de protección.
 1. El derecho «sui generis» sobre una base de datos protege la inversión sustancial, evaluada cualitativa o cuantitativamente, que realiza su fabricante ya sea de medios financieros, empleo de tiempo, esfuerzo, energía u otros de similar naturaleza, para la obtención, verificación o presentación de su contenido.
-Mediante el derecho al que se refiere el párrafo anterior, el fabricante de una base de datos, definida en el artículo 12.2 del presente texto refundido de la Ley de Propiedad Intelectual, puede prohibir la extracción y/o reutilización de la totalidad o de una parte sustancial del contenido de ésta, evaluada cualitativa o cuantitativamente, siempre que la obtención, la verificación o la presentación de dicho contenido representen una inversión sustancial desde el punto de vista cuantitativo o cualitativo. Este derecho podrá transferirse, cederse o darse en licencia contractual.
+Mediante el derecho al que se refiere el párrafo anterior, el fabricante de una base de datos, definida en el artículo 12.2 del presente texto refundido de la
+Ley de Propiedad Intelectual
+, puede prohibir la extracción y/o reutilización de la totalidad o de una parte sustancial del contenido de ésta, evaluada cualitativa o cuantitativamente, siempre que la obtención, la verificación o la presentación de dicho contenido representen una inversión sustancial desde el punto de vista cuantitativo o cualitativo. Este derecho podrá transferirse, cederse o darse en licencia contractual.
 2. No obstante lo dispuesto en el párrafo segundo del apartado anterior, no estarán autorizadas la extracción y/o reutilización repetidas o sistemáticas de partes no sustanciales del contenido de una base de datos que supongan actos contrarios a una explotación normal de dicha base o que causen un perjuicio injustificado a los intereses legítimos del fabricante de la base.
 3. A los efectos del presente Título se entenderá por:
 a) Fabricante de la base de datos, la persona natural o jurídica que toma la iniciativa y asume el riesgo de efectuar las inversiones sustanciales orientadas a la obtención, verificación o presentación de su contenido.
@@ -2110,9 +2149,13 @@ Subir
 [Bloque 185: #a138]
 Artículo 138. Acciones y medidas cautelares urgentes.
 El titular de los derechos reconocidos en esta ley, sin perjuicio de otras acciones que le correspondan, podrá instar el cese de la actividad ilícita del infractor y exigir la indemnización de los daños materiales y morales causados, en los términos previstos en los artículos 139 y 140. También podrá instar la publicación o difusión, total o parcial, de la resolución judicial o arbitral en medios de comunicación a costa del infractor.
-Tendrá también la consideración de responsable de la infracción quien induzca a sabiendas la conducta infractora; quien coopere con la misma, conociendo la conducta infractora o contando con indicios razonables para conocerla; y quien, teniendo un interés económico directo en los resultados de la conducta infractora, cuente con una capacidad de control sobre la conducta del infractor. Lo anterior no afecta a las limitaciones de responsabilidad específicas establecidas en los artículos 14 a 17 de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico, en la medida en que se cumplan los requisitos legales establecidos en dicha ley para su aplicación.
+Tendrá también la consideración de responsable de la infracción quien induzca a sabiendas la conducta infractora; quien coopere con la misma, conociendo la conducta infractora o contando con indicios razonables para conocerla; y quien, teniendo un interés económico directo en los resultados de la conducta infractora, cuente con una capacidad de control sobre la conducta del infractor. Lo anterior no afecta a las limitaciones de responsabilidad específicas establecidas en los
+artículos 14 a 17 de la Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y de comercio electrónico, en la medida en que se cumplan los requisitos legales establecidos en dicha ley para su aplicación.
 Asimismo, podrá solicitar con carácter previo la adopción de las medidas cautelares de protección urgente reguladas en el artículo 141.
-Tanto las medidas de cesación específicas contempladas en el artículo 139.1.h) como las medidas cautelares previstas en el artículo 141.6 podrán también solicitarse, cuando sean apropiadas, contra los intermediarios a cuyos servicios recurra un tercero para infringir derechos de propiedad intelectual reconocidos en esta ley, aunque los actos de dichos intermediarios no constituyan en sí mismos una infracción, sin perjuicio de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico. Dichas medidas habrán de ser objetivas, proporcionadas y no discriminatorias.
+Tanto las medidas de cesación específicas contempladas en el artículo 139.1.h) como las medidas cautelares previstas en el artículo 141.6 podrán también solicitarse, cuando sean apropiadas, contra los intermediarios a cuyos servicios recurra un tercero para infringir derechos de propiedad intelectual reconocidos en esta ley, aunque los actos de dichos intermediarios no constituyan en sí mismos una infracción, sin perjuicio de lo dispuesto en la
+Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y de comercio electrónico. Dichas medidas habrán de ser objetivas, proporcionadas y no discriminatorias.
 Se modifica por el art. 1.10 de la Ley 21/2014, de 4 de noviembre.
 Ref. BOE-A-2014-11404
 .
@@ -2143,7 +2186,9 @@ d) La retirada de los circuitos comerciales, la inutilización, y, en caso neces
 e) La remoción o el precinto de los aparatos utilizados en la comunicación pública no autorizada de obras o prestaciones, así como de aquellas en las que se haya suprimido o alterado sin autorización la información para la gestión electrónica de derechos, en los términos previstos en el artículo 198, o a las que se haya accedido eludiendo su protección tecnológica, en los términos previstos en el artículo 196.
 f) El comiso, la inutilización y, en caso necesario, la destrucción de los instrumentos, con cargo al infractor, cuyo único uso sea facilitar la supresión o neutralización no autorizadas de cualquier dispositivo técnico utilizado para proteger un programa de ordenador. Las mismas medidas podrán adoptarse en relación con los dispositivos, productos o componentes para la elusión de medidas tecnológicas a los que se refiere el artículo 196 y para suprimir o alterar la información para la gestión electrónica de derechos a que se refiere el artículo 198.
 g) La remoción o el precinto de los instrumentos utilizados para facilitar la supresión o la neutralización no autorizadas de cualquier dispositivo técnico utiliza­do para proteger obras o prestaciones aunque aquélla no fuera su único uso.
-h) La suspensión de los servicios prestados por intermediarios a terceros que se valgan de ellos para infringir derechos de propiedad intelectual, sin perjuicio de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico.
+h) La suspensión de los servicios prestados por intermediarios a terceros que se valgan de ellos para infringir derechos de propiedad intelectual, sin perjuicio de lo dispuesto en la
+Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y de comercio electrónico.
 2. El infractor podrá solicitar que la destrucción o inutilización de los mencionados ejemplares y material, cuando éstos sean susceptibles de otras utilizaciones, se efectúe en la medida necesaria para impedir la explotación ilícita.
 3. El titular del derecho infringido podrá pedir la entrega de los referidos ejemplares y material a precio de coste y a cuenta de su correspondiente indemnización de daños y perjuicios.
 4. Lo dispuesto en este artículo no se aplicará a los ejemplares adquiridos de buena fe para uso personal.
@@ -2199,8 +2244,12 @@ En caso de infracción o cuando exista temor racional y fundado de que ésta va 
 3. El secuestro de los ejemplares producidos o utilizados y el del material empleado principalmente para la reproducción o comunicación pública.
 4. El secuestro de los instrumentos, dispositivos, productos y componentes referidos en los artículos 102.c) y 196.2 y de los utilizados para la supresión o alteración de la información para la gestión electrónica de los derechos referidos en el artículo 198.2.
 5. El embargo de los equipos, aparatos y soportes materiales a los que se refiere el artículo 25, que quedarán afectos al pago de la compensación reclamada y a la oportuna indemnización de daños y perjuicios.
-6. La suspensión de los servicios prestados por intermediarios a terceros que se valgan de ellos para infringir derechos de propiedad intelectual, sin perjuicio de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y del comercio electrónico.
-La adopción de las medidas cautelares quedará sin efecto si no se presentara la correspondiente demanda en los términos previstos en la Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil.
+6. La suspensión de los servicios prestados por intermediarios a terceros que se valgan de ellos para infringir derechos de propiedad intelectual, sin perjuicio de lo dispuesto en la
+Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y del comercio electrónico.
+La adopción de las medidas cautelares quedará sin efecto si no se presentara la correspondiente demanda en los términos previstos en la
+Ley 1/2000, de 7 de enero
+, de Enjuiciamiento Civil.
 Se modifica el apartado 4 por el art. único.6 de la Ley 2/2019, de 1 de marzo.
 Ref. BOE-A-2019-2974
 Se modifica el apartado 4 por el art. único.6 del Real Decreto-ley 2/2018, de 13 de abril.
@@ -2240,7 +2289,9 @@ Texto original, publicado el 22/04/1996, en vigor a partir del 23/04/1996.
 Subir
 [Bloque 193: #a143]
 Artículo 143. Causas criminales.
-En las causas criminales que se sigan por infracción de los derechos reconocidos en esta Ley, podrán adoptarse las medidas cautelares procedentes en procesos civiles, conforme a lo dispuesto en la Ley de Enjuiciamiento Civil. Estas medidas no impedirán la adopción de cualesquiera otras establecidas en la legislación procesal penal.
+En las causas criminales que se sigan por infracción de los derechos reconocidos en esta Ley, podrán adoptarse las medidas cautelares procedentes en procesos civiles, conforme a lo dispuesto en la
+Ley de Enjuiciamiento Civil
+. Estas medidas no impedirán la adopción de cualesquiera otras establecidas en la legislación procesal penal.
 Se modifica por la disposición final 2.3 de la Ley 1/2000, de 7 de enero.
 Ref. BOE-A-2000-323
 .
@@ -2538,7 +2589,7 @@ Modificación publicada el 12/12/1997, en vigor a partir del 12/12/1997.
 Texto original, publicado el 22/04/1996, en vigor a partir del 23/04/1996.
 Subir
 [Bloque 210: #a155]
-Artículo 155.  Competencias de las Administraciones Públicas.
+Artículo 155. Competencias de las Administraciones Públicas.
 1. Corresponderán, en todo caso, al Ministerio de Cultura y Deporte, las siguientes funciones:
 a) La comprobación del cumplimiento de los requisitos legales al inicio de la actividad y la inhabilitación legal para operar de las entidades de gestión y de los operadores de gestión independientes, conforme a lo previsto en esta ley.
 b) La aprobación de las modificaciones estatutarias presentadas por las entidades de gestión que dispongan de la autorización prevista en el artículo 147, una vez que lo hayan sido por la respectiva asamblea general y sin perjuicio de lo dispuesto por otras normas de aplicación. Las entidades de gestión deberán cursar esta solicitud de aprobación por el Ministerio de Cultura y Deporte dentro del mes siguiente a la aprobación de la modificación estatutaria por la asamblea general correspondiente. La aprobación administrativa se entenderá concedida si no se notifica resolución en contrario en el plazo de tres meses desde la presentación de la solicitud.
@@ -2739,7 +2790,9 @@ a) Aprobar las modificaciones de los estatutos de la entidad.
 b) Ratificar el reglamento de reparto de los derechos recaudados elaborado por los órganos de gobierno y representación conforme a los principios generales regulados en los estatutos de la entidad de gestión.
 c) Respecto de las personas que conforman los órganos de gobierno y representación de la entidad y del órgano de control interno, aprobar sus nombramientos y ceses, examinar su rendimiento y aprobar sus remuneraciones y otras prestaciones como ganancias monetarias y no monetarias, pensiones y subsidios, derechos a otras primas y el derecho a una indemnización por despido.
 d) Aprobar la política general de utilización de los importes que no puedan ser objeto de reparto en los términos previstos en el artículo 177.6.
-e) Aprobar la política general de inversión de los derechos recaudados y de cualquier otro rendimiento derivado de la inversión de los mismos, que deberá observar en todo caso los principios y recomendaciones establecidos en los códigos de conducta regulados según la disposición adicional quinta del texto refundido de la Ley del Mercado de Valores y su normativa de desarrollo, aprobado por Real Decreto Legislativo 4/2015, de 23 de octubre.
+e) Aprobar la política general de inversión de los derechos recaudados y de cualquier otro rendimiento derivado de la inversión de los mismos, que deberá observar en todo caso los principios y recomendaciones establecidos en los códigos de conducta regulados según la disposición adicional quinta del
+texto refundido de la Ley del Mercado de Valores y su normativa de desarrollo, aprobado por Real Decreto Legislativo 4/2015, de 23 de octubre
+.
 f) Aprobar la política general de deducciones practicadas sobre los derechos recaudados y sobre cualquier otro rendimiento derivado de la inversión de los mismos.
 g) Aprobar la política de gestión de riesgos.
 h) Aprobar cualquier adquisición, venta o hipoteca de bienes inmuebles.
@@ -3221,7 +3274,7 @@ En ningún caso se entenderá que la prescripción de las cantidades afectas y d
 7. Transcurridos tres años desde el 1 de enero del año siguiente al de la puesta a disposición del titular de las cantidades que le correspondan o de la recaudación, las entidades de gestión podrán disponer, anualmente y de forma anticipada, de hasta la mitad de las cantidades pendientes de prescripción, para los mismos fines previstos en el apartado anterior, sin perjuicio de las reclamaciones de los titulares sobre dichas cantidades no prescritas. A estos efectos, las entidades de gestión constituirán un depósito de garantía con el diez por ciento de las cantidades dispuestas.
 8. Las entidades de gestión no podrán conceder créditos o préstamos, directa o indirectamente, ni afianzar, avalar o garantizar de cualquier modo obligaciones de terceros, salvo autorización expresa y singular de la Administración competente conforme al artículo 155 y siempre y cuando estén directamente relacionadas con actividades asistenciales y/o promocionales que redunden en beneficio de los titulares de derechos representados.
 9. Las entidades de gestión solo podrán conceder anticipos a los miembros de la entidad, a cuenta de los futuros repartos de derechos recaudados, cuando su concesión se base en normas no discriminatorias y no comprometan el resultado final de los repartos de derechos.
-Téngase en cuenta que no serán de aplicación los porcentajes mínimos previstos en el apartado 6 durante un plazo de cuatro años a partir del 7 de mayo de 2020, actuando durante ese periodo de tiempo en la forma establecida por la disposición adicional 7 del Real Decreto-ley 17/2020, de 5 de  mayo,
+Téngase en cuenta que no serán de aplicación los porcentajes mínimos previstos en el apartado 6 durante un plazo de cuatro años a partir del 7 de mayo de 2020, actuando durante ese periodo de tiempo en la forma establecida por la disposición adicional 7 del Real Decreto-ley 17/2020, de 5 de mayo,
 Ref. BOE-A-2020-4832
 , en la redacción dada por la disposición final 27 del Real Decreto-ley 6/2022, de 29 de marzo.
 Ref. BOE-A-2022-4972
@@ -3465,17 +3518,35 @@ Texto añadido, publicado el 14/04/2018, en vigor a partir del 15/04/2018.
 Subir
 [Bloque 261: #a1-21]
 Artículo 187. Contabilidad y auditoría.
-1. Las entidades de gestión deberán presentar sus cuentas anuales elaboradas de conformidad con el Plan de Contabilidad de las entidades sin fines lucrativos y las formularán exclusivamente según los modelos normales previstos en él. Asimismo, deberán presentar el informe de gestión que acompañe a dichas cuentas anuales con el contenido establecido en el artículo 262 del texto refundido de la Ley de Sociedades de Capital, aprobado por el Real Decreto Legislativo 1/2010, de 2 de julio.
-Las entidades de gestión que participen en sociedades mercantiles y se encuentren en cualquiera de los supuestos previstos para la sociedad dominante en los artículos 42 y 43 del Código de Comercio, deberán formular cuentas anuales y el informe de gestión consolidados en los términos previstos en dicho Código y en el Real Decreto 1159/2010, de 17 de septiembre, por el que se aprueban las Normas para la Formulación de Cuentas Anuales Consolidadas y se modifica el Plan General de Contabilidad aprobado por Real Decreto 1514/2007, de 16 de noviembre, y el Plan General de Contabilidad de Pequeñas y Medianas Empresas aprobado por Real Decreto 1515/2007, de 16 de noviembre.
-2. Todas las entidades de gestión someterán a auditoría sus cuentas anuales. La auditoría se contratará y realizará de acuerdo con lo previsto en la Ley 22/2015, de 20 de julio, de Auditoría de Cuentas disponiendo los auditores de un plazo mínimo de un mes, a partir del momento en que les fueran entregadas las cuentas anuales formuladas, para realizar el informe de auditoría.
+1. Las entidades de gestión deberán presentar sus cuentas anuales elaboradas de conformidad con el Plan de Contabilidad de las entidades sin fines lucrativos y las formularán exclusivamente según los modelos normales previstos en él. Asimismo, deberán presentar el informe de gestión que acompañe a dichas cuentas anuales con el contenido establecido en el
+artículo 262 del texto refundido de la Ley de Sociedades de Capital, aprobado por el Real Decreto Legislativo 1/2010, de 2 de julio
+.
+Las entidades de gestión que participen en sociedades mercantiles y se encuentren en cualquiera de los supuestos previstos para la sociedad dominante en los
+artículos 42 y 43 del Código de Comercio
+, deberán formular cuentas anuales y el informe de gestión consolidados en los términos previstos en dicho Código y en el
+Real Decreto 1159/2010, de 17 de septiembre
+, por el que se aprueban las Normas para la Formulación de Cuentas Anuales Consolidadas y se modifica el
+Plan General de Contabilidad aprobado por Real Decreto 1514/2007, de 16 de noviembre
+, y el Plan General de Contabilidad de Pequeñas y Medianas Empresas aprobado por
+Real Decreto 1515/2007, de 16 de noviembre
+.
+2. Todas las entidades de gestión someterán a auditoría sus cuentas anuales. La auditoría se contratará y realizará de acuerdo con lo previsto en la
+Ley 22/2015, de 20 de julio
+, de Auditoría de Cuentas disponiendo los auditores de un plazo mínimo de un mes, a partir del momento en que les fueran entregadas las cuentas anuales formuladas, para realizar el informe de auditoría.
 El cumplimiento de las obligaciones establecidas en los apartados 3 y 5 del artículo 175 y en el segundo párrafo del artículo 177.5 se revisará anualmente, por los auditores mencionados en el párrafo anterior, con el fin de verificar que se cumple con lo legalmente exigido. Los auditores deberán emitir un informe, que acompañará a su informe de auditoría de las cuentas anuales, en el que se ponga de manifiesto el resultado de su revisión y, en su caso, las incorrecciones detectadas.
 Los auditores serán nombrados por la asamblea general de la entidad celebrada antes de que finalice el ejercicio a auditar. La asamblea general no podrá revocar a los auditores antes de que finalice el período para el que fueron nombrados, a no ser que medie justa causa.
-Cuando la asamblea general no hubiera nombrado al auditor antes de finalizar el ejercicio a auditar o la persona nombrada no acepte el encargo o no pueda cumplir sus funciones, el máximo órgano ejecutivo de la entidad deberá solicitar del registrador mercantil del domicilio social la designación de la persona o personas que deban realizar la auditoría, de acuerdo con lo dispuesto en el Reglamento del Registro Mercantil para las sociedades mercantiles. En estos casos, dicha solicitud al Registrador Mercantil también podrá ser realizada por cualquier miembro de la entidad.
+Cuando la asamblea general no hubiera nombrado al auditor antes de finalizar el ejercicio a auditar o la persona nombrada no acepte el encargo o no pueda cumplir sus funciones, el máximo órgano ejecutivo de la entidad deberá solicitar del registrador mercantil del domicilio social la designación de la persona o personas que deban realizar la auditoría, de acuerdo con lo dispuesto en el
+Reglamento del Registro Mercantil
+para las sociedades mercantiles. En estos casos, dicha solicitud al Registrador Mercantil también podrá ser realizada por cualquier miembro de la entidad.
 3. El máximo órgano ejecutivo de la entidad de gestión formulará las cuentas anuales y el informe de gestión dentro de los tres primeros meses siguientes al cierre de cada ejercicio.
 Las cuentas anuales y el informe de gestión, el informe anual de transparencia y los distintos informes que deben realizar los auditores, conforme a lo previsto en el apartado 2 y en el artículo 189.2, se pondrán a disposición de los miembros de la entidad electrónicamente o en su domicilio social y en el de las delegaciones territoriales, de forma gratuita en ambos casos, con una antelación mínima de quince días al de la celebración de la asamblea general en la que hayan de ser aprobadas. En la convocatoria de la asamblea general, que también se anunciará en la página web de la entidad, se hará mención de este derecho.
 Las cuentas anuales deberán ser aprobadas por la asamblea general en el plazo de seis meses desde el cierre de cada ejercicio.
 4. Dentro del mes siguiente a la aprobación de las cuentas anuales, o, en su caso, de las cuentas consolidadas, se presentará para su depósito en el Registro Mercantil del domicilio social certificación de los acuerdos de la asamblea general de aprobación de las cuentas anuales, a la que se adjuntará un ejemplar de cada una de dichas cuentas, normales o consolidadas, del informe de gestión y del informe de los auditores. También se adjuntará un ejemplar del informe anual de transparencia.
-A esta obligación de depósito le serán de aplicación, en cuanto sea procedente, las normas establecidas en el Texto refundido de la Ley de Sociedades de Capital y en el Reglamento del Registro Mercantil.
+A esta obligación de depósito le serán de aplicación, en cuanto sea procedente, las normas establecidas en el
+Texto refundido de la Ley de Sociedades de Capital
+y en el
+Reglamento del Registro Mercantil
+.
 Se añade por el art. único.7 de la Ley 2/2019, de 1 de marzo.
 Ref. BOE-A-2019-2974
 Téngase en cuenta, para su aplicación, la disposición final 3 de la citada Ley.
@@ -3535,7 +3606,11 @@ Artículo 190. Responsabilidad administrativa, órganos competentes sancionadore
 1. Las entidades de gestión, las entidades que de ellas dependan y los operadores de gestión independiente incurrirán en responsabilidad administrativa por las infracciones que cometan en el ejercicio de sus funciones con arreglo a lo dispuesto en la presente ley.
 2. El ejercicio de la potestad sancionadora corresponde a la Administración competente de conformidad con el artículo 155. La inhabilitación legal para operar corresponde, en todo caso, al Ministerio de Cultura y Deporte.
 3. Cuando el ejercicio de la potestad sancionadora corresponda al Ministerio de Cultura y Deporte, la imposición de las sanciones previstas en este capítulo corresponderá, en el caso de infracciones muy graves, al Ministro de Cultura y Deporte y, en el caso de infracciones graves y leves, al Subsecretario de Cultura y Deporte. La instrucción de los correspondientes procedimientos sancionadores corresponderá, en todos los casos, al Subdirector General de Propiedad Intelectual.
-4. El ejercicio de la potestad sancionadora se regirá por el procedimiento establecido en la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas y conforme a los principios previstos en la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público. No obstante, el plazo máximo en el que debe notificarse la resolución expresa en los procedimientos incoados por infracciones muy graves será de dieciocho meses y en los procedimientos incoados por infracciones graves de doce meses.
+4. El ejercicio de la potestad sancionadora se regirá por el procedimiento establecido en la
+Ley 39/2015, de 1 de octubre
+, del Procedimiento Administrativo Común de las Administraciones Públicas y conforme a los principios previstos en la
+Ley 40/2015, de 1 de octubre
+, de Régimen Jurídico del Sector Público. No obstante, el plazo máximo en el que debe notificarse la resolución expresa en los procedimientos incoados por infracciones muy graves será de dieciocho meses y en los procedimientos incoados por infracciones graves de doce meses.
 5. Cuando una entidad de gestión o un operador de gestión independiente que tenga establecimiento en otro Estado de la Unión Europea infrinja en territorio español la normativa de su Estado de establecimiento reguladora de la gestión colectiva de derechos de propiedad intelectual, la Administración competente conforme al artículo 155 podrá remitir toda la información pertinente a la autoridad competente de aquel Estado. Asimismo, podrá solicitar que esa autoridad adopte las medidas adecuadas en el marco de sus competencias.
 6. Las entidades de gestión y los operadores de gestión independientes que tengan establecimiento fuera de la Unión Europea pero presten servicios en España conforme a lo previsto en este título incurrirán en responsabilidad administrativa por las infracciones que cometan por el incumplimiento de sus obligaciones previstas en esta ley en los mismos términos que las entidades de gestión y los operadores de gestión independientes con establecimiento en España.
 Se añade por el art. único.7 de la Ley 2/2019, de 1 de marzo.
@@ -3587,8 +3662,14 @@ b) Multa de entre un 1 y un 2 por ciento de la recaudación total obtenida por e
 4. Las resoluciones sancionadoras por infracciones graves podrán ser publicadas en el «Boletín Oficial del Estado» y, en su caso, en el de la Comunidad Autónoma correspondiente, una vez que sean firmes en vía administrativa, y previa disociación de los datos personales que contengan.
 5. Por la comisión de infracciones leves se impondrá al sujeto infractor multa por importe no superior a 200.000 euros ni a un 0,5 por ciento de su recaudación total correspondiente al año anterior a la fecha de imposición de la multa.
 6. Cuando el sujeto infractor fuese una entidad dependiente de una entidad de gestión, se tendrán en consideración, a efectos de determinar la multa, la recaudación de la entidad de gestión de la que dependa.
-7. Para la graduación de las sanciones se atenderá a los criterios establecidos en el artículo 29 de la Ley 40/2015, de 1 de octubre.
-8. Cuando las sanciones pecuniarias hayan sido impuestas por el Ministerio de Cultura y Deporte, los órganos y procedimientos para la recaudación serán los establecidos en el Reglamento General de Recaudación, aprobado por Real Decreto 939/2005, de 29 de julio, y demás normas de aplicación. En los demás casos, los órganos serán los establecidos en la legislación aplicable por las Administraciones Públicas que las hayan impuesto. Será de aplicación lo previsto en el artículo 85 de la Ley 39/2015, de 1 de octubre, respecto de aquellas sanciones en las que el infractor reconozca su responsabilidad.
+7. Para la graduación de las sanciones se atenderá a los criterios establecidos en el
+artículo 29 de la Ley 40/2015, de 1 de octubre
+.
+8. Cuando las sanciones pecuniarias hayan sido impuestas por el Ministerio de Cultura y Deporte, los órganos y procedimientos para la recaudación serán los establecidos en el
+Reglamento General de Recaudación, aprobado por Real Decreto 939/2005, de 29 de julio
+, y demás normas de aplicación. En los demás casos, los órganos serán los establecidos en la legislación aplicable por las Administraciones Públicas que las hayan impuesto. Será de aplicación lo previsto en el
+artículo 85 de la Ley 39/2015, de 1 de octubre
+, respecto de aquellas sanciones en las que el infractor reconozca su responsabilidad.
 9. Una vez iniciado el procedimiento sancionador por la comisión de una infracción muy grave o se aperciba a una entidad de gestión conforme al artículo 149 y siempre que, en ambos casos, concurran razones de urgencia justificadas en dificultad o impedimento objetivo de reinstaurar el cumplimiento de la legalidad, la autoridad competente podrá acordar motivadamente, previa autorización del juez correspondiente al domicilio social de la entidad, la remoción de los órganos de representación de la entidad y su intervención temporal, mediante la designación de un gestor interino que asumirá las funciones legales y estatutarias de los órganos de representación de la entidad, en las siguientes condiciones:
 a) La intervención se realizará por un plazo de seis meses, prorrogable por igual período.
 b) Los gastos derivados de la intervención temporal correrán a cargo de la entidad intervenida.
@@ -3620,9 +3701,17 @@ Artículo 193. Comisión de Propiedad Intelectual: composición y funciones.
 1. Se crea adscrita al Ministerio de Cultura y Deporte la Comisión de Propiedad Intelectual, como órgano colegiado de ámbito nacional, para el ejercicio de las funciones de mediación, arbitraje, determinación de tarifas y control en los supuestos previstos en el presente título, y de salvaguarda de los derechos de propiedad intelectual que le atribuye la presente ley. Asimismo ejercerá funciones de asesoramiento sobre cuantos asuntos de su competencia le sean consultados por el Ministerio de Cultura y Deporte.
 2. La Comisión actuará por medio de dos Secciones:
 a) La Sección Primera ejercerá las funciones de mediación, arbitraje, determinación de tarifas y control en los términos previstos en el presente título.
-b) La Sección Segunda velará, en el ámbito de las competencias del Ministerio de Cultura y Deporte, por la salvaguarda de los derechos de propiedad intelectual frente a su vulneración por los responsables de servicios de la sociedad de información en los términos previstos en los artículos 8 y concordantes de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico.
+b) La Sección Segunda velará, en el ámbito de las competencias del Ministerio de Cultura y Deporte, por la salvaguarda de los derechos de propiedad intelectual frente a su vulneración por los responsables de servicios de la sociedad de información en los términos previstos en los
+artículos 8 y concordantes de la Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y de comercio electrónico.
 3. La Sección Primera estará compuesta por cinco vocales titulares, que podrán delegar sus funciones en sus respectivos suplentes, todos ellos elegidos entre expertos de reconocida competencia en materia de propiedad intelectual y en materia de defensa de la competencia, entre los que el Ministerio de Cultura y Deporte designará al presidente de la Sección, cargo que debe recaer en uno de los vocales designados por este Ministerio. Los vocales de la Sección serán nombrados por el Gobierno, mediante real decreto, a propuesta de los titulares de los Ministerios de Cultura y Deporte, que designará dos vocales; del Ministerio de Economía y Empresa, que designará dos vocales, uno del ámbito Avance Digital y otro del ámbito Economía y Apoyo a la Empresa; y del Ministerio de Justicia, que designará un vocal, por un periodo de cinco años renovable por una sola vez.
-La composición, funcionamiento y actuación de la Sección Primera se regirá por lo dispuesto en esta ley y las normas reglamentarias que la desarrollen y supletoriamente por las previsiones de la Ley 40/2015, de 1 de octubre, y de la Ley 60/2003, de 23 de diciembre, de Arbitraje, y de la Ley 5/2012, de 6 de julio, de mediación en asuntos civiles y mercantiles. El Gobierno podrá modificar reglamentariamente la composición de la Sección Primera.
+La composición, funcionamiento y actuación de la Sección Primera se regirá por lo dispuesto en esta ley y las normas reglamentarias que la desarrollen y supletoriamente por las previsiones de la
+Ley 40/2015, de 1 de octubre
+, y de la
+Ley 60/2003, de 23 de diciembre
+, de Arbitraje, y de la
+Ley 5/2012, de 6 de julio
+, de mediación en asuntos civiles y mercantiles. El Gobierno podrá modificar reglamentariamente la composición de la Sección Primera.
 4. La Sección Segunda, bajo la presidencia del Ministro de Cultura y Deporte o, por delegación de éste, de la persona titular de la Dirección General de Industrias Culturales, Propiedad Intelectual y Cooperación, se compondrá de cuatro vocales del Ministerio de Cultura y Deporte, de los cuales dos procederán del ámbito Propiedad Intelectual, uno del ámbito Tecnologías de la Información y uno del ámbito de la Secretaría General Técnica, designados por los Centros directivos del Departamento que desempeñen dichas competencias en éste, entre el personal de los mismos, perteneciente a grupos o categorías para los que se exija titulación superior, y que reúnan conocimientos específicos acreditados en materia de propiedad intelectual, tecnologías de la información y comunicaciones, Derecho administrativo, Derecho procesal, Derecho de las comunicaciones electrónicas o jurisdicción contencioso-administrativa. Los Centros directivos citados designarán, en el mismo acto, según los requisitos señalados, un suplente para cada uno de los vocales, a los efectos legalmente previstos en los supuestos de vacante, ausencia o enfermedad y, en general, cuando concurra alguna causa justificada.
 Reglamentariamente se determinará el funcionamiento de la Sección Segunda y el procedimiento para el ejercicio de las funciones que tiene atribuidas.
 Se modifica el apartado 4 por la disposición final 11.4 del Real Decreto-ley 17/2020, de 5 de mayo.
@@ -3645,7 +3734,11 @@ Artículo 194. Funciones de mediación, arbitraje, determinación de tarifas y c
 1. La Sección Primera de la Comisión de Propiedad Intelectual ejercerá su función de mediación en los siguientes términos:
 a) Colaborando en las negociaciones, previo sometimiento voluntario de las partes por falta de acuerdo, respecto de aquellas materias directamente relacionadas con la gestión colectiva de derechos de propiedad intelectual y para la autorización de la distribución por cable de una emisión de radiodifusión entre los titulares de los derechos de propiedad intelectual y las empresas de distribución por cable.
 b) Presentando, en su caso, propuestas a las partes.
-Se considerará que todas las partes aceptan la propuesta a que se refiere el párrafo anterior, si ninguna de ellas expresa su oposición en un plazo de tres meses. En este supuesto, la resolución de la Comisión surtirá los efectos previstos en la Ley 60/2003, de 23 de diciembre, de Arbitraje, y será revisable ante el orden jurisdiccional civil. La propuesta y cualquier oposición a la misma se notificarán a las partes, de conformidad con lo dispuesto en el capítulo II del título III de la Ley 39/2015, de 1 de octubre.
+Se considerará que todas las partes aceptan la propuesta a que se refiere el párrafo anterior, si ninguna de ellas expresa su oposición en un plazo de tres meses. En este supuesto, la resolución de la Comisión surtirá los efectos previstos en la
+Ley 60/2003, de 23 de diciembre
+, de Arbitraje, y será revisable ante el orden jurisdiccional civil. La propuesta y cualquier oposición a la misma se notificarán a las partes, de conformidad con lo dispuesto en el
+capítulo II del título III de la Ley 39/2015, de 1 de octubre
+.
 2. La Sección Primera de la Comisión de Propiedad Intelectual actuará en su función de arbitraje:
 a) Dando solución, previo sometimiento voluntario de las partes, a los conflictos sobre materias directamente relacionadas con la gestión colectiva de derechos de propiedad intelectual.
 b) Fijando, a solicitud de la propia entidad de gestión afectada, de una asociación de usuarios, de una entidad de radiodifusión o de un usuario afectado especialmente significativo, a juicio de la Comisión, y previa aceptación de la otra parte, cantidades sustitutorias de las tarifas generales, a los efectos señalados en el apartado 4 del artículo 163, para lo que deberá tener en cuenta al menos los criterios mínimos de determinación de estas, previstos en el artículo 164.3.
@@ -3682,39 +3775,65 @@ a) Los prestadores de servicios de la sociedad de la información que vulneren d
 b) Los prestadores de servicios de la sociedad de la información que vulneren derechos de propiedad intelectual de la forma referida en el párrafo anterior, facilitando la descripción o la localización de obras y prestaciones que indiciariamente se ofrezcan sin autorización, desarrollando a tal efecto una labor activa y no neutral, y que no se limiten a actividades de mera intermediación técnica. En particular, se incluirá a quienes ofrezcan listados ordenados y clasificados de enlaces a las obras y prestaciones referidas anteriormente, con independencia de que dichos enlaces puedan ser proporcionados inicialmente por los destinatarios del servicio.
 c) Los prestadores de los servicios de la sociedad de la información de difusión de televisión por protocolo de Internet (IPTV) que vulneren derechos de propiedad intelectual, así como aquellos prestadores de servicios que faciliten el acceso a la difusión realizada por los anteriores, realizando una labor de intermediación activa y no neutral. En particular, se incluirá a los prestadores de servicios de la sociedad de la información que, como actividad principal, comercialicen electrónicamente cualquier dispositivo, producto, componente o presten algún servicio que permita acceder a la difusión emitida o facilitada por los anteriores.
 d) Los prestadores de servicios de la sociedad de la información que realicen alguna de las actividades comerciales en línea previstas en el apartado 2 del artículo 196 de la presente ley.
-3. El procedimiento se iniciará de oficio, previa denuncia del titular de los derechos de propiedad intelectual que se consideren vulnerados o de la persona que tuviera encomendado su ejercicio, debiendo éste aportar junto a la misma una prueba razonable del previo intento de requerimiento de retirada infructuoso al servicio de la sociedad de la información presuntamente infractor solicitando la retirada de los contenidos específicos ofrecidos sin autorización, siendo suficiente dirigir dicho requerimiento a la dirección electrónica que el prestador facilite al público a efectos de comunicarse con el mismo. Este requerimiento previo podrá considerarse cuando proceda, a efectos de la generación del conocimiento efectivo en los términos establecidos en los artículos 16 y 17 de la Ley 34/2002, de 11 de julio, siempre y cuando identifique exactamente la obra o prestación, al titular de los derechos correspondientes y, al menos, una ubicación donde la obra o prestación es ofrecida en el servicio de la sociedad de la información. En caso de que el prestador de servicios no facilite una dirección electrónica válida para la comunicación con el mismo no será exigible el intento de requerimiento previsto en este párrafo. El intento de requerimiento se considerará infructuoso si el prestador requerido no contesta o, incluso contestando, no retira o inhabilita el acceso a los contenidos correspondientes en un plazo de tres días desde la remisión del correspondiente requerimiento.
+3. El procedimiento se iniciará de oficio, previa denuncia del titular de los derechos de propiedad intelectual que se consideren vulnerados o de la persona que tuviera encomendado su ejercicio, debiendo éste aportar junto a la misma una prueba razonable del previo intento de requerimiento de retirada infructuoso al servicio de la sociedad de la información presuntamente infractor solicitando la retirada de los contenidos específicos ofrecidos sin autorización, siendo suficiente dirigir dicho requerimiento a la dirección electrónica que el prestador facilite al público a efectos de comunicarse con el mismo. Este requerimiento previo podrá considerarse cuando proceda, a efectos de la generación del conocimiento efectivo en los términos establecidos en los
+artículos 16 y 17 de la Ley 34/2002, de 11 de julio
+, siempre y cuando identifique exactamente la obra o prestación, al titular de los derechos correspondientes y, al menos, una ubicación donde la obra o prestación es ofrecida en el servicio de la sociedad de la información. En caso de que el prestador de servicios no facilite una dirección electrónica válida para la comunicación con el mismo no será exigible el intento de requerimiento previsto en este párrafo. El intento de requerimiento se considerará infructuoso si el prestador requerido no contesta o, incluso contestando, no retira o inhabilita el acceso a los contenidos correspondientes en un plazo de tres días desde la remisión del correspondiente requerimiento.
 Las entidades de gestión estarán legitimadas para instar este procedimiento en los términos de lo dispuesto en el artículo 150.
-Este procedimiento, que se desarrollará reglamentariamente, estará basado en los principios de celeridad y proporcionalidad y en el mismo serán de aplicación los derechos de defensa previstos en el artículo 53.2 de la Ley 39/2015, de 1 de octubre.
+Este procedimiento, que se desarrollará reglamentariamente, estará basado en los principios de celeridad y proporcionalidad y en el mismo serán de aplicación los derechos de defensa previstos en el
+artículo 53.2 de la Ley 39/2015, de 1 de octubre
+.
 La falta de resolución en el plazo reglamentariamente establecido producirá la caducidad del procedimiento.
-A efectos de concretar la previsión del artículo 4 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, para el ámbito específico del procedimiento regulado en el presente artículo, tendrán la consideración de interesados, exclusivamente, el denunciante mencionado en el primer párrafo del presente apartado y el prestador de servicio de la sociedad de la información contra el que se ha dirigido la denuncia y el requerimiento previstos en el presente apartado. Sin perjuicio de lo anterior, la Sección Segunda podrá comunicar la existencia del procedimiento a los prestadores de servicios de intermediación, de los servicios de pagos electrónicos y de publicidad a los que hacen referencia los apartados siguientes. Dicha comunicación tendrá naturaleza informativa, sin que la misma otorgue a los prestadores de servicios la condición de interesados en el procedimiento.
+A efectos de concretar la previsión del
+artículo 4 de la Ley 39/2015, de 1 de octubre
+, del Procedimiento Administrativo Común de las Administraciones Públicas, para el ámbito específico del procedimiento regulado en el presente artículo, tendrán la consideración de interesados, exclusivamente, el denunciante mencionado en el primer párrafo del presente apartado y el prestador de servicio de la sociedad de la información contra el que se ha dirigido la denuncia y el requerimiento previstos en el presente apartado. Sin perjuicio de lo anterior, la Sección Segunda podrá comunicar la existencia del procedimiento a los prestadores de servicios de intermediación, de los servicios de pagos electrónicos y de publicidad a los que hacen referencia los apartados siguientes. Dicha comunicación tendrá naturaleza informativa, sin que la misma otorgue a los prestadores de servicios la condición de interesados en el procedimiento.
 Las resoluciones dictadas por la Sección Segunda en este procedimiento ponen fin a la vía administrativa.
 4. La Sección Segunda podrá adoptar las medidas para que se interrumpa la prestación de un servicio de la sociedad de la información que vulnere derechos de propiedad intelectual o para retirar los contenidos que vulneren los citados derechos siempre que el prestador haya causado o sea susceptible de causar un daño patrimonial. Dichas medidas podrán comprender medidas técnicas y deberes de diligencia específicos exigibles al prestador infractor que tengan por objeto asegurar la cesación de la vulneración y evitar la reanudación de la misma.
 La Sección Segunda podrá extender las medidas de retirada o interrupción a otras obras o prestaciones protegidas suficientemente identificadas cuyos derechos representen las personas que participen como interesadas en el procedimiento, que correspondan a un mismo titular de derechos o que formen parte de un mismo tipo de obras o prestaciones, siempre que concurran hechos o circunstancias que revelen que las citadas obras o prestaciones son igualmente ofrecidas ilícitamente.
 Antes de proceder a la adopción de estas medidas, el prestador de servicios de la sociedad de la información deberá ser requerido a fin de que en un plazo no superior a las 48 horas pueda proceder a la retirada voluntaria de los contenidos declarados infractores o, en su caso, realice las alegaciones y proponga las pruebas que estime oportunas sobre la autorización de uso o la aplicabilidad de un límite al derecho de propiedad intelectual. Transcurrido el plazo anterior, en su caso, se practicará prueba en dos días y se dará traslado a los interesados para conclusiones en plazo máximo de cinco días. La Sección dictará resolución en el plazo máximo de tres días.
 La interrupción de la prestación del servicio o la retirada voluntaria de las obras y prestaciones no autorizadas tendrán valor de reconocimiento implícito de la referida vulneración de derechos de propiedad intelectual y pondrá fin al procedimiento.
-5. Las medidas previstas en el apartado anterior también se podrán adoptar, dentro de un procedimiento especial, cuando el titular del servicio de la sociedad de la información presuntamente infractor no cumpla con la obligación de informar sobre su nombre o denominación social establecida en el artículo 10.1.a) de la Ley 34/2002, de 11 julio, de servicios de la sociedad de la información y de comercio electrónico.
+5. Las medidas previstas en el apartado anterior también se podrán adoptar, dentro de un procedimiento especial, cuando el titular del servicio de la sociedad de la información presuntamente infractor no cumpla con la obligación de informar sobre su nombre o denominación social establecida en el
+artículo 10.1.a) de la Ley 34/2002, de 11 julio
+, de servicios de la sociedad de la información y de comercio electrónico.
 En este caso, el procedimiento seguirá los trámites establecidos en el desarrollo reglamentario del apartado anterior, con las siguientes especialidades:
 a) La solicitud de iniciación no necesitará incluir datos relativos a la identificación del titular del servicio de la sociedad de la información presuntamente infractor.
-b) Previa verificación del incumplimiento de la obligación establecida en el artículo 10.1.a) de la Ley 34/2002, de 11 julio, se dictará acuerdo de inicio, donde se dejará constancia de dicha comprobación así como del desconocimiento de los datos de identificación de los responsables de los servicios de la sociedad de la información contra los que el procedimiento se dirige, por haber incumplido éstos su obligación de información.
+b) Previa verificación del incumplimiento de la obligación establecida en el
+artículo 10.1.a) de la Ley 34/2002, de 11 julio
+, se dictará acuerdo de inicio, donde se dejará constancia de dicha comprobación así como del desconocimiento de los datos de identificación de los responsables de los servicios de la sociedad de la información contra los que el procedimiento se dirige, por haber incumplido éstos su obligación de información.
 c) En caso de no procederse por el presunto infractor a la retirada voluntaria de los contenidos señalados en el acuerdo de inicio, y en caso de que el presunto infractor no efectúe alegaciones sobre el contenido del acuerdo de inicio en el plazo previsto, éste podrá ser considerado propuesta de resolución cuando contenga un pronunciamiento preciso acerca de la conducta infractora.
 d) Si mediante el acuerdo de inicio, considerado propuesta de resolución, se adoptasen las medidas previstas en el apartado anterior, su ejecución se realizará conforme a lo previsto en el apartado siguiente.
 6. En caso de falta de retirada voluntaria y a efectos de garantizar la efectividad de la resolución dictada, la Sección Segunda podrá requerir la colaboración necesaria de los prestadores de servicios de intermediación, de los servicios de pagos electrónicos y de publicidad, requiriéndoles para que suspendan el correspondiente servicio que faciliten al prestador infractor.
 En la adopción de las medidas de colaboración la Sección Segunda valorará la posible efectividad de aquellas dirigidas a bloquear la financiación del prestador de servicios de la sociedad de la información declarado infractor.
 El bloqueo del servicio de la sociedad de la información por parte de los proveedores de acceso de Internet deberá motivarse adecuadamente en consideración a su proporcionalidad, teniendo en cuenta la posible eficacia de las demás medidas al alcance.
 En el caso de prestarse el servicio utilizando un nombre de dominio bajo el código de país correspondiente a España (.es) u otro dominio de primer nivel cuyo registro esté establecido en España, la Sección Segunda notificará los hechos a la autoridad de registro a efectos de que cancele el nombre de dominio, que no podrá ser asignado nuevamente en un periodo de, al menos, seis meses.
-La falta de colaboración por los prestadores de servicios de intermediación, los servicios de pagos electrónicos o de publicidad se considerará como infracción de lo dispuesto en el artículo 11 de la Ley 34/2002, de 11 de julio.
-En todo caso, la ejecución de la medida de colaboración dirigida al prestador de servicios de intermediación correspondiente, ante el incumplimiento del requerimiento de retirada o interrupción, emitido conforme al apartado anterior, por parte del prestador de servicios de la sociedad de la información responsable de la vulneración, exigirá la previa autorización judicial, de acuerdo con el procedimiento regulado en el apartado segundo del artículo 122 bis de la Ley 29/1998, de 13 de julio, reguladora de la Jurisdicción Contencioso-administrativa.
+La falta de colaboración por los prestadores de servicios de intermediación, los servicios de pagos electrónicos o de publicidad se considerará como infracción de lo dispuesto en el
+artículo 11 de la Ley 34/2002, de 11 de julio
+.
+En todo caso, la ejecución de la medida de colaboración dirigida al prestador de servicios de intermediación correspondiente, ante el incumplimiento del requerimiento de retirada o interrupción, emitido conforme al apartado anterior, por parte del prestador de servicios de la sociedad de la información responsable de la vulneración, exigirá la previa autorización judicial, de acuerdo con el procedimiento regulado en el apartado segundo del
+artículo 122 bis de la Ley 29/1998, de 13 de julio
+, reguladora de la Jurisdicción Contencioso-administrativa.
 7. El incumplimiento de requerimientos de retirada de contenidos declarados infractores, que resulten de resoluciones finales adoptadas conforme a lo previsto en el apartado 4 anterior, por parte de un mismo prestador de servicios de la sociedad de la información de los descritos en el apartado 2 anterior, constituirá, desde la segunda vez que dicho incumplimiento tenga lugar, inclusive, una infracción administrativa muy grave sancionada con multa de entre 150.001 hasta 600.000 euros. La reanudación de actividades ilícitas por parte de un mismo prestador de servicios de la sociedad de la información también se considerará incumplimiento reiterado a los efectos de este apartado. Se entenderá por reanudación de la actividad ilícita el hecho de que el mismo responsable contra el que se inició el procedimiento explote de nuevo obras o prestaciones del mismo titular, aunque no se trate exactamente de las que empleara en la primera ocasión, previa a la retirada voluntaria de los contenidos. Incurrirán en estas infracciones los prestadores que, aun utilizando personas físicas o jurídicas interpuestas, reanuden la actividad infractora.
 Cuando así lo justifique la gravedad y repercusión social de la conducta infractora, la comisión de la infracción podrá llevar aparejada las siguientes consecuencias:
 a) La publicación de la resolución sancionadora, a costa del sancionado, en el 'Boletín Oficial del Estado', en dos periódicos nacionales o en la página de inicio del sitio de Internet del prestador durante un periodo de un año desde la notificación de la sanción, una vez que aquella tenga carácter firme, atendiendo a la repercusión social de la infracción cometida y la gravedad del ilícito.
-b) El cese de las actividades declaradas infractoras del prestador de servicios durante un período máximo de un año. Para garantizar la efectividad de esta medida, el órgano competente podrá requerir la colaboración necesaria de los prestadores de servicios de intermediación, de los servicios de pagos electrónicos y de publicidad, ordenándoles que suspendan el correspondiente servicio que faciliten al prestador infractor. En la adopción de las medidas de colaboración se valorará la posible efectividad de aquellas dirigidas a bloquear la financiación del prestador de servicios de la sociedad de la información declarado infractor. El bloqueo del servicio de la sociedad de la información por parte de los proveedores de acceso de Internet deberá motivarse específicamente, en consideración a su proporcionalidad y su efectividad estimada, teniendo en cuenta la posible eficacia de las demás medidas al alcance. La falta de colaboración se considerará como infracción de lo dispuesto en el artículo 11 de la Ley 34/2002, de 11 de julio. La ejecución de la medida de colaboración dirigida al prestador de servicios, con independencia de cuál sea su naturaleza, no requerirá la autorización judicial prevista en el artículo 122 bis de la Ley 29/1998, de 13 de julio, reguladora de la Jurisdicción Contencioso-administrativa.
+b) El cese de las actividades declaradas infractoras del prestador de servicios durante un período máximo de un año. Para garantizar la efectividad de esta medida, el órgano competente podrá requerir la colaboración necesaria de los prestadores de servicios de intermediación, de los servicios de pagos electrónicos y de publicidad, ordenándoles que suspendan el correspondiente servicio que faciliten al prestador infractor. En la adopción de las medidas de colaboración se valorará la posible efectividad de aquellas dirigidas a bloquear la financiación del prestador de servicios de la sociedad de la información declarado infractor. El bloqueo del servicio de la sociedad de la información por parte de los proveedores de acceso de Internet deberá motivarse específicamente, en consideración a su proporcionalidad y su efectividad estimada, teniendo en cuenta la posible eficacia de las demás medidas al alcance. La falta de colaboración se considerará como infracción de lo dispuesto en el
+artículo 11 de la Ley 34/2002, de 11 de julio
+. La ejecución de la medida de colaboración dirigida al prestador de servicios, con independencia de cuál sea su naturaleza, no requerirá la autorización judicial prevista en el
+artículo 122 bis de la Ley 29/1998, de 13 de julio
+, reguladora de la Jurisdicción Contencioso-administrativa.
 Cuando las infracciones hubieran sido cometidas por prestadores de servicios establecidos en Estados que no sean miembros de la Unión Europea o del Espacio Económico Europeo pero cuyos servicios se dirijan específicamente al territorio español, el órgano que hubiera impuesto la correspondiente sanción podrá ordenar a los prestadores de servicios de intermediación que tomen las medidas necesarias para impedir el acceso desde España a los servicios ofrecidos por aquellos por un período máximo de un año.
-El ejercicio de la potestad sancionadora se regirá por el procedimiento establecido en el título IV de la Ley 39/2015, de 1 de octubre, en la ley 40/2015, de 1 de octubre y en su normativa de desarrollo.
-La imposición de las sanciones corresponderá al Ministro de Cultura y Deporte, órgano competente a efectos de lo dispuesto en los artículos 35, 36 y concordantes de la Ley 34/2002, de 11 de julio.
+El ejercicio de la potestad sancionadora se regirá por el procedimiento establecido en el
+título IV de la Ley 39/2015, de 1 de octubre
+, en la
+ley 40/2015, de 1 de octubre
+y en su normativa de desarrollo.
+La imposición de las sanciones corresponderá al Ministro de Cultura y Deporte, órgano competente a efectos de lo dispuesto en los
+artículos 35, 36 y concordantes de la Ley 34/2002, de 11 de julio
+.
 El instructor del procedimiento sancionador podrá incorporar al expediente las actuaciones que formasen parte de los procedimientos relacionados tramitados por la Sección Segunda en ejercicio de sus funciones de salvaguarda de los derechos de propiedad intelectual establecidas en el apartado anterior.
 8. Lo dispuesto en este artículo se entiende sin perjuicio de las acciones civiles, penales y contencioso-administrativas que, en su caso, sean procedentes.
 9. Podrán desarrollarse códigos de conducta voluntarios en lo referido a las medidas de colaboración de los servicios de intermediación, los servicios de pagos electrónicos o de publicidad previstas en este artículo. La Administración podrá promover la elaboración de dichos códigos.
-10. El tratamiento llevado a cabo por la Sección Segunda de los datos relacionados con los detalles e informaciones derivados de las actuaciones realizadas en el ámbito de sus funciones, se efectuará de conformidad con lo dispuesto en la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal y, en particular, en su artículo 7.5 si estuvieran referidos a la comisión de infracciones penales o administrativas.
+10. El tratamiento llevado a cabo por la Sección Segunda de los datos relacionados con los detalles e informaciones derivados de las actuaciones realizadas en el ámbito de sus funciones, se efectuará de conformidad con lo dispuesto en la
+Ley Orgánica 15/1999, de 13 de diciembre
+, de Protección de Datos de Carácter Personal y, en particular, en su artículo 7.5 si estuvieran referidos a la comisión de infracciones penales o administrativas.
 Se modifica por la disposición final 11.5 a 7 del Real Decreto-ley 17/2020, de 5 de mayo.
 Ref. BOE-A-2020-4832
 , en la redacción dada por el art. 11.10 de la Ley 14/2021, de 11 de octubre.
@@ -3773,7 +3892,11 @@ e) Límite relativo al registro de obras por entidades radiodifusoras en los té
 f) Límite relativo a las reproducciones de obras con fines de investigación o conservación realizadas por determinadas instituciones en los términos previstos en el artículo 37.1.
 g) Límite relativo a la extracción con fines ilustrativos de enseñanza o de investigación científica de una parte sustancial del contenido de una base de datos y de una extracción o una reutilización para fines de seguridad pública o a los efectos de un procedimiento administrativo o judicial del contenido de una base de datos protegida por el derecho «sui géneris» en los términos previstos en el artículo 135.1.b) y c).
 2. Cuando los titulares de derechos de propiedad intelectual no hayan adoptado medidas voluntarias, incluidos los acuerdos con otros interesados, para el cumplimiento del deber previsto en el apartado anterior, los beneficiarios de dichos límites podrán acudir ante la jurisdicción civil.
-Cuando los beneficiarios de dichos límites sean consumidores o usuarios, en los términos definidos en el artículo 3 del texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios y otras leyes complementarias, aprobado por Real Decreto Legislativo 1/2007, de 16 de noviembre, en su defensa podrán actuar las entidades legitimadas en el artículo 11.2 y 3 de la Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil.
+Cuando los beneficiarios de dichos límites sean consumidores o usuarios, en los términos definidos en el
+artículo 3 del texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios y otras leyes complementarias, aprobado por Real Decreto Legislativo 1/2007, de 16 de noviembre
+, en su defensa podrán actuar las entidades legitimadas en el artículo 11.2 y 3 de la
+Ley 1/2000, de 7 de enero
+, de Enjuiciamiento Civil.
 3. Disfrutarán de la protección jurídica prevista en el artículo 196.1 tanto las medidas tecnológicas adoptadas voluntariamente por los titulares de los derechos de propiedad intelectual, incluidas las derivadas de acuerdos con otros interesados, como, en su caso, las incluidas en la correspondiente resolución judicial.
 4. Lo dispuesto en los apartados anteriores no impedirá que los titulares de derechos sobre obras o prestaciones adopten las soluciones que estimen adecuadas, incluyendo, entre otras, medidas tecnológicas, respecto del número de reproducciones en concepto de copia privada. En estos supuestos, los beneficiarios de lo previsto en el artículo 31.2 no podrán exigir el levantamiento de las medidas tecnológicas que, en su caso, hayan adoptado los titulares de derechos en virtud de este apartado.
 5. Lo establecido en los apartados anteriores de este artículo no será de aplicación a obras o prestaciones que se hayan puesto a disposición del público con arreglo a lo convenido por contrato, de tal forma que cualquier persona pueda acceder a ellas desde el lugar y momento que elija.
@@ -3944,12 +4067,24 @@ El Gobierno, a propuesta del Ministerio de Cultura, podrá modificar dicho plazo
 Subir
 [Bloque 286: #daquinta]
 Disposición adicional quinta. Notificaciones en el procedimiento de salvaguarda de los derechos de propiedad intelectual.
-1. El Ministerio de Educación, Cultura y Deporte, en el ámbito de sus competencias, velará por la salvaguarda de los derechos de propiedad intelectual frente a su vulneración por los responsables de servicios de la sociedad de información en los términos previstos en los artículos 8 y concordantes de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico.
-2. En los procedimientos de salvaguarda de los derechos de propiedad intelectual frente a su vulneración por los responsables de servicios de la sociedad de la información, cuya competencia esté atribuida al Ministerio de Educación, Cultura y Deporte, cuando concurran los supuestos previstos en el artículo 59.5 de la Ley 30/1992, de 26 de noviembre, o el domicilio conocido del interesado o lugar indicado a efectos de notificaciones se encuentre fuera del territorio de la Unión Europea, la práctica de la notificación se hará exclusivamente mediante un anuncio publicado en el "Boletín Oficial del Estado", en los términos establecidos en dicho artículo.
-3. No obstante, en los supuestos previstos en el apartado 6 del artículo 59 de la Ley 30/1992, de 26 de noviembre, la notificación del acto podrá sustituirse por su publicación en el "Boletín Oficial del Estado", en particular, cuando tenga por destinatarios a prestadores de servicios de intermediación de la sociedad de la información que deban colaborar para el eficaz cumplimiento de las resoluciones que se adopten.
-4. En los supuestos contemplados en los dos apartados precedentes, la publicación en "Boletín Oficial del Estado" irá acompañada de un mensaje que advierta de esta circunstancia dirigido a la dirección de correo electrónico que el prestador de servicios de la sociedad de la información facilite a efectos de la comunicación con el mismo, de acuerdo con lo dispuesto en la letra a) del apartado 1 del artículo 10 de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico o de norma extranjera aplicable, siempre que dicha dirección de correo electrónico se facilite por medios electrónicos de manera permanente, fácil, directa y gratuita. En caso de no facilitarse tal dirección de correo electrónico en las condiciones descritas no será exigible lo dispuesto en este párrafo.
+1. El Ministerio de Educación, Cultura y Deporte, en el ámbito de sus competencias, velará por la salvaguarda de los derechos de propiedad intelectual frente a su vulneración por los responsables de servicios de la sociedad de información en los términos previstos en los
+artículos 8 y concordantes de la Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y de comercio electrónico.
+2. En los procedimientos de salvaguarda de los derechos de propiedad intelectual frente a su vulneración por los responsables de servicios de la sociedad de la información, cuya competencia esté atribuida al Ministerio de Educación, Cultura y Deporte, cuando concurran los supuestos previstos en el
+artículo 59.5 de la Ley 30/1992, de 26 de noviembre
+, o el domicilio conocido del interesado o lugar indicado a efectos de notificaciones se encuentre fuera del territorio de la Unión Europea, la práctica de la notificación se hará exclusivamente mediante un anuncio publicado en el "Boletín Oficial del Estado", en los términos establecidos en dicho artículo.
+3. No obstante, en los supuestos previstos en el apartado 6 del
+artículo 59 de la Ley 30/1992, de 26 de noviembre
+, la notificación del acto podrá sustituirse por su publicación en el "Boletín Oficial del Estado", en particular, cuando tenga por destinatarios a prestadores de servicios de intermediación de la sociedad de la información que deban colaborar para el eficaz cumplimiento de las resoluciones que se adopten.
+4. En los supuestos contemplados en los dos apartados precedentes, la publicación en "Boletín Oficial del Estado" irá acompañada de un mensaje que advierta de esta circunstancia dirigido a la dirección de correo electrónico que el prestador de servicios de la sociedad de la información facilite a efectos de la comunicación con el mismo, de acuerdo con lo dispuesto en la letra a) del apartado 1 del
+artículo 10 de la Ley 34/2002, de 11 de julio
+, de servicios de la sociedad de la información y de comercio electrónico o de norma extranjera aplicable, siempre que dicha dirección de correo electrónico se facilite por medios electrónicos de manera permanente, fácil, directa y gratuita. En caso de no facilitarse tal dirección de correo electrónico en las condiciones descritas no será exigible lo dispuesto en este párrafo.
 Transcurridos diez días naturales desde la publicación en el «Boletín Oficial del Estado», se entenderá que la notificación ha sido practicada, dándose por cumplido dicho trámite y continuándose con el procedimiento.
-5. Cuando un prestador de servicios de la sociedad de la información, al que sea de aplicación la Ley 34/2002, de 11 de julio, de acuerdo con lo dispuesto en sus artículos 2 a 4, que deba ser considerado interesado en un procedimiento tramitado al amparo del artículo 195, no se identificara en los términos establecidos en el artículo 10 de la Ley 34/2002, de 11 de julio, y, una vez realizadas las actuaciones de identificación razonables al alcance de la Sección Segunda, estas no hubieran tenido como resultado una identificación suficiente, el procedimiento podrá iniciarse considerándose interesado, hasta tanto no se identifique y persone en el procedimiento, el servicio de la sociedad de la información facilitado por el prestador no identificado. Esta circunstancia se hará constar así en el expediente, siendo de aplicación las previsiones de publicación en el “Boletín Oficial del Estado” establecidas en esta disposición y, en su caso, las medidas de colaboración y sancionadoras previstas en el artículo 195 en caso de ausencia de retirada voluntaria al citado servicio de la sociedad de la información.
+5. Cuando un prestador de servicios de la sociedad de la información, al que sea de aplicación la
+Ley 34/2002, de 11 de julio
+, de acuerdo con lo dispuesto en sus artículos 2 a 4, que deba ser considerado interesado en un procedimiento tramitado al amparo del artículo 195, no se identificara en los términos establecidos en el
+artículo 10 de la Ley 34/2002, de 11 de julio
+, y, una vez realizadas las actuaciones de identificación razonables al alcance de la Sección Segunda, estas no hubieran tenido como resultado una identificación suficiente, el procedimiento podrá iniciarse considerándose interesado, hasta tanto no se identifique y persone en el procedimiento, el servicio de la sociedad de la información facilitado por el prestador no identificado. Esta circunstancia se hará constar así en el expediente, siendo de aplicación las previsiones de publicación en el “Boletín Oficial del Estado” establecidas en esta disposición y, en su caso, las medidas de colaboración y sancionadoras previstas en el artículo 195 en caso de ausencia de retirada voluntaria al citado servicio de la sociedad de la información.
 Se modifica el apartado 5 por el art. único.12 de la Ley 2/2019, de 1 de marzo.
 Ref. BOE-A-2019-2974
 Se modifica el apartado 5 por el art. único.12 del Real Decreto-ley 2/2018, de 13 de abril.
@@ -3997,7 +4132,9 @@ Sin perjuicio de lo previsto en la disposición anterior a los autores cuyas obr
 Subir
 [Bloque 293: #dtsexta]
 Disposición transitoria sexta. Aplicabilidad de los artículos 14 a 16 para autores de obras anteriores a la Ley de 11 de noviembre de 1987, de Propiedad Intelectual.
-Lo dispuesto en los artículos 14 a 16 de esta Ley será de aplicación a los autores de las obras creadas antes de la entrada en vigor de la Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual.
+Lo dispuesto en los artículos 14 a 16 de esta Ley será de aplicación a los autores de las obras creadas antes de la entrada en vigor de la
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual.
 Subir
 [Bloque 294: #dtseptima]
 Disposición transitoria séptima. Reglamento de 3 de septiembre de 1880 para la ejecución de la Ley de 10 de enero de 1879 sobre Propiedad Intelectual.
@@ -4035,8 +4172,12 @@ Disposición transitoria decimotercera. Regulación de situaciones especiales en
 2. Los plazos de protección contemplados en esta Ley se aplicarán a todas las obras y prestaciones que estén protegidas en España o al menos en un Estado miembro de la Unión Europea el 1 de julio de 1995 en virtud de las correspondientes disposiciones nacionales en materia de derechos de propiedad intelectual, o que cumplan los criterios para acogerse a la protección de conformidad con las disposiciones que regulan en esta Ley el derecho de distribución, en cuanto se refiere a obras y prestaciones, así como los derechos de fijación, reproducción y comunicación al público, en cuanto se refieren a prestaciones.
 Subir
 [Bloque 301: #dtdecimocuarta]
-Disposición transitoria decimocuarta. Aplicación de las transitorias del Código Civil.
-En lo no previsto en las presentes disposiciones serán de aplicación las transitorias del Código Civil.
+Disposición transitoria decimocuarta. Aplicación de las transitorias del
+Código Civil
+.
+En lo no previsto en las presentes disposiciones serán de aplicación las transitorias del
+Código Civil
+.
 Subir
 [Bloque 302: #dtdecimoquinta]
 Disposición transitoria decimoquinta. Aplicación de la protección prevista en el Libro I, a las bases de datos finalizadas antes del 1 de enero de 1998.
@@ -4081,13 +4222,15 @@ Texto añadido, publicado el 08/07/2006, en vigor a partir del 28/07/2006.
 Subir
 [Bloque 307: #dtvigesima]
 Disposición transitoria vigésima.
-El Real Decreto a que se refiere el apartado segundo del artículo 37 del Texto Refundido de la Ley de Propiedad Intelectual deberá ser promulgado en el plazo máximo de un año desde la entrada en vigor de esta Ley.
+El Real Decreto a que se refiere el apartado segundo del artículo 37 del Texto Refundido de la
+Ley de Propiedad Intelectual
+deberá ser promulgado en el plazo máximo de un año desde la entrada en vigor de esta Ley.
 Hasta que se apruebe el Real Decreto a que se refiere el apartado anterior, la cuantía de la remuneración será de 0,2 euros por cada ejemplar de obra adquirido con destino al préstamo en los establecimientos citados en dicho apartado.
 Asimismo, en este período, el Estado, las comunidades autónomas y las corporaciones locales podrán acordar los mecanismos de colaboración necesarios para el cumplimiento de las obligaciones de remuneración que afectan a establecimientos de titularidad pública.
 Se añade por la disposición final 1.4 de la Ley 10/2007, de 22 de junio.
 Ref. BOE-A-2007-12351
 .
-Redactado conforme a la corrección de errores publicada en BOE  núm. 224 de 18 de septiembre de 2007.
+Redactado conforme a la corrección de errores publicada en BOE núm. 224 de 18 de septiembre de 2007.
 Ref. BOE-A-2007-16476
 .
 Se añade por el art. único.31 de la Ley 23/2006, de 7 de julio.
@@ -4118,32 +4261,98 @@ Subir
 Disposición derogatoria única. Alcance de la derogación normativa.
 1. Quedan derogadas las disposiciones que se opongan a lo establecido en la presente Ley y, en particular, las siguientes:
 a) Real Decreto de 3 de septiembre de 1880, por el que se aprueba el Reglamento para la ejecución de la Ley de 10 de enero de 1879 sobre Propiedad Intelectual: capítulos V y VI del Título I.
-b) Real Decreto 1434/1992, de 27 de noviembre, de desarrollo de los artículos 24, 25 y 140 de la Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual: artículos 9.1, 11, 12, 14, 16, 17, 18, 19 y 37.1, así como los capítulos II y III del Título II.
+b)
+Real Decreto 1434/1992, de 27 de noviembre
+, de desarrollo de los artículos 24, 25 y 140 de la
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual: artículos 9.1, 11, 12, 14, 16, 17, 18, 19 y 37.1, así como los capítulos II y III del Título II.
 2. Quedan vigentes las siguientes disposiciones:
-a) Ley 9/1975, de 12 de marzo, del Libro, en lo no derogado por la Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual, y por el Real Decreto 875/1986, de 21 de marzo.
+a)
+Ley 9/1975, de 12 de marzo
+, del Libro, en lo no derogado por la
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual, y por el
+Real Decreto 875/1986, de 21 de marzo
+.
 b) Real Decreto de 3 de septiembre de 1880, por el que se aprueba el Reglamento para la ejecución de la Ley de 10 de enero de 1879 sobre Propiedad Intelectual: capítulos I, II, III, IV, VII, VIII, IX, X y disposición transitoria del Título I; capítulos I, II y III del Título II.
-c) Decreto 3837/1970, de 31 de diciembre, por el que se regula la hipoteca mobiliaria de películas cinematográficas.
-d) Decreto 2984/1972, de 2 de noviembre, por el que se establece la obligación de consignar en toda clase de libros y folletos el número ISBN.
-e) Real Decreto 2332/1983, de 1 de septiembre, por el que se regula la venta, distribución y la exhibición pública de material audiovisual.
-f) Real Decreto 448/1988, de 22 de abril, por el que se regula la difusión de películas cinematográficas y otras obras audiovisuales recogidas en soporte videográfico.
-g) Real Decreto 479/1989, de 5 de mayo, por el que se regula la composición y el procedimiento de actuación de la Comisión Arbitral de la Propiedad Intelectual, en lo no modificado por el Real Decreto 1248/1995, de 14 de julio.
-h) Real Decreto 484/1990, de 30 de marzo, sobre precio de venta al público de libros.
-i) Real Decreto 1584/1991, de 18 de octubre, por el que se aprueba el Reglamento del Registro General de la Propiedad Intelectual, en lo declarado vigente en el apartado 3 de la disposición transitoria única del Real Decreto 733/1993, de 14 de mayo.
-j) Real Decreto 1434/1992, de 27 de noviembre, de desarrollo de los artículos 24, 25 y 140 de la Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual, en la versión dada a los mismos por la Ley 20/1992, de 7 de julio, en lo no modificado por el Real Decreto 325/1994, de 25 de febrero, y en lo no derogado por la presente disposición derogatoria.
-k) Real Decreto 733/1993, de 14 de mayo, por el que se aprueba el Reglamento del Registro General de la Propiedad Intelectual.
-l) Real Decreto 325/1994, de 25 de febrero, por el que se modifica el artículo 15.2 del Real Decreto 1434/1992, de 27 de noviembre, de desarrollo de los artículos 24, 25 y 140 de la Ley 22/1987, de 11 de noviembre, de Propiedad Intelectual, en la versión dada a los mismos por la Ley 20/1992, de 7 de julio.
-m) Real Decreto 1694/1994, de 22 de julio, de adecuación a la Ley 30/1992, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, del Real Decreto 1584/1991, de 18 de octubre, por el que se aprueba el Reglamento del Registro General de la Propiedad Intelectual.
-n) Real Decreto 1778/1994, de 5 de agosto, por el que se adecuan a la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, las normas reguladoras de los procedimientos de otorgamiento, modificación y extinción de autorizaciones.
-ñ) Real Decreto 1248/1995, de 14 de julio, por el que se modifica parcialmente el Real Decreto 479/1989, de 5 de mayo, regulador de la composición y el procedimiento de actuación de la Comisión Arbitral de la Propiedad Intelectual.
-o) Real Decreto 1802/1995, de 3 de noviembre, por el que se establece el sistema para la determinación de la remuneración compensatoria por copia privada en las ciudades de Ceuta y Melilla.
+c)
+Decreto 3837/1970, de 31 de diciembre
+, por el que se regula la hipoteca mobiliaria de películas cinematográficas.
+d)
+Decreto 2984/1972, de 2 de noviembre
+, por el que se establece la obligación de consignar en toda clase de libros y folletos el número ISBN.
+e)
+Real Decreto 2332/1983, de 1 de septiembre
+, por el que se regula la venta, distribución y la exhibición pública de material audiovisual.
+f)
+Real Decreto 448/1988, de 22 de abril
+, por el que se regula la difusión de películas cinematográficas y otras obras audiovisuales recogidas en soporte videográfico.
+g)
+Real Decreto 479/1989, de 5 de mayo
+, por el que se regula la composición y el procedimiento de actuación de la Comisión Arbitral de la Propiedad Intelectual, en lo no modificado por el
+Real Decreto 1248/1995, de 14 de julio
+.
+h)
+Real Decreto 484/1990, de 30 de marzo
+, sobre precio de venta al público de libros.
+i)
+Real Decreto 1584/1991, de 18 de octubre
+, por el que se aprueba el Reglamento del Registro General de la Propiedad Intelectual, en lo declarado vigente en el apartado 3 de la disposición transitoria única del
+Real Decreto 733/1993, de 14 de mayo
+.
+j)
+Real Decreto 1434/1992, de 27 de noviembre
+, de desarrollo de los artículos 24, 25 y 140 de la
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual, en la versión dada a los mismos por la
+Ley 20/1992, de 7 de julio
+, en lo no modificado por el
+Real Decreto 325/1994, de 25 de febrero
+, y en lo no derogado por la presente disposición derogatoria.
+k)
+Real Decreto 733/1993, de 14 de mayo
+, por el que se aprueba el Reglamento del Registro General de la Propiedad Intelectual.
+l)
+Real Decreto 325/1994, de 25 de febrero
+, por el que se modifica el
+artículo 15.2 del Real Decreto 1434/1992, de 27 de noviembre
+, de desarrollo de los artículos 24, 25 y 140 de la
+Ley 22/1987, de 11 de noviembre
+, de Propiedad Intelectual, en la versión dada a los mismos por la
+Ley 20/1992, de 7 de julio
+.
+m)
+Real Decreto 1694/1994, de 22 de julio
+, de adecuación a la
+Ley 30/1992
+, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, del
+Real Decreto 1584/1991, de 18 de octubre
+, por el que se aprueba el Reglamento del Registro General de la Propiedad Intelectual.
+n)
+Real Decreto 1778/1994, de 5 de agosto
+, por el que se adecuan a la
+Ley 30/1992, de 26 de noviembre
+, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, las normas reguladoras de los procedimientos de otorgamiento, modificación y extinción de autorizaciones.
+ñ)
+Real Decreto 1248/1995, de 14 de julio
+, por el que se modifica parcialmente el
+Real Decreto 479/1989, de 5 de mayo
+, regulador de la composición y el procedimiento de actuación de la Comisión Arbitral de la Propiedad Intelectual.
+o)
+Real Decreto 1802/1995, de 3 de noviembre
+, por el que se establece el sistema para la determinación de la remuneración compensatoria por copia privada en las ciudades de Ceuta y Melilla.
 p) Orden de 23 de junio de 1966 por la que se establecen las normas básicas a las que deben ajustarse los contratos publicitarios del medio cine.
 q) Orden de 30 de octubre de 1971 por la que se aprueba el Reglamento del Instituto Bibliográfico Hispánico.
 r) Orden de 25 de marzo de 1987 por la que se regula la Agencia Española del ISBN.
-s) Orden de 3 de abril de 1991, de desarrollo de lo dispuesto en el Real Decreto 2332/1983, de 1 de septiembre, por el que se regula la venta, distribución y la exhibición pública de material audiovisual.
+s) Orden de 3 de abril de 1991, de desarrollo de lo dispuesto en el
+Real Decreto 2332/1983, de 1 de septiembre
+, por el que se regula la venta, distribución y la exhibición pública de material audiovisual.
 Subir
 [Bloque 312: #df]
 Disposición final primera. Título competencial.
-El presente Real Decreto Legislativo se aprueba al amparo de lo dispuesto en el artículo 149.1.9.ª de la Constitución Española, que atribuye al Estado la competencia sobre legislación sobre propiedad intelectual.
+El presente Real Decreto Legislativo se aprueba al amparo de lo dispuesto en el
+artículo 149.1.9.ª de la Constitución Española
+, que atribuye al Estado la competencia sobre legislación sobre propiedad intelectual.
 El artículo 31 ter se dicta, además, en virtud de la competencia que atribuye al Estado el artículo 149.1.1.ª sobre la regulación de las condiciones básicas que garanticen la igualdad de todos los españoles en el ejercicio de los derechos y en el cumplimiento de los deberes constitucionales.
 Se añade por el art. único.13 de la Ley 2/2019, de 1 de marzo.
 Ref. BOE-A-2019-2974

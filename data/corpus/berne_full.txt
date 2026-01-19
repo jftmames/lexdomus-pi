@@ -8,7 +8,7 @@ La PI y…
 La PI en…
 Información sobre patentes y tecnología
 Información sobre marcas
-Información sobre diseños industriales
+Información sobre los diseños
 Información sobre las indicaciones geográficas
 Información sobre las variedades vegetales (UPOV)
 Leyes, tratados y sentencias de PI
@@ -16,7 +16,7 @@ Recursos de PI
 Informes sobre PI
 Protección por patente
 Protección de las marcas
-Protección de diseños industriales
+Protección de los diseños
 Protección de las indicaciones geográficas
 Protección de las variedades vegetales (UPOV)
 Solución de controversias en materia de PI
@@ -32,7 +32,7 @@ Trabajar en OMPI
 Rendición de cuentas
 Patentes
 Marcas
-Diseños industriales
+Diseños
 Indicaciones geográficas
 Derecho de autor
 Secretos comerciales
@@ -68,6 +68,7 @@ Aplicaciones móviles
 Deportes
 Turismo
 Música
+Moda
 PATENTSCOPE
 Análisis de patentes
 Clasificación Internacional de Patentes
@@ -125,7 +126,7 @@ Documentos oficiales de la OMPI
 Agenda para el Desarrollo
 Asistencia técnica
 Instituciones de formación en PI
-Apoyo para COVID-19
+Fondo de Reconstrucción
 Estrategias nacionales de PI
 Asesoramiento sobre políticas y legislación
 Centro de cooperación
