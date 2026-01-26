@@ -417,7 +417,9 @@ ANEXO
 [Bloque 1: #preambulo]
 La disposición final segunda de la
 Ley 27/1995, de 11 de octubre
-, de incorporación al Derecho español de la Directiva 93/98/CEE, del Consejo, de 29 de octubre, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines, autorizó al Gobierno para que, antes del 30 de junio de 1996, aprobara un texto que refundiese las disposiciones legales vigentes en materia de propiedad intelectual, regularizando, aclarando y armonizando los textos que hubieran de ser refundidos. El alcance temporal de esta habilitación legislativa es el relativo a las disposiciones legales que se encontrarán vigentes a 30 de junio de 1996.
+, de incorporación al Derecho español de la
+Directiva 93/98/CEE, del Consejo, de 29 de octubre
+, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines, autorizó al Gobierno para que, antes del 30 de junio de 1996, aprobara un texto que refundiese las disposiciones legales vigentes en materia de propiedad intelectual, regularizando, aclarando y armonizando los textos que hubieran de ser refundidos. El alcance temporal de esta habilitación legislativa es el relativo a las disposiciones legales que se encontrarán vigentes a 30 de junio de 1996.
 En consecuencia, se ha elaborado un texto refundido que se incorpora como anexo a este Real Decreto Legislativo, y que tiene por objeto dar cumplimiento al mandato legal.
 En su virtud, a propuesta de la Ministra de Cultura, de acuerdo con el Consejo de Estado y previa deliberación del Consejo de Ministros en su reunión del día 12 de abril de 1996,
 D I S P O N G O :
@@ -441,16 +443,24 @@ Ley 22/1987, de 11 de noviembre
 , de Propiedad Intelectual.
 3.
 Ley 16/1993, de 23 de diciembre
-, de incorporación al Derecho español de la Directiva 91/250/CEE, de 14 de mayo, sobre la protección jurídica de programas de ordenador.
+, de incorporación al Derecho español de la
+Directiva 91/250/CEE, de 14 de mayo
+, sobre la protección jurídica de programas de ordenador.
 4.
 Ley 43/1994, de 30 de diciembre
-, de incorporación al Derecho español de la Directiva 92/100/CEE, de 19 de noviembre, sobre derechos de alquiler y préstamo y otros derechos afines a los derechos de autor en el ámbito de la propiedad intelectual.
+, de incorporación al Derecho español de la
+Directiva 92/100/CEE, de 19 de noviembre
+, sobre derechos de alquiler y préstamo y otros derechos afines a los derechos de autor en el ámbito de la propiedad intelectual.
 5.
 Ley 27/1995, de 11 de octubre
-, de incorporación al Derecho español de la Directiva 93/98/CEE, del Consejo, de 29 de octubre, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines.
+, de incorporación al Derecho español de la
+Directiva 93/98/CEE, del Consejo, de 29 de octubre
+, relativa a la armonización del plazo de protección del derecho de autor y de determinados derechos afines.
 6.
 Ley 28/1995, de 11 de octubre
-, de incorporación al Derecho español de la Directiva 93/83/CEE, del Consejo, de 27 de septiembre, sobre coordinación de determinadas disposiciones relativas a los derechos de autor y derechos afines a los derechos de autor en el ámbito de la radiodifusión vía satélite y de la distribución por cable.
+, de incorporación al Derecho español de la
+Directiva 93/83/CEE, del Consejo, de 27 de septiembre
+, sobre coordinación de determinadas disposiciones relativas a los derechos de autor y derechos afines a los derechos de autor en el ámbito de la radiodifusión vía satélite y de la distribución por cable.
 Téngase en cuenta que la sentencia del TS de 1 de marzo de 2001
 Ref. BOE-A-2001-9551
 declara subsistente el art. 109.1 de la Ley derogada por el apartado 1
@@ -4104,7 +4114,9 @@ Texto añadido, publicado el 05/03/2011, en vigor a partir del 06/03/2011.
 Subir
 [Bloque 287: #dasexta]
 Disposición adicional sexta. Obras consideradas huérfanas conforme a la legislación de otro Estado miembro de la Unión Europea.
-Las obras consideradas huérfanas conforme a la legislación de otro Estado miembro de la Unión Europea, dictada en transposición de lo dispuesto en la Directiva 2012/28/UE del Parlamento Europeo y del Consejo, de 25 de octubre de 2012, sobre ciertos usos autorizados de las obras huérfanas, tendrán asimismo reconocida dicha naturaleza en España a los efectos de lo dispuesto en el artículo 37 bis.
+Las obras consideradas huérfanas conforme a la legislación de otro Estado miembro de la Unión Europea, dictada en transposición de lo dispuesto en la
+Directiva 2012/28/UE del Parlamento Europeo y del Consejo, de 25 de octubre de 2012
+, sobre ciertos usos autorizados de las obras huérfanas, tendrán asimismo reconocida dicha naturaleza en España a los efectos de lo dispuesto en el artículo 37 bis.
 Se añade por el art. 1.25 de la Ley 21/2014, de 4 de noviembre.
 Ref. BOE-A-2014-11404
 .
