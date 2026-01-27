@@ -35,6 +35,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --- NUEVA RUTA PARA CORREGIR EL 404 EN LA HOME ---
+@app.get("/")
+def read_root():
+    return {"message": "LexDomus API is running. Go to /docs for Swagger UI."}
+# --------------------------------------------------
+
 @app.get("/health")
 def health():
     data = {
