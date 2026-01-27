@@ -1,24 +1,29 @@
-# Dockerfile — container del backend (Render/Fly/other)
-FROM python:3.11-slim
+# Dockerfile
+FROM python:3.10-slim
 
+# 1. Instalar utilidades del sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# 2. Configurar directorio de trabajo
 WORKDIR /app
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
 
-# Dependencias del sistema si hiciera falta (pypdf/faiss, etc.)
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+# 3. Copiar y cachear dependencias (esto acelera builds futuros)
+COPY requirements.txt .
+COPY requirements.api.txt .
 
-# Copiamos todo el repo (incluye data/indices)
-COPY . /app
+# 4. Instalar dependencias (unimos ambos archivos)
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -r requirements.api.txt
 
-# Instala deps del proyecto + backend
-# Si ya tienes requirements.txt en el repo, instala ambos:
-RUN pip install --upgrade pip \
- && if [ -f requirements.txt ]; then pip install -r requirements.txt; fi \
- && pip install -r requirements.api.txt
+# 5. Copiar TODO el código del proyecto (api, app, data, indices, verdiktia, etc.)
+COPY . .
 
-# Puerto por defecto de Uvicorn
+# 6. Exponer puerto (Render inyecta PORT automáticamente, pero esto es buena práctica)
 EXPOSE 8000
 
-ENV USE_LLM=0
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# 7. Comando de arranque: usa la variable de entorno PORT de Render
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
