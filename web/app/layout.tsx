@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css"; // 👈 Importante: Aquí se cargan tus estilos "Glassmorphism"
-
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "LexDomus-PI",
@@ -16,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={inter.className}>{children}</body>
+      {/* Usamos font-sans de Tailwind (Arial/System) en lugar de descargar Inter */}
+      <body className="font-sans antialiased bg-[var(--bg)] text-[var(--ink)]">
+        {children}
+      </body>
     </html>
   );
 }
