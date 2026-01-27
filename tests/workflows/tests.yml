@@ -1,0 +1,21 @@
+name: tests
+on:
+  push: { branches: ["main"] }
+  pull_request: {}
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt || true
+      - run: pip install -r requirements.api.txt
+      - run: python - << 'PY'
+import sys
+sys.path.insert(0,".")
+from app.pipeline import analyze_clause
+r = analyze_clause("El Autor renuncia a todos sus derechos morales...", "ES")
+assert "gate" in r and "EEE" in r
+print("OK", r.get("gate",{}).get("status"))
+PY
