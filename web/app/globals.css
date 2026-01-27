@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg: #0b0d10; --card: #12151a; --ink: #e6e9ef; --muted: #9aa4b2; --accent: #6ee7b7; }
+html, body { background: var(--bg); color: var(--ink); }
+.card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); }
