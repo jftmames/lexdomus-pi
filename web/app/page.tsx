@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ResultView from "../components/ResultView";
 
-const API = process.env.NEXT_PUBLIC_API_BASE || (typeof window !== "undefined" && window.location.hostname !== "localhost" ? "/api" : "http://localhost:8000");
+const API = process.env.NEXT_PUBLIC_API_BASE || (typeof window !== "undefined" && window.location.hostname !== "localhost" ? "https://lexdomus-pi.onrender.com" : "http://localhost:8000");
 
 export default function Page() {
   const [clause, setClause] = useState("");
