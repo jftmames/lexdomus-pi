@@ -16,6 +16,10 @@ __pycache__/
 # data/docs_raw puede crecer -> lo ignoramos
 data/docs_raw/
 
+# Agent outputs (generated at runtime / by tests)
+data/outputs/
+data/sessions/
+
 # Sí versionamos:
 !data/docs_chunks/**
 !indices/**
