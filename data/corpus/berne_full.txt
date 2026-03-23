@@ -48,6 +48,7 @@ Casos prácticos y casos de éxito
 Novedades sobre la PI
 Premios de la OMPI
 Empresas
+Mujeres
 Universidades
 Pueblos indígenas
 Judicatura
@@ -57,7 +58,6 @@ Ecosistemas de innovación
 Economía
 Financiación
 Activos intangibles
-Igualdad de género
 Salud mundial
 Cambio climático
 Política de competencia
@@ -126,7 +126,7 @@ Documentos oficiales de la OMPI
 Agenda para el Desarrollo
 Asistencia técnica
 Instituciones de formación en PI
-Fondo de Reconstrucción
+Programa de Aceleración de la Innovación, la Creatividad y el Desarrollo
 Estrategias nacionales de PI
 Asesoramiento sobre políticas y legislación
 Centro de cooperación
