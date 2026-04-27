@@ -116,8 +116,8 @@ without having anything to do with their reproduction. The references to
 “copies
 or
 phonorecords,
-” although in the plural, are intended here and throughout the bill to include the singular (
-1 U.S.C. § 1
+” although in the plural, are intended here and throughout the bill to include the singular (1 U.S.C. §
+1
 ).
 Reproduction.—Read together with the relevant definitions in section 101, the right “to reproduce the copyrighted work in
 copies
@@ -234,9 +234,9 @@ including
 all kinds of equipment for reproducing or amplifying sounds or visual images, any sort of transmitting apparatus, any type of electronic retrieval system, and any other techniques and systems not yet in use or even­ invented.
 The definition of “
 perform
-” in relation to “a motion picture or other audiovisual work” is “to show its images in any sequence or to make the sounds accompanying it audible.” The showing of portions of a motion picture, filmstrip, or slide set must therefore be sequential to constitute a “performance” rather than a
-“display”
-, but no particular order need be maintained. The purely aural performance of a motion picture sound track, or of the sound portions of an audiovisual work, would constitute a performance of the “motion picture or other audiovisual work”; but, where some of the sounds have been reproduced separately on
+” in relation to “a motion picture or other audiovisual work” is “to show its images in any sequence or to make the sounds accompanying it audible.” The showing of portions of a motion picture, filmstrip, or slide set must therefore be sequential to constitute a “performance” rather than a “
+display
+”, but no particular order need be maintained. The purely aural performance of a motion picture sound track, or of the sound portions of an audiovisual work, would constitute a performance of the “motion picture or other audiovisual work”; but, where some of the sounds have been reproduced separately on
 phonorecords
 , a performance from the phonorecord would not constitute performance of the motion picture or audiovisual work.
 The corresponding definition of “
