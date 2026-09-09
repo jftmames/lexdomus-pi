@@ -124,6 +124,7 @@ export function parseAnalyzeResult(value: unknown): AnalyzeResult | null {
 /** Never display arbitrary server text, exception detail or echoed input. */
 export function apiErrorMessage(httpStatus: number, value: unknown): string {
   if (record(value) && value.contract_version === CONTRACT_VERSION && requestId(value.request_id)) {
+    if (httpStatus === 503 && value.status === "TECHNICAL_ERROR") return `Análisis no disponible. El responsable debe revisar la configuración del servicio. Referencia: ${value.request_id}.`;
     if (httpStatus === 422 && value.status === "OUT_OF_SCOPE") return "El piloto sólo admite cláusulas bajo jurisdicción española.";
     if ([400, 422].includes(httpStatus) && value.status === "INVALID_INPUT") return "Revisa el texto: debe contener una cláusula válida de hasta 5.000 caracteres.";
     if (httpStatus === 500 && value.status === "TECHNICAL_ERROR") return `No se ha podido completar el análisis. Inténtalo más tarde. Referencia: ${value.request_id}.`;

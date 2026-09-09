@@ -1,0 +1,15 @@
+# Proposal only. No source or professional approval is inferred from this file.
+# This pending policy deliberately prevents analysis, including MOCK mode.
+schema_version: 1
+policy_id: lexdomus-es-editorial-pilot
+revision: 1
+jurisdiction: ES
+reference_date: "2026-09-09"
+review:
+  status: pending
+  reviewer: null
+  reviewed_on: null
+  record: null
+sources:
+  allowed: []
+  constraints: {}

@@ -15,9 +15,18 @@ from app.pipeline import analyze_clause
 from app import writer_llm
 from lex_domus import rag_pipeline, retriever
 from verdiktia.inquiry_engine import decompose_clause
+from lex_domus.policy import PolicyError
 
 
-BOE_POLICY = {"sources": {"allowed": ["BOE"]}}
+# Fictional approval for temporary synthetic records, never a deployable policy.
+BOE_POLICY = {
+    "schema_version": 1, "policy_id": "synthetic-only", "revision": 1,
+    "jurisdiction": "ES", "reference_date": "2026-09-09",
+    "review": {"status": "approved", "reviewer": "SYNTHETIC TEST REVIEWER",
+               "reviewed_on": "2026-09-09", "record": "synthetic-test-only"},
+    "sources": {"allowed": ["BOE"], "constraints": {
+        "BOE": {"jurisdictions": ["ES"], "url_hosts": ["example.invalid"]}}},
+}
 
 
 def synthetic_record(doc_id="synthetic-lpi", source="BOE", text="derechos patrimoniales morales"):
@@ -239,8 +248,8 @@ class ContractTests(unittest.TestCase):
         policies = ({}, {"sources": {}}, {"sources": {"allowed": []}}, {"sources": {"allowed": "BOE"}}, {"sources": {"allowed": None}}, {"sources": []})
         for policy in policies:
             with self.subTest(policy=policy), patch.object(rag_pipeline, "load_policy", return_value=BOE_POLICY) as defaults:
-                result = rag_pipeline.source_required_answer("derechos", "ES", policy)
-                self.assertEqual(result, {"status": "NO_EVIDENCE", "citations": []})
+                with self.assertRaises(PolicyError):
+                    rag_pipeline.source_required_answer("derechos", "ES", policy)
                 defaults.assert_not_called()
 
     def test_none_policy_uses_the_policy_loader(self):
@@ -254,11 +263,8 @@ class ContractTests(unittest.TestCase):
     def test_empty_policy_remains_closed_through_the_pipeline(self):
         self.write_records(synthetic_record())
         with patch.object(rag_pipeline, "load_policy", return_value={}):
-            result = analyze_clause("Derechos morales y patrimoniales.", "ES")
-        self.assertTrue(result["per_node"])
-        for item in result["per_node"]:
-            self.assertEqual(item["retrieval"], {"status": "NO_EVIDENCE", "citations": []})
-        self.assertEqual(result["gate"]["status"], "NO_EVIDENCE")
+            with self.assertRaises(PolicyError):
+                analyze_clause("Derechos morales y patrimoniales.", "ES")
 
     def test_retrieval_error_propagates_without_an_unfiltered_fallback(self):
         self.write_records(synthetic_record())

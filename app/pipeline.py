@@ -145,6 +145,8 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     # --- Policy ---
     policy = load_policy()
+    from lex_domus.policy import validate_policy
+    validate_policy(policy, jurisdiction)
 
     # --- Inquiry (descomposición) ---
     nodes = decompose_clause(clause, jurisdiction)

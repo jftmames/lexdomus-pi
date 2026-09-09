@@ -93,11 +93,16 @@ test("unsafe citation URLs and missing provenance are rejected", () => {
 });
 
 test("HTTP errors use local copy and a validated request reference, never raw server details", () => {
-  for (const [http, status] of [[400, "INVALID_INPUT"], [422, "INVALID_INPUT"], [422, "OUT_OF_SCOPE"], [500, "TECHNICAL_ERROR"]]) {
+  for (const [http, status] of [[400, "INVALID_INPUT"], [422, "INVALID_INPUT"], [422, "OUT_OF_SCOPE"], [500, "TECHNICAL_ERROR"], [503, "TECHNICAL_ERROR"]]) {
     const message = contract.apiErrorMessage(http, { contract_version: "0.2", request_id: requestId, status,
       message: "SECRET_CLIENT_CLAUSE", errors: [{ field: "clause", code: "PRIVATE_TRACE" }] });
     assert.doesNotMatch(message, /SECRET_CLIENT_CLAUSE|PRIVATE_TRACE/);
     if (http === 500) assert.match(message, new RegExp(requestId));
+    if (http === 503) {
+      assert.match(message, /responsable debe revisar/);
+      assert.match(message, new RegExp(requestId));
+      assert.doesNotMatch(message, /Inténtalo más tarde/);
+    }
   }
   assert.doesNotMatch(contract.apiErrorMessage(500, "RAW_PRIVATE_TRACE"), /RAW_PRIVATE_TRACE/);
   assert.doesNotMatch(contract.apiErrorMessage(500, { request_id: "UNTRUSTED" }), /UNTRUSTED/);

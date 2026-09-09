@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from app.pipeline import analyze_clause
+from lex_domus.flagger import detect_flags
 
 CASES = Path(__file__).resolve().parent / "casos_frontera.jsonl"
 
@@ -12,13 +12,15 @@ def main():
             continue
         total += 1
         rec = json.loads(line)
-        res = analyze_clause(rec["clause"], rec["jurisdiction"])
+        # These inherited cases assert flags only, including EU/INT cases outside
+        # the ES pilot. Exercise that component without bypassing runtime policy.
+        flags = detect_flags(rec["clause"], rec["jurisdiction"])
         expected = rec["expected_flag"]
         if expected == "OK":
-            passed = (len(res["flags"]) == 0)
+            passed = (len(flags) == 0)
         else:
-            passed = (expected in res["flags"])
-        print(f"[{rec['id']}] expected={expected} got={res['flags']} -> {'PASS' if passed else 'FAIL'}")
+            passed = (expected in flags)
+        print(f"[{rec['id']}] expected={expected} got={flags} -> {'PASS' if passed else 'FAIL'}")
         ok += int(passed)
     print(f"{ok}/{total} passed")
     if ok != total:

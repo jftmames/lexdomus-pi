@@ -6,6 +6,7 @@ These structural checks do not establish legal validity or source authenticity.
 """
 from typing import Any, Dict, Optional, TypedDict
 from urllib.parse import urlsplit
+from .policy import source_is_allowed
 
 
 class RequiredCitationMeta(TypedDict):
@@ -71,19 +72,3 @@ def citation_from_record(record: Any) -> Optional[Citation]:
     if "line_start" in meta and "line_end" in meta and meta["line_end"] < meta["line_start"]:
         return None
     return {"text": text, "meta": meta}
-
-
-def source_is_allowed(policy: Dict[str, Any], meta: Dict[str, Any]) -> bool:
-    """An explicit, nonempty list and exact source identity are required."""
-    if not isinstance(policy, dict) or not isinstance(meta, dict):
-        return False
-    sources = policy.get("sources")
-    if not isinstance(sources, dict):
-        return False
-    allowed = sources.get("allowed")
-    if not isinstance(allowed, list) or not allowed:
-        return False
-    if any(not isinstance(source, str) or not source.strip() for source in allowed):
-        return False
-    source = meta.get("source")
-    return isinstance(source, str) and bool(source.strip()) and source in allowed

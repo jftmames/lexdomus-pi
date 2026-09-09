@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
 # Carga pipeline de tu MVP
 from app.pipeline import analyze_clause
 from api.schemas import AnalyzeIn, AnalyzeResponse, ErrorResponse, InputIssue
+from lex_domus.policy import PolicyError
 
 logger = logging.getLogger(__name__)
 
@@ -110,7 +111,7 @@ def health():
 
 @app.post("/analyze", response_model=AnalyzeResponse,
           responses={400: {"model": ErrorResponse}, 422: {"model": ErrorResponse},
-                     500: {"model": ErrorResponse}})
+                     500: {"model": ErrorResponse}, 503: {"model": ErrorResponse}})
 def analyze(body: AnalyzeIn, request: Request):
     t0 = perf_counter()
     request_id = request_identifier(request)
@@ -137,6 +138,10 @@ def analyze(body: AnalyzeIn, request: Request):
         # Validate AND serialize within the error boundary (including invalid
         # Unicode/nonfinite output); no raw exception is exposed to clients.
         return JSONResponse(content=validated.model_dump(mode="json"))
+    except PolicyError:
+        logger.warning("Analysis unavailable request_id=%s type=PolicyError", request_id)
+        return error_response(request, 503, "TECHNICAL_ERROR",
+                              "Análisis no disponible: la política de fuentes requiere revisión del responsable.")
     except Exception as exc:
         logger.error("Analysis failed request_id=%s type=%s", request_id, type(exc).__name__)
         return error_response(request, 500, "TECHNICAL_ERROR",
