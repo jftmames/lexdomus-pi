@@ -147,6 +147,8 @@ def analyze_clause(clause: str, jurisdiction: str):
     policy = load_policy()
     from lex_domus.policy import validate_policy
     validate_policy(policy, jurisdiction)
+    from lex_domus.snapshots import load_active_snapshot
+    snapshot = load_active_snapshot(policy)
 
     # --- Inquiry (descomposición) ---
     nodes = decompose_clause(clause, jurisdiction)
@@ -166,7 +168,7 @@ def analyze_clause(clause: str, jurisdiction: str):
         used_q = q_base
         retr = {"status": "NO_EVIDENCE", "citations": []}
         for q_try in tries:
-            r = source_required_answer(q_try, jurisdiction=jurisdiction, policy=policy)
+            r = source_required_answer(q_try, jurisdiction=jurisdiction, policy=policy, snapshot=snapshot)
             # nos quedamos con el primer intento que traiga citas
             if r.get("status") == "OK" and r.get("citations"):
                 retr = r
@@ -199,6 +201,7 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     result = {
         "engine": engine,
+        "retrieval_context": snapshot.context(),
         "per_node": per_node,
         "flags": flags,
         "gate": gate,

@@ -107,6 +107,33 @@ test("ingested provenance preserves Unicode offsets and rejects partial or incon
   }
 });
 
+test("verified retrieval context requires coherent versioned citations and declares no persistent index", () => {
+  const value = draft();
+  value.retrieval_context = { mode: "lexical-overlap-v1", snapshot_id: "d".repeat(64),
+    corpus_id: "e".repeat(64), active_indices: [] };
+  const item = value.per_node[0].retrieval.citations[0];
+  Object.assign(item.meta, { chunk_id: "a".repeat(64), document_version: "synthetic-v1",
+    source_sha256: "b".repeat(64), normalized_sha256: "c".repeat(64),
+    char_start: 0, char_end: Array.from(item.text).length });
+  assert.ok(contract.parseAnalyzeResult(value));
+  assert.ok(contract.parseAnalyzeResult({ ...insufficient(), retrieval_context: value.retrieval_context }));
+  for (const patch of [{ mode: "bm25" }, { snapshot_id: "not-a-hash" }, { corpus_id: "E".repeat(64) },
+      { active_indices: ["bm25"] }, { active_indices: null }, { extra: "undeclared" }]) {
+    assert.equal(contract.parseAnalyzeResult({ ...value, retrieval_context: { ...value.retrieval_context, ...patch } }), null);
+  }
+  for (const key of Object.keys(value.retrieval_context)) {
+    const context = { ...value.retrieval_context }; delete context[key];
+    assert.equal(contract.parseAnalyzeResult({ ...value, retrieval_context: context }), null);
+  }
+  assert.equal(contract.parseAnalyzeResult({ ...draft(), retrieval_context: value.retrieval_context }), null);
+  const mixed = { ...value, per_node: [...value.per_node, node(true)] };
+  assert.equal(contract.parseAnalyzeResult(mixed), null);
+  assert.ok(contract.parseAnalyzeResult(draft()));
+  assert.ok(contract.parseAnalyzeResult({ ...draft(), retrieval_context: null }));
+  const html = renderToStaticMarkup(React.createElement(ResultView, { data: value }));
+  assert.doesNotMatch(html, /lexical-overlap-v1|dddddddd|eeeeeeee|snapshot_id|active_indices/);
+});
+
 test("HTTP errors use local copy and a validated request reference, never raw server details", () => {
   for (const [http, status] of [[400, "INVALID_INPUT"], [422, "INVALID_INPUT"], [422, "OUT_OF_SCOPE"], [500, "TECHNICAL_ERROR"], [503, "TECHNICAL_ERROR"]]) {
     const message = contract.apiErrorMessage(http, { contract_version: "0.2", request_id: requestId, status,

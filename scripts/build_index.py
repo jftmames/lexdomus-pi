@@ -1,53 +1,39 @@
-import os, json, pickle, pathlib
-import numpy as np
+"""Prepare an isolated lexical snapshot; no persisted search indices are active.
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-CHUNKS = ROOT / "data" / "docs_chunks" / "chunks.jsonl"
-INDICES = ROOT / "indices"
-INDICES.mkdir(parents=True, exist_ok=True)
+The filename is retained for operator discoverability. Legacy invocations that
+implicitly overwrite BM25/FAISS now fail; maintenance migration belongs to T13.
+"""
+import argparse
+import json
+from pathlib import Path
+import sys
 
-# ---- BM25 ----
-from rank_bm25 import BM25Okapi
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-def build_bm25():
-    docs, metas = [], []
-    with open(CHUNKS, "r", encoding="utf-8") as f:
-        for line in f:
-            rec = json.loads(line)
-            docs.append(rec["text"])
-            metas.append(rec)
-    tokenized = [d.lower().split() for d in docs]
-    bm25 = BM25Okapi(tokenized)
-    with open(INDICES / "bm25.pkl", "wb") as f:
-        pickle.dump({"bm25": bm25, "tokenized": tokenized, "metas": metas}, f)
-    print("BM25 index listo.")
+from lex_domus.policy import PolicyError, read_policy
+from lex_domus.snapshots import CorpusError, prepare_snapshot
 
-# ---- FAISS (opcional, híbrido) ----
-def build_faiss():
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate-dir", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--registry", type=Path, default=ROOT / "policies/corpus-registry.json")
+    parser.add_argument("--policy", type=Path, default=ROOT / "policies/policy.yaml")
+    parser.add_argument("--corpus-dir", type=Path, default=ROOT / "data/corpus")
+    args = parser.parse_args(argv)
     try:
-        from sentence_transformers import SentenceTransformer
-        import faiss
-    except Exception as e:
-        print("FAISS/embeddings no disponibles en este entorno. Solo BM25.")
-        return
+        destination = prepare_snapshot(args.candidate_dir, args.output_dir, read_policy(args.policy), args.registry,
+                                       corpus_dir=args.corpus_dir)
+        descriptor = json.loads((destination / "snapshot.json").read_bytes())
+        print(f"[snapshot] candidate -> {destination}; snapshot_id={descriptor['snapshot_id']}; not activated")
+        return 0
+    except (CorpusError, PolicyError):
+        print("[snapshot] BLOCKED: review policy, registry and candidate integrity; no activation", file=sys.stderr)
+        return 2
 
-    texts, metas = [], []
-    with open(CHUNKS, "r", encoding="utf-8") as f:
-        for line in f:
-            rec = json.loads(line)
-            texts.append(rec["text"])
-            metas.append(rec)
-
-    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-    X = model.encode(texts, normalize_embeddings=True, show_progress_bar=False).astype("float32")
-    index = faiss.IndexFlatIP(X.shape[1])
-    index.add(X)
-    faiss.write_index(index, str(INDICES / "faiss.index"))
-    np.save(INDICES / "embeddings.npy", X)
-    with open(INDICES / "vector_meta.json", "w", encoding="utf-8") as f:
-        json.dump({"metas": metas}, f, ensure_ascii=False)
-    print("FAISS index listo.")
 
 if __name__ == "__main__":
-    build_bm25()
-    build_faiss()
+    raise SystemExit(main())

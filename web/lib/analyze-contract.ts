@@ -27,6 +27,12 @@ export type NodeItem = {
   node: { pregunta: string };
   retrieval: { status: "OK" | "NO_EVIDENCE"; citations: Citation[] };
 };
+export type RetrievalContext = {
+  mode: "lexical-overlap-v1";
+  snapshot_id: string;
+  corpus_id: string;
+  active_indices: [];
+};
 export type AnalyzeResult = {
   contract_version: "0.2";
   request_id: string;
@@ -35,6 +41,7 @@ export type AnalyzeResult = {
   review_required: true;
   engine: "LLM" | "MOCK" | "NOT_RUN";
   per_node: NodeItem[];
+  retrieval_context?: RetrievalContext | null;
   gate: { status: "OK" | "NO_EVIDENCE" };
   opinion: { analysis_md: string; pros: string[]; cons: string[] } | null;
   alternative_clause: string | null;
@@ -50,6 +57,8 @@ const stringList = (value: unknown): value is string[] =>
   Array.isArray(value) && value.every(item => typeof item === "string");
 const requestId = (value: unknown): value is string =>
   typeof value === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
+const sha256 = (value: unknown): value is string =>
+  typeof value === "string" && /^[0-9a-f]{64}$/.test(value);
 
 export function clauseLength(clause: string): number {
   return Array.from(clause).length;
@@ -98,7 +107,7 @@ function isCitation(value: unknown): value is Citation {
   const provenance = ["chunk_id", "document_version", "source_sha256", "normalized_sha256", "char_start", "char_end"];
   if (provenance.some(key => meta[key] != null)) {
     if (!provenance.every(key => meta[key] != null) || !nonempty(meta.document_version)) return false;
-    if (!["chunk_id", "source_sha256", "normalized_sha256"].every(key => typeof meta[key] === "string" && /^[0-9a-f]{64}$/.test(meta[key] as string))) return false;
+    if (!["chunk_id", "source_sha256", "normalized_sha256"].every(key => sha256(meta[key]))) return false;
     if (typeof meta.char_start !== "number" || typeof meta.char_end !== "number"
         || !Number.isSafeInteger(meta.char_start) || !Number.isSafeInteger(meta.char_end)
         || meta.char_start < 0 || meta.char_end - meta.char_start !== Array.from(value.text).length) return false;
@@ -114,11 +123,22 @@ function isNode(value: unknown): value is NodeItem {
     : retrieval.status === "NO_EVIDENCE" && retrieval.citations.length === 0;
 }
 
+function isRetrievalContext(value: unknown): value is RetrievalContext {
+  return record(value) && Object.keys(value).length === 4
+    && value.mode === "lexical-overlap-v1" && sha256(value.snapshot_id) && sha256(value.corpus_id)
+    && Array.isArray(value.active_indices) && value.active_indices.length === 0;
+}
+
 export function parseAnalyzeResult(value: unknown): AnalyzeResult | null {
   if (!record(value) || value.contract_version !== CONTRACT_VERSION || !requestId(value.request_id)
       || typeof value.message !== "string" || value.review_required !== true
       || typeof value.latency_ms !== "number" || !Number.isFinite(value.latency_ms) || value.latency_ms < 0
       || !Array.isArray(value.per_node) || value.per_node.length === 0 || !value.per_node.every(isNode) || !record(value.gate)) return null;
+
+  if (value.retrieval_context != null) {
+    if (!isRetrievalContext(value.retrieval_context)
+        || value.per_node.some(item => item.retrieval.citations.some(citation => !sha256(citation.meta.chunk_id)))) return null;
+  }
 
   if (value.status === "INSUFFICIENT_EVIDENCE") {
     if (value.gate.status !== "NO_EVIDENCE" || value.engine !== "NOT_RUN" || value.per_node.some(item => item.retrieval.status === "OK")

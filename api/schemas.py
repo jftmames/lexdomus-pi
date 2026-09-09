@@ -117,6 +117,13 @@ class EeeMetrics(ContractModel):
     P: float
 
 
+class RetrievalContext(ContractModel):
+    mode: Literal["lexical-overlap-v1"]
+    snapshot_id: Sha256
+    corpus_id: Sha256
+    active_indices: Annotated[List[str], Field(max_length=0)]
+
+
 class AnalyzeResponse(ContractModel):
     contract_version: Literal["0.2"] = CONTRACT_VERSION
     request_id: UUID
@@ -125,6 +132,7 @@ class AnalyzeResponse(ContractModel):
     review_required: Literal[True] = True
     engine: Literal["LLM", "MOCK", "NOT_RUN"]
     per_node: Annotated[List[NodeResult], Field(min_length=1)]
+    retrieval_context: Optional[RetrievalContext] = None
     flags: List[str] = Field(default_factory=list)
     gate: Gate
     opinion: Optional[Opinion] = None
@@ -134,6 +142,11 @@ class AnalyzeResponse(ContractModel):
 
     @model_validator(mode="after")
     def consistent_result(self):
+        if self.retrieval_context is not None and any(
+            citation.meta.chunk_id is None
+            for node in self.per_node for citation in node.retrieval.citations
+        ):
+            raise ValueError("Verified retrieval requires versioned citation provenance")
         has_evidence = any(node.retrieval.citations for node in self.per_node)
         draft = self.status == "DRAFT_REVIEW_REQUIRED"
         if has_evidence != (self.gate.status == "OK") or draft != has_evidence:

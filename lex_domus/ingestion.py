@@ -76,22 +76,18 @@ def _provenance(value):
         raise IngestionError("Reuse review is missing")
 
 
-def inspect_registry(registry_path, corpus_dir):
-    """Return admitted snapshots plus a quarantine report; never infer identity."""
-    registry_path, corpus_dir = Path(registry_path), Path(corpus_dir)
+def parse_registry(registry_bytes):
+    """Validate the recorded identities without accessing their source files."""
     try:
-        registry_bytes = registry_path.read_bytes()
         registry = json.loads(registry_bytes.decode("utf-8"), object_pairs_hook=_pairs)
-    except (OSError, ValueError, UnicodeError, RecursionError) as exc:
+    except (ValueError, UnicodeError, RecursionError) as exc:
         raise IngestionError("Registry missing or invalid") from exc
     _fields(registry, ("schema_version", "registry_id", "revision", "documents"))
     if (type(registry["schema_version"]) is not int or registry["schema_version"] != 1
             or type(registry["revision"]) is not int or registry["revision"] < 1
             or not _text(registry["registry_id"]) or not isinstance(registry["documents"], list)):
         raise IngestionError("Invalid registry version")
-    if not corpus_dir.is_dir():
-        raise IngestionError("Corpus directory missing")
-    admitted, quarantined, paths = [], [], set()
+    paths = set()
     for entry in registry["documents"]:
         _fields(entry, ("path", "sha256", "state", "reason", "provenance"))
         name = entry["path"]
@@ -104,6 +100,25 @@ def inspect_registry(registry_path, corpus_dir):
             raise IngestionError("Invalid source state")
         if entry["state"] == "quarantined" and entry["provenance"] is not None:
             raise IngestionError("Quarantine must not carry approved provenance")
+        if entry["state"] == "admitted":
+            _provenance(entry["provenance"])
+    return registry
+
+
+def inspect_registry(registry_path, corpus_dir):
+    """Return admitted snapshots plus a quarantine report; never infer identity."""
+    registry_path, corpus_dir = Path(registry_path), Path(corpus_dir)
+    try:
+        registry_bytes = registry_path.read_bytes()
+    except OSError as exc:
+        raise IngestionError("Registry missing or invalid") from exc
+    registry = parse_registry(registry_bytes)
+    if not corpus_dir.is_dir():
+        raise IngestionError("Corpus directory missing")
+    admitted, quarantined = [], []
+    paths = {entry["path"] for entry in registry["documents"]}
+    for entry in registry["documents"]:
+        name = entry["path"]
         path = corpus_dir / name
         content, actual = None, None
         issue = None
@@ -144,6 +159,18 @@ def inspect_registry(registry_path, corpus_dir):
             "quarantined": sorted(quarantined, key=lambda row: row["path"])}
 
 
+def chunk_record(provenance, source_sha256, normalized_sha256, part):
+    """Canonical T05 record, shared with independent snapshot verification."""
+    chunk_id = digest(canonical_json({"doc_id": provenance["doc_id"], "version": provenance["version"],
+                                     "source_sha256": source_sha256,
+                                     "start": part["char_start"], "end": part["char_end"]}))
+    record = {key: provenance[key] for key in ("doc_id", "source", "jurisdiction", "title", "family", "ref_url")}
+    record.update(part, chunk_id=chunk_id, document_version=provenance["version"],
+                  source_sha256=source_sha256, normalized_sha256=normalized_sha256,
+                  ref_label=f"{provenance['title']} — copia {provenance['version']}", pinpoint=False)
+    return record
+
+
 def build_bundle(registry_path, corpus_dir, policy, *, max_chars=1000, overlap_chars=120):
     validate_policy(policy, "ES")
     inventory = inspect_registry(registry_path, corpus_dir)
@@ -175,12 +202,7 @@ def build_bundle(registry_path, corpus_dir, policy, *, max_chars=1000, overlap_c
                     or end <= covered or end - start > max_chars or part["text"] != normalized[start:end]):
                 raise IngestionError("Text coverage failure")
             covered, previous_start = end, start
-            chunk_id = digest(canonical_json({"doc_id": identity[0], "version": identity[1],
-                                             "source_sha256": entry["sha256"], "start": start, "end": end}))
-            record = {key: provenance[key] for key in ("doc_id", "source", "jurisdiction", "title", "family", "ref_url")}
-            record.update(part, chunk_id=chunk_id, document_version=provenance["version"],
-                          source_sha256=entry["sha256"], normalized_sha256=normalized_hash,
-                          ref_label=f"{provenance['title']} — copia {provenance['version']}", pinpoint=False)
+            record = chunk_record(provenance, entry["sha256"], normalized_hash, part)
             if has_text(part["text"]) and citation_from_record(record) is None:
                 raise IngestionError("Invalid generated citation")
             records.append(record)

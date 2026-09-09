@@ -10,6 +10,7 @@ from unittest.mock import Mock, patch
 from app.writer_llm import _gather_citations
 from lex_domus.contracts import citation_from_record
 from lex_domus.ingestion import build_bundle, save_candidate
+from lex_domus.snapshots import prepare_snapshot
 from tests.test_api import asgi_request
 from tests.test_contracts import BOE_POLICY
 from tests.test_ingestion import write_fixture
@@ -22,11 +23,14 @@ class IngestedContractTests(unittest.TestCase):
         raw = ("\ufeff  \r\nDerechos patrimoniales morales y cláusula editorial sintética. 😀\r\n" * 35).encode("utf-8")
         self.fixture = write_fixture(temporary.name, raw)
         chunks, manifest = build_bundle(self.fixture["registry_path"], self.fixture["corpus"], BOE_POLICY)
-        self.destination = save_candidate(Path(temporary.name) / "candidates", chunks, manifest)
+        candidate = save_candidate(Path(temporary.name) / "candidates", chunks, manifest)
+        self.destination = prepare_snapshot(candidate, Path(temporary.name) / "snapshots", BOE_POLICY,
+                                            self.fixture["registry_path"], corpus_dir=self.fixture["corpus"])
+        self.descriptor = json.loads((self.destination / "snapshot.json").read_bytes())
         self.records = [json.loads(line) for line in chunks.splitlines()]
         for target, value in (
             ("lex_domus.rag_pipeline.POLICY_PATH", self.fixture["policy_path"]),
-            ("lex_domus.retriever.CHUNKS", self.destination / "chunks.jsonl"),
+            ("lex_domus.snapshots.REGISTRY_PATH", self.fixture["registry_path"]),
             ("metrics_eee.logger.append_log", Mock()),
         ):
             self._patch(target, value)
@@ -35,7 +39,8 @@ class IngestedContractTests(unittest.TestCase):
             guard = Mock(side_effect=AssertionError("Network and real providers forbidden"))
             self._patch(target, guard)
             self.addCleanup(guard.assert_not_called)
-        environment = patch.dict("os.environ", {"USE_LLM": "0"}, clear=True)
+        environment = patch.dict("os.environ", {"USE_LLM": "0", "LEXDOMUS_SNAPSHOT_DIR": str(self.destination),
+                                                 "LEXDOMUS_SNAPSHOT_ID": self.descriptor["snapshot_id"]}, clear=True)
         environment.start()
         self.addCleanup(environment.stop)
 
@@ -75,9 +80,9 @@ class IngestedContractTests(unittest.TestCase):
                 self.assertIsNone(citation_from_record(malformed))
                 (self.destination / "chunks.jsonl").write_text(json.dumps(malformed), encoding="utf-8")
                 code, body = asyncio.run(asgi_request({"clause": "Cláusula editorial sintética.", "jurisdiction": "ES"}))
-                self.assertEqual(code, 200)
-                self.assertEqual(body["status"], "INSUFFICIENT_EVIDENCE")
-                self.assertEqual(body["engine"], "NOT_RUN")
+                self.assertEqual(code, 503)
+                self.assertEqual(body["status"], "TECHNICAL_ERROR")
+                self.assertNotIn("opinion", body)
 
     def test_bom_and_whitespace_only_are_not_evidence(self):
         record = self.records[0]

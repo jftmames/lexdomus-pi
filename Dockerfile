@@ -11,7 +11,7 @@ COPY requirements.api.txt ./
 RUN pip install --no-cache-dir --require-hashes --only-binary=:all: -r requirements.api.txt \
     && pip check
 
-# .dockerignore admits only runtime code and the repository's demo artifacts.
+# .dockerignore admits runtime code; a reviewed snapshot must be mounted and pinned explicitly.
 COPY . .
 RUN groupadd --gid 10001 lexdomus \
     && useradd --uid 10001 --gid lexdomus --no-create-home lexdomus

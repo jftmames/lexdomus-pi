@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "evaluation_date": "2026-09-09",
+  "base_commit": "7dc5cceb43fff5c3b4db3c73a23d15e3fe9c6b0d",
+  "scope": "Casos totalmente sintéticos: comprobación mecánica, no evaluación jurídica ni del despacho.",
+  "method": {
+    "pipeline": [
+      "build_bundle",
+      "prepare_snapshot",
+      "load_active_snapshot",
+      "search"
+    ],
+    "top_k": 3,
+    "hit_definition": "Con referencias: al menos un doc_id esperado entre los recuperados. Sin referencias: ninguna recuperación.",
+    "reference_scan": "Regex Unicode \\w+, minúsculas, conjuntos de tokens, puntuación por intersección, filtro de política antes de k y orden estable.",
+    "parity_scope": "Cinco documentos distintos de un fragmento; no evalúa diferencias intencionales de deduplicación.",
+    "network_requests": 0,
+    "model_requests": 0
+  },
+  "retrieval_context": {
+    "mode": "lexical-overlap-v1",
+    "snapshot_id": "3d601eddf316d17e223033856188dcb787f1c96d7290a637bd27f8eeec5584a7",
+    "corpus_id": "014d28e297ee03322e5a5234e04eac8d3352f99b562b16b9714495e2c8699fe1",
+    "active_indices": []
+  },
+  "documents": [
+    {
+      "doc_id": "synthetic-plazo",
+      "title": "Plazo ficticio",
+      "text": "Cláusula ficticia P: duración plazo vigencia meses.\n"
+    },
+    {
+      "doc_id": "synthetic-remuneracion",
+      "title": "Remuneración ficticia",
+      "text": "Cláusula ficticia R: remuneración importe euros anticipo.\n"
+    },
+    {
+      "doc_id": "synthetic-territorio",
+      "title": "Territorio ficticio",
+      "text": "Cláusula ficticia T: territorio España países distribución.\n"
+    },
+    {
+      "doc_id": "synthetic-exclusividad",
+      "title": "Exclusividad ficticia",
+      "text": "Cláusula ficticia E: exclusividad exclusiva licencia editorial.\n"
+    },
+    {
+      "doc_id": "synthetic-morales",
+      "title": "Derechos morales ficticios",
+      "text": "Cláusula ficticia M: atribución autoría integridad derechos morales.\n"
+    }
+  ],
+  "queries": [
+    {
+      "id": "Q01",
+      "case_type": "literal",
+      "query": "plazo duración vigencia",
+      "expected_doc_ids": [
+        "synthetic-plazo"
+      ],
+      "top_doc_ids": [
+        "synthetic-plazo"
+      ],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [
+        "synthetic-plazo"
+      ],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q02",
+      "case_type": "literal",
+      "query": "remuneración importe",
+      "expected_doc_ids": [
+        "synthetic-remuneracion"
+      ],
+      "top_doc_ids": [
+        "synthetic-remuneracion"
+      ],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [
+        "synthetic-remuneracion"
+      ],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q03",
+      "case_type": "literal",
+      "query": "territorio países",
+      "expected_doc_ids": [
+        "synthetic-territorio"
+      ],
+      "top_doc_ids": [
+        "synthetic-territorio"
+      ],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [
+        "synthetic-territorio"
+      ],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q04",
+      "case_type": "literal",
+      "query": "exclusividad licencia",
+      "expected_doc_ids": [
+        "synthetic-exclusividad"
+      ],
+      "top_doc_ids": [
+        "synthetic-exclusividad"
+      ],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [
+        "synthetic-exclusividad"
+      ],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q05",
+      "case_type": "literal",
+      "query": "autoría integridad",
+      "expected_doc_ids": [
+        "synthetic-morales"
+      ],
+      "top_doc_ids": [
+        "synthetic-morales"
+      ],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [
+        "synthetic-morales"
+      ],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q06",
+      "case_type": "stable_tie",
+      "query": "plazo remuneración",
+      "expected_doc_ids": [
+        "synthetic-plazo",
+        "synthetic-remuneracion"
+      ],
+      "top_doc_ids": [
+        "synthetic-plazo",
+        "synthetic-remuneracion"
+      ],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [
+        "synthetic-plazo",
+        "synthetic-remuneracion"
+      ],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q07",
+      "case_type": "synonym_without_lexical_overlap",
+      "query": "límite temporal",
+      "expected_doc_ids": [
+        "synthetic-plazo"
+      ],
+      "top_doc_ids": [],
+      "hit": false,
+      "all_expected_retrieved": false,
+      "reference_scan_doc_ids": [],
+      "reference_scan_citations_equal": true
+    },
+    {
+      "id": "Q08",
+      "case_type": "outside_fixture_corpus",
+      "query": "arbitraje marítimo",
+      "expected_doc_ids": [],
+      "top_doc_ids": [],
+      "hit": true,
+      "all_expected_retrieved": true,
+      "reference_scan_doc_ids": [],
+      "reference_scan_citations_equal": true
+    }
+  ],
+  "summary": {
+    "document_count": 5,
+    "chunk_count": 5,
+    "query_count": 8,
+    "queries_with_expected_documents": 7,
+    "hits_with_expected_documents": 6,
+    "empty_reference_cases": 1,
+    "correct_empty_results": 1,
+    "hits_including_empty_reference_cases": 7,
+    "reference_scan_parity_count": 8,
+    "all_reference_scan_results_equal": true,
+    "missed_query_ids": [
+      "Q07"
+    ]
+  },
+  "limitations": [
+    "Q07 espera el documento sobre plazo pero usa sinónimos sin coincidencias léxicas; ambos recuperadores devuelven cero resultados.",
+    "Ocho consultas fijadas sobre cinco textos ficticios no estiman precisión, exhaustividad ni suficiencia jurídica en casos reales.",
+    "Los metadatos de aprobación existen exclusivamente en una fixture temporal de software; no representan aprobación de fuentes reales ni del despacho.",
+    "No se comparan modelos semánticos ni rendimiento; ningún índice persistente participa."
+  ]
+}

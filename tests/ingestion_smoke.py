@@ -1,13 +1,14 @@
-"""Exercise candidate CLI and BM25 construction on temporary synthetic data."""
+"""Exercise ingestion, snapshot CLI and verified retrieval on synthetic data."""
 from contextlib import ExitStack
 import json
 from pathlib import Path
-import pickle
 import tempfile
 from unittest.mock import Mock, patch
 
 from scripts import ingest, build_index
 from tests.test_ingestion import write_fixture
+from tests.test_contracts import BOE_POLICY
+from lex_domus.snapshots import load_active_snapshot
 
 
 def main():
@@ -23,22 +24,26 @@ def main():
         assert ingest.main(["--registry", str(fixture["registry_path"]), "--policy", str(fixture["policy_path"]),
                             "--corpus-dir", str(fixture["corpus"]), "--output-dir", str(outputs)]) == 0
         candidate, = outputs.iterdir()
-        chunks = candidate / "chunks.jsonl"
-        records = [json.loads(line) for line in chunks.read_bytes().splitlines()]
-        indices = candidate / "indices"
-        indices.mkdir()
-        stack.enter_context(patch.object(build_index, "CHUNKS", chunks))
-        stack.enter_context(patch.object(build_index, "INDICES", indices))
-        build_index.build_bm25()  # Never call optional embedding download or FAISS.
-        # Only deserialize the object produced by this same test in its own directory.
-        with (indices / "bm25.pkl").open("rb") as stream:
-            result = pickle.load(stream)
-        assert result["metas"] == records
-        assert len(result["tokenized"]) == len(records) > 1
-        assert result["bm25"].get_scores(["derechos"]).shape == (len(records),)
+        snapshots = Path(temporary) / "snapshots"
+        assert build_index.main(["--candidate-dir", str(candidate), "--output-dir", str(snapshots),
+                                 "--registry", str(fixture["registry_path"]), "--policy", str(fixture["policy_path"]),
+                                 "--corpus-dir", str(fixture["corpus"])]) == 0
+        snapshot_dir, = snapshots.iterdir()
+        descriptor = json.loads((snapshot_dir / "snapshot.json").read_bytes())
+        stack.enter_context(patch.dict("os.environ", {"LEXDOMUS_SNAPSHOT_DIR": str(snapshot_dir),
+                                                      "LEXDOMUS_SNAPSHOT_ID": descriptor["snapshot_id"]}))
+        stack.enter_context(patch("lex_domus.snapshots.REGISTRY_PATH", fixture["registry_path"]))
+        result = load_active_snapshot(BOE_POLICY).search("derechos", 6, BOE_POLICY)
+        records = [json.loads(line) for line in (candidate / "chunks.jsonl").read_bytes().splitlines()]
+        by_id = {record["chunk_id"]: record for record in records}
+        assert result and len(records) > 1
+        for citation in result:
+            record = by_id[citation["meta"]["chunk_id"]]
+            assert citation["text"] == record["text"]
+            assert all(value == record[key] for key, value in citation["meta"].items())
         for guard in guards:
             guard.assert_not_called()
-        print(f"Synthetic candidate and BM25 preserve {len(records)} complete provenance records; active corpus unchanged")
+        print(f"Synthetic snapshot preserves {len(records)} provenance records; lexical retrieval verified; not activated")
 
 
 if __name__ == "__main__":
