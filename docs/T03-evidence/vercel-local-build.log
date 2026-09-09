@@ -1,0 +1,34 @@
+{"diagnostic":"local builder only, no hosted project settings","sourceCommit":"86e14b53145ca0ba0c4bbdd450a6e0e6b08f4194","builder":"11.0.3","utils":"14.9.2","node":"v24.19.0","fileCount":118}
+Running "install" command: `npm ci --no-audit --no-fund`...
+
+added 109 packages in 10s
+Detected Next.js version: 16.3.4
+Running "npm run build"
+
+> lexdomus-pi-web@1.0.0 build
+> next build
+
+▲ Next.js 16.3.4 (Turbopack)
+✓ Running next.config.mjs took 11ms
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.0s
+  Running TypeScript ...
+  Finished TypeScript in 2.1s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 498ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+Traced Next.js server files in: 35.508ms
+Created all serverless functions in: 130.922ms
+Collected static files (public/, static/, .next/static): 2.371ms
+{"result":"success","outputCount":34,"routes":28}

@@ -6,6 +6,11 @@ bajo jurisdicción española y a textos sintéticos. **No está habilitado para
 expedientes reales ni sustituye la revisión de un abogado.** El despacho aún
 debe aceptar el alcance y validar los resultados.
 
+Esta rama incorpora el bloqueo de [T04.1](docs/T04-policy.md): la política de
+fuentes está pendiente de revisión y `/analyze` devuelve **503**. Es el resultado
+esperado, también con `USE_LLM=0`. Las pruebas usan políticas ficticias sobre
+datos sintéticos; no conviertas esas políticas de prueba en configuración de uso.
+
 ## Arranque local
 
 Entorno de referencia: Linux x86_64, Python **3.11.16** (`.python-version`),
@@ -42,7 +47,7 @@ admisibles no ejecuta la generación. Tener alguna cita **no acredita suficienci
 jurídica, autenticidad ni vigencia**. Véase [el contrato](docs/T02-api-v0.2.md).
 
 `GET /health` informa del proceso y de la existencia de archivos; no certifica
-integridad del corpus ni disponibilidad jurídica. Siguen pendientes la política
+integridad del corpus ni disponibilidad jurídica. Siguen pendientes la aprobación
 de fuentes, pérdidas de ingesta, consistencia de índices, negaciones,
 trazabilidad persistente, autenticación y límites de transporte/frecuencia.
 El CORS actual es de demostración. No expongas esta API como servicio público.
@@ -61,8 +66,10 @@ npm --prefix web run typecheck
 npm --prefix web run build
 ```
 
-La batería comprende 39 regresiones Python, 10 casos smoke y 9 pruebas de
+La batería comprende 48 regresiones Python, 10 casos del detector de flags y 9 pruebas de
 interfaz. No mide precisión jurídica ni demuestra adopción por el despacho.
+Los casos heredados `tests.smoke` comprueban exclusivamente flags; las pruebas
+de contrato y API ejercitan el pipeline real con fixtures y bloqueo de red.
 
 ## Componentes y mantenimiento
 

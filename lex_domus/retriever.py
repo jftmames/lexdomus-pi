@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional
 import json, re
 from .contracts import Citation, citation_from_record, source_is_allowed
+from .policy import validate_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 CHUNKS = ROOT / "data" / "docs_chunks" / "chunks.jsonl"
@@ -20,8 +21,12 @@ def retrieve_candidates(query: str, k: int = 6, *,
                         policy: Optional[Dict[str, Any]] = None) -> List[Citation]:
     """
     Recuperación léxica sobre chunks.jsonl, con procedencia bajo 'meta'.
-    Si se proporciona política, se aplica antes del límite de candidatos.
+    La política es obligatoria y se aplica antes del límite de candidatos.
     """
+    if policy is None:
+        from .rag_pipeline import load_policy
+        policy = load_policy()
+    validate_policy(policy)
     if not isinstance(query, str):
         raise ValueError("Retrieval query must be a string")
     if not query.strip() or k <= 0 or not CHUNKS.exists():
@@ -41,7 +46,7 @@ def retrieve_candidates(query: str, k: int = 6, *,
             citation = citation_from_record(rec)
             if citation is None:
                 continue
-            if policy is not None and not source_is_allowed(policy, citation["meta"]):
+            if not source_is_allowed(policy, citation["meta"]):
                 continue
             sc = _score(q_tokens, citation["text"])
             if sc > 0:
