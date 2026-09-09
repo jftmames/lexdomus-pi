@@ -48,7 +48,7 @@ jurídica, autenticidad ni vigencia**. Véase [el contrato](docs/T02-api-v0.2.md
 
 `GET /health` informa del proceso y de la existencia de archivos; no certifica
 integridad del corpus ni disponibilidad jurídica. Siguen pendientes la aprobación
-de fuentes, pérdidas de ingesta, consistencia de índices, negaciones,
+y saneamiento de fuentes, consistencia de índices, negaciones,
 trazabilidad persistente, autenticación y límites de transporte/frecuencia.
 El CORS actual es de demostración. No expongas esta API como servicio público.
 
@@ -60,16 +60,37 @@ Las previews de Vercel no validan ni despliegan por sí mismas el backend.
 ```bash
 USE_LLM=0 .venv/bin/python -m unittest discover -s tests -p 'test*.py' -v
 USE_LLM=0 .venv/bin/python -m tests.smoke
+USE_LLM=0 .venv/bin/python -m tests.ingestion_smoke
+.venv/bin/python scripts/ingest.py --check
 .venv/bin/python tools/dependency_inventory.py --check
 npm --prefix web test
 npm --prefix web run typecheck
 npm --prefix web run build
 ```
 
-La batería comprende 48 regresiones Python, 10 casos del detector de flags y 9 pruebas de
+La batería comprende 85 regresiones Python, 10 casos del detector de flags y 10 pruebas de
 interfaz. No mide precisión jurídica ni demuestra adopción por el despacho.
 Los casos heredados `tests.smoke` comprueban exclusivamente flags; las pruebas
 de contrato y API ejercitan el pipeline real con fixtures y bloqueo de red.
+`tests.ingestion_smoke` construye un candidato sintético y su índice BM25 en
+un directorio temporal, sin modificar los datos activos.
+
+## Ingesta de candidatos
+
+[T05](docs/T05-ingestion.md) sustituye la detección por nombre de archivo por
+un registro explícito: `policies/corpus-registry.json`. Las 14 copias actuales
+están en cuarentena por los motivos documentados; ninguna está aprobada.
+La fragmentación conserva el texto tras normalizar únicamente saltos de línea.
+
+Una futura ingesta exige política y documentos revisados, hashes coincidentes
+y `--output-dir` explícito. Produce un directorio nuevo con `chunks.jsonl` y
+`manifest.json`. **No publica ni sustituye `data/docs_chunks` o `indices`.**
+No copies una política de tests para habilitar datos reales.
+
+Los cinco workflows heredados que llaman a `ingest.py` sin destino quedan
+bloqueados por esa invocación incompatible. Deben adaptarse a la selección y
+promoción explícita de candidatos en T13 antes de fusionar esta propuesta.
+CI ya utiliza un corpus sintético aislado para verificar ingesta e índice.
 
 ## Componentes y mantenimiento
 

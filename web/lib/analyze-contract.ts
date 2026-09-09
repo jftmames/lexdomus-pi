@@ -15,6 +15,12 @@ export type Citation = {
     pinpoint?: boolean;
     line_start?: number | null;
     line_end?: number | null;
+    chunk_id?: string | null;
+    document_version?: string | null;
+    source_sha256?: string | null;
+    normalized_sha256?: string | null;
+    char_start?: number | null;
+    char_end?: number | null;
   };
 };
 export type NodeItem = {
@@ -88,6 +94,14 @@ function isCitation(value: unknown): value is Citation {
   if ("pinpoint" in meta && typeof meta.pinpoint !== "boolean") return false;
   for (const key of ["line_start", "line_end"]) {
     if (key in meta && meta[key] !== null && (typeof meta[key] !== "number" || !Number.isInteger(meta[key]) || (meta[key] as number) < 1)) return false;
+  }
+  const provenance = ["chunk_id", "document_version", "source_sha256", "normalized_sha256", "char_start", "char_end"];
+  if (provenance.some(key => meta[key] != null)) {
+    if (!provenance.every(key => meta[key] != null) || !nonempty(meta.document_version)) return false;
+    if (!["chunk_id", "source_sha256", "normalized_sha256"].every(key => typeof meta[key] === "string" && /^[0-9a-f]{64}$/.test(meta[key] as string))) return false;
+    if (typeof meta.char_start !== "number" || typeof meta.char_end !== "number"
+        || !Number.isSafeInteger(meta.char_start) || !Number.isSafeInteger(meta.char_end)
+        || meta.char_start < 0 || meta.char_end - meta.char_start !== Array.from(value.text).length) return false;
   }
   return !(typeof meta.line_start === "number" && typeof meta.line_end === "number" && meta.line_end < meta.line_start);
 }

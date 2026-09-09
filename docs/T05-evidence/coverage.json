@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "purpose": "Diagnóstico de conservación de caracteres; no publica corpus ni aprueba fuentes.",
+  "inspection_date": "2026-09-09",
+  "base_commit": "490de7650137ab502855c52e729aaff860aa6480",
+  "registry": {
+    "path": "policies/corpus-registry.json",
+    "registry_id": "lexdomus-es-editorial-corpus",
+    "revision": 1,
+    "sha256": "d9fbdbefc754f7ef5917c94664f009b62f36ea09a018405c19603e5d7c22a07f"
+  },
+  "parameters": {
+    "max_chars": 1000,
+    "overlap_chars": 120,
+    "normalization": "CRLF y CR a LF; conserva todos los demás caracteres y blancos.",
+    "coordinate_unit": "Unicode code points, zero-based half-open offsets; one-based inclusive lines"
+  },
+  "summary": {
+    "document_count": 14,
+    "nonempty_count": 13,
+    "empty_count": 1,
+    "quarantined_count": 14,
+    "total_bytes": 775545,
+    "total_normalized_characters": 762363,
+    "total_chunks": 872,
+    "max_line_chars": 1609,
+    "coverage_exact_count": 14,
+    "all_checks_passed": true,
+    "published_documents": 0
+  },
+  "documents": [
+    {
+      "path": "berne.txt",
+      "sha256": "a69c0da053ebb83b888e3deb15a30b38e0579963f82a407f462b4b944b57c90c",
+      "byte_count": 4396,
+      "normalized_characters": 4311,
+      "chunk_count": 5,
+      "max_line_chars": 118,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "berne_excerpt.txt",
+      "sha256": "b4269b6595cf0902419cebd659264a33bee61ec31cc62c89cbd9045be8ef7871",
+      "byte_count": 260,
+      "normalized_characters": 254,
+      "chunk_count": 1,
+      "max_line_chars": 191,
+      "max_chunk_chars": 254,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "berne_full.txt",
+      "sha256": "6b911e66772a5042464d100f70e7006384e988ccf43a6cd956ce7cb61e4a1912",
+      "byte_count": 104606,
+      "normalized_characters": 104159,
+      "chunk_count": 119,
+      "max_line_chars": 916,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "es_lpi.txt",
+      "sha256": "546dc7ce2ff11636560508294db6c40a590a3af0461bb301f8304314f62e4316",
+      "byte_count": 3721,
+      "normalized_characters": 3657,
+      "chunk_count": 5,
+      "max_line_chars": 679,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "es_lpi_excerpt.txt",
+      "sha256": "e144dcf6341b84c19e4dea8300bb48858e0149a017edae26d41056331852d67a",
+      "byte_count": 557,
+      "normalized_characters": 538,
+      "chunk_count": 1,
+      "max_line_chars": 167,
+      "max_chunk_chars": 538,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "es_lpi_full.txt",
+      "sha256": "c0be7bddda3bb8cbcf9ef2fcdb73fd1c4bfa86a90aa5110f86e24dff71a28540",
+      "byte_count": 469794,
+      "normalized_characters": 460280,
+      "chunk_count": 523,
+      "max_line_chars": 1192,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "eu_infosoc.txt",
+      "sha256": "5a7488fe9fc184a04cc5fa69157559e62b3406599370daf8870746a9a3ec08b9",
+      "byte_count": 70659,
+      "normalized_characters": 69553,
+      "chunk_count": 79,
+      "max_line_chars": 1385,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "eu_infosoc_excerpt.txt",
+      "sha256": "df7de737a4fbb5bd8ba5b3a82fecd5afe53b41852e6f09bd6051e0737e8193fa",
+      "byte_count": 224,
+      "normalized_characters": 215,
+      "chunk_count": 1,
+      "max_line_chars": 168,
+      "max_chunk_chars": 215,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "eu_infosoc_full.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_count": 0,
+      "normalized_characters": 0,
+      "chunk_count": 0,
+      "max_line_chars": 0,
+      "max_chunk_chars": 0,
+      "coverage_exact": true,
+      "empty": true,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "us_usc_17.txt",
+      "sha256": "0eea13982a7444ce882f21c3eeda8e49a298a67e2db17601b0cf507cfe398509",
+      "byte_count": 61709,
+      "normalized_characters": 60745,
+      "chunk_count": 69,
+      "max_line_chars": 1609,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "us_usc_17_106.txt",
+      "sha256": "c928d3a876e12456c87cabbb622caddfe97419f3c0d8cdba698071208196ebec",
+      "byte_count": 21003,
+      "normalized_characters": 20538,
+      "chunk_count": 24,
+      "max_line_chars": 728,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "us_usc_17_201.txt",
+      "sha256": "cefdd9acfca381d1dc5956635ba8ae6e9b3892d4cd041c8ad1fadea167ca670f",
+      "byte_count": 16597,
+      "normalized_characters": 16404,
+      "chunk_count": 19,
+      "max_line_chars": 1609,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "us_usc_17_302.txt",
+      "sha256": "78d2fcc97d44fdc9918bcdddd248402b25253ed283f11f956766b56437ba64a2",
+      "byte_count": 21661,
+      "normalized_characters": 21369,
+      "chunk_count": 25,
+      "max_line_chars": 1248,
+      "max_chunk_chars": 1000,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    },
+    {
+      "path": "us_usc_17_excerpt.txt",
+      "sha256": "99c235f15c1bb5c0548506d0d15fdd11a608d42db147c5fb72156f6d97ec26df",
+      "byte_count": 358,
+      "normalized_characters": 340,
+      "chunk_count": 1,
+      "max_line_chars": 115,
+      "max_chunk_chars": 340,
+      "coverage_exact": true,
+      "empty": false,
+      "registry_state": "quarantined",
+      "checks": {
+        "registry_hash_matches": true,
+        "offsets_valid": true,
+        "overlap_valid": true,
+        "line_coordinates_valid": true,
+        "chunk_sizes_valid": true,
+        "chunk_content_matches_offsets": true
+      }
+    }
+  ]
+}

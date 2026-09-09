@@ -6,6 +6,7 @@ These structural checks do not establish legal validity or source authenticity.
 """
 from typing import Any, Dict, Optional, TypedDict
 from urllib.parse import urlsplit
+import re
 from .policy import source_is_allowed
 
 
@@ -23,6 +24,12 @@ class CitationMeta(RequiredCitationMeta, total=False):
     pinpoint: bool
     line_start: int
     line_end: int
+    chunk_id: str
+    document_version: str
+    source_sha256: str
+    normalized_sha256: str
+    char_start: int
+    char_end: int
 
 
 class Citation(TypedDict):
@@ -30,12 +37,16 @@ class Citation(TypedDict):
     meta: CitationMeta
 
 
+def has_text(value: Any) -> bool:
+    return isinstance(value, str) and any(not (char.isspace() or char == "\ufeff") for char in value)
+
+
 def citation_from_record(record: Any) -> Optional[Citation]:
     """Accept flat or nested records, excluding incomplete/conflicting evidence."""
     if not isinstance(record, dict):
         return None
     text = record.get("text")
-    if not isinstance(text, str) or not text.strip():
+    if not has_text(text):
         return None
     nested = record.get("meta", {})
     if not isinstance(nested, dict):
@@ -71,4 +82,18 @@ def citation_from_record(record: Any) -> Optional[Citation]:
             return None
     if "line_start" in meta and "line_end" in meta and meta["line_end"] < meta["line_start"]:
         return None
+    provenance_fields = ("chunk_id", "document_version", "source_sha256", "normalized_sha256", "char_start", "char_end")
+    present = [key for key in provenance_fields if meta.get(key) is not None]
+    if present:
+        if len(present) != len(provenance_fields):
+            return None
+        if any(not isinstance(meta[key], str) or not re.fullmatch(r"[0-9a-f]{64}", meta[key])
+               for key in ("chunk_id", "source_sha256", "normalized_sha256")):
+            return None
+        if not isinstance(meta["document_version"], str) or not meta["document_version"].strip():
+            return None
+        if (type(meta["char_start"]) is not int or type(meta["char_end"]) is not int
+                or meta["char_start"] < 0 or meta["char_end"] <= meta["char_start"]
+                or meta["char_end"] - meta["char_start"] != len(text)):
+            return None
     return {"text": text, "meta": meta}

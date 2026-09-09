@@ -57,10 +57,11 @@ jobs:
       - name: Run offline contract regression tests
         run: python -m unittest discover -s tests -p 'test*.py' -v
 
-      - name: Ensure chunks & indices exist
-        run: |
-          python scripts/ingest.py
-          python scripts/build_index.py
+      - name: Check source registry without promoting corpus
+        run: python scripts/ingest.py --check
+
+      - name: Exercise candidate ingestion and index construction on synthetic data
+        run: python -m tests.ingestion_smoke
 
       - name: Run smoke tests
         env:
