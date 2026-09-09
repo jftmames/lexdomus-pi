@@ -108,9 +108,6 @@
           },
           "jurisdiction": {
             "type": "string",
-            "enum": [
-              "ES"
-            ],
             "const": "ES",
             "title": "Jurisdiction"
           }
@@ -127,9 +124,6 @@
         "properties": {
           "contract_version": {
             "type": "string",
-            "enum": [
-              "0.2"
-            ],
             "const": "0.2",
             "title": "Contract Version",
             "default": "0.2"
@@ -153,9 +147,6 @@
           },
           "review_required": {
             "type": "boolean",
-            "enum": [
-              true
-            ],
             "const": true,
             "title": "Review Required",
             "default": true
@@ -381,9 +372,6 @@
         "properties": {
           "contract_version": {
             "type": "string",
-            "enum": [
-              "0.2"
-            ],
             "const": "0.2",
             "title": "Contract Version",
             "default": "0.2"

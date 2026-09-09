@@ -1,29 +1,20 @@
-# Dockerfile
-FROM python:3.10-slim
+# Verified from the official library/python registry on 2026-09-09.
+FROM python:3.11.16-slim-bookworm@sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84
 
-# 1. Instalar utilidades del sistema
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libgomp1 \
-    && rm -rf /var/lib/apt/lists/*
-
-# 2. Configurar directorio de trabajo
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    USE_LLM=0
 WORKDIR /app
 
-# 3. Copiar y cachear dependencias (esto acelera builds futuros)
-COPY requirements.txt .
-COPY requirements.api.txt .
+# API lock includes the complete core dependency closure.
+COPY requirements.api.txt ./
+RUN pip install --no-cache-dir --require-hashes --only-binary=:all: -r requirements.api.txt \
+    && pip check
 
-# 4. Instalar dependencias (unimos ambos archivos)
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir -r requirements.api.txt
-
-# 5. Copiar TODO el código del proyecto (api, app, data, indices, verdiktia, etc.)
+# .dockerignore admits only runtime code and the repository's demo artifacts.
 COPY . .
-
-# 6. Exponer puerto (Render inyecta PORT automáticamente, pero esto es buena práctica)
+RUN groupadd --gid 10001 lexdomus \
+    && useradd --uid 10001 --gid lexdomus --no-create-home lexdomus
+USER 10001:10001
 EXPOSE 8000
-
-# 7. Comando de arranque: usa la variable de entorno PORT de Render
-CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "exec uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

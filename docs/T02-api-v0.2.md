@@ -71,10 +71,10 @@ persistente ni prueba de revisión profesional.
 
 ## Verificación reproducible
 
-Con Python 3.11 y las dependencias del repositorio instaladas:
+Con Python 3.11.16 y un entorno virtual aislado:
 
 ```bash
-pip install -r requirements.txt -r requirements.api.txt
+python -m pip install --require-hashes -r requirements.api.txt
 USE_LLM=0 python -m unittest discover -s tests -p 'test*.py' -v
 USE_LLM=0 python -m tests.smoke
 ```
@@ -86,18 +86,20 @@ para ambos resultados 200. La prueba de omisión comprueba también `USE_LLM=1`
 con clave ficticia sin ejecutar el proveedor. Los casos smoke anteriores
 verifican flags; no miden precisión jurídica ni equivalen a las regresiones.
 
-Desde `web`, con Node 24:
+Desde `web`, con Node 24.19.0 y npm 11.9.0:
 
 ```bash
-npm install --ignore-scripts --no-audit --no-fund
+npm ci --no-audit --no-fund
 node --test tests/analyze-contract.test.cjs
+npm run typecheck
 npm run build
 ```
 
 CI ejecuta las regresiones Python, los smoke, las pruebas de contrato y
 renderizado de interfaz y su compilación. No se añaden dependencias de
-producto ni librerías de pruebas. Continúa pendiente fijar las dependencias
-transitivas; sin lockfiles, una instalación futura puede resolverlas distinto.
+producto ni librerías de pruebas en T02. La actualización posterior
+[T03](T03-dependencies.md) fija dependencias directas y transitivas y añade
+comprobación de tipos, inventario y construcción de contenedores a CI.
 
 ## Límites y siguiente revisión
 

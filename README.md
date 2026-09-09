@@ -1,99 +1,84 @@
-# LexDomus–PI — MVP (RAGA+MCP)
+# LexDomus-PI — prototipo de apoyo a la revisión jurídica
 
-**Objetivo:** asistente jurídico deliberativo para cesión/licencia de DPI con trazabilidad (EEE-Gate v2), RAG híbrido y políticas de gobernanza (AI Act).
+API FastAPI e interfaz Next.js para explorar cláusulas de cesión y licencia
+de propiedad intelectual. El piloto propuesto se limita a cláusulas editoriales
+bajo jurisdicción española y a textos sintéticos. **No está habilitado para
+expedientes reales ni sustituye la revisión de un abogado.** El despacho aún
+debe aceptar el alcance y validar los resultados.
 
-![Reforms Watch](https://github.com/jftmames/lexdomus-pi/actions/workflows/reforms-watch.yml/badge.svg)
-![EEE Health](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jftmames/lexdomus-pi/main/data/status/eee_shield.json)
+## Arranque local
 
+Entorno de referencia: Linux x86_64, Python **3.11.16** (`.python-version`),
+Node **24.19.0** (`web/.nvmrc`) y npm **11.9.0**.
+Ejecuta desde la raíz del repositorio:
 
-## Módulos
-- **verdiktia/**: descomposición y deliberación (Planner / Devil’s Advocate).
-- **lex_domus/**: RAG híbrido (BM25+denso+rerank) con filtros de `policy.yaml`.
-- **metrics_eee/**: EEE-Gate v2 (T, J, P + claridad de cita + ambigüedad) y *logs* JSONL encadenados.
-- **ui/**: app Streamlit (3 vistas: Inquiry Graph · Comparativa+fuentes · Cláusula+EEE+A2J).
-- **policies/**: `policy.yaml` (fuentes, vigencia, jurisdicción, privacidad).
-- **prompts/**: plantillas de *prompting* por agente.
-- **templates/**: plantillas de cláusula y resumen A2J.
-- **data/**, **indices/**: corpus e índices.
-- **tests/**: pruebas básicas.
-
-## Arranque rápido (si decides ejecutarlo)
 ```bash
-pip install -r requirements.txt
-streamlit run ui/streamlit_app.py
+python -m venv .venv
+.venv/bin/python -m pip install --require-hashes -r requirements.api.txt
+.venv/bin/python -m pip check
+USE_LLM=0 .venv/bin/python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
+```
 
-Métricas objetivo (V1)
+En otra terminal, con la versión indicada de Node:
 
-Cobertura citada ≥ 90%
+```bash
+cd web
+npm ci --no-audit --no-fund
+NEXT_PUBLIC_API_BASE=http://localhost:8000 npm run dev
+```
 
-EEE: T≥4.5, J≥4.0, P≥4.0 (sobre 5)
+Abre <http://localhost:3000>. La documentación de la API está en
+<http://localhost:8000/docs>. `USE_LLM=0` utiliza el modo simulado y no requiere
+clave ni consume llamadas de pago. No introduzcas datos de clientes.
+En otros sistemas usa el contenedor de desarrollo o adapta la activación del
+entorno; la resolución de Python se ha validado en la plataforma indicada.
 
-p95 latencia ≤ 12 s (índice local)
+## Contrato y límites
 
-0 PII/biométrico en muestreo de 1.000 outputs
+`POST /analyze` admite `clause` (1–5.000 puntos de código Unicode, no sólo
+blancos) y `jurisdiction: "ES"`. La respuesta contractual es versión `0.2`.
+Devuelve un borrador que exige revisión o `INSUFFICIENT_EVIDENCE`; sin citas
+admisibles no ejecuta la generación. Tener alguna cita **no acredita suficiencia
+jurídica, autenticidad ni vigencia**. Véase [el contrato](docs/T02-api-v0.2.md).
 
+`GET /health` informa del proceso y de la existencia de archivos; no certifica
+integridad del corpus ni disponibilidad jurídica. Siguen pendientes la política
+de fuentes, pérdidas de ingesta, consistencia de índices, negaciones,
+trazabilidad persistente, autenticación y límites de transporte/frecuencia.
+El CORS actual es de demostración. No expongas esta API como servicio público.
 
----
+Una interfaz remota exige `NEXT_PUBLIC_API_BASE` explícita en la compilación.
+Las previews de Vercel no validan ni despliegan por sí mismas el backend.
 
-# 3) Políticas de gobernanza
+## Verificación técnica sin proveedores
 
-### 3.1 `policies/policy.yaml`
-**Path:** `policies/policy.yaml`
-```yaml
-version: 1.0
-updated: 2025-10-13
+```bash
+USE_LLM=0 .venv/bin/python -m unittest discover -s tests -p 'test*.py' -v
+USE_LLM=0 .venv/bin/python -m tests.smoke
+.venv/bin/python tools/dependency_inventory.py --check
+npm --prefix web test
+npm --prefix web run typecheck
+npm --prefix web run build
+```
 
-ai_act:
-  risk_class: "limited"
-  human_oversight: true
-  transparency_notice: true
+La batería comprende 39 regresiones Python, 10 casos smoke y 9 pruebas de
+interfaz. No mide precisión jurídica ni demuestra adopción por el despacho.
 
-sources:
-  allowed:
-    - "BOE"
-    - "EUR-Lex"
-    - "WIPO/OMPI"
-    - "USC (Cornell/LII)"
-  denied:
-    - "wikis no oficiales"
-    - "blogs sin revisión"
-    - "datasets con imágenes personales"
+## Componentes y mantenimiento
 
-temporal_vigency:
-  snapshot_mode: true
-  min_publication_year: 1990
-  warn_on_amendments: true
+- `api/`: límites HTTP y esquemas; `web/`: interfaz actual.
+- `app/`, `verdiktia/`, `lex_domus/`: pipeline, preguntas y recuperación.
+- `data/`, `indices/`: corpus e índices de demostración, pendientes de saneamiento.
+- `requirements.api.txt`: bloqueo completo de API y núcleo con hashes.
+  `requirements.txt`: bloqueo del núcleo para tareas de corpus; no instala la API.
+- `web/package-lock.json`: bloqueo de dependencias de interfaz y compilación.
+- `Dockerfile`: imagen de API no-root; `.devcontainer/`: desarrollo Python/Node.
 
-jurisdictions: ["ES","EU","US","INT"]
+La [revisión T03](docs/T03-dependencies.md) documenta actualización, auditorías,
+reproducción y reversión. El [inventario y licencias](docs/dependencies/README.md)
+incluye un SBOM CycloneDX; no equivale a una auditoría jurídica de licencias.
+Los workflows de mantenimiento conservan limitaciones documentadas en T03.
 
-privacy:
-  block_personal_data: true
-  block_biometrics: true
-  pre_index_filters: ["faces","signatures","emails","phones","addresses"]
-  pre_prompt_sanitization: true
-  deny_on_privacy_violation: true
-
-rag:
-  retrieval:
-    top_k: 8
-    hybrid: true           # BM25 + denso
-    hyde: true
-    rerank: "cross-encoder"
-  thresholds:
-    min_citations: 2
-    require_pinpoint: true # art./apartado/párrafo
-  generation:
-    source_required: true  # sin fuentes -> 'No concluyente'
-    max_context_chars: 12000
-
-eee_gate:
-  min_T: 4.5
-  min_J: 4.0
-  min_P: 4.0
-  enforce_no_conclusion_if_insufficient: true
-  penalize_vague_citations: true
-
-logging:
-  jsonl_chain: true
-  hashing: "sha256"
-  redact_pii_preview: true
+Este repositorio aporta evidencia técnica de desarrollo. La transferencia de
+conocimiento requiere además uso real documentado, validación del destinatario
+y resultados; no se afirma que el software por sí solo acredite méritos ANECA.
