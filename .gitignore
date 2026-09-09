@@ -4,9 +4,19 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
+.venv-*/
 .env
 .env.*
 *.egg-info/
+
+# Frontend and local verification outputs
+node_modules/
+.next/
+web/next-env.d.ts
+*.tsbuildinfo
+coverage/
+.pytest_cache/
+.audit-cache/
 
 # Streamlit / cachés locales
 .streamlit/

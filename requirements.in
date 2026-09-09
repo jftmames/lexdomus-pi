@@ -1,0 +1,10 @@
+# Direct core dependencies. Target: CPython 3.11.16 on Linux.
+# Regenerate requirements.api.txt first, then constrain the core lock to it.
+# See docs/T03-dependencies.md for the pinned tooling and update procedure.
+beautifulsoup4==4.15.0
+lxml==6.1.3
+openai==3.10.0
+PyYAML==6.0.3
+rank-bm25==0.2.2
+RapidFuzz==3.14.6
+requests==2.34.2

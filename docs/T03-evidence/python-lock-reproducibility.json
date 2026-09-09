@@ -1,0 +1,11 @@
+{
+  "expected": {
+    "requirements.api.txt": "77e26a579301e65f84ac0ac0f2ce832978ccf76bea5451d6f0dad12e420cd50d",
+    "requirements.txt": "c3ac0435b2547a23b04a59c9c035de5b5d421f2d9bb6c9cc4f965c2df5d4fb15"
+  },
+  "actual": {
+    "requirements.api.txt": "77e26a579301e65f84ac0ac0f2ce832978ccf76bea5451d6f0dad12e420cd50d",
+    "requirements.txt": "c3ac0435b2547a23b04a59c9c035de5b5d421f2d9bb6c9cc4f965c2df5d4fb15"
+  },
+  "reproducible": true
+}

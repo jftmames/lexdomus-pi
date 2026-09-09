@@ -3,7 +3,11 @@
   "builds": [
     {
       "src": "web/package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next@11.0.3",
+      "config": {
+        "installCommand": "npm ci --no-audit --no-fund",
+        "buildCommand": "npm run build"
+      }
     }
   ],
   "routes": [

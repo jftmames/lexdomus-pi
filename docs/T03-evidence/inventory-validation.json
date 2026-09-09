@@ -1,0 +1,17 @@
+{
+  "clean_check_without_node_modules": true,
+  "no_write_on_success": true,
+  "detects_inventory_tampering": true,
+  "detects_lock_hash_change": true,
+  "detects_installed_version_mismatch": true,
+  "detects_optional_npm_entry_removal": true,
+  "detects_license_notice_tampering": true,
+  "no_write_on_failures": true,
+  "counts": {
+    "python": 35,
+    "npm": 137,
+    "npm_optional": 40,
+    "total": 172
+  },
+  "excludes_installed_pip_tooling": true
+}

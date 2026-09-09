@@ -1,0 +1,5 @@
+# Complete API environment, including the core dependencies.
+-r requirements.in
+fastapi==0.141.1
+pydantic==2.13.5
+uvicorn[standard]==0.52.4
