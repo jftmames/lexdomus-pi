@@ -42,6 +42,9 @@ def _gather_citations(per_node: List[Dict[str, Any]], max_per_node: int = 2):
                 "lines": [meta.get("line_start"), meta.get("line_end")],
                 "text": c.get("text", ""),
             })
+            for field in ("chunk_id", "document_version", "source_sha256", "normalized_sha256", "char_start", "char_end"):
+                if meta.get(field) is not None:
+                    cites[-1][field] = meta[field]
             idx += 1
     return cites
 

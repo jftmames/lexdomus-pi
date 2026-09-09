@@ -92,6 +92,21 @@ test("unsafe citation URLs and missing provenance are rejected", () => {
   assert.equal(contract.parseAnalyzeResult(value), null);
 });
 
+test("ingested provenance preserves Unicode offsets and rejects partial or inconsistent coordinates", () => {
+  const value = draft();
+  const item = value.per_node[0].retrieval.citations[0];
+  item.text = "A😀\n ";
+  Object.assign(item.meta, { chunk_id: "a".repeat(64), document_version: "synthetic-v1",
+    source_sha256: "b".repeat(64), normalized_sha256: "c".repeat(64), char_start: 8, char_end: 12 });
+  assert.ok(contract.parseAnalyzeResult(value));
+  for (const change of [{ char_end: 13 }, { char_start: -1 }, { char_start: 8.5 },
+      { source_sha256: "not-a-hash" }, { normalized_sha256: null }, { document_version: " " }]) {
+    const bad = JSON.parse(JSON.stringify(value));
+    Object.assign(bad.per_node[0].retrieval.citations[0].meta, change);
+    assert.equal(contract.parseAnalyzeResult(bad), null);
+  }
+});
+
 test("HTTP errors use local copy and a validated request reference, never raw server details", () => {
   for (const [http, status] of [[400, "INVALID_INPUT"], [422, "INVALID_INPUT"], [422, "OUT_OF_SCOPE"], [500, "TECHNICAL_ERROR"], [503, "TECHNICAL_ERROR"]]) {
     const message = contract.apiErrorMessage(http, { contract_version: "0.2", request_id: requestId, status,

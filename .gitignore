@@ -25,6 +25,7 @@ coverage/
 # (queremos que GitHub Actions los comitee)
 # data/docs_raw puede crecer -> lo ignoramos
 data/docs_raw/
+data/corpus_candidates/
 
 # Sí versionamos:
 !data/docs_chunks/**

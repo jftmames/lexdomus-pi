@@ -8,6 +8,7 @@ from lex_domus.contracts import citation_from_record
 CONTRACT_VERSION = "0.2"
 MAX_CLAUSE_CHARACTERS = 5000
 NonEmpty = Annotated[str, Field(min_length=1)]
+Sha256 = Annotated[str, Field(pattern=r"^[0-9a-f]{64}$")]
 
 
 class ContractModel(BaseModel):
@@ -40,6 +41,12 @@ class CitationMeta(ContractModel):
     pinpoint: bool = False
     line_start: Optional[int] = None
     line_end: Optional[int] = None
+    chunk_id: Optional[Sha256] = None
+    document_version: Optional[NonEmpty] = None
+    source_sha256: Optional[Sha256] = None
+    normalized_sha256: Optional[Sha256] = None
+    char_start: Optional[Annotated[int, Field(ge=0)]] = None
+    char_end: Optional[Annotated[int, Field(ge=1)]] = None
 
 
 class Citation(ContractModel):

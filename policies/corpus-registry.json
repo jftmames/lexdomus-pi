@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "registry_id": "lexdomus-es-editorial-corpus",
+  "revision": 1,
+  "documents": [
+    {
+      "path": "berne.txt",
+      "sha256": "a69c0da053ebb83b888e3deb15a30b38e0579963f82a407f462b4b944b57c90c",
+      "state": "quarantined",
+      "reason": "Navegación OMPI y título sin articulado; procedencia y condiciones específicas de WIPO Lex pendientes de revisión.",
+      "provenance": null
+    },
+    {
+      "path": "berne_excerpt.txt",
+      "sha256": "b4269b6595cf0902419cebd659264a33bee61ec31cc62c89cbd9045be8ef7871",
+      "state": "quarantined",
+      "reason": "Resumen español de 6bis sin procedencia literal, autoría ni versión normativa acreditadas.",
+      "provenance": null
+    },
+    {
+      "path": "berne_full.txt",
+      "sha256": "6b911e66772a5042464d100f70e7006384e988ccf43a6cd956ce7cb61e4a1912",
+      "state": "quarantined",
+      "reason": "Texto inglés mezclado con navegación española; integridad, procedencia y adquisición y reutilización bajo condiciones específicas de WIPO Lex pendientes de revisión.",
+      "provenance": null
+    },
+    {
+      "path": "es_lpi.txt",
+      "sha256": "546dc7ce2ff11636560508294db6c40a590a3af0461bb301f8304314f62e4316",
+      "state": "quarantined",
+      "reason": "Identidad errónea: contiene el nombramiento judicial BOE-A-1996-8932, ajeno a la Ley de Propiedad Intelectual.",
+      "provenance": null
+    },
+    {
+      "path": "es_lpi_excerpt.txt",
+      "sha256": "e144dcf6341b84c19e4dea8300bb48858e0149a017edae26d41056331852d67a",
+      "state": "quarantined",
+      "reason": "Resúmenes de los artículos 14, 17 y 43 sin procedencia literal, autoría ni versión normativa acreditadas.",
+      "provenance": null
+    },
+    {
+      "path": "es_lpi_full.txt",
+      "sha256": "c0be7bddda3bb8cbcf9ef2fcdb73fd1c4bfa86a90aa5110f86e24dff71a28540",
+      "state": "quarantined",
+      "reason": "BOE-A-1996-8930 identificado, con índices, notas e interfaz; separación del articulado, procedencia y revisión de versión y reutilización pendientes.",
+      "provenance": null
+    },
+    {
+      "path": "eu_infosoc.txt",
+      "sha256": "5a7488fe9fc184a04cc5fa69157559e62b3406599370daf8870746a9a3ec08b9",
+      "state": "quarantined",
+      "reason": "Acto original español de 2001 mezclado con interfaz; selección entre original y consolidación, procedencia y revisión de reutilización pendientes.",
+      "provenance": null
+    },
+    {
+      "path": "eu_infosoc_excerpt.txt",
+      "sha256": "df7de737a4fbb5bd8ba5b3a82fecd5afe53b41852e6f09bd6051e0737e8193fa",
+      "state": "quarantined",
+      "reason": "Resumen genérico sin articulado literal, procedencia, autoría ni versión normativa acreditadas.",
+      "provenance": null
+    },
+    {
+      "path": "eu_infosoc_full.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "state": "quarantined",
+      "reason": "Archivo vacío; no contiene texto normativo que pueda verificarse o analizarse.",
+      "provenance": null
+    },
+    {
+      "path": "us_usc_17.txt",
+      "sha256": "0eea13982a7444ce882f21c3eeda8e49a298a67e2db17601b0cf507cfe398509",
+      "state": "quarantined",
+      "reason": "Agregación estadounidense fuera del piloto ES; mezcla artículos, notas y navegación Cornell/LII con procedencia y reutilización pendientes de revisión.",
+      "provenance": null
+    },
+    {
+      "path": "us_usc_17_106.txt",
+      "sha256": "c928d3a876e12456c87cabbb622caddfe97419f3c0d8cdba698071208196ebec",
+      "state": "quarantined",
+      "reason": "Sección 106 estadounidense fuera del piloto ES; texto y notas Cornell/LII con procedencia, versión y reutilización pendientes de revisión.",
+      "provenance": null
+    },
+    {
+      "path": "us_usc_17_201.txt",
+      "sha256": "cefdd9acfca381d1dc5956635ba8ae6e9b3892d4cd041c8ad1fadea167ca670f",
+      "state": "quarantined",
+      "reason": "Sección 201 estadounidense fuera del piloto ES; texto y notas Cornell/LII con procedencia, versión y reutilización pendientes de revisión.",
+      "provenance": null
+    },
+    {
+      "path": "us_usc_17_302.txt",
+      "sha256": "78d2fcc97d44fdc9918bcdddd248402b25253ed283f11f956766b56437ba64a2",
+      "state": "quarantined",
+      "reason": "Sección 302 estadounidense fuera del piloto ES; texto y notas Cornell/LII con procedencia, versión y reutilización pendientes de revisión.",
+      "provenance": null
+    },
+    {
+      "path": "us_usc_17_excerpt.txt",
+      "sha256": "99c235f15c1bb5c0548506d0d15fdd11a608d42db147c5fb72156f6d97ec26df",
+      "state": "quarantined",
+      "reason": "Resúmenes españoles de normativa estadounidense fuera del piloto ES, sin procedencia, versión ni traducción acreditadas.",
+      "provenance": null
+    }
+  ]
+}
