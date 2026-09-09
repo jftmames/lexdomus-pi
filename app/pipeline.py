@@ -183,19 +183,20 @@ def analyze_clause(clause: str, jurisdiction: str):
     ) else "NO_EVIDENCE"
     gate = {"status": gate_status}
 
-    # --- Opinión LLM / MOCK ---
-    opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
-    if "analysis_md" not in opinion and "analysis" in opinion:
-        opinion["analysis_md"] = opinion.get("analysis")
-
-    # --- Cláusula alternativa ---
-    alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
-
-    # --- EEE (dispatcher robusto) ---
-    score = _eee_dispatch(_eee_real, per_node, flags, gate)
+    # No generated advice or score when retrieval found no admissible evidence.
+    if gate_status == "OK":
+        opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
+        if "analysis_md" not in opinion and "analysis" in opinion:
+            opinion["analysis_md"] = opinion.get("analysis")
+        alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
+        score = _eee_dispatch(_eee_real, per_node, flags, gate)
+        engine = "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK"
+    else:
+        opinion, alternative, score = {}, "", None
+        engine = "NOT_RUN"
 
     result = {
-        "engine": "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK",
+        "engine": engine,
         "per_node": per_node,
         "flags": flags,
         "gate": gate,

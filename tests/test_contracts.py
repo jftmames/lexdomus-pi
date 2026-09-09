@@ -104,6 +104,22 @@ class ContractTests(unittest.TestCase):
                     analyze_clause("Licencia editorial sintética.", "ES")
                 retrieve.assert_not_called()
 
+    def test_no_evidence_skips_writer_alternative_and_score_even_with_llm_enabled(self):
+        with patch.dict(os.environ, {"USE_LLM": "1", "OPENAI_API_KEY": "synthetic-unused"}), patch.object(
+            rag_pipeline, "load_policy", return_value=BOE_POLICY
+        ), patch.object(writer_llm, "draft_opinion_llm") as writer, patch(
+            "lex_domus.flagger.propose_alternative"
+        ) as alternative, patch("metrics_eee.scorer.score_eee") as score:
+            result = analyze_clause("Licencia editorial sintética.", "ES")
+        self.assertEqual(result["gate"]["status"], "NO_EVIDENCE")
+        self.assertEqual(result["engine"], "NOT_RUN")
+        self.assertEqual(result["opinion"], {})
+        self.assertEqual(result["alternative_clause"], "")
+        self.assertIsNone(result["EEE"])
+        writer.assert_not_called()
+        alternative.assert_not_called()
+        score.assert_not_called()
+
     def test_flat_corpus_identity_reaches_the_writer(self):
         record = synthetic_record()
         self.write_records(record)

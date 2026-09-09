@@ -21,8 +21,9 @@ podían terminar recuperando candidatos sin aplicar la política.
 - La lista de fuentes admitidas se aplica antes de seleccionar los primeros
   candidatos. Una política explícita vacía o mal formada no autoriza fuentes
   y no se sustituye por la política de respaldo.
-- El redactor conserva también `doc_id`. La envoltura de la API y los estados
-  `OK` / `NO_EVIDENCE` siguen siendo compatibles con la interfaz actual.
+- El redactor conserva también `doc_id`. Este primer bloque mantuvo los
+  estados internos `OK` / `NO_EVIDENCE`. La evolución posterior de la API
+  y su interfaz se documenta en [T02-api-v0.2.md](T02-api-v0.2.md).
 - CI ejecuta las regresiones en push y pull request, con permisos de lectura,
   `USE_LLM=0`, clave vacía y sin nuevas dependencias de pruebas.
 
@@ -68,11 +69,15 @@ de estas cifras mide precisión jurídica ni acredita uso profesional.
 
 ## Pendiente
 
-Este bloque no cierra T02 completa ni autoriza expedientes reales. Siguen
-pendientes el contrato de entrada de la API, límites y estados detallados,
-política jurídica, pérdida de líneas en ingesta, coherencia de índices,
-negaciones y alternativas, abstención efectiva, registro de trazabilidad,
-identificación del motor, seguridad, interfaz y validación del despacho.
+Este bloque no autoriza expedientes reales. La continuación
+[T02-api-v0.2.md](T02-api-v0.2.md) incorpora entrada estricta, límites, estados,
+interfaz y omisión de generación ante ausencia total de evidencia. Siguen
+pendientes política jurídica, pérdida de líneas en ingesta, coherencia de
+índices, negaciones y alternativas, suficiencia jurídica para abstención,
+registro de trazabilidad, identificación del motor, seguridad y validación
+del despacho.
 
-No se ha actualizado el corpus, cambiado dependencias, desplegado ni ejecutado
-modelos reales. La propuesta requiere revisión antes de integrarse en `main`.
+No se ha actualizado el corpus, cambiado dependencias ni ejecutado modelos
+reales. La integración existente de Vercel crea previews automáticas de la PR;
+no se ha promovido el cambio a producción. La propuesta requiere revisión
+antes de integrarse en `main`.
