@@ -68,10 +68,11 @@ class PolicyTests(unittest.TestCase):
         self.assertIn("request_id", body)
 
     def test_direct_retrieval_also_requires_an_approved_policy(self):
-        with patch.object(retriever, "CHUNKS", self.path):
+        with patch.object(retriever, "load_active_snapshot") as load:
             for policy in (None, {}, {"sources": {"allowed": ["BOE"]}}):
                 with self.subTest(policy=policy), self.assertRaises(PolicyError):
                     retriever.retrieve_candidates("derechos", policy=policy)
+            load.assert_not_called()
 
     def test_explicit_invalid_policy_is_rejected_before_retrieval(self):
         variants = []

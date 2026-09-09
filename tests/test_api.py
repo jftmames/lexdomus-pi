@@ -138,12 +138,16 @@ class AnalyzeApiTests(unittest.TestCase):
 
     def use_real_pipeline(self, *records):
         """Use the real analysis path, with only local corpus/policy/log fixtures."""
+        from tests.snapshot_fixtures import create_snapshot_fixture, snapshot_environment
         temporary = tempfile.TemporaryDirectory(prefix="lexdomus-api-")
         self.addCleanup(temporary.cleanup)
-        chunks = Path(temporary.name) / "chunks.jsonl"
-        chunks.write_text("\n".join(json.dumps(record, ensure_ascii=False) for record in records),
-                          encoding="utf-8")
-        self._patch("lex_domus.retriever.CHUNKS", chunks)
+        content = "\n".join(record["text"] for record in records) if records else "qzx987"
+        fixture = create_snapshot_fixture(temporary.name, content.encode("utf-8"))
+        self.ingested_record = json.loads(fixture["chunks_bytes"].splitlines()[0])
+        environment = patch.dict(os.environ, snapshot_environment(fixture))
+        environment.start()
+        self.addCleanup(environment.stop)
+        self._patch("lex_domus.snapshots.REGISTRY_PATH", fixture["registry_path"])
         self._patch("lex_domus.rag_pipeline.load_policy", Mock(return_value=BOE_POLICY))
         # Logging compatibility is a separate task; these HTTP regressions must
         # never append test clauses to the repository's persistent audit file.
@@ -318,6 +322,7 @@ class AnalyzeApiTests(unittest.TestCase):
     def test_real_pipeline_with_synthetic_corpus_produces_a_valid_draft_response(self):
         record = synthetic_record()
         self.use_real_pipeline(record)
+        record = self.ingested_record
         code, body = self.request({"clause": CLAUSE, "jurisdiction": "ES"})
         self.assertEqual(code, 200)
         self.assert_envelope(body, "DRAFT_REVIEW_REQUIRED")
@@ -332,7 +337,7 @@ class AnalyzeApiTests(unittest.TestCase):
                 self.assertEqual(citation["meta"][field], record[field])
         self.pipeline.assert_called_once_with(CLAUSE, "ES")
 
-    def test_real_pipeline_with_empty_corpus_abstains_before_generation(self):
+    def test_real_pipeline_with_valid_corpus_without_matches_abstains_before_generation(self):
         self.use_real_pipeline()
         generation_guards = []
         for target in ("app.writer_llm.draft_opinion_llm", "lex_domus.flagger.propose_alternative",

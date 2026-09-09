@@ -19,15 +19,9 @@ if str(ROOT) not in sys.path:
 from app.pipeline import analyze_clause
 from api.schemas import AnalyzeIn, AnalyzeResponse, ErrorResponse, InputIssue
 from lex_domus.policy import PolicyError
+from lex_domus.snapshots import CorpusError
 
 logger = logging.getLogger(__name__)
-
-# Opcional: MCP health si está presente
-try:
-    from mcp.registry import health as mcp_health, list_connectors
-    HAS_MCP = True
-except Exception:
-    HAS_MCP = False
 
 app = FastAPI(title="LexDomus-PI API", version="1.1.0")
 
@@ -92,22 +86,9 @@ def read_root():
 
 @app.get("/health")
 def health():
-    data = {
-        "status": "ok",
-        "has_mcp": HAS_MCP,
-        "connectors": list_connectors() if HAS_MCP else {},
-        "indices": {
-            "chunks": (ROOT / "data" / "docs_chunks" / "chunks.jsonl").exists(),
-            "faiss": (ROOT / "indices" / "faiss.index").exists(),
-            "bm25": (ROOT / "indices" / "bm25.pkl").exists(),
-        },
-    }
-    if HAS_MCP:
-        try:
-            data["mcp_corpus"] = mcp_health("corpus")
-        except Exception:
-            pass
-    return data
+    # Process liveness only. Analysis eligibility is checked on /analyze;
+    # readiness of all professional-use controls is a separate T12 task.
+    return {"status": "ok"}
 
 @app.post("/analyze", response_model=AnalyzeResponse,
           responses={400: {"model": ErrorResponse}, 422: {"model": ErrorResponse},
@@ -138,6 +119,10 @@ def analyze(body: AnalyzeIn, request: Request):
         # Validate AND serialize within the error boundary (including invalid
         # Unicode/nonfinite output); no raw exception is exposed to clients.
         return JSONResponse(content=validated.model_dump(mode="json"))
+    except CorpusError:
+        logger.warning("Analysis unavailable request_id=%s type=CorpusError", request_id)
+        return error_response(request, 503, "TECHNICAL_ERROR",
+                              "Análisis no disponible: el responsable debe revisar la versión de las fuentes.")
     except PolicyError:
         logger.warning("Analysis unavailable request_id=%s type=PolicyError", request_id)
         return error_response(request, 503, "TECHNICAL_ERROR",

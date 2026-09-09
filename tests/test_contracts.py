@@ -1,19 +1,22 @@
 """Regressions for the Inquiry → RAG → writer contract.
 
-All corpus records are synthetic and temporary. These tests neither validate
-legal reasoning nor contact a model provider or a legal-source website.
+All corpus records are synthetic. Component tests construct in-memory snapshots
+and replace the file loader explicitly; snapshot verification is tested separately
+in test_snapshots. These tests neither validate legal reasoning nor contact a
+model provider or a legal-source website.
 """
 
 import json
 import os
-from pathlib import Path
-import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
 from app.pipeline import analyze_clause
 from app import writer_llm
-from lex_domus import rag_pipeline, retriever
+from lex_domus import rag_pipeline, retriever, snapshots
+from lex_domus.contracts import citation_from_record
+from lex_domus.ingestion import canonical_json, digest
+from lex_domus.snapshots import CorpusError, VerifiedSnapshot, tokenize
 from verdiktia.inquiry_engine import decompose_clause
 from lex_domus.policy import PolicyError
 
@@ -47,11 +50,10 @@ def synthetic_record(doc_id="synthetic-lpi", source="BOE", text="derechos patrim
 
 class ContractTests(unittest.TestCase):
     def setUp(self):
-        temp = tempfile.TemporaryDirectory(prefix="lexdomus-contracts-")
-        self.addCleanup(temp.cleanup)
-        self.chunks = Path(temp.name) / "chunks.jsonl"
-        self.chunks.write_text("", encoding="utf-8")
-        self._patch("lex_domus.retriever.CHUNKS", self.chunks)
+        self.records = []
+        self.loader = Mock(side_effect=self.fixture_snapshot)
+        self._patch("lex_domus.snapshots.load_active_snapshot", self.loader)
+        self._patch("lex_domus.retriever.load_active_snapshot", self.loader)
         self._patch_dict(os.environ, {"USE_LLM": "0"}, clear=True)
         self._patch("metrics_eee.logger.append_log", Mock())
         # Assert on calls as well as blocking them: a caught exception must not
@@ -76,9 +78,28 @@ class ContractTests(unittest.TestCase):
         self.addCleanup(patcher.stop)
 
     def write_records(self, *records):
-        self.chunks.write_text(
-            "\n".join(json.dumps(record, ensure_ascii=False) for record in records) + "\n",
-            encoding="utf-8",
+        self.records = list(records)
+
+    def fixture_snapshot(self, policy):
+        """Unit fixture only: exercise search without claiming file verification."""
+        citations = []
+        for record in self.records:
+            citation = citation_from_record(record)
+            if citation is None:
+                continue
+            citation["meta"].update({
+                "chunk_id": digest(canonical_json(record)),
+                "document_version": "synthetic-v1",
+                "source_sha256": "0" * 64,
+                "normalized_sha256": digest(citation["text"].encode("utf-8")),
+                "char_start": 0,
+                "char_end": len(citation["text"]),
+            })
+            citations.append(citation)
+        return VerifiedSnapshot(
+            "1" * 64, "2" * 64, digest(canonical_json(policy)),
+            tuple(json.dumps(citation) for citation in citations),
+            tuple(tokenize(citation["text"]) for citation in citations),
         )
 
     def test_inquiry_produces_nonempty_canonical_questions(self):
@@ -101,6 +122,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(item["used_query"], item["node"]["pregunta"])
         self.assertTrue(all(isinstance(query, str) and query.strip() for query in queries))
         self.assertTrue(all("None" not in query for query in queries))
+        self.loader.assert_called_once_with(BOE_POLICY)
 
     def test_pipeline_rejects_missing_or_empty_question_before_retrieval(self):
         for node in ({}, {"pregunta": ""}, {"pregunta": "   "}, {"pregunta": None}, {"question": "legacy"}):
@@ -167,8 +189,7 @@ class ContractTests(unittest.TestCase):
         flat = synthetic_record("flat")
         nested_flat = synthetic_record("nested")
         nested = {"text": nested_flat["text"], "meta": {key: value for key, value in nested_flat.items() if key != "text"}}
-        self.write_records(flat, nested)
-        citations = retriever.retrieve_candidates("derechos", policy=BOE_POLICY)
+        citations = [citation_from_record(record) for record in (flat, nested)]
         self.assertEqual(len(citations), 2)
         by_id = {citation["meta"]["doc_id"]: citation for citation in citations}
         for expected in (flat, nested_flat):
@@ -181,10 +202,9 @@ class ContractTests(unittest.TestCase):
     def test_consistent_flat_and_nested_identity_is_accepted(self):
         record = synthetic_record()
         record["meta"] = {key: value for key, value in record.items() if key != "text"}
-        self.write_records(record)
-        citations = retriever.retrieve_candidates("derechos", policy=BOE_POLICY)
-        self.assertEqual(len(citations), 1)
-        self.assertEqual(citations[0]["meta"]["doc_id"], "synthetic-lpi")
+        citation = citation_from_record(record)
+        self.assertIsNotNone(citation)
+        self.assertEqual(citation["meta"]["doc_id"], "synthetic-lpi")
 
     def test_conflicting_flat_and_nested_identity_is_excluded(self):
         conflicts = {
@@ -198,35 +218,35 @@ class ContractTests(unittest.TestCase):
                 record = synthetic_record()
                 record["meta"] = {field: item for field, item in record.items() if field != "text"}
                 record["meta"][key] = value
-                self.write_records(record)
-                self.assertEqual(retriever.retrieve_candidates("derechos", policy=BOE_POLICY), [])
+                self.assertIsNone(citation_from_record(record))
 
     def test_incomplete_identity_and_non_http_urls_are_excluded(self):
         for field in ("doc_id", "source", "jurisdiction", "ref_url"):
             with self.subTest(missing=field):
                 record = synthetic_record()
                 del record[field]
-                self.write_records(record)
-                self.assertEqual(retriever.retrieve_candidates("derechos", policy=BOE_POLICY), [])
+                self.assertIsNone(citation_from_record(record))
         for url in ("", "javascript:alert(1)", "file:///tmp/document", "https://", "not-a-url",
                     "https://exa mple.invalid/legal", "https://example.invalid:invalid/legal",
                     "https://example\n.invalid/legal", "https://@example.invalid/legal"):
             with self.subTest(url=url):
                 record = synthetic_record()
                 record["ref_url"] = url
-                self.write_records(record)
-                self.assertEqual(retriever.retrieve_candidates("derechos", policy=BOE_POLICY), [])
+                self.assertIsNone(citation_from_record(record))
 
-    def test_malformed_lines_do_not_hide_a_valid_following_record(self):
-        valid = synthetic_record()
-        malformed = [None, [], "derechos", 123, {"text": ["derechos"], "meta": {}}, {"text": "derechos", "meta": []}]
-        self.chunks.write_text(
-            "{broken json\n" + "\n".join(json.dumps(record) for record in malformed + [valid]) + "\n",
-            encoding="utf-8",
-        )
-        citations = retriever.retrieve_candidates("derechos", policy=BOE_POLICY)
-        self.assertEqual(len(citations), 1)
-        self.assertEqual(citations[0]["meta"]["doc_id"], valid["doc_id"])
+    def test_corrupt_snapshot_aborts_before_inquiry_and_writer(self):
+        failure = CorpusError("Synthetic corrupted evidence")
+        with patch.object(rag_pipeline, "load_policy", return_value=BOE_POLICY), patch.object(
+            snapshots, "load_active_snapshot", side_effect=failure
+        ), patch("verdiktia.inquiry_engine.decompose_clause") as inquiry, patch.object(
+            retriever, "retrieve_candidates"
+        ) as retrieve, patch.object(writer_llm, "draft_opinion_llm") as writer:
+            with self.assertRaises(CorpusError) as caught:
+                analyze_clause("Licencia editorial sintética.", "ES")
+        self.assertIs(caught.exception, failure)
+        inquiry.assert_not_called()
+        retrieve.assert_not_called()
+        writer.assert_not_called()
 
     def test_unauthorized_sources_cannot_displace_an_authorized_top_k_result(self):
         denied = [synthetic_record("denied-" + str(i), "UNKNOWN", "derechos morales licencia plazo") for i in range(6)]

@@ -46,9 +46,10 @@ Devuelve un borrador que exige revisión o `INSUFFICIENT_EVIDENCE`; sin citas
 admisibles no ejecuta la generación. Tener alguna cita **no acredita suficiencia
 jurídica, autenticidad ni vigencia**. Véase [el contrato](docs/T02-api-v0.2.md).
 
-`GET /health` informa del proceso y de la existencia de archivos; no certifica
-integridad del corpus ni disponibilidad jurídica. Siguen pendientes la aprobación
-y saneamiento de fuentes, consistencia de índices, negaciones,
+`GET /health` devuelve únicamente `{"status":"ok"}` como señal del proceso;
+no certifica aptitud para analizar. [T06](docs/T06-retrieval.md) exige en cada
+análisis un snapshot identificado y consistente. Siguen pendientes la aprobación
+y saneamiento de fuentes, negaciones,
 trazabilidad persistente, autenticación y límites de transporte/frecuencia.
 El CORS actual es de demostración. No expongas esta API como servicio público.
 
@@ -63,17 +64,18 @@ USE_LLM=0 .venv/bin/python -m tests.smoke
 USE_LLM=0 .venv/bin/python -m tests.ingestion_smoke
 .venv/bin/python scripts/ingest.py --check
 .venv/bin/python tools/dependency_inventory.py --check
+.venv/bin/python tools/evaluate_retrieval.py --check
 npm --prefix web test
 npm --prefix web run typecheck
 npm --prefix web run build
 ```
 
-La batería comprende 85 regresiones Python, 10 casos del detector de flags y 10 pruebas de
+La batería incluye 99 regresiones Python, 10 casos del detector de flags y 11 pruebas de
 interfaz. No mide precisión jurídica ni demuestra adopción por el despacho.
 Los casos heredados `tests.smoke` comprueban exclusivamente flags; las pruebas
 de contrato y API ejercitan el pipeline real con fixtures y bloqueo de red.
-`tests.ingestion_smoke` construye un candidato sintético y su índice BM25 en
-un directorio temporal, sin modificar los datos activos.
+`tests.ingestion_smoke` construye un candidato sintético, prepara su snapshot y
+consulta la versión verificada en un directorio temporal.
 
 ## Ingesta de candidatos
 
@@ -90,13 +92,35 @@ No copies una política de tests para habilitar datos reales.
 Los cinco workflows heredados que llaman a `ingest.py` sin destino quedan
 bloqueados por esa invocación incompatible. Deben adaptarse a la selección y
 promoción explícita de candidatos en T13 antes de fusionar esta propuesta.
-CI ya utiliza un corpus sintético aislado para verificar ingesta e índice.
+CI ya utiliza un corpus sintético aislado para verificar ingesta y recuperación.
+
+## Recuperación sobre una versión verificada
+
+El modo efectivo es `lexical-overlap-v1`: coincidencia de palabras, con tokens
+preparados una vez por petición. **No usa BM25, FAISS ni embeddings.** Los
+binarios heredados quedan fuera de la imagen y de la recuperación; no existe
+una ruta alternativa al archivo de chunks antiguo.
+
+Tras aprobar y sanear las fuentes, `scripts/build_index.py` exige candidato,
+directorio de salida y originales para preparar un snapshot nuevo. Su nombre
+se conserva por continuidad, pero ya no construye índices persistentes. La
+preparación contrasta el candidato con sus originales y no lo activa.
+
+El runtime exige `LEXDOMUS_SNAPSHOT_DIR` (ruta absoluta) y
+`LEXDOMUS_SNAPSHOT_ID` (hash del descriptor seleccionado), además del registro
+y la política correspondientes. Una discrepancia o configuración ausente
+produce **503**, antes de Inquiry o del redactor. Todos los nodos de la petición
+usan la misma copia en memoria. La respuesta incluye `retrieval_context` con
+modo, versión de snapshot, corpus y lista vacía de índices activos.
+
+La selección, aprobación operativa, promoción y reversión corresponden a T13.
+No hay snapshot real aprobado ni configuración de activación en esta rama.
 
 ## Componentes y mantenimiento
 
 - `api/`: límites HTTP y esquemas; `web/`: interfaz actual.
 - `app/`, `verdiktia/`, `lex_domus/`: pipeline, preguntas y recuperación.
-- `data/`, `indices/`: corpus e índices de demostración, pendientes de saneamiento.
+- `data/`, `indices/`: material heredado, excluido del runtime y pendiente de saneamiento.
 - `requirements.api.txt`: bloqueo completo de API y núcleo con hashes.
   `requirements.txt`: bloqueo del núcleo para tareas de corpus; no instala la API.
 - `web/package-lock.json`: bloqueo de dependencias de interfaz y compilación.

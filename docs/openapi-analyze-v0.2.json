@@ -178,6 +178,16 @@
             "minItems": 1,
             "title": "Per Node"
           },
+          "retrieval_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RetrievalContext"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "flags": {
             "items": {
               "type": "string"
@@ -655,6 +665,42 @@
           "citations"
         ],
         "title": "Retrieval"
+      },
+      "RetrievalContext": {
+        "properties": {
+          "mode": {
+            "type": "string",
+            "const": "lexical-overlap-v1",
+            "title": "Mode"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Snapshot Id"
+          },
+          "corpus_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Corpus Id"
+          },
+          "active_indices": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 0,
+            "title": "Active Indices"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "mode",
+          "snapshot_id",
+          "corpus_id",
+          "active_indices"
+        ],
+        "title": "RetrievalContext"
       }
     }
   }

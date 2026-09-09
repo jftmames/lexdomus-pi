@@ -60,8 +60,11 @@ jobs:
       - name: Check source registry without promoting corpus
         run: python scripts/ingest.py --check
 
-      - name: Exercise candidate ingestion and index construction on synthetic data
+      - name: Exercise candidate ingestion and verified snapshot on synthetic data
         run: python -m tests.ingestion_smoke
+
+      - name: Verify declared retrieval mode and synthetic reference results
+        run: python tools/evaluate_retrieval.py --check
 
       - name: Run smoke tests
         env:
