@@ -29,3 +29,6 @@ No hacen falta claves de modelos ni una base de datos.
 Verificación: `python -m unittest tests.test_pilot` y suite completa. Validar
 además ambos botones en la página publicada. No considerar este despliegue como
 aprobación del corpus real ni como solución al fallo conocido de sinónimos.
+
+El runtime Vercel usa `.python-version` 3.12 y `uv.lock`. Los tres workflows
+conservan explícitamente Python 3.11.16 y los locks T03 originales.
