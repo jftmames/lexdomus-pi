@@ -8,7 +8,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 def analyze_clause(clause: str, jurisdiction: str, *, policy=None, snapshot=None,
-                   writer=None, trace=True):
+                   writer=None, trace=True, inquiry=None):
     """
     Orquesta el análisis: Inquiry -> RAG -> Flags -> Gate -> Opinión -> Alternativa -> EEE.
     Inquiry/RAG tienen firmas explícitas; flags, alternativa y EEE conservan adaptadores legacy.
@@ -152,43 +152,29 @@ def analyze_clause(clause: str, jurisdiction: str, *, policy=None, snapshot=None
     snapshot = load_active_snapshot(policy) if snapshot is None else snapshot
 
     # --- Inquiry (descomposición) ---
-    nodes = decompose_clause(clause, jurisdiction)
+    nodes = (inquiry or decompose_clause)(clause, jurisdiction)
     if not isinstance(nodes, list) or not nodes:
         raise ValueError("Inquiry must produce a nonempty list of nodes")
 
-    # --- RAG por nodo (2 intentos: pregunta del nodo -> cláusula completa) ---
+    # --- RAG por cuestión; no ampliar con texto de otras cuestiones ---
     per_node = []
     for node in nodes:
         q_base = node.get("pregunta") if isinstance(node, dict) else None
         if not isinstance(q_base, str) or not q_base.strip():
             raise ValueError("Inquiry node must contain a nonempty 'pregunta'")
-        tries = [
-            q_base,
-            f"{q_base}\n\n[Texto de la cláusula]\n{clause}\n\n[Jurisdicción objetivo] {jurisdiction}",
-        ]
-        used_q = q_base
-        retr = {"status": "NO_EVIDENCE", "citations": []}
-        for q_try in tries:
-            r = source_required_answer(q_try, jurisdiction=jurisdiction, policy=policy, snapshot=snapshot)
-            # nos quedamos con el primer intento que traiga citas
-            if r.get("status") == "OK" and r.get("citations"):
-                retr = r
-                used_q = q_try
-                break
-            # guarda el último intento incluso si no hay evidencia (para debug)
-            retr = r
-            used_q = q_try
-        per_node.append({"node": node, "retrieval": retr, "used_query": used_q})
+        retr = source_required_answer(q_base, jurisdiction=jurisdiction, policy=policy, snapshot=snapshot)
+        per_node.append({"node": node, "retrieval": retr, "used_query": q_base})
 
     # --- Flags + Gate ---
     flags = _flags_dispatch(_df_real, clause, jurisdiction, per_node) or []
-    gate_status = "OK" if any(
+    gate_status = "OK" if all(
         (it.get("retrieval", {}).get("status") == "OK" and it.get("retrieval", {}).get("citations"))
         for it in per_node
     ) else "NO_EVIDENCE"
     gate = {"status": gate_status}
 
-    # No generated advice or score when retrieval found no admissible evidence.
+    # Every identified question needs candidates before generation. This is a
+    # necessary coverage condition, not a judgment of legal sufficiency.
     if gate_status == "OK":
         opinion = (writer or draft_opinion_llm)(clause, jurisdiction, per_node, flags) or {}
         if "analysis_md" not in opinion and "analysis" in opinion:

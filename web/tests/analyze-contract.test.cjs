@@ -65,7 +65,7 @@ test("response boundary accepts versioned states, optional null lines and partia
   assert.ok(contract.parseAnalyzeResult(draft()));
   assert.ok(contract.parseAnalyzeResult(insufficient()));
   const partial = draft(); partial.per_node.push(node(false));
-  assert.ok(contract.parseAnalyzeResult(partial));
+  assert.equal(contract.parseAnalyzeResult(partial), null);
 });
 
 test("legacy, contradictory and malformed responses cannot reach presentation", () => {
@@ -164,4 +164,10 @@ test("insufficient rendering never shows opinion, alternative or node recommenda
   const html = renderToStaticMarkup(React.createElement(ResultView, { data: value }));
   assert.match(html, /Evidencia insuficiente/);
   assert.doesNotMatch(html, /DO_NOT_RENDER|HIDDEN_UNGROUNDED_TEMPLATE|Borrador sintético|EEE/);
+});
+
+test("partial evidence remains insufficient and cannot authorize a draft", () => {
+  const partial = { ...insufficient(), per_node: [node(true), node(false)] };
+  assert.ok(contract.parseAnalyzeResult(partial));
+  assert.equal(contract.parseAnalyzeResult({ ...draft(), per_node: partial.per_node }), null);
 });

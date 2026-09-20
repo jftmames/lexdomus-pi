@@ -111,7 +111,7 @@ def analyze(body: AnalyzeIn, request: Request):
         payload.update(
             request_id=request_id,
             status="INSUFFICIENT_EVIDENCE" if no_evidence else "DRAFT_REVIEW_REQUIRED",
-            message=("No se ha recuperado evidencia admisible para preparar el borrador."
+            message=("No se ha recuperado evidencia suficiente para cubrir todas las preguntas."
                      if no_evidence else "Borrador pendiente de revisión profesional."),
             review_required=True,
             latency_ms=round((perf_counter() - t0) * 1000.0, 2),

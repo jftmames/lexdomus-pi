@@ -32,6 +32,9 @@ def main(argv=None):
         stack.enter_context(patch.dict('os.environ', snapshot_environment(fixture), clear=True))
         stack.enter_context(patch('lex_domus.snapshots.REGISTRY_PATH', fixture['registry_path']))
         stack.enter_context(patch('lex_domus.rag_pipeline.POLICY_PATH', fixture['policy_path']))
+        # Explicit synthetic Inquiry; no clause-wide fallback in the real pipeline.
+        stack.enter_context(patch('verdiktia.inquiry_engine.decompose_clause',
+                                  side_effect=lambda text, _jur: [{"pregunta": text}]))
         output = Path(directory) / 'report'
         result = llm_eval.main(['--cases', str(CASES), '--output-dir', str(output)])
         for guard in guards:
@@ -46,7 +49,8 @@ def main(argv=None):
                 or report['cases_sha256'] != hashlib.sha256(CASES.read_bytes()).hexdigest()):
             raise AssertionError('Synthetic evaluation evidence does not match the fixture')
         report.update(synthetic_only=True, activated=False, external_calls=0,
-                      source_sha256=hashlib.sha256(SOURCE).hexdigest())
+                      source_sha256=hashlib.sha256(SOURCE).hexdigest(),
+                      inquiry_mode="synthetic_identity_fixture")
         (output / 'llm_eval_details.json').write_text(
             json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
         (output / 'README.txt').write_text(

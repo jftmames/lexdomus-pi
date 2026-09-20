@@ -59,9 +59,10 @@ jobs:
 
       - name: Verify review-only BOE extraction and diagnostic reproducibility
         run: |
-          python -m unittest tools.test_boe_review_extraction tools.test_boe_rankers -v
+          python -m unittest tools.test_boe_review_extraction tools.test_boe_rankers tools.test_boe_paragraphs -v
           python tools/evaluate_boe_review.py --check
           python tools/compare_boe_rankers.py --check
+          python tools/compare_boe_paragraphs.py --check
 
       - name: Check source registry without promoting corpus
         run: python scripts/ingest.py --check

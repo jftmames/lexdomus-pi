@@ -1,0 +1,1334 @@
+{
+  "purpose": "offline_paragraph_comparison",
+  "activated": false,
+  "approved": false,
+  "input_sha256": "d726fb54d0f368722570b36ecf87bc830fd57522f87dfb83aa9c75f03cc099f7",
+  "method": {
+    "target_chars": 1000,
+    "top_k": 6,
+    "ranking": "same BM25 formula, k1=1.2, b=0.75",
+    "overlap": 0,
+    "oversize_policy": "retain complete paragraph, report size",
+    "limitation": "Different chunks change BM25 collection statistics and candidate count; this is a chunking comparison, not a fixed-index rerank."
+  },
+  "summary": {
+    "chunks": 60,
+    "oversized_chunks": 0,
+    "max_chunk_chars": 996,
+    "reference_cases": 16,
+    "window_hits": 11,
+    "paragraph_hits": 12,
+    "gains": [
+      "N03"
+    ],
+    "regressions": [],
+    "misses": [
+      "C02",
+      "C04",
+      "C08",
+      "N04"
+    ],
+    "mean_window_returned_chars": 4406.583333333333,
+    "mean_paragraph_returned_chars": 4049.3333333333335,
+    "scope_probes_with_candidates": [
+      "C09",
+      "C10",
+      "C11",
+      "C12",
+      "N09",
+      "N10",
+      "N11",
+      "N12"
+    ]
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "set": "existing",
+      "query": "La cesión no indica tiempo ni ámbito territorial.",
+      "expected_passages": [
+        {
+          "article": "43",
+          "start": 296,
+          "end": 672,
+          "prefix": "2. La falta de mención"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 4839,
+      "paragraph_returned_chars": 4473,
+      "top": [
+        {
+          "article": "43",
+          "char_start": 0,
+          "char_end": 906,
+          "score": 12.1232958923
+        },
+        {
+          "article": "19",
+          "char_start": 0,
+          "char_end": 758,
+          "score": 7.938710266
+        },
+        {
+          "article": "43",
+          "char_start": 906,
+          "char_end": 1071,
+          "score": 6.3130827551
+        },
+        {
+          "article": "60",
+          "char_start": 0,
+          "char_end": 878,
+          "score": 5.8385845198
+        },
+        {
+          "article": "19",
+          "char_start": 758,
+          "char_end": 1754,
+          "score": 5.7389367762
+        },
+        {
+          "article": "48",
+          "char_start": 0,
+          "char_end": 770,
+          "score": 5.0165743666
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "set": "existing",
+      "query": "No acordamos hasta cuándo ni en qué países podrá usarse la obra.",
+      "expected_passages": [
+        {
+          "article": "43",
+          "start": 296,
+          "end": 672,
+          "prefix": "2. La falta de mención"
+        }
+      ],
+      "window_covered": false,
+      "paragraph_covered": false,
+      "window_returned_chars": 4005,
+      "paragraph_returned_chars": 3595,
+      "top": [
+        {
+          "article": "66",
+          "char_start": 0,
+          "char_end": 409,
+          "score": 6.9480444336
+        },
+        {
+          "article": "19",
+          "char_start": 758,
+          "char_end": 1754,
+          "score": 5.4200947191
+        },
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 4.4780521886
+        },
+        {
+          "article": "47",
+          "char_start": 896,
+          "char_end": 1172,
+          "score": 4.0516425714
+        },
+        {
+          "article": "19",
+          "char_start": 1754,
+          "char_end": 2064,
+          "score": 3.9640049653
+        },
+        {
+          "article": "48 bis",
+          "char_start": 0,
+          "char_end": 715,
+          "score": 3.4601052811
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "set": "existing",
+      "query": "Se ceden también todos los medios de difusión que se inventen.",
+      "expected_passages": [
+        {
+          "article": "43",
+          "start": 906,
+          "end": 1071,
+          "prefix": "5. La transmisión"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 3445,
+      "paragraph_returned_chars": 3157,
+      "top": [
+        {
+          "article": "43",
+          "char_start": 906,
+          "char_end": 1071,
+          "score": 7.4457528456
+        },
+        {
+          "article": "48",
+          "char_start": 0,
+          "char_end": 770,
+          "score": 6.4509588305
+        },
+        {
+          "article": "20",
+          "char_start": 1606,
+          "char_end": 2458,
+          "score": 5.5465693469
+        },
+        {
+          "article": "62",
+          "char_start": 994,
+          "char_end": 1111,
+          "score": 5.2759657905
+        },
+        {
+          "article": "58",
+          "char_start": 0,
+          "char_end": 494,
+          "score": 4.6683871518
+        },
+        {
+          "article": "21",
+          "char_start": 0,
+          "char_end": 759,
+          "score": 3.9915207059
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "set": "existing",
+      "query": "Cedemos los derechos mediante un acuerdo verbal.",
+      "expected_passages": [
+        {
+          "article": "45",
+          "start": 37,
+          "end": 213,
+          "prefix": "Toda cesión"
+        }
+      ],
+      "window_covered": false,
+      "paragraph_covered": false,
+      "window_returned_chars": 5101,
+      "paragraph_returned_chars": 4582,
+      "top": [
+        {
+          "article": "48 bis",
+          "char_start": 715,
+          "char_end": 1222,
+          "score": 4.5155874866
+        },
+        {
+          "article": "19",
+          "char_start": 0,
+          "char_end": 758,
+          "score": 4.269430571
+        },
+        {
+          "article": "47",
+          "char_start": 0,
+          "char_end": 896,
+          "score": 4.1465274406
+        },
+        {
+          "article": "20",
+          "char_start": 7274,
+          "char_end": 8229,
+          "score": 3.7630266597
+        },
+        {
+          "article": "20",
+          "char_start": 6554,
+          "char_end": 7274,
+          "score": 3.1784012278
+        },
+        {
+          "article": "20",
+          "char_start": 0,
+          "char_end": 746,
+          "score": 3.0982286217
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "set": "existing",
+      "query": "La cesión se concede con carácter exclusivo.",
+      "expected_passages": [
+        {
+          "article": "48",
+          "start": 35,
+          "end": 509,
+          "prefix": "La cesión en exclusiva"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 3904,
+      "paragraph_returned_chars": 3848,
+      "top": [
+        {
+          "article": "50",
+          "char_start": 0,
+          "char_end": 479,
+          "score": 7.6804350346
+        },
+        {
+          "article": "48",
+          "char_start": 0,
+          "char_end": 770,
+          "score": 6.8265265947
+        },
+        {
+          "article": "46",
+          "char_start": 0,
+          "char_end": 944,
+          "score": 5.4509300282
+        },
+        {
+          "article": "17",
+          "char_start": 0,
+          "char_end": 368,
+          "score": 5.1509642849
+        },
+        {
+          "article": "60",
+          "char_start": 0,
+          "char_end": 878,
+          "score": 3.7555657664
+        },
+        {
+          "article": "66",
+          "char_start": 0,
+          "char_end": 409,
+          "score": 3.6023547618
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "set": "existing",
+      "query": "Solo esta editorial podrá explotar la obra.",
+      "expected_passages": [
+        {
+          "article": "48",
+          "start": 35,
+          "end": 509,
+          "prefix": "La cesión en exclusiva"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 3871,
+      "paragraph_returned_chars": 3951,
+      "top": [
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 7.2229455379
+        },
+        {
+          "article": "48",
+          "char_start": 0,
+          "char_end": 770,
+          "score": 5.6363001747
+        },
+        {
+          "article": "68",
+          "char_start": 685,
+          "char_end": 1567,
+          "score": 5.0168900459
+        },
+        {
+          "article": "45",
+          "char_start": 0,
+          "char_end": 213,
+          "score": 3.6893063017
+        },
+        {
+          "article": "66",
+          "char_start": 0,
+          "char_end": 409,
+          "score": 3.2277026493
+        },
+        {
+          "article": "51",
+          "char_start": 0,
+          "char_end": 885,
+          "score": 3.1792840077
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "set": "existing",
+      "query": "El autor renuncia a que figure su nombre.",
+      "expected_passages": [
+        {
+          "article": "14",
+          "start": 61,
+          "end": 137,
+          "prefix": "Corresponden al autor"
+        },
+        {
+          "article": "14",
+          "start": 199,
+          "end": 301,
+          "prefix": "2.º Determinar"
+        },
+        {
+          "article": "14",
+          "start": 303,
+          "end": 368,
+          "prefix": "3.º Exigir"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 5268,
+      "paragraph_returned_chars": 4718,
+      "top": [
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 5.1732800238
+        },
+        {
+          "article": "64",
+          "char_start": 0,
+          "char_end": 567,
+          "score": 5.0572254889
+        },
+        {
+          "article": "60",
+          "char_start": 0,
+          "char_end": 878,
+          "score": 2.762771159
+        },
+        {
+          "article": "52",
+          "char_start": 0,
+          "char_end": 598,
+          "score": 2.6822128968
+        },
+        {
+          "article": "62",
+          "char_start": 0,
+          "char_end": 994,
+          "score": 2.6810066121
+        },
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 2.5201392671
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "set": "existing",
+      "query": "El contrato de edición omite el número de ejemplares.",
+      "expected_passages": [
+        {
+          "article": "60",
+          "start": 224,
+          "end": 328,
+          "prefix": "3.º El número"
+        },
+        {
+          "article": "61",
+          "start": 66,
+          "end": 217,
+          "prefix": "1. Será nulo"
+        }
+      ],
+      "window_covered": false,
+      "paragraph_covered": false,
+      "window_returned_chars": 4859,
+      "paragraph_returned_chars": 4739,
+      "top": [
+        {
+          "article": "72",
+          "char_start": 0,
+          "char_end": 447,
+          "score": 7.8946264672
+        },
+        {
+          "article": "71",
+          "char_start": 0,
+          "char_end": 868,
+          "score": 7.8736899508
+        },
+        {
+          "article": "60",
+          "char_start": 0,
+          "char_end": 878,
+          "score": 7.2303496163
+        },
+        {
+          "article": "68",
+          "char_start": 685,
+          "char_end": 1567,
+          "score": 6.5743716612
+        },
+        {
+          "article": "68",
+          "char_start": 0,
+          "char_end": 685,
+          "score": 4.7213124851
+        },
+        {
+          "article": "67",
+          "char_start": 0,
+          "char_end": 979,
+          "score": 4.582856069
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "set": "existing",
+      "query": "Valora la cesión y además una patente estadounidense.",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4985,
+      "paragraph_returned_chars": 4382,
+      "top": [
+        {
+          "article": "69",
+          "char_start": 0,
+          "char_end": 623,
+          "score": 4.2433546577
+        },
+        {
+          "article": "47",
+          "char_start": 0,
+          "char_end": 896,
+          "score": 3.6731169466
+        },
+        {
+          "article": "62",
+          "char_start": 0,
+          "char_end": 994,
+          "score": 3.5838055952
+        },
+        {
+          "article": "48 bis",
+          "char_start": 715,
+          "char_end": 1222,
+          "score": 3.0729667942
+        },
+        {
+          "article": "58",
+          "char_start": 0,
+          "char_end": 494,
+          "score": 3.0044700364
+        },
+        {
+          "article": "71",
+          "char_start": 0,
+          "char_end": 868,
+          "score": 2.9729309846
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "set": "existing",
+      "query": "¿Qué tratamiento fiscal tiene este pago?",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4553,
+      "paragraph_returned_chars": 4603,
+      "top": [
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 3.1130319034
+        },
+        {
+          "article": "19",
+          "char_start": 758,
+          "char_end": 1754,
+          "score": 2.9383530636
+        },
+        {
+          "article": "60",
+          "char_start": 0,
+          "char_end": 878,
+          "score": 2.9095423679
+        },
+        {
+          "article": "48 bis",
+          "char_start": 715,
+          "char_end": 1222,
+          "score": 2.2221107209
+        },
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 2.0177775407
+        },
+        {
+          "article": "57",
+          "char_start": 0,
+          "char_end": 541,
+          "score": 1.9758655138
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "set": "existing",
+      "query": "Aplica esta redacción a un contrato de 1997.",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4093,
+      "paragraph_returned_chars": 3127,
+      "top": [
+        {
+          "article": "68",
+          "char_start": 0,
+          "char_end": 685,
+          "score": 3.5831932219
+        },
+        {
+          "article": "51",
+          "char_start": 0,
+          "char_end": 885,
+          "score": 3.5614845581
+        },
+        {
+          "article": "51",
+          "char_start": 885,
+          "char_end": 1137,
+          "score": 3.5177062066
+        },
+        {
+          "article": "58",
+          "char_start": 0,
+          "char_end": 494,
+          "score": 3.3658211558
+        },
+        {
+          "article": "45",
+          "char_start": 0,
+          "char_end": 213,
+          "score": 3.3063885611
+        },
+        {
+          "article": "59",
+          "char_start": 0,
+          "char_end": 598,
+          "score": 3.2305985762
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "set": "existing",
+      "query": "Texto ajeno al supuesto con palabras comunes: la obra del puente.",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4936,
+      "paragraph_returned_chars": 4663,
+      "top": [
+        {
+          "article": "48",
+          "char_start": 0,
+          "char_end": 770,
+          "score": 4.0150748984
+        },
+        {
+          "article": "19",
+          "char_start": 0,
+          "char_end": 758,
+          "score": 3.3307942564
+        },
+        {
+          "article": "50",
+          "char_start": 0,
+          "char_end": 479,
+          "score": 3.2335040616
+        },
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 3.2161432518
+        },
+        {
+          "article": "51",
+          "char_start": 0,
+          "char_end": 885,
+          "score": 3.1181206979
+        },
+        {
+          "article": "68",
+          "char_start": 685,
+          "char_end": 1567,
+          "score": 2.9648939052
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "set": "new_probes",
+      "query": "No se especifica la lengua en que saldrá el libro.",
+      "expected_passages": [
+        {
+          "article": "62",
+          "start": 410,
+          "end": 567,
+          "prefix": "2. La falta de expresión"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 4833,
+      "paragraph_returned_chars": 4359,
+      "top": [
+        {
+          "article": "62",
+          "char_start": 0,
+          "char_end": 994,
+          "score": 9.0624946185
+        },
+        {
+          "article": "20",
+          "char_start": 3324,
+          "char_end": 4304,
+          "score": 4.8795980592
+        },
+        {
+          "article": "47",
+          "char_start": 896,
+          "char_end": 1172,
+          "score": 4.2934642376
+        },
+        {
+          "article": "57",
+          "char_start": 0,
+          "char_end": 541,
+          "score": 3.9260752289
+        },
+        {
+          "article": "20",
+          "char_start": 4304,
+          "char_end": 4990,
+          "score": 2.212567013
+        },
+        {
+          "article": "68",
+          "char_start": 685,
+          "char_end": 1567,
+          "score": 2.1454793129
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "set": "new_probes",
+      "query": "¿En qué idioma pueden publicar si no lo pactamos?",
+      "expected_passages": [
+        {
+          "article": "62",
+          "start": 410,
+          "end": 567,
+          "prefix": "2. La falta de expresión"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 5598,
+      "paragraph_returned_chars": 5081,
+      "top": [
+        {
+          "article": "43",
+          "char_start": 0,
+          "char_end": 906,
+          "score": 4.6848024275
+        },
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 4.6431436619
+        },
+        {
+          "article": "62",
+          "char_start": 0,
+          "char_end": 994,
+          "score": 4.4248066741
+        },
+        {
+          "article": "48 bis",
+          "char_start": 0,
+          "char_end": 715,
+          "score": 3.2573407877
+        },
+        {
+          "article": "59",
+          "char_start": 0,
+          "char_end": 598,
+          "score": 2.9976240355
+        },
+        {
+          "article": "67",
+          "char_start": 0,
+          "char_end": 979,
+          "score": 2.8473493326
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "set": "new_probes",
+      "query": "El editor debe rendir cuentas y liquidar la remuneración cada año.",
+      "expected_passages": [
+        {
+          "article": "64",
+          "start": 567,
+          "end": 1019,
+          "prefix": "5.º Satisfacer"
+        }
+      ],
+      "window_covered": false,
+      "paragraph_covered": true,
+      "window_returned_chars": 4646,
+      "paragraph_returned_chars": 4494,
+      "top": [
+        {
+          "article": "64",
+          "char_start": 567,
+          "char_end": 1160,
+          "score": 13.4703934907
+        },
+        {
+          "article": "60",
+          "char_start": 0,
+          "char_end": 878,
+          "score": 6.4174980444
+        },
+        {
+          "article": "72",
+          "char_start": 0,
+          "char_end": 447,
+          "score": 5.3023799173
+        },
+        {
+          "article": "68",
+          "char_start": 685,
+          "char_end": 1567,
+          "score": 4.9403335062
+        },
+        {
+          "article": "67",
+          "char_start": 0,
+          "char_end": 979,
+          "score": 4.4754172554
+        },
+        {
+          "article": "48 bis",
+          "char_start": 0,
+          "char_end": 715,
+          "score": 4.2141325433
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "set": "new_probes",
+      "query": "¿Cuándo me tienen que informar de ventas y pagar mi parte?",
+      "expected_passages": [
+        {
+          "article": "64",
+          "start": 567,
+          "end": 1019,
+          "prefix": "5.º Satisfacer"
+        }
+      ],
+      "window_covered": false,
+      "paragraph_covered": false,
+      "window_returned_chars": 3502,
+      "paragraph_returned_chars": 2975,
+      "top": [
+        {
+          "article": "44",
+          "char_start": 0,
+          "char_end": 315,
+          "score": 5.5145710971
+        },
+        {
+          "article": "19",
+          "char_start": 0,
+          "char_end": 758,
+          "score": 4.0515988519
+        },
+        {
+          "article": "18",
+          "char_start": 0,
+          "char_end": 247,
+          "score": 3.7779601378
+        },
+        {
+          "article": "58",
+          "char_start": 0,
+          "char_end": 494,
+          "score": 3.2635649828
+        },
+        {
+          "article": "53",
+          "char_start": 0,
+          "char_end": 446,
+          "score": 3.1916850564
+        },
+        {
+          "article": "48 bis",
+          "char_start": 0,
+          "char_end": 715,
+          "score": 2.6867376526
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "set": "new_probes",
+      "query": "Comprar el soporte no transmite derechos de explotación.",
+      "expected_passages": [
+        {
+          "article": "56",
+          "start": 89,
+          "end": 249,
+          "prefix": "1. El adquirente"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 2984,
+      "paragraph_returned_chars": 2864,
+      "top": [
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 5.3765740489
+        },
+        {
+          "article": "17",
+          "char_start": 0,
+          "char_end": 368,
+          "score": 3.5400947805
+        },
+        {
+          "article": "43",
+          "char_start": 0,
+          "char_end": 906,
+          "score": 3.4575542352
+        },
+        {
+          "article": "53",
+          "char_start": 0,
+          "char_end": 446,
+          "score": 3.4348919848
+        },
+        {
+          "article": "43",
+          "char_start": 906,
+          "char_end": 1071,
+          "score": 3.193937018
+        },
+        {
+          "article": "22",
+          "char_start": 0,
+          "char_end": 187,
+          "score": 3.1689176323
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "set": "new_probes",
+      "query": "He comprado el manuscrito; ¿puedo explotar la obra?",
+      "expected_passages": [
+        {
+          "article": "56",
+          "start": 89,
+          "end": 249,
+          "prefix": "1. El adquirente"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 4730,
+      "paragraph_returned_chars": 4291,
+      "top": [
+        {
+          "article": "48",
+          "char_start": 0,
+          "char_end": 770,
+          "score": 4.6249011167
+        },
+        {
+          "article": "66",
+          "char_start": 0,
+          "char_end": 409,
+          "score": 1.610036205
+        },
+        {
+          "article": "62",
+          "char_start": 0,
+          "char_end": 994,
+          "score": 1.5335937518
+        },
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 1.5170259055
+        },
+        {
+          "article": "64",
+          "char_start": 0,
+          "char_end": 567,
+          "score": 1.5108524191
+        },
+        {
+          "article": "21",
+          "char_start": 0,
+          "char_end": 759,
+          "score": 1.4914786478
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "set": "new_probes",
+      "query": "El autor debe corregir las pruebas de la tirada.",
+      "expected_passages": [
+        {
+          "article": "65",
+          "start": 321,
+          "end": 385,
+          "prefix": "3.º Corregir"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 3521,
+      "paragraph_returned_chars": 3116,
+      "top": [
+        {
+          "article": "65",
+          "char_start": 0,
+          "char_end": 385,
+          "score": 12.1542774703
+        },
+        {
+          "article": "64",
+          "char_start": 0,
+          "char_end": 567,
+          "score": 7.14777059
+        },
+        {
+          "article": "72",
+          "char_start": 0,
+          "char_end": 447,
+          "score": 5.2572799373
+        },
+        {
+          "article": "48 bis",
+          "char_start": 0,
+          "char_end": 715,
+          "score": 5.2468371876
+        },
+        {
+          "article": "66",
+          "char_start": 0,
+          "char_end": 409,
+          "score": 4.8778065923
+        },
+        {
+          "article": "64",
+          "char_start": 567,
+          "char_end": 1160,
+          "score": 4.4780468431
+        }
+      ]
+    },
+    {
+      "id": "N08",
+      "set": "new_probes",
+      "query": "¿Quién revisa las pruebas antes de imprimir?",
+      "expected_passages": [
+        {
+          "article": "64",
+          "start": 266,
+          "end": 338,
+          "prefix": "2.º Someter"
+        },
+        {
+          "article": "65",
+          "start": 321,
+          "end": 385,
+          "prefix": "3.º Corregir"
+        }
+      ],
+      "window_covered": true,
+      "paragraph_covered": true,
+      "window_returned_chars": 3545,
+      "paragraph_returned_chars": 2998,
+      "top": [
+        {
+          "article": "66",
+          "char_start": 0,
+          "char_end": 409,
+          "score": 3.6566772541
+        },
+        {
+          "article": "65",
+          "char_start": 0,
+          "char_end": 385,
+          "score": 3.6028016094
+        },
+        {
+          "article": "64",
+          "char_start": 0,
+          "char_end": 567,
+          "score": 3.1774000257
+        },
+        {
+          "article": "67",
+          "char_start": 0,
+          "char_end": 979,
+          "score": 2.9676400895
+        },
+        {
+          "article": "57",
+          "char_start": 0,
+          "char_end": 541,
+          "score": 0.5047386621
+        },
+        {
+          "article": "62",
+          "char_start": 994,
+          "char_end": 1111,
+          "score": 0.4820437032
+        }
+      ]
+    },
+    {
+      "id": "N09",
+      "set": "new_probes",
+      "query": "¿Qué IVA corresponde a la venta del libro?",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4178,
+      "paragraph_returned_chars": 3789,
+      "top": [
+        {
+          "article": "17",
+          "char_start": 0,
+          "char_end": 368,
+          "score": 4.6571115317
+        },
+        {
+          "article": "47",
+          "char_start": 896,
+          "char_end": 1172,
+          "score": 4.3925339911
+        },
+        {
+          "article": "20",
+          "char_start": 3324,
+          "char_end": 4304,
+          "score": 4.2012043176
+        },
+        {
+          "article": "19",
+          "char_start": 0,
+          "char_end": 758,
+          "score": 4.1978580405
+        },
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 4.1870650488
+        },
+        {
+          "article": "70",
+          "char_start": 0,
+          "char_end": 518,
+          "score": 3.8213263221
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "set": "new_probes",
+      "query": "¿Cómo registro una marca para la editorial?",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 5228,
+      "paragraph_returned_chars": 4567,
+      "top": [
+        {
+          "article": "68",
+          "char_start": 685,
+          "char_end": 1567,
+          "score": 4.7820484715
+        },
+        {
+          "article": "19",
+          "char_start": 758,
+          "char_end": 1754,
+          "score": 2.1442203192
+        },
+        {
+          "article": "57",
+          "char_start": 0,
+          "char_end": 541,
+          "score": 2.0861458446
+        },
+        {
+          "article": "19",
+          "char_start": 0,
+          "char_end": 758,
+          "score": 1.8916063764
+        },
+        {
+          "article": "47",
+          "char_start": 0,
+          "char_end": 896,
+          "score": 1.8255289256
+        },
+        {
+          "article": "58",
+          "char_start": 0,
+          "char_end": 494,
+          "score": 1.7998081068
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "set": "new_probes",
+      "query": "¿Es válido este contrato bajo el derecho de California?",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4600,
+      "paragraph_returned_chars": 4514,
+      "top": [
+        {
+          "article": "20",
+          "char_start": 746,
+          "char_end": 1606,
+          "score": 6.7178942311
+        },
+        {
+          "article": "71",
+          "char_start": 0,
+          "char_end": 868,
+          "score": 6.6605797578
+        },
+        {
+          "article": "59",
+          "char_start": 0,
+          "char_end": 598,
+          "score": 6.5051939689
+        },
+        {
+          "article": "48 bis",
+          "char_start": 715,
+          "char_end": 1222,
+          "score": 5.7029525909
+        },
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 4.3360019805
+        },
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 3.6814126017
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "set": "new_probes",
+      "query": "¿Qué permiso municipal exige la obra del garaje?",
+      "expected_passages": [],
+      "window_covered": null,
+      "paragraph_covered": null,
+      "window_returned_chars": 4534,
+      "paragraph_returned_chars": 4298,
+      "top": [
+        {
+          "article": "14",
+          "char_start": 0,
+          "char_end": 889,
+          "score": 4.9582562856
+        },
+        {
+          "article": "65",
+          "char_start": 0,
+          "char_end": 385,
+          "score": 2.0269037089
+        },
+        {
+          "article": "56",
+          "char_start": 0,
+          "char_end": 792,
+          "score": 1.9300609555
+        },
+        {
+          "article": "43",
+          "char_start": 0,
+          "char_end": 906,
+          "score": 1.8981605121
+        },
+        {
+          "article": "21",
+          "char_start": 0,
+          "char_end": 759,
+          "score": 1.8940744572
+        },
+        {
+          "article": "64",
+          "char_start": 0,
+          "char_end": 567,
+          "score": 1.8928367083
+        }
+      ]
+    }
+  ]
+}

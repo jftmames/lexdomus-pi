@@ -68,7 +68,8 @@ def synthetic_analyze(clause, jurisdiction):
     if clause not in EXAMPLES:
         raise ValueError("Only fixed synthetic examples are accepted")
     result = analyze_clause(clause, jurisdiction, policy=POLICY, snapshot=synthetic_snapshot(),
-                            writer=synthetic_writer, trace=False)
+                            writer=synthetic_writer, trace=False,
+                            inquiry=lambda token, _jur: [{"pregunta": token}])
     # Heuristic alternatives and EEE are not legal or quality evidence for tokens.
     result.update(alternative_clause=None, EEE=None, flags=[])
     return result

@@ -27,6 +27,9 @@ class EvaluationTests(unittest.TestCase):
         self.stack.enter_context(patch.dict(os.environ, snapshot_environment(self.fixture), clear=True))
         self.stack.enter_context(patch('lex_domus.snapshots.REGISTRY_PATH', self.fixture['registry_path']))
         self.stack.enter_context(patch('lex_domus.rag_pipeline.POLICY_PATH', self.fixture['policy_path']))
+        # Fixed-token harness tests retrieval/reporting, not the placeholder Inquiry.
+        self.stack.enter_context(patch('verdiktia.inquiry_engine.decompose_clause',
+                                       side_effect=lambda text, _jur: [{"pregunta": text}]))
         for target in ('socket.socket.connect', 'socket.socket.connect_ex', 'socket.create_connection',
                        'llm.provider.call_llm_json'):
             guard = Mock(side_effect=AssertionError('No external calls'))
