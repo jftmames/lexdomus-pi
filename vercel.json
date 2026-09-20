@@ -6,5 +6,8 @@
       "excludeFiles": "{web/**,tests/**,docs/**,data/**,indices/**,policies/**,scripts/**,prompts/**,templates/**,llm/**,.git/**}",
       "maxDuration": 30
     }
+  },
+  "env": {
+    "UV_PYTHON": "3.12"
   }
 }
