@@ -23,7 +23,7 @@ Se ejecuta manualmente y en push/PR para los archivos relevantes. No escribe
 commits, descarga normativa, cambia baseline, promociona ni llama a modelos.
 El nombre de archivo se mantiene por continuidad; no construye BM25/FAISS.
 
-`fetch-corpus.yml`, `post-reforms-merge.yml` y `llm-preview.yml`
+`fetch-corpus.yml`, `reforms-watch.yml`, `post-reforms-merge.yml` y `llm-preview.yml`
 quedan exclusivamente manuales, sin permisos, checkout, secretos ni inputs. Su
 único paso explica la suspensión y termina con error. No se presenta una ejecución
 suspendida como evaluación superada. Se retiran cron y promoción post-merge.
@@ -42,7 +42,7 @@ python tools/evaluate_retrieval.py --check
 El destino de exportación debe ser nuevo. Tres regresiones adicionales comprueban
 el contenido y hashes del artefacto, la negativa a sobrescribir y la ausencia de
 exportación cuando falla la preparación. La batería inicial sumaba 102 pruebas Python; la adaptación del evaluador añade
-ocho regresiones; tres más verifican su exportación en CI. Total actual: 113.
+ocho regresiones; tres más verifican su exportación en CI. Se añaden seis pruebas de descarga aislada. Total actual: 119.
 El smoke original sin argumentos conserva su funcionamiento temporal.
 
 ## Pendientes para cerrar T13
@@ -137,3 +137,34 @@ python -m tests.evaluation_smoke --output-dir /tmp/new-synthetic-evaluation
 
 Esto conecta el evaluador mecánico a CI; no habilita evaluación profesional ni
 promoción del corpus. Las ejecuciones alojadas en main no cambian hasta integrar.
+
+## Descarga aislada para revisión
+
+`scripts/fetch_corpus.py` ya no escribe en `data/corpus` ni genera extractos. No
+hace nada al importarse y rechaza invocaciones antiguas sin argumentos. Requiere
+un plan JSON explícito y un directorio absoluto nuevo fuera del repositorio,
+cuyo padre exista. Formato del plan: `purpose: download_for_review` y `sources`,
+una lista de objetos con `id` y `url`. No incluye un plan de fuentes reales
+preaprobado. La lista admite de 1 a 20 entradas, IDs únicos y seguros, y HTTPS
+en los cuatro hosts exactos del descargador anterior; no sigue redirecciones.
+Esto limita destinos técnicos, NO aprueba identidad, reutilización o vigencia.
+
+```bash
+python scripts/fetch_corpus.py --plan /ruta/plan-revisado.json --output-dir /ruta/nueva-descarga
+```
+
+Conserva el cuerpo HTTP descargado sin extracción de texto en archivos `.body`,
+con hash, tamaño, URL solicitada, tipo de contenido y fecha UTC en
+`download-manifest.json`. Sólo admite HTTP 200, tipos documentales previstos y
+hasta 8 MiB por documento; no hereda proxies ni credenciales netrc. Una descarga
+vacía, error, redirección o exceso de tamaño elimina el lote creado en esa
+invocación. Nunca sobrescribe un destino existente. Todo queda `unreviewed` y
+`activated: false`; no produce candidatos T05 ni snapshots T06. La normalización,
+identificación documental, revisión y admisión posterior siguen pendientes.
+
+Se descubrió además `reforms-watch.yml`, que llamaba al descargador y podía
+escribir status/proposed y abrir PR automáticamente. Se suspende antes de esos
+pasos, sin cron ni permisos. `fetch-corpus.yml` también sigue suspendido: esta
+fase valida el CLI con HTTP simulado, sin descargar normativa real. Los seis
+tests cubren bytes/manifiesto, destinos existentes, rechazo de escritura en el
+repositorio, URLs/IDs inválidos, respuestas fallidas y limpieza de lotes parciales.

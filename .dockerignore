@@ -19,6 +19,7 @@
 !scripts/ingest.py
 !scripts/build_index.py
 !scripts/llm_eval.py
+!scripts/fetch_corpus.py
 !prompts/
 !prompts/**
 !templates/

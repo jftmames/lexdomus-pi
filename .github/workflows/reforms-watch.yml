@@ -1,70 +1,15 @@
-name: Watch legal reforms (corpus drift)
+name: "reforms-watch — suspended pending T13"
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 4 * * *"   # diario 04:00 UTC
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 jobs:
-  watch:
+  blocked:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 0
-          persist-credentials: true
-
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version-file: '.python-version'
-
-      - name: Install deps
+      - name: Stop before downloads, writes or model calls
         run: |
-          python -m pip install --require-hashes -r requirements.txt
-          python -m pip check
-
-      - name: Fetch official corpus (fresh)
-        run: |
-          python scripts/fetch_corpus.py
-
-      - name: Check reforms vs baseline
-        id: watch
-        run: |
-          python scripts/check_reforms.py
-          echo "CHANGED_COUNT=$(jq '.changed_count' data/status/reforms_report.json)" >> $GITHUB_ENV
-
-      - name: Commit status & proposed (if any)
-        if: env.CHANGED_COUNT != '0'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/status/ data/snapshots/proposed/
-          git commit -m "watch: reforms detected ($(date -u +%F))" || echo "no changes"
-
-      - name: Create Pull Request
-        if: env.CHANGED_COUNT != '0'
-        id: cpr
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: bot/reforms-${{ github.run_id }}
-          title: "Watcher: cambios detectados en corpus oficial"
-          body: |
-            Se detectaron cambios en el corpus oficial. Revisa `data/status/reforms_report.json` y los parches `data/status/*.patch`.
-
-            - Este PR añade archivos `data/snapshots/proposed/*` (texto propuesto).
-            - Tras revisar, puedes **aceptar** los cambios (merge) y se reconstruirán índices automáticamente.
-          labels: reforms, corpus, needs-review
-          commit-message: "watch: reforms detected (auto)"
-
-      - name: Comment initial watch summary
-        if: env.CHANGED_COUNT != '0'
-        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
-        with:
-          issue-number: ${{ steps.cpr.outputs.pull-request-number }}
-          body: |
-            Se han detectado cambios en el corpus oficial. Puedes abrir la app si ya está desplegada para contrastar: **${{ vars.APP_URL }}**
+          echo "::error::Suspended pending T13 migration. No corpus prepared or activated. See docs/T13-workflows.md."
+          exit 1
