@@ -89,9 +89,10 @@ y `--output-dir` explícito. Produce un directorio nuevo con `chunks.jsonl` y
 `manifest.json`. **No publica ni sustituye `data/docs_chunks` o `indices`.**
 No copies una política de tests para habilitar datos reales.
 
-Los cinco workflows heredados que llaman a `ingest.py` sin destino quedan
-bloqueados por esa invocación incompatible. Deben adaptarse a la selección y
-promoción explícita de candidatos en T13 antes de fusionar esta propuesta.
+T13.1 sustituye las invocaciones incompatibles de los cinco workflows heredados:
+cuatro quedan suspendidos explícitamente y `build-index.yml` prepara únicamente
+un artefacto sintético verificado. La migración funcional y la promoción de
+candidatos reales siguen pendientes. Véase [el alcance T13.1](docs/T13-workflows.md).
 CI ya utiliza un corpus sintético aislado para verificar ingesta y recuperación.
 
 ## Recuperación sobre una versión verificada
