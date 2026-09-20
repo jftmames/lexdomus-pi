@@ -1,0 +1,2518 @@
+{
+  "purpose": "offline_ranker_comparison",
+  "activated": false,
+  "legally_approved": false,
+  "input_sha256": "d726fb54d0f368722570b36ecf87bc830fd57522f87dfb83aa9c75f03cc099f7",
+  "case_set_sha256": "c66d1718dd8779d9d93c09297e6c8a22390ef7908f43c7585456c2a48c5d051d",
+  "configuration": {
+    "top_k": 6,
+    "k1": 1.2,
+    "b": 0.75,
+    "chunks": 59,
+    "tokens": "Unicode word regex, lowercase, no stopwords, stemming, synonyms or query term repetition",
+    "idf": "log(1+(N-df+0.5)/(df+0.5))",
+    "tf_factor": "f*(k1+1)/(f+k1*(1-b+b*dl/avgdl))",
+    "tie_break": "input index",
+    "score_threshold": ">0, not a relevance threshold",
+    "parameter_tuning": false,
+    "reference_url": "https://lucene.apache.org/core/9_12_1/core/org/apache/lucene/search/similarities/BM25Similarity.html"
+  },
+  "limitations": [
+    "DOM-derived sources not admitted; no production pipeline.",
+    "New probes were authored by the same implementer; no independent held-out validation.",
+    "Expected passages are provisional, not complete legal evidence.",
+    "No relevance labels for every candidate: precision and false-positive rates cannot be estimated.",
+    "Candidate return on scope probes does not prove an incorrect API answer.",
+    "Explicit floating-point BM25 experiment, not Lucene engine parity."
+  ],
+  "summary": {
+    "existing": {
+      "reference_cases": 8,
+      "lexical": {
+        "fully_covered": 4,
+        "misses": [
+          "C02",
+          "C03",
+          "C04",
+          "C08"
+        ],
+        "scope_probes_with_candidates": [
+          "C09",
+          "C10",
+          "C11",
+          "C12"
+        ]
+      },
+      "bm25": {
+        "fully_covered": 5,
+        "misses": [
+          "C02",
+          "C04",
+          "C08"
+        ],
+        "scope_probes_with_candidates": [
+          "C09",
+          "C10",
+          "C11",
+          "C12"
+        ]
+      },
+      "gains": [
+        "C03"
+      ],
+      "regressions": []
+    },
+    "new_probes": {
+      "reference_cases": 8,
+      "lexical": {
+        "fully_covered": 5,
+        "misses": [
+          "N03",
+          "N04",
+          "N06"
+        ],
+        "scope_probes_with_candidates": [
+          "N09",
+          "N10",
+          "N11",
+          "N12"
+        ]
+      },
+      "bm25": {
+        "fully_covered": 6,
+        "misses": [
+          "N03",
+          "N04"
+        ],
+        "scope_probes_with_candidates": [
+          "N09",
+          "N10",
+          "N11",
+          "N12"
+        ]
+      },
+      "gains": [
+        "N06"
+      ],
+      "regressions": []
+    }
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "set": "existing",
+      "query": "La cesión no indica tiempo ni ámbito territorial.",
+      "expected_passages": [
+        {
+          "article": "43",
+          "start": 296,
+          "end": 672,
+          "prefix": "2. La falta de mención"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 6
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 5
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 4
+            },
+            {
+              "article": "43",
+              "char_start": 880,
+              "char_end": 1071,
+              "score": 4
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 11.9749331801
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 7.2957995709
+            },
+            {
+              "article": "43",
+              "char_start": 880,
+              "char_end": 1071,
+              "score": 6.0859065524
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 5.9966628066
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 5.7442104562
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 5.0583434864
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C02",
+      "set": "existing",
+      "query": "No acordamos hasta cuándo ni en qué países podrá usarse la obra.",
+      "expected_passages": [
+        {
+          "article": "43",
+          "start": 296,
+          "end": 672,
+          "prefix": "2. La falta de mención"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 6
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 6
+            },
+            {
+              "article": "46",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "52",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 5
+            },
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 6.7486386762
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 5.3423641638
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.3462275176
+            },
+            {
+              "article": "47",
+              "char_start": 880,
+              "char_end": 1172,
+              "score": 3.9866301286
+            },
+            {
+              "article": "19",
+              "char_start": 1760,
+              "char_end": 2064,
+              "score": 3.9634803539
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.2877715018
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C03",
+      "set": "existing",
+      "query": "Se ceden también todos los medios de difusión que se inventen.",
+      "expected_passages": [
+        {
+          "article": "43",
+          "start": 906,
+          "end": 1071,
+          "prefix": "5. La transmisión"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "20",
+              "char_start": 1760,
+              "char_end": 2760,
+              "score": 6
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 6
+            },
+            {
+              "article": "20",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 5
+            },
+            {
+              "article": "21",
+              "char_start": 0,
+              "char_end": 759,
+              "score": 5
+            },
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "67",
+              "char_start": 0,
+              "char_end": 979,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "43",
+              "char_start": 880,
+              "char_end": 1071,
+              "score": 7.6370512176
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 6.7207204692
+            },
+            {
+              "article": "20",
+              "char_start": 1760,
+              "char_end": 2760,
+              "score": 6.5693088191
+            },
+            {
+              "article": "62",
+              "char_start": 880,
+              "char_end": 1111,
+              "score": 5.246292951
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 4.8003266205
+            },
+            {
+              "article": "21",
+              "char_start": 0,
+              "char_end": 759,
+              "score": 4.1707794017
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C04",
+      "set": "existing",
+      "query": "Cedemos los derechos mediante un acuerdo verbal.",
+      "expected_passages": [
+        {
+          "article": "45",
+          "start": 37,
+          "end": 213,
+          "prefix": "Toda cesión"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 4400,
+              "char_end": 5400,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 5280,
+              "char_end": 6280,
+              "score": 3
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.9902316786
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.9123674179
+            },
+            {
+              "article": "48 bis",
+              "char_start": 880,
+              "char_end": 1222,
+              "score": 3.7893531078
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.3923840764
+            },
+            {
+              "article": "20",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.179573906
+            },
+            {
+              "article": "21",
+              "char_start": 0,
+              "char_end": 759,
+              "score": 3.109962964
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C05",
+      "set": "existing",
+      "query": "La cesión se concede con carácter exclusivo.",
+      "expected_passages": [
+        {
+          "article": "48",
+          "start": 35,
+          "end": 509,
+          "prefix": "La cesión en exclusiva"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "46",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 5
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "49",
+              "char_start": 0,
+              "char_end": 470,
+              "score": 4
+            },
+            {
+              "article": "50",
+              "char_start": 0,
+              "char_end": 479,
+              "score": 4
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "50",
+              "char_start": 0,
+              "char_end": 479,
+              "score": 7.7757859759
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 6.9498119729
+            },
+            {
+              "article": "46",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5.496581239
+            },
+            {
+              "article": "17",
+              "char_start": 0,
+              "char_end": 368,
+              "score": 5.2022495689
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 3.8933934152
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 3.6816092579
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C06",
+      "set": "existing",
+      "query": "Solo esta editorial podrá explotar la obra.",
+      "expected_passages": [
+        {
+          "article": "48",
+          "start": 35,
+          "end": 509,
+          "prefix": "La cesión en exclusiva"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 5
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 4
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 4
+            },
+            {
+              "article": "51",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 4
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 7.1593593026
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 5.6455772248
+            },
+            {
+              "article": "68",
+              "char_start": 880,
+              "char_end": 1567,
+              "score": 5.6201994621
+            },
+            {
+              "article": "45",
+              "char_start": 0,
+              "char_end": 213,
+              "score": 3.5341932065
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.0528379262
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 3.0327499162
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C07",
+      "set": "existing",
+      "query": "El autor renuncia a que figure su nombre.",
+      "expected_passages": [
+        {
+          "article": "14",
+          "start": 61,
+          "end": 137,
+          "prefix": "Corresponden al autor"
+        },
+        {
+          "article": "14",
+          "start": 199,
+          "end": 301,
+          "prefix": "2.º Determinar"
+        },
+        {
+          "article": "14",
+          "start": 303,
+          "end": 368,
+          "prefix": "3.º Exigir"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true,
+            true,
+            true
+          ],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 6
+            },
+            {
+              "article": "14",
+              "char_start": 880,
+              "char_end": 1539,
+              "score": 5
+            },
+            {
+              "article": "20",
+              "char_start": 5280,
+              "char_end": 6280,
+              "score": 5
+            },
+            {
+              "article": "20",
+              "char_start": 7040,
+              "char_end": 8040,
+              "score": 5
+            },
+            {
+              "article": "20",
+              "char_start": 7920,
+              "char_end": 8802,
+              "score": 5
+            },
+            {
+              "article": "21",
+              "char_start": 0,
+              "char_end": 759,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true,
+            true,
+            true
+          ],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.9912052527
+            },
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.3930231644
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 2.4795772066
+            },
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.4091800923
+            },
+            {
+              "article": "52",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 2.4013220239
+            },
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 2.2709477607
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C08",
+      "set": "existing",
+      "query": "El contrato de edición omite el número de ejemplares.",
+      "expected_passages": [
+        {
+          "article": "60",
+          "start": 224,
+          "end": 328,
+          "prefix": "3.º El número"
+        },
+        {
+          "article": "61",
+          "start": 66,
+          "end": 217,
+          "prefix": "1. Será nulo"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            true,
+            false
+          ],
+          "top": [
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 6
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 6
+            },
+            {
+              "article": "68",
+              "char_start": 880,
+              "char_end": 1567,
+              "score": 6
+            },
+            {
+              "article": "71",
+              "char_start": 0,
+              "char_end": 868,
+              "score": 6
+            },
+            {
+              "article": "72",
+              "char_start": 0,
+              "char_end": 447,
+              "score": 6
+            },
+            {
+              "article": "69",
+              "char_start": 0,
+              "char_end": 623,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            true,
+            false
+          ],
+          "top": [
+            {
+              "article": "71",
+              "char_start": 0,
+              "char_end": 868,
+              "score": 7.7079072842
+            },
+            {
+              "article": "72",
+              "char_start": 0,
+              "char_end": 447,
+              "score": 7.660924767
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 7.1227101279
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 6.8710744793
+            },
+            {
+              "article": "68",
+              "char_start": 880,
+              "char_end": 1567,
+              "score": 6.661218043
+            },
+            {
+              "article": "67",
+              "char_start": 0,
+              "char_end": 979,
+              "score": 4.567042814
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C09",
+      "set": "existing",
+      "query": "Valora la cesión y además una patente estadounidense.",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "46",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 4
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 4
+            },
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "69",
+              "char_start": 0,
+              "char_end": 623,
+              "score": 4.3635563843
+            },
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.7414007691
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.6097772144
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.2990298838
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 3.0674690691
+            },
+            {
+              "article": "71",
+              "char_start": 0,
+              "char_end": 868,
+              "score": 3.0134360415
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C10",
+      "set": "existing",
+      "query": "¿Qué tratamiento fiscal tiene este pago?",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1
+            },
+            {
+              "article": "14",
+              "char_start": 880,
+              "char_end": 1539,
+              "score": 1
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 1
+            },
+            {
+              "article": "19",
+              "char_start": 1760,
+              "char_end": 2064,
+              "score": 1
+            },
+            {
+              "article": "20",
+              "char_start": 1760,
+              "char_end": 2760,
+              "score": 1
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.0628790767
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 3.0243662087
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 3.0243662087
+            },
+            {
+              "article": "48 bis",
+              "char_start": 880,
+              "char_end": 1222,
+              "score": 1.9378309325
+            },
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 1.8532068292
+            },
+            {
+              "article": "57",
+              "char_start": 0,
+              "char_end": 541,
+              "score": 1.8121626577
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C11",
+      "set": "existing",
+      "query": "Aplica esta redacción a un contrato de 1997.",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "51",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 4
+            },
+            {
+              "article": "20",
+              "char_start": 7920,
+              "char_end": 8802,
+              "score": 4
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "51",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.0007886255
+            },
+            {
+              "article": "51",
+              "char_start": 880,
+              "char_end": 1137,
+              "score": 3.4357076533
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.4228842918
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.4119882496
+            },
+            {
+              "article": "48 bis",
+              "char_start": 880,
+              "char_end": 1222,
+              "score": 3.4074510057
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 3.2372352427
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C12",
+      "set": "existing",
+      "query": "Texto ajeno al supuesto con palabras comunes: la obra del puente.",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "20",
+              "char_start": 1760,
+              "char_end": 2760,
+              "score": 5
+            },
+            {
+              "article": "20",
+              "char_start": 2640,
+              "char_end": 3640,
+              "score": 5
+            },
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 5
+            },
+            {
+              "article": "51",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "68",
+              "char_start": 880,
+              "char_end": 1567,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 3.7956286592
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.1647788996
+            },
+            {
+              "article": "50",
+              "char_start": 0,
+              "char_end": 479,
+              "score": 3.1037296098
+            },
+            {
+              "article": "68",
+              "char_start": 880,
+              "char_end": 1567,
+              "score": 3.0614545202
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.9592918474
+            },
+            {
+              "article": "51",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.8101811457
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N01",
+      "set": "new_probes",
+      "query": "No se especifica la lengua en que saldrá el libro.",
+      "expected_passages": [
+        {
+          "article": "62",
+          "start": 410,
+          "end": 567,
+          "prefix": "2. La falta de expresión"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 8
+            },
+            {
+              "article": "20",
+              "char_start": 3520,
+              "char_end": 4520,
+              "score": 7
+            },
+            {
+              "article": "14",
+              "char_start": 880,
+              "char_end": 1539,
+              "score": 6
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 6
+            },
+            {
+              "article": "20",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 6
+            },
+            {
+              "article": "20",
+              "char_start": 1760,
+              "char_end": 2760,
+              "score": 6
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 9.1372049088
+            },
+            {
+              "article": "20",
+              "char_start": 3520,
+              "char_end": 4520,
+              "score": 5.1030473346
+            },
+            {
+              "article": "47",
+              "char_start": 880,
+              "char_end": 1172,
+              "score": 4.1725703428
+            },
+            {
+              "article": "57",
+              "char_start": 0,
+              "char_end": 541,
+              "score": 3.9587180456
+            },
+            {
+              "article": "20",
+              "char_start": 4400,
+              "char_end": 5400,
+              "score": 2.1163164277
+            },
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.0700603096
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N02",
+      "set": "new_probes",
+      "query": "¿En qué idioma pueden publicar si no lo pactamos?",
+      "expected_passages": [
+        {
+          "article": "62",
+          "start": 410,
+          "end": 567,
+          "prefix": "2. La falta de expresión"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "20",
+              "char_start": 4400,
+              "char_end": 5400,
+              "score": 4
+            },
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "59",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 4
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5.1636984596
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.8128115214
+            },
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.6239063241
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.8722616415
+            },
+            {
+              "article": "59",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 2.8721612638
+            },
+            {
+              "article": "20",
+              "char_start": 4400,
+              "char_end": 5400,
+              "score": 2.7674293714
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N03",
+      "set": "new_probes",
+      "query": "El editor debe rendir cuentas y liquidar la remuneración cada año.",
+      "expected_passages": [
+        {
+          "article": "64",
+          "start": 567,
+          "end": 1019,
+          "prefix": "5.º Satisfacer"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 8
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 6
+            },
+            {
+              "article": "67",
+              "char_start": 0,
+              "char_end": 979,
+              "score": 5
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 4
+            },
+            {
+              "article": "20",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 11.8009125359
+            },
+            {
+              "article": "60",
+              "char_start": 0,
+              "char_end": 878,
+              "score": 6.4572088049
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5.4570987481
+            },
+            {
+              "article": "72",
+              "char_start": 0,
+              "char_end": 447,
+              "score": 5.304624577
+            },
+            {
+              "article": "67",
+              "char_start": 0,
+              "char_end": 979,
+              "score": 4.4696724554
+            },
+            {
+              "article": "48 bis",
+              "char_start": 880,
+              "char_end": 1222,
+              "score": 3.898158872
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N04",
+      "set": "new_probes",
+      "query": "¿Cuándo me tienen que informar de ventas y pagar mi parte?",
+      "expected_passages": [
+        {
+          "article": "64",
+          "start": 567,
+          "end": 1019,
+          "prefix": "5.º Satisfacer"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "18",
+              "char_start": 0,
+              "char_end": 247,
+              "score": 4
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "44",
+              "char_start": 0,
+              "char_end": 315,
+              "score": 4
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "53",
+              "char_start": 0,
+              "char_end": 446,
+              "score": 4
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "44",
+              "char_start": 0,
+              "char_end": 315,
+              "score": 5.5646678894
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.8282174045
+            },
+            {
+              "article": "18",
+              "char_start": 0,
+              "char_end": 247,
+              "score": 3.7775751572
+            },
+            {
+              "article": "58",
+              "char_start": 0,
+              "char_end": 494,
+              "score": 3.2753719095
+            },
+            {
+              "article": "53",
+              "char_start": 0,
+              "char_end": 446,
+              "score": 3.2228565583
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.5065765167
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N05",
+      "set": "new_probes",
+      "query": "Comprar el soporte no transmite derechos de explotación.",
+      "expected_passages": [
+        {
+          "article": "56",
+          "start": 89,
+          "end": 249,
+          "prefix": "1. El adquirente"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 6
+            },
+            {
+              "article": "14",
+              "char_start": 880,
+              "char_end": 1539,
+              "score": 5
+            },
+            {
+              "article": "17",
+              "char_start": 0,
+              "char_end": 368,
+              "score": 5
+            },
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "43",
+              "char_start": 880,
+              "char_end": 1071,
+              "score": 5
+            },
+            {
+              "article": "47",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 5.3862364041
+            },
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.5870323306
+            },
+            {
+              "article": "17",
+              "char_start": 0,
+              "char_end": 368,
+              "score": 3.468265647
+            },
+            {
+              "article": "53",
+              "char_start": 0,
+              "char_end": 446,
+              "score": 3.3835630954
+            },
+            {
+              "article": "43",
+              "char_start": 880,
+              "char_end": 1071,
+              "score": 3.2145610067
+            },
+            {
+              "article": "22",
+              "char_start": 0,
+              "char_end": 187,
+              "score": 3.1137808857
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N06",
+      "set": "new_probes",
+      "query": "He comprado el manuscrito; ¿puedo explotar la obra?",
+      "expected_passages": [
+        {
+          "article": "56",
+          "start": 89,
+          "end": 249,
+          "prefix": "1. El adquirente"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": false,
+          "passages_covered": [
+            false
+          ],
+          "top": [
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 4
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "14",
+              "char_start": 880,
+              "char_end": 1539,
+              "score": 3
+            },
+            {
+              "article": "17",
+              "char_start": 0,
+              "char_end": 368,
+              "score": 3
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 3
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "48",
+              "char_start": 0,
+              "char_end": 770,
+              "score": 4.6315102872
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 1.4308644127
+            },
+            {
+              "article": "62",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1.3693373417
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1.3662799937
+            },
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 1.3541399716
+            },
+            {
+              "article": "21",
+              "char_start": 0,
+              "char_end": 759,
+              "score": 1.3428445028
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N07",
+      "set": "new_probes",
+      "query": "El autor debe corregir las pruebas de la tirada.",
+      "expected_passages": [
+        {
+          "article": "65",
+          "start": 321,
+          "end": 385,
+          "prefix": "3.º Corregir"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "65",
+              "char_start": 0,
+              "char_end": 385,
+              "score": 8
+            },
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 7
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 6
+            },
+            {
+              "article": "64",
+              "char_start": 880,
+              "char_end": 1160,
+              "score": 6
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 6
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true
+          ],
+          "top": [
+            {
+              "article": "65",
+              "char_start": 0,
+              "char_end": 385,
+              "score": 12.1843498294
+            },
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5.971425772
+            },
+            {
+              "article": "72",
+              "char_start": 0,
+              "char_end": 447,
+              "score": 5.1200814933
+            },
+            {
+              "article": "64",
+              "char_start": 880,
+              "char_end": 1160,
+              "score": 4.9987844303
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 4.7660621345
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.5317931561
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N08",
+      "set": "new_probes",
+      "query": "¿Quién revisa las pruebas antes de imprimir?",
+      "expected_passages": [
+        {
+          "article": "64",
+          "start": 266,
+          "end": 338,
+          "prefix": "2.º Someter"
+        },
+        {
+          "article": "65",
+          "start": 321,
+          "end": 385,
+          "prefix": "3.º Corregir"
+        }
+      ],
+      "results": {
+        "lexical": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true,
+            true
+          ],
+          "top": [
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "65",
+              "char_start": 0,
+              "char_end": 385,
+              "score": 3
+            },
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 3
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2
+            },
+            {
+              "article": "14",
+              "char_start": 880,
+              "char_end": 1539,
+              "score": 2
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": true,
+          "passages_covered": [
+            true,
+            true
+          ],
+          "top": [
+            {
+              "article": "66",
+              "char_start": 0,
+              "char_end": 409,
+              "score": 3.7100480571
+            },
+            {
+              "article": "65",
+              "char_start": 0,
+              "char_end": 385,
+              "score": 3.6583451975
+            },
+            {
+              "article": "67",
+              "char_start": 0,
+              "char_end": 979,
+              "score": 3.0836507756
+            },
+            {
+              "article": "64",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 2.5647276265
+            },
+            {
+              "article": "62",
+              "char_start": 880,
+              "char_end": 1111,
+              "score": 0.4864911685
+            },
+            {
+              "article": "57",
+              "char_start": 0,
+              "char_end": 541,
+              "score": 0.4799807269
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N09",
+      "set": "new_probes",
+      "query": "¿Qué IVA corresponde a la venta del libro?",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "20",
+              "char_start": 3520,
+              "char_end": 4520,
+              "score": 4
+            },
+            {
+              "article": "67",
+              "char_start": 0,
+              "char_end": 979,
+              "score": 4
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "69",
+              "char_start": 0,
+              "char_end": 623,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "17",
+              "char_start": 0,
+              "char_end": 368,
+              "score": 4.7438092739
+            },
+            {
+              "article": "47",
+              "char_start": 880,
+              "char_end": 1172,
+              "score": 4.2753568984
+            },
+            {
+              "article": "20",
+              "char_start": 3520,
+              "char_end": 4520,
+              "score": 4.0641605268
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.0342316456
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3.9494541215
+            },
+            {
+              "article": "70",
+              "char_start": 0,
+              "char_end": 518,
+              "score": 3.8620465507
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N10",
+      "set": "new_probes",
+      "query": "¿Cómo registro una marca para la editorial?",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 2640,
+              "char_end": 3640,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 3520,
+              "char_end": 4520,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 4400,
+              "char_end": 5400,
+              "score": 3
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "68",
+              "char_start": 880,
+              "char_end": 1567,
+              "score": 4.4020330461
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 2.1136544382
+            },
+            {
+              "article": "57",
+              "char_start": 0,
+              "char_end": 541,
+              "score": 2.0734829098
+            },
+            {
+              "article": "20",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1.9947615714
+            },
+            {
+              "article": "20",
+              "char_start": 4400,
+              "char_end": 5400,
+              "score": 1.9375104811
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1.8708555393
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N11",
+      "set": "new_probes",
+      "query": "¿Es válido este contrato bajo el derecho de California?",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "48 bis",
+              "char_start": 880,
+              "char_end": 1222,
+              "score": 5
+            },
+            {
+              "article": "59",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 5
+            },
+            {
+              "article": "68",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 5
+            },
+            {
+              "article": "71",
+              "char_start": 0,
+              "char_end": 868,
+              "score": 5
+            },
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "71",
+              "char_start": 0,
+              "char_end": 868,
+              "score": 6.5253128729
+            },
+            {
+              "article": "20",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 6.4820387402
+            },
+            {
+              "article": "59",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 6.392350665
+            },
+            {
+              "article": "48 bis",
+              "char_start": 880,
+              "char_end": 1222,
+              "score": 5.3729374871
+            },
+            {
+              "article": "48 bis",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.3273728676
+            },
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 4.1203468544
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "N12",
+      "set": "new_probes",
+      "query": "¿Qué permiso municipal exige la obra del garaje?",
+      "expected_passages": [],
+      "results": {
+        "lexical": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4
+            },
+            {
+              "article": "19",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 3
+            },
+            {
+              "article": "19",
+              "char_start": 880,
+              "char_end": 1880,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 1760,
+              "char_end": 2760,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 2640,
+              "char_end": 3640,
+              "score": 3
+            },
+            {
+              "article": "20",
+              "char_start": 7040,
+              "char_end": 8040,
+              "score": 3
+            }
+          ]
+        },
+        "bm25": {
+          "all_passages_covered": null,
+          "passages_covered": [],
+          "top": [
+            {
+              "article": "14",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 4.7402503716
+            },
+            {
+              "article": "65",
+              "char_start": 0,
+              "char_end": 385,
+              "score": 1.8168067769
+            },
+            {
+              "article": "56",
+              "char_start": 0,
+              "char_end": 792,
+              "score": 1.7404341241
+            },
+            {
+              "article": "21",
+              "char_start": 0,
+              "char_end": 759,
+              "score": 1.7135908639
+            },
+            {
+              "article": "43",
+              "char_start": 0,
+              "char_end": 1000,
+              "score": 1.677273706
+            },
+            {
+              "article": "59",
+              "char_start": 0,
+              "char_end": 598,
+              "score": 1.6494138866
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
