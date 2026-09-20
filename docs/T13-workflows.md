@@ -23,7 +23,7 @@ Se ejecuta manualmente y en push/PR para los archivos relevantes. No escribe
 commits, descarga normativa, cambia baseline, promociona ni llama a modelos.
 El nombre de archivo se mantiene por continuidad; no construye BM25/FAISS.
 
-`fetch-corpus.yml`, `post-reforms-merge.yml`, `llm-preview.yml` y `llm-eval.yml`
+`fetch-corpus.yml`, `post-reforms-merge.yml` y `llm-preview.yml`
 quedan exclusivamente manuales, sin permisos, checkout, secretos ni inputs. Su
 único paso explica la suspensión y termina con error. No se presenta una ejecución
 suspendida como evaluación superada. Se retiran cron y promoción post-merge.
@@ -42,7 +42,7 @@ python tools/evaluate_retrieval.py --check
 El destino de exportación debe ser nuevo. Tres regresiones adicionales comprueban
 el contenido y hashes del artefacto, la negativa a sobrescribir y la ausencia de
 exportación cuando falla la preparación. La batería inicial sumaba 102 pruebas Python; la adaptación del evaluador añade
-ocho regresiones y eleva el total a 110.
+ocho regresiones; tres más verifican su exportación en CI. Total actual: 113.
 El smoke original sin argumentos conserva su funcionamiento temporal.
 
 ## Pendientes para cerrar T13
@@ -51,8 +51,8 @@ El smoke original sin argumentos conserva su funcionamiento temporal.
 - Promoción y reversión autorizadas que vinculen política, registro, snapshot e
   identificador seleccionado; conflictos deben detener la operación.
 - Migración operativa de los workflows preview/eval. El evaluador mecánico ya
-  consume el snapshot seleccionado y trata abstenciones; su workflow sigue
-  suspendido hasta definir entradas y ejecución autorizadas. El script de preview
+  consume el snapshot seleccionado y trata abstenciones; su workflow sólo ejecuta
+  el conjunto sintético fijo. La evaluación de fuentes reales sigue bloqueada. El script de preview
   todavía fuerza `USE_LLM=1`. No se habilitan proveedores con esta propuesta.
 - Sustituir indicadores legacy de `family_trends`/`rebuild_summary` por evidencia
   del estado seleccionado cuando se habilite el mantenimiento real.
@@ -100,4 +100,40 @@ fallidos. Los errores se muestran con mensaje fijo, sin detalles del expediente.
 Esta evaluación mide coherencia mecánica de gate/flags. No mide pertinencia de
 cada documento, suficiencia jurídica, calidad del redactor LLM ni fidelidad del
 motor. Las ocho regresiones usan recuperación real sobre texto ficticio y
-bloquean red/proveedor. Los workflows de evaluación y preview siguen suspendidos.
+bloquean red/proveedor. El workflow de preview sigue suspendido. La evaluación automática sólo admite
+el conjunto sintético fijo descrito a continuación.
+
+## Workflow de evaluación sintética
+
+`llm-eval.yml` ejecuta `tests.evaluation_smoke` en push/PR para archivos relevantes
+y manualmente sin inputs de cláusula, modelo, corpus ni casos. Usa permisos de
+lectura, checkout sin credenciales persistentes y no recibe secretos. Primero
+comprueba las regresiones del evaluador y su exportación; después prepara un
+snapshot temporal ficticio y evalúa `tests/fixtures/evaluation_synthetic.jsonl`.
+
+Los dos casos declarados son una coincidencia literal (`zafiroqwerty`) y una
+abstención (`inexistenteqwerty`). El original sintético contiene únicamente el
+primer término. Son controles mecánicos deliberadamente mínimos: no simulan
+un contrato ni evalúan pertinencia jurídica o sinónimos. No sustituyen la
+batería T06 ni sus límites conocidos.
+
+Durante preparación y evaluación se bloquean conexiones de red y proveedor.
+Las rutas de política/registro se sustituyen sólo dentro del harness de tests
+por fixtures temporales, sin alterar la política del repositorio. Antes de
+exportar se comprueban 2/2 casos, una abstención correcta, un caso con EEE,
+identificador del snapshot y hash del conjunto de casos. Una discrepancia o
+bloqueo impide exportar. El destino debe ser nuevo.
+
+El artefacto `synthetic-evaluation-<run>-<attempt>` contiene CSV, JSON y aviso.
+Incluye `synthetic_only: true`, `activated: false`, cero llamadas externas,
+hash del original ficticio, hash de casos y contexto del snapshot. No incluye
+cláusulas, citas, políticas de prueba ni configuración de activación. El upload
+se ejecuta sólo tras éxito y conserva el informe siete días. Una instalación
+de dependencias de CI sí requiere red; el bloqueo se refiere al ensayo.
+
+```bash
+python -m tests.evaluation_smoke --output-dir /tmp/new-synthetic-evaluation
+```
+
+Esto conecta el evaluador mecánico a CI; no habilita evaluación profesional ni
+promoción del corpus. Las ejecuciones alojadas en main no cambian hasta integrar.

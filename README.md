@@ -90,8 +90,9 @@ y `--output-dir` explícito. Produce un directorio nuevo con `chunks.jsonl` y
 No copies una política de tests para habilitar datos reales.
 
 T13.1 sustituye las invocaciones incompatibles de los cinco workflows heredados:
-cuatro quedan suspendidos explícitamente y `build-index.yml` prepara únicamente
-un artefacto sintético verificado. La migración funcional y la promoción de
+tres quedan suspendidos explícitamente, `build-index.yml` prepara únicamente
+un artefacto sintético verificado y `llm-eval.yml` evalúa dos casos sintéticos
+fijos sin red ni proveedor durante el ensayo. La migración funcional y la promoción de
 candidatos reales siguen pendientes. Véase [el alcance T13.1](docs/T13-workflows.md).
 CI ya utiliza un corpus sintético aislado para verificar ingesta y recuperación.
 

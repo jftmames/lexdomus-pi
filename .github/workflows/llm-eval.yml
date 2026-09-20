@@ -1,15 +1,61 @@
-name: "llm-eval — suspended pending T13"
+name: Synthetic retrieval evaluation (offline)
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/llm-eval.yml'
+      - 'scripts/llm_eval.py'
+      - 'tests/**'
+      - 'app/**'
+      - 'lex_domus/**'
+      - 'verdiktia/**'
+      - 'llm/**'
+      - 'metrics_eee/**'
+      - 'policies/**'
+      - 'requirements.api.txt'
+  pull_request:
+    paths:
+      - '.github/workflows/llm-eval.yml'
+      - 'scripts/llm_eval.py'
+      - 'tests/**'
+      - 'app/**'
+      - 'lex_domus/**'
+      - 'verdiktia/**'
+      - 'llm/**'
+      - 'metrics_eee/**'
+      - 'policies/**'
+      - 'requirements.api.txt'
 
-permissions: {}
+permissions:
+  contents: read
 
 jobs:
-  blocked:
+  synthetic_evaluation:
     runs-on: ubuntu-24.04
+    env:
+      USE_LLM: '0'
+      OPENAI_API_KEY: ''
+      PYTHONPATH: .
     steps:
-      - name: Stop before downloads, writes or model calls
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version-file: '.python-version'
+      - name: Install locked dependencies
         run: |
-          echo "::error::Suspended pending T13 migration. No corpus prepared or activated. See docs/T13-workflows.md."
-          exit 1
+          python -m pip install --require-hashes -r requirements.api.txt
+          python -m pip check
+      - name: Verify evaluator failure and abstention handling
+        run: python -m unittest tests.test_evaluation tests.test_evaluation_export -v
+      - name: Evaluate fixed synthetic cases with network and provider blocked
+        run: python -m tests.evaluation_smoke --output-dir "$RUNNER_TEMP/synthetic-evaluation"
+      - name: Upload successful synthetic report only
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: synthetic-evaluation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/synthetic-evaluation
+          if-no-files-found: error
+          retention-days: 7
