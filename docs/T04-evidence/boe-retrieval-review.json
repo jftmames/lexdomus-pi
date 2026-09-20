@@ -1,0 +1,1125 @@
+{
+  "purpose": "offline_review_diagnostic",
+  "approved": false,
+  "activated": false,
+  "input_sha256": "d726fb54d0f368722570b36ecf87bc830fd57522f87dfb83aa9c75f03cc099f7",
+  "method": {
+    "ranking": "lexical-overlap-v1 score and stable input-order tie break",
+    "top_k": 6,
+    "max_chars": 1000,
+    "overlap_chars": 120,
+    "unit": "independent article windows",
+    "excluded_repealed_articles": [
+      "54"
+    ],
+    "passage_hit": "full expected paragraph coverage by union of retrieved windows",
+    "production_pipeline_executed": false,
+    "limitations": "No policy approval, snapshot, Inquiry, legal sufficiency gate or generation. Article order is the DOM order, not necessarily future ingestion order. Expectations are provisional."
+  },
+  "summary": {
+    "articles": 40,
+    "searchable_articles": 39,
+    "chunks": 59,
+    "cases": 12,
+    "provisional_reference_cases": 8,
+    "fully_covered_reference_cases": 4,
+    "uncovered_reference_cases": [
+      "C02",
+      "C03",
+      "C04",
+      "C08"
+    ],
+    "scope_probes_returning_candidates": [
+      "C09",
+      "C10",
+      "C11",
+      "C12"
+    ]
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "query": "La cesión no indica tiempo ni ámbito territorial.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "43",
+          "prefix": "2. La falta de mención",
+          "char_start": 296,
+          "char_end": 672,
+          "fully_covered": true
+        }
+      ],
+      "all_passages_covered": true,
+      "top": [
+        {
+          "article": "43",
+          "score": 6,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "no",
+            "territorial",
+            "tiempo",
+            "ámbito"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "60",
+          "score": 5,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "no",
+            "territorial",
+            "ámbito"
+          ],
+          "char_start": 0,
+          "char_end": 878
+        },
+        {
+          "article": "19",
+          "score": 4,
+          "shared_tokens": [
+            "la",
+            "territorial",
+            "tiempo",
+            "ámbito"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "19",
+          "score": 4,
+          "shared_tokens": [
+            "la",
+            "ni",
+            "no",
+            "tiempo"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "43",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "no",
+            "tiempo"
+          ],
+          "char_start": 880,
+          "char_end": 1071
+        },
+        {
+          "article": "48",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "no",
+            "ámbito"
+          ],
+          "char_start": 0,
+          "char_end": 770
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "query": "No acordamos hasta cuándo ni en qué países podrá usarse la obra.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "43",
+          "prefix": "2. La falta de mención",
+          "char_start": 296,
+          "char_end": 672,
+          "fully_covered": false
+        }
+      ],
+      "all_passages_covered": false,
+      "top": [
+        {
+          "article": "19",
+          "score": 6,
+          "shared_tokens": [
+            "en",
+            "la",
+            "ni",
+            "no",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "66",
+          "score": 6,
+          "shared_tokens": [
+            "en",
+            "la",
+            "ni",
+            "no",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 409
+        },
+        {
+          "article": "46",
+          "score": 5,
+          "shared_tokens": [
+            "en",
+            "la",
+            "no",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "48 bis",
+          "score": 5,
+          "shared_tokens": [
+            "en",
+            "la",
+            "no",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "52",
+          "score": 5,
+          "shared_tokens": [
+            "en",
+            "la",
+            "no",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 598
+        },
+        {
+          "article": "56",
+          "score": 5,
+          "shared_tokens": [
+            "en",
+            "la",
+            "no",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 792
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "query": "Se ceden también todos los medios de difusión que se inventen.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "43",
+          "prefix": "5. La transmisión",
+          "char_start": 906,
+          "char_end": 1071,
+          "fully_covered": false
+        }
+      ],
+      "all_passages_covered": false,
+      "top": [
+        {
+          "article": "20",
+          "score": 6,
+          "shared_tokens": [
+            "de",
+            "difusión",
+            "los",
+            "medios",
+            "que",
+            "se"
+          ],
+          "char_start": 1760,
+          "char_end": 2760
+        },
+        {
+          "article": "48",
+          "score": 6,
+          "shared_tokens": [
+            "de",
+            "los",
+            "medios",
+            "que",
+            "se",
+            "todos"
+          ],
+          "char_start": 0,
+          "char_end": 770
+        },
+        {
+          "article": "20",
+          "score": 5,
+          "shared_tokens": [
+            "de",
+            "los",
+            "medios",
+            "que",
+            "se"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "21",
+          "score": 5,
+          "shared_tokens": [
+            "de",
+            "los",
+            "que",
+            "se",
+            "también"
+          ],
+          "char_start": 0,
+          "char_end": 759
+        },
+        {
+          "article": "64",
+          "score": 5,
+          "shared_tokens": [
+            "de",
+            "difusión",
+            "los",
+            "que",
+            "se"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "67",
+          "score": 5,
+          "shared_tokens": [
+            "de",
+            "los",
+            "que",
+            "se",
+            "todos"
+          ],
+          "char_start": 0,
+          "char_end": 979
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "query": "Cedemos los derechos mediante un acuerdo verbal.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "45",
+          "prefix": "Toda cesión",
+          "char_start": 37,
+          "char_end": 213,
+          "fully_covered": false
+        }
+      ],
+      "all_passages_covered": false,
+      "top": [
+        {
+          "article": "47",
+          "score": 4,
+          "shared_tokens": [
+            "acuerdo",
+            "derechos",
+            "los",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "48 bis",
+          "score": 4,
+          "shared_tokens": [
+            "acuerdo",
+            "derechos",
+            "los",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "19",
+          "score": 3,
+          "shared_tokens": [
+            "los",
+            "mediante",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "19",
+          "score": 3,
+          "shared_tokens": [
+            "derechos",
+            "los",
+            "un"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "20",
+          "score": 3,
+          "shared_tokens": [
+            "derechos",
+            "los",
+            "un"
+          ],
+          "char_start": 4400,
+          "char_end": 5400
+        },
+        {
+          "article": "20",
+          "score": 3,
+          "shared_tokens": [
+            "acuerdo",
+            "derechos",
+            "los"
+          ],
+          "char_start": 5280,
+          "char_end": 6280
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "query": "La cesión se concede con carácter exclusivo.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "48",
+          "prefix": "La cesión en exclusiva",
+          "char_start": 35,
+          "char_end": 509,
+          "fully_covered": true
+        }
+      ],
+      "all_passages_covered": true,
+      "top": [
+        {
+          "article": "46",
+          "score": 5,
+          "shared_tokens": [
+            "carácter",
+            "cesión",
+            "con",
+            "la",
+            "se"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "48",
+          "score": 5,
+          "shared_tokens": [
+            "carácter",
+            "cesión",
+            "con",
+            "la",
+            "se"
+          ],
+          "char_start": 0,
+          "char_end": 770
+        },
+        {
+          "article": "47",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "con",
+            "la",
+            "se"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "49",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "con",
+            "la",
+            "se"
+          ],
+          "char_start": 0,
+          "char_end": 470
+        },
+        {
+          "article": "50",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "con",
+            "exclusivo",
+            "la"
+          ],
+          "char_start": 0,
+          "char_end": 479
+        },
+        {
+          "article": "58",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "con",
+            "la",
+            "se"
+          ],
+          "char_start": 0,
+          "char_end": 494
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "query": "Solo esta editorial podrá explotar la obra.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "48",
+          "prefix": "La cesión en exclusiva",
+          "char_start": 35,
+          "char_end": 509,
+          "fully_covered": true
+        }
+      ],
+      "all_passages_covered": true,
+      "top": [
+        {
+          "article": "56",
+          "score": 5,
+          "shared_tokens": [
+            "esta",
+            "la",
+            "obra",
+            "podrá",
+            "solo"
+          ],
+          "char_start": 0,
+          "char_end": 792
+        },
+        {
+          "article": "19",
+          "score": 4,
+          "shared_tokens": [
+            "esta",
+            "la",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "48",
+          "score": 4,
+          "shared_tokens": [
+            "esta",
+            "explotar",
+            "la",
+            "obra"
+          ],
+          "char_start": 0,
+          "char_end": 770
+        },
+        {
+          "article": "51",
+          "score": 4,
+          "shared_tokens": [
+            "esta",
+            "la",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "60",
+          "score": 4,
+          "shared_tokens": [
+            "esta",
+            "la",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 878
+        },
+        {
+          "article": "68",
+          "score": 4,
+          "shared_tokens": [
+            "esta",
+            "la",
+            "obra",
+            "podrá"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "query": "El autor renuncia a que figure su nombre.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "14",
+          "prefix": "Corresponden al autor",
+          "char_start": 61,
+          "char_end": 137,
+          "fully_covered": true
+        },
+        {
+          "article": "14",
+          "prefix": "2.º Determinar",
+          "char_start": 199,
+          "char_end": 301,
+          "fully_covered": true
+        },
+        {
+          "article": "14",
+          "prefix": "3.º Exigir",
+          "char_start": 303,
+          "char_end": 368,
+          "fully_covered": true
+        }
+      ],
+      "all_passages_covered": true,
+      "top": [
+        {
+          "article": "14",
+          "score": 6,
+          "shared_tokens": [
+            "a",
+            "autor",
+            "el",
+            "nombre",
+            "que",
+            "su"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "14",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "autor",
+            "el",
+            "que",
+            "su"
+          ],
+          "char_start": 880,
+          "char_end": 1539
+        },
+        {
+          "article": "20",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "autor",
+            "el",
+            "que",
+            "su"
+          ],
+          "char_start": 5280,
+          "char_end": 6280
+        },
+        {
+          "article": "20",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "autor",
+            "el",
+            "que",
+            "su"
+          ],
+          "char_start": 7040,
+          "char_end": 8040
+        },
+        {
+          "article": "20",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "autor",
+            "el",
+            "que",
+            "su"
+          ],
+          "char_start": 7920,
+          "char_end": 8802
+        },
+        {
+          "article": "21",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "autor",
+            "el",
+            "que",
+            "su"
+          ],
+          "char_start": 0,
+          "char_end": 759
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "query": "El contrato de edición omite el número de ejemplares.",
+      "kind": "provisional_passage_reference",
+      "expected_passages": [
+        {
+          "article": "60",
+          "prefix": "3.º El número",
+          "char_start": 224,
+          "char_end": 328,
+          "fully_covered": true
+        },
+        {
+          "article": "61",
+          "prefix": "1. Será nulo",
+          "char_start": 66,
+          "char_end": 217,
+          "fully_covered": false
+        }
+      ],
+      "all_passages_covered": false,
+      "top": [
+        {
+          "article": "60",
+          "score": 6,
+          "shared_tokens": [
+            "contrato",
+            "de",
+            "edición",
+            "ejemplares",
+            "el",
+            "número"
+          ],
+          "char_start": 0,
+          "char_end": 878
+        },
+        {
+          "article": "68",
+          "score": 6,
+          "shared_tokens": [
+            "contrato",
+            "de",
+            "edición",
+            "ejemplares",
+            "el",
+            "número"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "68",
+          "score": 6,
+          "shared_tokens": [
+            "contrato",
+            "de",
+            "edición",
+            "ejemplares",
+            "el",
+            "número"
+          ],
+          "char_start": 880,
+          "char_end": 1567
+        },
+        {
+          "article": "71",
+          "score": 6,
+          "shared_tokens": [
+            "contrato",
+            "de",
+            "edición",
+            "ejemplares",
+            "el",
+            "número"
+          ],
+          "char_start": 0,
+          "char_end": 868
+        },
+        {
+          "article": "72",
+          "score": 6,
+          "shared_tokens": [
+            "contrato",
+            "de",
+            "edición",
+            "ejemplares",
+            "el",
+            "número"
+          ],
+          "char_start": 0,
+          "char_end": 447
+        },
+        {
+          "article": "69",
+          "score": 5,
+          "shared_tokens": [
+            "contrato",
+            "de",
+            "edición",
+            "ejemplares",
+            "el"
+          ],
+          "char_start": 0,
+          "char_end": 623
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "query": "Valora la cesión y además una patente estadounidense.",
+      "kind": "scope_or_abstention_probe",
+      "expected_passages": [],
+      "all_passages_covered": null,
+      "top": [
+        {
+          "article": "46",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "una",
+            "y"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "47",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "una",
+            "y"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "48 bis",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "una",
+            "y"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "58",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "una",
+            "y"
+          ],
+          "char_start": 0,
+          "char_end": 494
+        },
+        {
+          "article": "60",
+          "score": 4,
+          "shared_tokens": [
+            "cesión",
+            "la",
+            "una",
+            "y"
+          ],
+          "char_start": 0,
+          "char_end": 878
+        },
+        {
+          "article": "62",
+          "score": 4,
+          "shared_tokens": [
+            "además",
+            "la",
+            "una",
+            "y"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "query": "¿Qué tratamiento fiscal tiene este pago?",
+      "kind": "scope_or_abstention_probe",
+      "expected_passages": [],
+      "all_passages_covered": null,
+      "top": [
+        {
+          "article": "14",
+          "score": 1,
+          "shared_tokens": [
+            "qué"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "14",
+          "score": 1,
+          "shared_tokens": [
+            "este"
+          ],
+          "char_start": 880,
+          "char_end": 1539
+        },
+        {
+          "article": "19",
+          "score": 1,
+          "shared_tokens": [
+            "este"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "19",
+          "score": 1,
+          "shared_tokens": [
+            "pago"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "19",
+          "score": 1,
+          "shared_tokens": [
+            "este"
+          ],
+          "char_start": 1760,
+          "char_end": 2064
+        },
+        {
+          "article": "20",
+          "score": 1,
+          "shared_tokens": [
+            "este"
+          ],
+          "char_start": 1760,
+          "char_end": 2760
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "query": "Aplica esta redacción a un contrato de 1997.",
+      "kind": "scope_or_abstention_probe",
+      "expected_passages": [],
+      "all_passages_covered": null,
+      "top": [
+        {
+          "article": "47",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "contrato",
+            "de",
+            "esta",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "51",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "contrato",
+            "de",
+            "esta",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "68",
+          "score": 5,
+          "shared_tokens": [
+            "a",
+            "contrato",
+            "de",
+            "esta",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "19",
+          "score": 4,
+          "shared_tokens": [
+            "a",
+            "de",
+            "esta",
+            "un"
+          ],
+          "char_start": 880,
+          "char_end": 1880
+        },
+        {
+          "article": "20",
+          "score": 4,
+          "shared_tokens": [
+            "a",
+            "contrato",
+            "de",
+            "un"
+          ],
+          "char_start": 7920,
+          "char_end": 8802
+        },
+        {
+          "article": "48 bis",
+          "score": 4,
+          "shared_tokens": [
+            "a",
+            "contrato",
+            "de",
+            "un"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "query": "Texto ajeno al supuesto con palabras comunes: la obra del puente.",
+      "kind": "scope_or_abstention_probe",
+      "expected_passages": [],
+      "all_passages_covered": null,
+      "top": [
+        {
+          "article": "14",
+          "score": 5,
+          "shared_tokens": [
+            "al",
+            "con",
+            "del",
+            "la",
+            "obra"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "20",
+          "score": 5,
+          "shared_tokens": [
+            "al",
+            "con",
+            "del",
+            "la",
+            "obra"
+          ],
+          "char_start": 1760,
+          "char_end": 2760
+        },
+        {
+          "article": "20",
+          "score": 5,
+          "shared_tokens": [
+            "al",
+            "con",
+            "del",
+            "la",
+            "obra"
+          ],
+          "char_start": 2640,
+          "char_end": 3640
+        },
+        {
+          "article": "48",
+          "score": 5,
+          "shared_tokens": [
+            "al",
+            "con",
+            "del",
+            "la",
+            "obra"
+          ],
+          "char_start": 0,
+          "char_end": 770
+        },
+        {
+          "article": "51",
+          "score": 5,
+          "shared_tokens": [
+            "al",
+            "con",
+            "del",
+            "la",
+            "obra"
+          ],
+          "char_start": 0,
+          "char_end": 1000
+        },
+        {
+          "article": "68",
+          "score": 5,
+          "shared_tokens": [
+            "al",
+            "con",
+            "del",
+            "la",
+            "obra"
+          ],
+          "char_start": 880,
+          "char_end": 1567
+        }
+      ]
+    }
+  ]
+}

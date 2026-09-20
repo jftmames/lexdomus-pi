@@ -1,0 +1,575 @@
+{
+  "purpose": "offline_extraction_review_only",
+  "activated": false,
+  "review_status": "pending",
+  "original_http_sha256": null,
+  "capture_sha256": "b8397454ef74540b85ab676be959d919e2f12c67348949a097d6583d83cff578",
+  "source": "Agencia Estatal Boletín Oficial del Estado",
+  "source_url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1",
+  "consolidation_date": "2022-03-30",
+  "notice": "Texto consolidado de carácter meramente informativo. Extracción de una captura DOM; no copia del archivo HTTP original.",
+  "transformation": "Selección de artículos; título y párrafos directos separados por líneas en blanco; notas conservadas por separado.",
+  "articles": [
+    {
+      "article": "14",
+      "title": "Artículo 14. Contenido y características del derecho moral.",
+      "text": "Artículo 14. Contenido y características del derecho moral.\n\nCorresponden al autor los siguientes derechos irrenunciables e inalienables:\n\n1.º Decidir si su obra ha de ser divulgada y en qué forma.\n\n2.º Determinar si tal divulgación ha de hacerse con su nombre, bajo seudónimo o signo, o anónimamente.\n\n3.º Exigir el reconocimiento de su condición de autor de la obra.\n\n4.º Exigir el respeto a la integridad de la obra e impedir cualquier deformación, modificación, alteración o atentado contra ella que suponga perjuicio a sus legítimos intereses o menoscabo a su reputación.\n\n5.º Modificar la obra respetando los derechos adquiridos por terceros y las exigencias de protección de bienes de interés cultural.\n\n6.º Retirar la obra del comercio, por cambio de sus convicciones intelectuales o morales, previa indemnización de daños y perjuicios a los titulares de derechos de explotación.\n\nSi, posteriormente, el autor decide reemprender la explotación de su obra deberá ofrecer preferentemente los correspondientes derechos al anterior titular de los mismos y en condiciones razonablemente similares a las originarias.\n\n7.º Acceder al ejemplar único o raro de la obra, cuando se halle en poder de otro, a fin de ejercitar el derecho de divulgación o cualquier otro que le corresponda.\n\nEste derecho no permitirá exigir el desplazamiento de la obra y el acceso a la misma se llevará a efecto en el lugar y forma que ocasionen menos incomodidades al poseedor, al que se indemnizará, en su caso, por los daños y perjuicios que se le irroguen.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a14",
+      "capture_block_sha256": "e71270c674c484a6101b28dd51400ae78177c8ee81af5aef1c827bff0da1bd82",
+      "extracted_text_sha256": "2427f2a1a9c3bd76b0367a06bfd608c844f2781483f419120b8e241e7d9bbbb7",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "17",
+      "title": "Artículo 17. Derecho exclusivo de explotación y sus modalidades.",
+      "text": "Artículo 17. Derecho exclusivo de explotación y sus modalidades.\n\nCorresponde al autor el ejercicio exclusivo de los derechos de explotación de su obra en cualquier forma y, en especial, los derechos de reproducción, distribución, comunicación pública y transformación, que no podrán ser realizadas sin su autorización, salvo en los casos previstos en la presente Ley.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a17",
+      "capture_block_sha256": "b4df8c7255cb05debf9adbecd3553b1de1a8630ed7a6745fad37e25ffca922dd",
+      "extracted_text_sha256": "39d5cec48ea073d8c972e20b6619ba5fe7a415409114fd035b7bd831a4fa676e",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "18",
+      "title": "Artículo 18. Reproducción.",
+      "text": "Artículo 18. Reproducción.\n\nSe entiende por reproducción la fijación directa o indirecta, provisional o permanente, por cualquier medio y en cualquier forma, de toda la obra o de parte de ella, que permita su comunicación o la obtención de copias.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a18",
+      "capture_block_sha256": "f1cdae8e95c9539677b5d90d553c1439adfd0fadd28aac0c9d1ac20335527c42",
+      "extracted_text_sha256": "a5b7aec5f95454b7d70d963290725c438bcbf6f47d24d3470a6d9bba79269e1c",
+      "notes": [
+        "Se modifica por el art. único.1 de la Ley 23/2006, de 7 de julio. Ref. BOE-A-2006-12308 ."
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2006-12308",
+          "href": "/buscar/doc.php?id=BOE-A-2006-12308"
+        }
+      ]
+    },
+    {
+      "article": "19",
+      "title": "Artículo 19. Distribución.",
+      "text": "Artículo 19. Distribución.\n\n1. Se entiende por distribución la puesta a disposición del público del original o de las copias de la obra, en un soporte tangible, mediante su venta, alquiler, préstamo o de cualquier otra forma.\n\n2. Cuando la distribución se efectúe mediante venta u otro título de transmisión de la propiedad, en el ámbito de la Unión Europea, por el propio titular del derecho o con su consentimiento, este derecho se agotará con la primera, si bien sólo para las ventas y transmisiones de propiedad sucesivas que se realicen en dicho ámbito territorial.\n\n3. Se entiende por alquiler la puesta a disposición de los originales y copias de una obra para su uso por tiempo limitado y con un beneficio económico o comercial directo o indirecto.\n\nQuedan excluidas del concepto de alquiler la puesta a disposición con fines de exposición, de comunicación pública a partir de fonogramas o de grabaciones audiovisuales, incluso de fragmentos de unos y otras, y la que se realice para consulta in situ.\n\n4. Se entiende por préstamo la puesta a disposición de originales y copias de una obra para su uso por tiempo limitado sin beneficio económico o comercial directo ni indirecto, siempre que dicho préstamo se lleve a cabo a través de establecimientos accesibles al público.\n\nSe entenderá que no existe beneficio económico o comercial directo ni indirecto cuando el préstamo efectuado por un establecimiento accesible al público dé lugar al pago de una cantidad que no exceda de lo necesario para cubrir los gastos de funcionamiento. Esta cantidad no podrá incluir total o parcialmente el importe del derecho de remuneración que deba satisfacerse a los titulares de derechos de propiedad intelectual conforme a lo dispuesto en el artículo 37.2.\n\nQuedan excluidas del concepto de préstamo las operaciones mencionadas en el párrafo segundo del apartado 3 y las que se efectúen entre establecimientos accesibles al público.\n\n5. Lo dispuesto en este artículo en cuanto al alquiler y al préstamo no se aplicará a los edificios ni a las obras de artes aplicadas.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a19",
+      "capture_block_sha256": "507d458bf29fa9149b5f619f8c32869e26ab516b750e42eafe84b4481397e573",
+      "extracted_text_sha256": "7d0ed067a06265d9a3c84519fbb4824bb59a0f26aacac23426e2f693b2bd8f80",
+      "notes": [
+        "Se modifica el apartado 4 por el art. 1.1 de la Ley 21/2014, de 4 de noviembre. Ref. BOE-A-2014-11404 . Se modifica el apartado 4 por la disposición final 1.1 de la Ley 10/2007, de 22 de junio. Ref. BOE-A-2007-12351 . Se modifica los apartados 1 y 2 por el art. único.2 de la Ley 23/2006, de 7 de julio. Ref. BOE-A-2006-12308 ."
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2014-11404",
+          "href": "/buscar/doc.php?id=BOE-A-2014-11404"
+        },
+        {
+          "text": "Ref. BOE-A-2007-12351",
+          "href": "/buscar/doc.php?id=BOE-A-2007-12351"
+        },
+        {
+          "text": "Ref. BOE-A-2006-12308",
+          "href": "/buscar/doc.php?id=BOE-A-2006-12308"
+        }
+      ]
+    },
+    {
+      "article": "20",
+      "title": "Artículo 20. Comunicación pública.",
+      "text": "Artículo 20. Comunicación pública.\n\n1. Se entenderá por comunicación pública todo acto por el cual una pluralidad de personas pueda tener acceso a la obra sin previa distribución de ejemplares a cada una de ellas.\n\nNo se considerará pública la comunicación cuando se celebre dentro de un ámbito estrictamente doméstico que no esté integrado o conectado a una red de difusión de cualquier tipo.\n\n2. Especialmente, son actos de comunicación pública:\n\na) Las representaciones escénicas, recitaciones, disertaciones y ejecuciones públicas de las obras dramáticas, dramático-musicales, literarias y musicales mediante cualquier medio o procedimiento.\n\nb) La proyección o exhibición pública de las obras cinematográficas y de las demás audiovisuales.\n\nc) La emisión de cualesquiera obras por radiodifusión o por cualquier otro medio que sirva para la difusión inalámbrica de signos, sonidos o imágenes. El concepto de emisión comprende la producción de señales portadoras de programas hacia un satélite, cuando la recepción de las mismas por el público no es posible sino a través de entidad distinta de la de origen.\n\nd) La radiodifusión o comunicación al público vía satélite de cualesquiera obras, es decir, el acto de introducir, bajo el control y la responsabilidad de la entidad radiodifusora, las señales portadoras de programas, destinadas a la recepción por el público en una cadena ininterrumpida de comunicación que vaya al satélite y desde éste a la tierra. Los procesos técnicos normales relativos a las señales portadoras de programas no se consideran interrupciones de la cadena de comunicación.\n\nCuando las señales portadoras de programas se emitan de manera codificada existirá comunicación al público vía satélite siempre que se pongan a disposición del público por la entidad radiodifusora, o con su consentimiento, medios de descodificación.\n\nA efectos de lo dispuesto en los dos párrafos anteriores, se entenderá por satélite cualquiera que opere en bandas de frecuencia reservadas por la legislación de telecomunicaciones a la difusión de señales para la recepción por el público o para la comunicación individual no pública, siempre que, en este último caso, las circunstancias en las que se lleve a efecto la recepción individual de las señales sean comparables a las que se aplican en el primer caso.\n\ne) La transmisión de cualesquiera obras al público por hilo, cable, fibra óptica u otro procedimiento análogo, sea o no mediante abono.\n\nf) La retransmisión, por cualquiera de los medios citados en los apartados anteriores y por entidad distinta de la de origen, de la obra radiodifundida.\n\nSe entiende por distribución por cable la retransmisión simultánea, inalterada e íntegra por cable o microondas, para su recepción por el público, de una transmisión inicial de otro Estado miembro, alámbrica o inalámbrica, incluida vía satélite, de programas de radio o televisión destinados a su recepción por el público, independientemente de la manera en que el operador de un servicio de retransmisión por cable obtenga del organismo de radiodifusión las señales portadoras de programas con fines de retransmisión.\n\ng) La emisión o transmisión, en lugar accesible al público, mediante cualquier instrumento idóneo, de la obra radiodifundida.\n\nh) La exposición pública de obras de arte o sus reproducciones.\n\ni) La puesta a disposición del público de obras, por procedimientos alámbricos o inalámbricos, de tal forma que cualquier persona pueda acceder a ellas desde el lugar y en el momento que elija.\n\nj) El acceso público en cualquier forma a las obras incorporadas a una base de datos, aunque dicha base de datos no esté protegida por las disposiciones del Libro I de la presente Ley.\n\nk) La realización de cualquiera de los actos anteriores, respecto a una base de datos protegida por el Libro I de la presente Ley.\n\n3. La comunicación al público vía satélite en el territorio de la Unión Europea se regirá por las siguientes disposiciones:\n\na) La comunicación al público vía satélite se producirá únicamente en el Estado miembro de la Unión Europea en que, bajo el control y responsabilidad de la entidad radiodifusora, las señales portadoras de programas se introduzcan en la cadena ininterrumpida de comunicación a la que se refiere el párrafo d) del apartado 2 de este artículo.\n\nb) Cuando la comunicación al público vía satélite se produzca en el territorio de un Estado no perteneciente a la Unión Europea donde no exista el nivel de protección que para dicho sistema de comunicación al público establece este apartado 3, se tendrá en cuenta lo siguiente:\n\n1.º Si la señal portadora del programa se envía al satélite desde una estación de señal ascendente situada en un Estado miembro se considerará que la comunicación al público vía satélite se ha producido en dicho Estado miembro. En tal caso, los derechos que se establecen relativos a la radiodifusión vía satélite podrán ejercitarse frente a la persona que opere la estación que emite la señal ascendente.\n\n2.º Si no se utiliza una estación de señal ascendente situada en un Estado miembro pero una entidad de radiodifusión establecida en un Estado miembro ha encargado la emisión vía satélite, se considerará que dicho acto se ha producido en el Estado miembro en el que la entidad de radiodifusión tenga su establecimiento principal. En tal caso, los derechos que se establecen relativos a la radiodifusión vía satélite podrán ejercitarse frente a la entidad de radiodifusión.\n\n4. La retransmisión por cable definida en el párrafo segundo del apartado 2.f) de este artículo, dentro del territorio de la Unión Europea, se regirá por las siguientes disposiciones:\n\na) La retransmisión en territorio español de emisiones, radiodifusiones vía satélite o transmisiones iniciales de programas procedentes de otros Estados miembros de la Unión Europea se realizará, en lo relativo a los derechos de autor, de acuerdo con lo dispuesto en la presente Ley y con arreglo a lo establecido en los acuerdos contractuales, individuales o colectivos, firmados entre los titulares de derechos y las empresas de retransmisión por cable.\n\nb) El derecho que asiste a los titulares de derechos de autor de autorizar la retransmisión por cable se ejercerá, exclusivamente, a través de una entidad de gestión de derechos de propiedad intelectual.\n\nc) En el caso de titulares que no hubieran encomendado la gestión de sus derechos a una entidad de gestión de derechos de propiedad intelectual, los mismos se harán efectivos a través de la entidad que gestione derechos de la misma categoría.\n\nCuando existiere más de una entidad de gestión de los derechos de la referida categoría, sus titulares podrán encomendar la gestión de los mismos a cualquiera de las entidades.\n\nLos titulares a que se refiere esta letra c) gozarán de los derechos y quedarán sujetos a las obligaciones derivadas del acuerdo celebrado entre la empresa de retransmisión por cable y la entidad en la que se considere hayan delegado la gestión de sus derechos, en igualdad de condiciones con los titulares de derechos que hayan encomendado la gestión de los mismos a tal entidad. Asimismo, podrán reclamar a la entidad de gestión a la que se refieren los párrafos anteriores de esta letra c), sus derechos en los términos del artículo 177.\n\nd) Cuando el titular de derechos autorice la emisión, radiodifusión vía satélite o transmisión inicial en territorio español de una obra protegida, se presumirá que consiente en no ejercitar, a título individual, sus derechos para, en su caso, la retransmisión por cable de la misma, sino a ejercitarlos con arreglo a lo dispuesto en este apartado 4.\n\ne) Lo dispuesto en los párrafos b), c) y d) de este apartado 4 no se aplicará a los derechos ejercidos por las entidades de radiodifusión respecto de sus propias emisiones, radiodifusiones vía satélite o transmisiones, con independencia de que los referidos derechos sean suyos o les hayan sido transferidos por otros titulares de derechos de autor.\n\nf) Cuando, por falta de acuerdo entre las partes, no se llegue a celebrar un contrato para la autorización de la retransmisión por cable, las partes podrán acceder, por vía de mediación, a la Comisión Mediadora y Arbitral de la Propiedad Intelectual.\n\nSerá aplicable a la mediación contemplada en el párrafo anterior lo previsto en el artículo 193 y en el real decreto de desarrollo de dicha disposición.\n\ng) Cuando alguna de las partes, en abuso de su posición negociadora, impida la iniciación o prosecución de buena fe de las negociaciones para la autorización de la retransmisión por cable, u obstaculice, sin justificación válida, las negociaciones o la mediación a que se refiere el párrafo anterior, se aplicará lo dispuesto en el Título I, capítulo I, de la Ley 16/1989, de 17 de julio , de Defensa de la Competencia.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a20",
+      "capture_block_sha256": "8e696e9abdf4cd7f89d554db75c1352044da8674d60da503e8925a6f98144716",
+      "extracted_text_sha256": "31b2bfb104b554db2739609ec2870f022fa09f2b00c7bd9c2eee747deee12fc3",
+      "notes": [
+        "Se modifica la letra f) del apartado 2 por el art. 80.1 del Real Decreto-ley 24/2021, de 2 de noviembre. Ref. BOE-A-2021-17910 Se modifican el tercer párrafo de la letra c) y el segundo párrafo de la letra f) del apartado 4 por el art. único.1 de la Ley 2/2019, de 1 de marzo. Ref. BOE-A-2019-2974 Se modifican el tercer párrafo de la letra c) y el segundo párrafo de la letra f) del apartado 4 por el art. único.1 del Real Decreto-ley 2/2018, de 13 de abril. Ref. BOE-A-2018-5059 Se renumera el apartado 2.i) y j) como 2.j) y k) y se añade un 2.i) por el art. único.3 de la Ley 23/2006, de 7 de julio. Ref. BOE-A-2006-12308 . Se deroga el apartado 3.c), se modifican los apartados 2.i), 4.f) y se añade el 2.j) por la disposición derogatoria 1 y los arts. 2.1 y 2, y 6.4 de la Ley 5/1998, de 6 de marzo. Ref. BOE-A-1998-5568 ."
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2021-17910",
+          "href": "/buscar/act.php?id=BOE-A-2021-17910#a8-2"
+        },
+        {
+          "text": "Ref. BOE-A-2019-2974",
+          "href": "/buscar/doc.php?id=BOE-A-2019-2974"
+        },
+        {
+          "text": "Ref. BOE-A-2018-5059",
+          "href": "/buscar/doc.php?id=BOE-A-2018-5059"
+        },
+        {
+          "text": "Ref. BOE-A-2006-12308",
+          "href": "/buscar/doc.php?id=BOE-A-2006-12308"
+        },
+        {
+          "text": "Ref. BOE-A-1998-5568",
+          "href": "/buscar/doc.php?id=BOE-A-1998-5568"
+        }
+      ]
+    },
+    {
+      "article": "21",
+      "title": "Artículo 21. Transformación.",
+      "text": "Artículo 21. Transformación.\n\n1. La transformación de una obra comprende su traducción, adaptación y cualquier otra modificación en su forma de la que se derive una obra diferente.\n\nCuando se trate de una base de datos a la que hace referencia el artículo 12 de la presente Ley se considerará también transformación, la reordenación de la misma.\n\n2. Los derechos de propiedad intelectual de la obra resultado de la transformación corresponderán al autor de esta última, sin perjuicio del derecho del autor de la obra preexistente de autorizar, durante todo el plazo de protección de sus derechos sobre ésta, la explotación de esos resultados en cualquier forma y en especial mediante su reproducción, distribución, comunicación pública o nueva transformación.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a21",
+      "capture_block_sha256": "50489e17f5583bd19724432788726630974c221fa08d644eeca4d18af4ecb5c4",
+      "extracted_text_sha256": "27809bf7789826d7f8c9fbb5fc8751375d3205dd444ecaf63def030e8d5aad90",
+      "notes": [
+        "Se modifica por el art. 3 de la Ley 5/1998, de 6 de marzo. Ref. BOE-A-1998-5568 ."
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-1998-5568",
+          "href": "/buscar/doc.php?id=BOE-A-1998-5568"
+        }
+      ]
+    },
+    {
+      "article": "22",
+      "title": "Artículo 22. Colecciones escogidas u obras completas.",
+      "text": "Artículo 22. Colecciones escogidas u obras completas.\n\nLa cesión de los derechos de explotación sobre sus obras no impedirá al autor publicarlas reunidas en colección escogida o completa.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a22",
+      "capture_block_sha256": "8a93c052764e6416798bec99e12edd15c2e9558b573082a39352edc5eff6de5a",
+      "extracted_text_sha256": "315dc643d28d43a3007b8094f83774b19bf79656c3b3e08eb22beac1522055e7",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "23",
+      "title": "Artículo 23. Independencia de derechos.",
+      "text": "Artículo 23. Independencia de derechos.\n\nLos derechos de explotación regulados en esta sección son independientes entre sí.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a23",
+      "capture_block_sha256": "dfa522c707a8f6af41150a377be9e0689fd9fa204c016388fc7d0e209a432f21",
+      "extracted_text_sha256": "257bafc2066a1eb6efb978f60ddba76d70461e9b83821d49e94ea6ba7e78a48b",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "43",
+      "title": "Artículo 43. Transmisión «inter vivos».",
+      "text": "Artículo 43. Transmisión «inter vivos».\n\n1. Los derechos de explotación de la obra pueden transmitirse por actos «inter vivos», quedando limitada la cesión al derecho o derechos cedidos, a las modalidades de explotación expresamente previstas y al tiempo y ámbito territorial que se determinen.\n\n2. La falta de mención del tiempo limita la transmisión a cinco años y la del ámbito territorial al país en el que se realice la cesión. Si no se expresan específicamente y de modo concreto las modalidades de explotación de la obra, la cesión quedará limitada a aquella que se deduzca necesariamente del propio contrato y sea indispensable para cumplir la finalidad del mismo.\n\n3. Será nula la cesión de derechos de explotación respecto del conjunto de las obras que pueda crear el autor en el futuro.\n\n4. Serán nulas las estipulaciones por las que el autor se comprometa a no crear alguna obra en el futuro.\n\n5. La transmisión de los derechos de explotación no alcanza a las modalidades de utilización o medios de difusión inexistentes o desconocidos al tiempo de la cesión.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a43",
+      "capture_block_sha256": "f0fa468ce6bf977c812dbb736c3f0dba464306b79994c83e3ae6dd08ded2bfef",
+      "extracted_text_sha256": "d87b7704af1666722e065f3e29bd01dec08f32f82242ee7b71ce81e358757c8a",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "44",
+      "title": "Artículo 44. Menores de vida independiente.",
+      "text": "Artículo 44. Menores de vida independiente.\n\nLos autores menores de dieciocho años y mayores de dieciséis, que vivan de forma independiente con consentimiento de sus padres o tutores o con autorización de la persona o institución que los tengan a su cargo, tienen plena capacidad para ceder derechos de explotación.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a44",
+      "capture_block_sha256": "46d0893f2e0126b56db27ad5a548197d58bb03c191e3abed29085e8740c196dd",
+      "extracted_text_sha256": "c21646c9f6cdb8f4793c96040ae469b5595e4101cce59a46b3440fda4e7b4e5e",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "45",
+      "title": "Artículo 45. Formalización escrita.",
+      "text": "Artículo 45. Formalización escrita.\n\nToda cesión deberá formalizarse por escrito. Si, previo requerimiento fehaciente, el cesionario incumpliere esta exigencia, el autor podrá optar por la resolución del contrato.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a45",
+      "capture_block_sha256": "6c51ba93e821991c65b2ca80bf3e863c18bc3f5fbb7c9aefda1f8cccefec6091",
+      "extracted_text_sha256": "62b5e685e59ca862067a4e9f762e8e09bd54fff40e07810289c4284a87a32a57",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "46",
+      "title": "Artículo 46. Remuneración proporcional y a tanto alzado.",
+      "text": "Artículo 46. Remuneración proporcional y a tanto alzado.\n\n1. La cesión otorgada por el autor a título oneroso le confiere una participación proporcional en los ingresos de la explotación, en la cuantía convenida con el cesionario.\n\n2. Podrá estipularse, no obstante, una remuneración a tanto alzado para el autor en los siguientes casos:\n\na) Cuando, atendida la modalidad de la explotación, exista dificultad grave en la determinación de los ingresos o su comprobación sea imposible o de un coste desproporcionado con la eventual retribución.\n\nb) Cuando la utilización de la obra tenga carácter accesorio respecto de la actividad o del objeto material a los que se destinen.\n\nc) Cuando la obra, utilizada con otras, no constituya un elemento esencial de la creación intelectual en la que se integre.\n\nd) En el caso de la primera o única edición de las siguientes obras no divulgadas previamente:\n\n1.º Diccionarios, antologías y enciclopedias.\n\n2.º Prólogos, anotaciones, introducciones y presentaciones.\n\n3.º Obras científicas.\n\n4.º Trabajos de ilustración de una obra.\n\n5.º Traducciones.\n\n6.º Ediciones populares a precios reducidos.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a46",
+      "capture_block_sha256": "2d81a7ddd0904c026b1f5a8dd57ea4e285584e7d67be4a3ed61c42d78192e780",
+      "extracted_text_sha256": "9ef3f7067471f4c59d2408a0d69d9db5575015f52a92cca021b63b99ec4bee49",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "47",
+      "title": "Artículo 47. Acción de revisión por remuneración no equitativa.",
+      "text": "Artículo 47. Acción de revisión por remuneración no equitativa.\n\n1. Si en la cesión se produjese una manifiesta desproporción entre la remuneración inicialmente pactada por el autor en comparación con la totalidad de los ingresos subsiguientes derivados de la explotación de las obras obtenidos por el cesionario o su derechohabiente, aquel podrá pedir la revisión del contrato y, en defecto de acuerdo, acudir al Juez para que fije una remuneración adecuada y equitativa, atendidas las circunstancias del caso.\n\n2. Esta facultad podrá ejercitarse dentro de los diez años siguientes al de la cesión, siempre que no exista pacto expreso acordado al efecto, convenio colectivo o acuerdo sectorial entre los representantes de los autores y los cesionarios que prevean un procedimiento de revisión de la remuneración no equitativa por la cesión de derechos como el indicado en el apartado anterior.\n\n3. Esta acción de revisión no será aplicable a los autores de los programas de ordenador en el sentido del artículo 97, ni a las autorizaciones exclusivas concedidas por las entidades de gestión y los operadores de gestión independiente regulados en el Título IV del Libro II.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a47",
+      "capture_block_sha256": "4fd8befee2b79f9ad4ec5ae9a5815f9c794e39cd174c6114521898ab68cb193a",
+      "extracted_text_sha256": "e2da90f6f0919b4379caff06511438b878f827e8a8aac3408ba04e2a4dcae953",
+      "notes": [
+        "Se modifica por el art. 80.3 del Real Decreto-ley 24/2021, de 2 de noviembre. Ref. BOE-A-2021-17910"
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2021-17910",
+          "href": "/buscar/act.php?id=BOE-A-2021-17910#a8-2"
+        }
+      ]
+    },
+    {
+      "article": "48",
+      "title": "Artículo 48. Cesión en exclusiva.",
+      "text": "Artículo 48. Cesión en exclusiva.\n\nLa cesión en exclusiva deberá otorgarse expresamente con este carácter y atribuirá al cesionario, dentro del ámbito de aquélla, la facultad de explotar la obra con exclusión de otra persona, comprendido el propio cedente, y, salvo pacto en contrario, las de otorgar autorizaciones no exclusivas a terceros. Asimismo, le confiere legitimación, con independencia de la del titular cedente, para perseguir las violaciones que afecten a las facultades que se le hayan concedido.\n\nEsta cesión constituye al cesionario en la obligación de poner todos los medios necesarios para la efectividad de la explotación concedida, según la naturaleza de la obra y los usos vigentes en la actividad profesional, industrial o comercial de que se trate.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a48",
+      "capture_block_sha256": "cd6c9cb1fecd855d3f7dd07d4c8d71b15a239a232b4847e112bc3dc5cddd7218",
+      "extracted_text_sha256": "882fe933738f876b500a1da7bd80bcba5f1be653fca4d00298f146da0be3f548",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "48 bis",
+      "title": "Artículo 48 bis. Derecho de revocación.",
+      "text": "Artículo 48 bis. Derecho de revocación.\n\n1. Cuando un autor haya concedido una autorización o cedido sus derechos sobre una obra de forma exclusiva podrá resolver, en todo o en parte, la autorización o cesión si la obra no está siendo explotada.\n\nEl autor podrá optar, como alternativa a la resolución anterior, por poner fin a la exclusividad del contrato.\n\nEl presente apartado no será de aplicación si la ausencia de explotación se debe principalmente a circunstancias que se puede razonablemente esperar sean subsanadas por el autor o el artista intérprete o ejecutante.\n\n2. Quedan excluidas de lo dispuesto en el apartado anterior las obras colectivas, las obras en colaboración y los programas de ordenador.\n\n3. Este derecho podrá ejercerse, previa comunicación, una vez transcurridos cinco años desde la autorización o cesión de los derechos siempre que no exista pacto expreso acordado al efecto, convenio colectivo o acuerdo sectorial en el que se regule el ejercicio de este derecho. La comunicación del autor fijará un plazo no inferior a un año vencido el cual podrá decidir poner fin a la autorización, a la cesión o a la exclusividad del contrato.\n\n4. El derecho regulado en este artículo será irrenunciable.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a4-2",
+      "capture_block_sha256": "005642c234bfd0265bcb9c0fe9dd922fad131efdaebb78fbc8db6a96cb5df599",
+      "extracted_text_sha256": "2d4ccba20420a234e845429a141212977ec333c4b32dc1d34339f7c35306646b",
+      "notes": [
+        "Se añade por el art. 80.4 del Real Decreto-ley 24/2021, de 2 de noviembre. Ref. BOE-A-2021-17910",
+        "Texto añadido, publicado el 03/11/2021, en vigor a partir del 04/11/2021."
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2021-17910",
+          "href": "/buscar/act.php?id=BOE-A-2021-17910#a8-2"
+        }
+      ]
+    },
+    {
+      "article": "49",
+      "title": "Artículo 49. Transmisión del derecho del cesionario en exclusiva.",
+      "text": "Artículo 49. Transmisión del derecho del cesionario en exclusiva.\n\nEl cesionario en exclusiva podrá transmitir a otro su derecho con el consentimiento expreso del cedente.\n\nEn defecto de consentimiento, los cesionarios responderán solidariamente frente al primer cedente de las obligaciones de la cesión.\n\nNo será necesario el consentimiento cuando la transmisión se lleve a efecto como consecuencia de la disolución o del cambio de titularidad de la empresa cesionaria.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a49",
+      "capture_block_sha256": "34e4d5ce62a864165e5ea18395a0745e9f9b7df326e64648149d9acf61664804",
+      "extracted_text_sha256": "8241998315ff273a0a3c7748e407cbb49981d54982890da6038f873e4a72b717",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "50",
+      "title": "Artículo 50. Cesión no exclusiva",
+      "text": "Artículo 50. Cesión no exclusiva\n\n1. El cesionario no exclusivo quedará facultado para utilizar la obra de acuerdo con los términos de la cesión y en concurrencia tanto con otros cesionarios como con el propio cedente. Su derecho será intransmisible, salvo en los supuestos previstos en el párrafo tercero del artículo anterior.\n\n2. Las autorizaciones no exclusivas concedidas por las entidades de gestión para utilización de sus repertorios serán, en todo caso, intransmisibles.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a50",
+      "capture_block_sha256": "2d5fc5dfb6e3ba0a048e182757257824629afe13aa05fddfc5394a9d699d0b72",
+      "extracted_text_sha256": "466ae2933598dff938f52e1709cbe02da5bedff2c19e6bba884b9be4b6c69ce7",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "51",
+      "title": "Artículo 51. Transmisión de los derechos del autor asalariado.",
+      "text": "Artículo 51. Transmisión de los derechos del autor asalariado.\n\n1. La transmisión al empresario de los derechos de explotación de la obra creada en virtud de una relación laboral se regirá por lo pactado en el contrato, debiendo éste realizarse por escrito.\n\n2. A falta de pacto escrito, se presumirá que los derechos de explotación han sido cedidos en exclusiva y con el alcance necesario para el ejercicio de la actividad habitual del empresario en el momento de la entrega de la obra realizada en virtud de dicha relación laboral.\n\n3. En ningún caso podrá el empresario utilizar la obra o disponer de ella para un sentido o fines diferentes de los que se derivan de lo establecido en los dos apartados anteriores.\n\n4. Las demás disposiciones de esta Ley serán, en lo pertinente, de aplicación a estas transmisiones, siempre que así se derive de la finalidad y objeto del contrato.\n\n5. La titularidad de los derechos sobre un programa de ordenador creado por un trabajador asalariado en el ejercicio de sus funciones o siguiendo las instrucciones de su empresario se regirá por lo previsto en el apartado 4 del artículo 97 de esta Ley.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a51",
+      "capture_block_sha256": "e9a9c66528c68ab27385fd16225ea70a313878aea3e81cf16be4bc7e826eef01",
+      "extracted_text_sha256": "d40b1e810357104c7a71eb9f2b24015c63075c22d0cf26f904966e17c9835a32",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "52",
+      "title": "Artículo 52. Transmisión de derechos para publicaciones periódicas.",
+      "text": "Artículo 52. Transmisión de derechos para publicaciones periódicas.\n\nSalvo estipulación en contrario, los autores de obras reproducidas en publicaciones periódicas conservan su derecho a explotarlas en cualquier forma que no perjudique la normal de la publicación en la que se hayan insertado.\n\nEl autor podrá disponer libremente de su obra, si ésta no se reprodujese en el plazo de un mes desde su envío o aceptación en las publicaciones diarias o en el de seis meses en las restantes, salvo pacto en contrario.\n\nLa remuneración del autor de las referidas obras podrá consistir en un tanto alzado.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a52",
+      "capture_block_sha256": "99ad8f9106941c3b67b7dcc3b0b2181b4593799def5d6c77982e97b46153b76f",
+      "extracted_text_sha256": "40e6e5d98a638b7bbe16b3e33a06a7950e3de74c07241b6ad650fd09137ee240",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "53",
+      "title": "Artículo 53. Hipoteca y embargo de los derechos de autor.",
+      "text": "Artículo 53. Hipoteca y embargo de los derechos de autor.\n\n1. Los derechos de explotación de las obras protegidas en esta Ley podrán ser objeto de hipoteca con arreglo a la legislación vigente.\n\n2. Los derechos de explotación correspondientes al autor no son embargables, pero sí lo son sus frutos o productos, que se considerarán como salarios, tanto en lo relativo al orden de prelación para el embargo, como a retenciones o parte inembargable.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a53",
+      "capture_block_sha256": "59913555cb99f415c3eb27c6f07d2a2d7a04e68c82960a949bb0bfabc49d04fc",
+      "extracted_text_sha256": "96a60762a8c05039bdb0a1d4a8e1f5779b16ed2ab5cd94b376891102c7a9f1a4",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "54",
+      "title": "Artículo 54. Créditos por la cesión de derechos de explotación.",
+      "text": "Artículo 54. Créditos por la cesión de derechos de explotación.\n\n(Derogado)",
+      "state": "unreviewed",
+      "repealed_marker": true,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a54",
+      "capture_block_sha256": "d035cd22fead59eac5f32783b7acf42d8a4229ca2a049e1efa3d4a7a9cfd3845",
+      "extracted_text_sha256": "7e3e318ebabcc3d994719adbacb69fe45dfc698c096c07e78ecf74e155392fe7",
+      "notes": [
+        "Se deroga por la disposición derogaroria única.3.9º de la Ley 22/2003, de 9 de julio. Ref. BOE-A-2003-13813 ."
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2003-13813",
+          "href": "/buscar/doc.php?id=BOE-A-2003-13813"
+        }
+      ]
+    },
+    {
+      "article": "55",
+      "title": "Artículo 55. Beneficios irrenunciables.",
+      "text": "Artículo 55. Beneficios irrenunciables.\n\nSalvo disposición de la propia Ley, los beneficios que se otorgan en el presente Título a los autores y a sus derechohabientes serán irrenunciables.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a55",
+      "capture_block_sha256": "26c724178e30a5ec5ab11c8070df7cb4088b02da23148198842345745ab935c1",
+      "extracted_text_sha256": "510bd0498de095182b8854303e6a1ac082ff92252c95bec38bce18f2df2e3f6a",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "56",
+      "title": "Artículo 56. Transmisión de derechos a los propietarios de ciertos soportes materiales.",
+      "text": "Artículo 56. Transmisión de derechos a los propietarios de ciertos soportes materiales.\n\n1. El adquirente de la propiedad del soporte a que se haya incorporado la obra no tendrá, por este solo título, ningún derecho de explotación sobre esta última.\n\n2. No obstante, el propietario del original de una obra de artes plásticas o de una obra fotográfica tendrá el derecho de exposición pública de la obra, aunque ésta no haya sido divulgada, salvo que el autor hubiera excluido expresamente este derecho en el acto de enajenación del original. En todo caso, el autor podrá oponerse al ejercicio de este derecho, mediante la aplicación, en su caso, de las medidas cautelares previstas en esta Ley, cuando la exposición se realice en condiciones que perjudiquen su honor o reputación profesional.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a56",
+      "capture_block_sha256": "8897cad08d79c9300fa25da574c0541cea294b57eeccd123146d101b5a200a0d",
+      "extracted_text_sha256": "faca378c2b494f608d574517286f909ebc93960ff3651a3ad45f02d5b31ab045",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "57",
+      "title": "Artículo 57. Aplicación preferente de otras disposiciones.",
+      "text": "Artículo 57. Aplicación preferente de otras disposiciones.\n\nLa transmisión de derechos de autor para su explotación a través de las modalidades de edición, representación o ejecución, o de producción de obras audiovisuales se regirá, respectivamente y en todo caso, por lo establecido en las disposiciones específicas de este Libro I, y en lo no previsto en las mismas, por lo establecido en este capítulo.\n\nLas cesiones de derechos para cada una de las distintas modalidades de explotación deberán formalizarse en documentos independientes.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a57",
+      "capture_block_sha256": "a74c1d270fb24b28c1faab957884a731fab5b1ea6749d39454feec252572155f",
+      "extracted_text_sha256": "efe3d05433075bec4f3e174b25d717786d56e1b8502313cfd43cd78daea3f553",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "58",
+      "title": "Artículo 58. Concepto.",
+      "text": "Artículo 58. Concepto.\n\n1. Por el contrato de edición el autor o sus derechohabientes ceden al editor, mediante compensación económica, el derecho de reproducir su obra y el de distribuirla. El editor se obliga a realizar estas operaciones por su cuenta y riesgo en las condiciones pactadas y con sujeción a lo dispuesto en esta ley.\n\n2. Esta cesión constituye fundamento jurídico suficiente para que el editor tenga derecho a una parte de la compensación equitativa prevista en el artículo 25.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a58",
+      "capture_block_sha256": "8f9654656b2303d1bd181ed2e7f3e35ed44ef2d45c54b7ead9dae0f66ba04547",
+      "extracted_text_sha256": "7d90ad9b86433ee92aa6cb674f911be1e31519cd8dbda667e38b622959cad414",
+      "notes": [
+        "Se modifica por el art. 80.5 del Real Decreto-ley 24/2021, de 2 de noviembre. Ref. BOE-A-2021-17910"
+      ],
+      "note_links": [
+        {
+          "text": "Ref. BOE-A-2021-17910",
+          "href": "/buscar/act.php?id=BOE-A-2021-17910#a8-2"
+        }
+      ]
+    },
+    {
+      "article": "59",
+      "title": "Artículo 59. Obras futuras, encargo de una obra y colaboraciones en publicaciones periódicas.",
+      "text": "Artículo 59. Obras futuras, encargo de una obra y colaboraciones en publicaciones periódicas.\n\n1. Las obras futuras no son objeto del contrato de edición regulado en esta Ley.\n\n2. El encargo de una obra no es objeto del contrato de edición, pero la remuneración que pudiera convenirse será considerada como anticipo de los derechos que al autor le correspondiesen por la edición, si ésta se realizase.\n\n3. Las disposiciones de este capítulo tampoco serán de aplicación a las colaboraciones en publicaciones periódicas, salvo que así lo exijan, en su caso, la naturaleza y la finalidad del contrato.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a59",
+      "capture_block_sha256": "2fdf2be236648fb7e87f744f97a4e3e6b686bd42c8848729955d1b503662553e",
+      "extracted_text_sha256": "51e6cef991841e1c9c38988a53a38962ec0850b17747b25168aea21444deac72",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "60",
+      "title": "Artículo 60. Formalización y contenido mínimo.",
+      "text": "Artículo 60. Formalización y contenido mínimo.\n\nEl contrato de edición deberá formalizarse por escrito y expresar en todo caso:\n\n1.º Si la cesión del autor al editor tiene carácter de exclusiva.\n\n2.º Su ámbito territorial.\n\n3.º El número máximo y mínimo de ejemplares que alcanzará la edición o cada una de las que se convengan.\n\n4.º La forma de distribución de los ejemplares y los que se reserven al autor, a la crítica y a la promoción de la obra.\n\n5.º La remuneración del autor, establecida conforme a lo dispuesto en el artículo 46 de esta Ley.\n\n6.º El plazo para la puesta en circulación de los ejemplares de la única o primera edición, que no podrá exceder de dos años contados desde que el autor entregue al editor la obra en condiciones adecuadas para realizar la reproducción de la misma.\n\n7.º El plazo en que el autor deberá entregar el original de su obra al editor.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a60",
+      "capture_block_sha256": "c59b5ec22fb5377306939380f2b846c0ad189024fea7e321727af68161171b1b",
+      "extracted_text_sha256": "4e7ddd15e42ab690eb064ffed8d659f83841e56bc651537f1e63d8674cdaf8cc",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "61",
+      "title": "Artículo 61. Supuestos de nulidad y de subsanación de omisiones.",
+      "text": "Artículo 61. Supuestos de nulidad y de subsanación de omisiones.\n\n1. Será nulo el contrato no formalizado por escrito, así como el que no exprese los extremos exigidos en los apartados 3.º y 5.º del artículo anterior.\n\n2. La omisión de los extremos mencionados en los apartados 6.º y 7.º del artículo anterior dará acción a los contratantes para compelerse recíprocamente a subsanar la falta. En defecto de acuerdo, lo hará el Juez atendiendo a las circunstancias del contrato, a los actos de las partes en su ejecución y a los usos.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a61",
+      "capture_block_sha256": "e29bea5e9be7ff1fb5b020f43f8d4099e6a75f3a17a13cb66601bafeba0129c3",
+      "extracted_text_sha256": "25bef63e766d77430eef634fe5f6ac69f4ccaf4396b8fc87e2805a249138fa90",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "62",
+      "title": "Artículo 62. Edición en forma de libro.",
+      "text": "Artículo 62. Edición en forma de libro.\n\n1. Cuando se trate de la edición de una obra en forma de libro, el contrato deberá expresar, además, los siguientes extremos:\n\na) La lengua o lenguas en que ha de publicarse la obra.\n\nb) El anticipo a conceder, en su caso, por el editor al autor a cuenta de sus derechos.\n\nc) La modalidad o modalidades de edición y, en su caso, la colección de la que formarán parte.\n\n2. La falta de expresión de la lengua o lenguas en que haya de publicarse la obra sólo dará derecho al editor a publicarla en el idioma original de la misma.\n\n3. Cuando el contrato establezca la edición de una obra en varias lenguas españolas oficiales, la publicación en una de ellas no exime al editor de la obligación de su publicación en las demás.\n\nSi transcurridos cinco años desde que el autor entregue la obra, el editor no la hubiese publicado en todas las lenguas previstas en el contrato, el autor podrá resolverlo respecto de las lenguas en las que no se haya publicado.\n\n4. Lo dispuesto en el apartado anterior se aplicará también para las traducciones de las obras extranjeras en España.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a62",
+      "capture_block_sha256": "38b5985c767b247e230700a6d944331cadb214c934944d97423f461bbd0b218b",
+      "extracted_text_sha256": "f327ee34b91dbe0ed9b85f89035baa3e0bfd92f6c55537d0e63ca8ea9c799663",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "63",
+      "title": "Artículo 63. Excepciones al artículo 60.6.º",
+      "text": "Artículo 63. Excepciones al artículo 60.6.º\n\nLa limitación del plazo prevista en el apartado 6.º del artículo 60 no será de aplicación a las ediciones de los siguientes tipos de obras:\n\n1.º Antologías de obras ajenas, diccionarios, enciclopedias y colecciones análogas.\n\n2.º Prólogos, epílogos, presentaciones, introducciones, anotaciones, comentarios e ilustraciones de obras ajenas.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a63",
+      "capture_block_sha256": "db476268e93fc43016503bba60aa153fe39649792f6390ea2792a70b916592e2",
+      "extracted_text_sha256": "09be576d583c9d675ccd13a3940c35fac90f107c2c4ee5efbe3b905b5e2d1b3a",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "64",
+      "title": "Artículo 64. Obligaciones del editor.",
+      "text": "Artículo 64. Obligaciones del editor.\n\nSon obligaciones del editor:\n\n1.º Reproducir la obra en la forma convenida, sin introducir ninguna modificación que el autor no haya consentido y haciendo constar en los ejemplares el nombre, firma o signo que lo identifique.\n\n2.º Someter las pruebas de la tirada al autor, salvo pacto en contrario.\n\n3.º Proceder a la distribución de la obra en el plazo y condiciones estipulados.\n\n4.º Asegurar a la obra una explotación continua y una difusión comercial conforme a los usos habituales en el sector profesional de la edición.\n\n5.º Satisfacer al autor la remuneración estipulada y, cuando ésta sea proporcional, al menos una vez cada año, la oportuna liquidación, de cuyo contenido le rendirá cuentas. Deberá, asimismo, poner anualmente a disposición de autor un certificado en el que se determinen los datos relativos a la fabricación, distribución y existencias de ejemplares. A estos efectos, si el autor lo solicita, el editor le presentará los correspondientes justificantes.\n\n6.º Restituir al autor el original de la obra, objeto de la edición, una vez finalizadas las operaciones de impresión y tirada de la misma.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a64",
+      "capture_block_sha256": "8fb889249ccfa3175072c7437257644ef2f2d9032b04c718cf038ab1af9b6765",
+      "extracted_text_sha256": "69804275d05d7fc9028b3a97946c7cdac86bc994d50ef74366663d2a4dee7932",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "65",
+      "title": "Artículo 65. Obligaciones del autor.",
+      "text": "Artículo 65. Obligaciones del autor.\n\nSon obligaciones del autor:\n\n1.º Entregar al editor en debida forma para su reproducción y dentro del plazo convenido la obra objeto de la edición.\n\n2.º Responder ante el editor de la autoría y originalidad de la obra y del ejercicio pacífico de los derechos que le hubiese cedido.\n\n3.º Corregir las pruebas de la tirada, salvo pacto en contrario.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a65",
+      "capture_block_sha256": "de2b1f7af3c018d348aaba0c3bb2f632f67f097590821f8eff27dba8e6b5bab5",
+      "extracted_text_sha256": "ea9c468c8f17d7f038fb63a8cf3d70d9590267732704fa7f6c393074160c37bc",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "66",
+      "title": "Artículo 66. Modificaciones en el contenido de la obra.",
+      "text": "Artículo 66. Modificaciones en el contenido de la obra.\n\nEl autor, durante el período de corrección de pruebas, podrá introducir en la obra las modificaciones que estime imprescindibles, siempre que no alteren su carácter o finalidad, ni se eleve sustancialmente el coste de la edición. En cualquier caso, el contrato de edición podrá prever un porcentaje máximo de correcciones sobre la totalidad de la obra.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a66",
+      "capture_block_sha256": "d9a654afb597e21acf1f268bc900fefec3f59b4328d164aac05d768399dbf144",
+      "extracted_text_sha256": "8ce00eefd142845c9b14aa5ea83c849fc700cf6393926599e9da1d6640435a54",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "67",
+      "title": "Artículo 67. Derechos de autor en caso de venta en saldo y destrucción de la edición.",
+      "text": "Artículo 67. Derechos de autor en caso de venta en saldo y destrucción de la edición.\n\n1. El editor no podrá, sin consentimiento del autor, vender como saldo la edición antes de dos años de la inicial puesta en circulación de los ejemplares.\n\n2. Transcurrido dicho plazo, si el editor decide vender como saldo los que le resten, lo notificará fehacientemente al autor, quien podrá optar por adquirirlos ejerciendo tanteo sobre el precio de saldo o, en el caso de remuneración proporcional, percibir el 10 por 100 del facturado por el editor. La opción deberá ejercerla dentro de los treinta días siguientes al recibo de la notificación.\n\n3. Si, tras el mismo plazo, el editor decide destruir el resto de los ejemplares de una edición, deberá asimismo notificarlo al autor, quien podrá exigir que se le entreguen gratuitamente todos o parte de los ejemplares, dentro del plazo de treinta días desde la notificación. El autor no podrá destinar dichos ejemplares a usos comerciales.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a67",
+      "capture_block_sha256": "944067d6564ab315b21e7d4549c6d2863260e66a22570a970b204f03ee2c7965",
+      "extracted_text_sha256": "5efc4d1f6fbcf5c5083d609e78e4ed661c1c5f21119bc502be10ca64d07ec68c",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "68",
+      "title": "Artículo 68. Resolución.",
+      "text": "Artículo 68. Resolución.\n\n1. Sin perjuicio de las indemnizaciones a que tenga derecho, el autor podrá resolver el contrato de edición en los casos siguientes:\n\na) Si el editor no realiza la edición de la obra en el plazo y condiciones convenidos.\n\nb) Si el editor incumple alguna de las obligaciones mencionadas en los apartados 2.º, 4.º y 5.º del artículo 64, no obstante el requerimiento expreso del autor exigiéndole su cumplimiento.\n\nc) Si el editor procede a la venta como saldo o a la destrucción de los ejemplares que le resten de la edición, sin cumplir los requisitos establecidos en el artículo 67 de esta Ley.\n\nd) Si el editor cede indebidamente sus derechos a un tercero.\n\ne) Cuando, previstas varias ediciones y agotada la última realizada, el editor no efectúe la siguiente edición en el plazo de un año desde que fuese requerido para ello por el autor. Una edición se considerará agotada a los efectos de este artículo cuando el número de ejemplares sin vender sea inferior al 5 por 100 del total de la edición y, en todo caso, inferior a 100.\n\nf) En los supuestos de liquidación o cambio de titularidad de la empresa editorial, siempre que no se haya iniciado la reproducción de la obra, con devolución, en su caso, de las cantidades percibidas como anticipo.\n\n2. Cuando por cese de la actividad del editor o a consecuencia de un procedimiento concursal se suspenda la explotación de la obra, la autoridad judicial, a instancia del autor, podrá fijar un plazo para que se reanude aquélla, quedando resuelto el contrato de edición si así no se hiciere.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a68",
+      "capture_block_sha256": "e8ab994a353df8ef550cf0edbe4ab91b794206a87a5368e44e3ff8be10df3abd",
+      "extracted_text_sha256": "1c22a6814c1605aefade7043b8a8a2d798f836997329978e3b46003ec07fb659",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "69",
+      "title": "Artículo 69. Causas de extinción.",
+      "text": "Artículo 69. Causas de extinción.\n\nEl contrato de edición se extingue, además de por las causas generales de extinción de los contratos, por las siguientes:\n\n1.ª Por la terminación del plazo pactado.\n\n2.ª Por la venta de la totalidad de los ejemplares, si ésta hubiera sido el destino de la edición.\n\n3.ª Por el transcurso de diez años desde la cesión si la remuneración se hubiera pactado exclusivamente a tanto alzado de acuerdo con lo establecido en el artículo 46, apartado 2.d), de esta Ley.\n\n4.ª En todo caso, a los quince años de haber puesto el autor al editor en condiciones de realizar la reproducción de la obra.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a69",
+      "capture_block_sha256": "f552b94478b726015cadf61ddc1ed8099ee313bbc9c1aa3be3f964f0b803d02d",
+      "extracted_text_sha256": "f76ddecc4de281b8c5426a46fb5d4be80f386a60683594ef62bc75ba77560737",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "70",
+      "title": "Artículo 70. Efectos de la extinción.",
+      "text": "Artículo 70. Efectos de la extinción.\n\nExtinguido el contrato, y salvo estipulación en contrario, el editor, dentro de los tres años siguientes y cualquiera que sea la forma de distribución convenida, podrá enajenar los ejemplares que, en su caso, posea. El autor podrá adquirirlos por el 60 por 100 de su precio de venta al público o por el que se determine pericialmente, u optar por ejercer tanteo sobre el precio de venta.\n\nDicha enajenación quedará sujeta a las condiciones establecidas en el contrato extinguido.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a70",
+      "capture_block_sha256": "92d8da029dddd132061cf3eb93f4eef017f79dc9ec318944ede9b1c997ff48ea",
+      "extracted_text_sha256": "85effb259cbc577248145d2205bc1a91ca2ce1552c08e3edf0df33eecd691ade",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "71",
+      "title": "Artículo 71. Contrato de edición musical.",
+      "text": "Artículo 71. Contrato de edición musical.\n\nEl contrato de edición de obras musicales o dramático-musicales por el que se conceden además al editor derechos de comunicación pública, se regirá por lo dispuesto en este capítulo, sin perjuicio de las siguientes normas:\n\n1.ª Será válido el contrato aunque no se exprese el número de ejemplares. No obstante, el editor deberá confeccionar y distribuir ejemplares de la obra en cantidad suficiente para atender las necesidades normales de la explotación concedida, de acuerdo con el uso habitual en el sector profesional de la edición musical.\n\n2.ª Para las obras sinfónicas y dramático-musicales el límite de tiempo previsto en el apartado 6.º del artículo 60 será de cinco años.\n\n3.ª No será de aplicación a este contrato lo dispuesto en el apartado 1.c) del artículo 68, y en las cláusulas 2.ª, 3.ª y 4.ª del artículo 69.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a71",
+      "capture_block_sha256": "983c68470de5c4538aacb769e890f068a52b3c11fdfaa9c1547b95c80e236788",
+      "extracted_text_sha256": "d0fbcc74043a7e94a27c64667b8767e1c1d8b16debca10c58754c16c71c34ddf",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "72",
+      "title": "Artículo 72. Control de tirada.",
+      "text": "Artículo 72. Control de tirada.\n\nEl número de ejemplares de cada edición estará sujeto a control de tirada a través del procedimiento que reglamentariamente se establezca, oídos los sectores profesionales afectados.\n\nEl incumplimiento por el editor de los requisitos que a tal efecto se dispongan, facultará al autor o a sus causahabientes para resolver el contrato, sin perjuicio de las responsabilidades en que hubiere podido incurrir el editor.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a72",
+      "capture_block_sha256": "ce04f0c34e2a683501a337f4d627be59f4229236763db9142b0ad07fa5782866",
+      "extracted_text_sha256": "753c1f02ffa06d0ed1c140675b2cdc3ab4849fa974bd3dd24218dcd76a232462",
+      "notes": [],
+      "note_links": []
+    },
+    {
+      "article": "73",
+      "title": "Artículo 73. Condiciones generales del contrato.",
+      "text": "Artículo 73. Condiciones generales del contrato.\n\nLos autores y editores, a través de las entidades de gestión de sus correspondientes derechos de propiedad intelectual o, en su defecto, a través de las asociaciones representativas de unos y otros, podrán acordar condiciones generales para el contrato de edición dentro del respeto a la ley.",
+      "state": "unreviewed",
+      "repealed_marker": false,
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a73",
+      "capture_block_sha256": "10ef45f6603a73b1322987688af79514038f65d4bc2ac3ae8f8ccd6cfb2aeb88",
+      "extracted_text_sha256": "a028c3c3b071381659a3ef25c9549babf0a2d5f00fbcf3ed1ceb6e16dd5a436f",
+      "notes": [],
+      "note_links": []
+    }
+  ]
+}

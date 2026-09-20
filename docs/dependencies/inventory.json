@@ -6,7 +6,7 @@
   "inputs": [
     {
       "path": ".python-version",
-      "sha256": "03520ee77719f14d31fd23cdbe29ea0e6dc6e7f181f8d8f99ef053500c192223"
+      "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
     },
     {
       "path": "requirements.in",

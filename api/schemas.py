@@ -147,7 +147,7 @@ class AnalyzeResponse(ContractModel):
             for node in self.per_node for citation in node.retrieval.citations
         ):
             raise ValueError("Verified retrieval requires versioned citation provenance")
-        has_evidence = any(node.retrieval.citations for node in self.per_node)
+        has_evidence = all(node.retrieval.citations for node in self.per_node)
         draft = self.status == "DRAFT_REVIEW_REQUIRED"
         if has_evidence != (self.gate.status == "OK") or draft != has_evidence:
             raise ValueError("Result status and evidence disagree")

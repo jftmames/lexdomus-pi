@@ -33,7 +33,7 @@ Un emoji no se cuenta dos veces. El criterio común de blancos comprende
 
 | HTTP | Estado | Comportamiento |
 | --- | --- | --- |
-| 200 | `DRAFT_REVIEW_REQUIRED` | Hay alguna cita admisible y un borrador no vacío; exige revisión profesional. |
+| 200 | `DRAFT_REVIEW_REQUIRED` | Cada cuestión identificada tiene citas admisibles y hay un borrador no vacío; exige revisión profesional. |
 | 200 | `INSUFFICIENT_EVIDENCE` | Ningún nodo recuperó citas admisibles. No se ejecutan redactor, alternativa ni EEE. |
 | 422 | `INVALID_INPUT` | Entrada que incumple el contrato o JSON mal formado. No se inicia el pipeline. |
 | 400 | `INVALID_INPUT` | Cuerpo que el servidor no puede interpretar, por ejemplo bytes UTF-8 inválidos. |
@@ -103,9 +103,9 @@ comprobación de tipos, inventario y construcción de contenedores a CI.
 
 ## Límites y siguiente revisión
 
-La regla temporal del gate admite borrador con alguna cita. No demuestra
-cobertura de todas las preguntas ni suficiencia jurídica. T08 debe definir
-esa suficiencia y la abstención por cobertura parcial. Los nodos sin evidencia
+La regla actual exige candidatos para todas las preguntas identificadas; no
+demuestra suficiencia jurídica. T08 debe definir pertinencia, soporte y
+abstención más allá de la mera presencia de citas. Los nodos sin evidencia
 se señalan en la interfaz. La etiqueta `LLM` conserva la lógica heredada:
 identificar fielmente proveedor, ejecución y fallback sigue pendiente en T09.
 
@@ -119,3 +119,12 @@ Este cambio aporta evidencia de desarrollo y verificación técnica. No acredita
 adopción por una entidad, impacto de transferencia ni evaluación favorable de
 ANECA. La propuesta sigue en una PR de borrador; las previews automáticas de
 Vercel no validan el backend ni habilitan expedientes reales.
+
+## Actualización: cobertura parcial
+
+La generación requiere candidatos en todas las cuestiones identificadas. Si
+alguna no tiene candidatos, se devuelve `INSUFFICIENT_EVIDENCE`, conservando las
+citas parciales pero sin opinión, alternativa ni EEE. API y cliente rechazan
+un borrador con cuestiones sin candidatos. Esta condición necesaria no acredita
+pertinencia ni suficiencia jurídica de las citas, y no cierra T08. Sustituye la
+regla temporal anterior de «alguna cita».

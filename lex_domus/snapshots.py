@@ -261,10 +261,14 @@ def prepare_snapshot(candidate_dir, output_dir, policy, registry_path, *, corpus
 
 def load_active_snapshot(policy):
     """Load one explicitly selected and pinned snapshot, without legacy fallback."""
+    return load_snapshot(policy, os.environ.get("LEXDOMUS_SNAPSHOT_DIR", ""),
+                         os.environ.get("LEXDOMUS_SNAPSHOT_ID", ""), REGISTRY_PATH)
+
+
+def load_snapshot(policy, directory, expected_id, registry_path):
+    """Verify an explicitly supplied context without changing process configuration."""
     validate_policy(policy)
     try:
-        directory = os.environ.get("LEXDOMUS_SNAPSHOT_DIR", "")
-        expected_id = os.environ.get("LEXDOMUS_SNAPSHOT_ID", "")
         _require(bool(directory) and Path(directory).is_absolute() and bool(_HASH.fullmatch(expected_id)))
         files = _read_directory(directory, ("snapshot.json", "manifest.json", "chunks.jsonl"))
         descriptor = _json(files["snapshot.json"])
@@ -276,7 +280,7 @@ def load_active_snapshot(policy):
         _require(descriptor["snapshot_id"] == expected_id == digest(canonical_json(unsigned)))
         _require(descriptor["manifest_sha256"] == digest(files["manifest.json"]))
         _require(descriptor["chunks_sha256"] == digest(files["chunks.jsonl"]))
-        records, manifest = _verify_corpus(files["chunks.jsonl"], files["manifest.json"], _read_file(REGISTRY_PATH), policy)
+        records, manifest = _verify_corpus(files["chunks.jsonl"], files["manifest.json"], _read_file(registry_path), policy)
         _require(descriptor["corpus_id"] == manifest["corpus_id"])
         return _snapshot(records, manifest, descriptor, policy)
     except (OSError, ValueError, TypeError, KeyError, OverflowError, RecursionError) as exc:

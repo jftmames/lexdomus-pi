@@ -298,6 +298,16 @@ class AnalyzeApiTests(unittest.TestCase):
         self.assert_error(body, "INVALID_INPUT", "PRIVATE_BAD_ENCODING_", "UnicodeDecodeError")
         self.pipeline.assert_not_called()
 
+    def test_partial_evidence_is_insufficient_and_preserves_available_citations(self):
+        result = pipeline_result(has_evidence=False)
+        result["per_node"].insert(0, pipeline_result()["per_node"][0])
+        self.pipeline.return_value = result
+        status, body = self.request({"clause": CLAUSE, "jurisdiction": "ES"})
+        self.assertEqual(status, 200)
+        self.assert_envelope(body, "INSUFFICIENT_EVIDENCE")
+        self.assertTrue(body["per_node"][0]["retrieval"]["citations"])
+        self.assertIsNone(body["opinion"])
+
     def test_no_evidence_is_explicit_and_contains_no_generated_advice(self):
         self.pipeline.return_value = pipeline_result(has_evidence=False)
         code, body = self.request({"clause": CLAUSE, "jurisdiction": "ES"})

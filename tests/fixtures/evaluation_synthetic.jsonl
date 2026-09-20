@@ -1,0 +1,2 @@
+{"id":"synthetic_hit","jurisdiction":"ES","clause":"zafiroqwerty","expected_gate":"OK","expected_flags":[]}
+{"id":"synthetic_abstention","jurisdiction":"ES","clause":"inexistenteqwerty","expected_gate":"NO_EVIDENCE","expected_flags":[]}

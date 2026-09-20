@@ -1,0 +1,17 @@
+{
+  "purpose": "download_for_review",
+  "sources": [
+    {
+      "id": "boe-lpi-consolidated-20220330",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1"
+    },
+    {
+      "id": "boe-lpi-original-19960422",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1996-8930"
+    },
+    {
+      "id": "boe-reuse-conditions",
+      "url": "https://www.boe.es/informacion/aviso_legal/index.php"
+    }
+  ]
+}

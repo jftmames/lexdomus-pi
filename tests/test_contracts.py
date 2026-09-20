@@ -151,6 +151,38 @@ class ContractTests(unittest.TestCase):
         alternative.assert_not_called()
         score.assert_not_called()
 
+    def test_partial_node_evidence_blocks_all_generation(self):
+        nodes = [{"pregunta": "supported"}, {"pregunta": "unsupported"}]
+        found = {"status": "OK", "citations": [{"text": "synthetic"}]}
+        missing = {"status": "NO_EVIDENCE", "citations": []}
+        with patch("verdiktia.inquiry_engine.decompose_clause", return_value=nodes), patch.object(
+            rag_pipeline, "load_policy", return_value=BOE_POLICY
+        ), patch.object(rag_pipeline, "source_required_answer", side_effect=[found, missing]), patch.object(
+            writer_llm, "draft_opinion_llm"
+        ) as writer, patch("lex_domus.flagger.propose_alternative") as alternative, patch(
+            "metrics_eee.scorer.score_eee"
+        ) as score:
+            result = analyze_clause("Synthetic mixed questions", "ES")
+        self.assertEqual(result["gate"]["status"], "NO_EVIDENCE")
+        self.assertEqual(result["engine"], "NOT_RUN")
+        self.assertTrue(result["per_node"][0]["retrieval"]["citations"])
+        writer.assert_not_called()
+        alternative.assert_not_called()
+        score.assert_not_called()
+
+    def test_unrelated_clause_tokens_do_not_rescue_an_unanswered_question(self):
+        self.write_records(synthetic_record(text="zafiroqwerty"))
+        with patch("verdiktia.inquiry_engine.decompose_clause", return_value=[
+            {"pregunta": "zafiroqwerty"}, {"pregunta": "inexistenteqwerty"}
+        ]), patch.object(rag_pipeline, "load_policy", return_value=BOE_POLICY), patch.object(
+            writer_llm, "draft_opinion_llm"
+        ) as writer:
+            result = analyze_clause("zafiroqwerty", "ES")
+        self.assertEqual(result["gate"]["status"], "NO_EVIDENCE")
+        self.assertEqual(result["per_node"][1]["retrieval"]["citations"], [])
+        self.assertEqual(result["per_node"][1]["used_query"], "inexistenteqwerty")
+        writer.assert_not_called()
+
     def test_flat_corpus_identity_reaches_the_writer(self):
         record = synthetic_record()
         self.write_records(record)

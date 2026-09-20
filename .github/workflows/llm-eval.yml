@@ -1,62 +1,61 @@
-name: LLM evaluation (casos frontera)
+name: Synthetic retrieval evaluation (offline)
 
 on:
   workflow_dispatch:
-    inputs:
-      model:
-        description: "Modelo OpenAI"
-        required: false
-        default: "gpt-4o-mini"
-        type: string
-      cases_path:
-        description: "Ruta del JSONL de casos"
-        required: false
-        default: "tests/casos_frontera.jsonl"
-        type: string
-      strict:
-        description: "Fallar si pass-rate < 60%"
-        required: false
-        default: "false"
-        type: choice
-        options: ["false","true"]
+  push:
+    paths:
+      - '.github/workflows/llm-eval.yml'
+      - 'scripts/llm_eval.py'
+      - 'tests/**'
+      - 'app/**'
+      - 'lex_domus/**'
+      - 'verdiktia/**'
+      - 'llm/**'
+      - 'metrics_eee/**'
+      - 'policies/**'
+      - 'requirements.api.txt'
+  pull_request:
+    paths:
+      - '.github/workflows/llm-eval.yml'
+      - 'scripts/llm_eval.py'
+      - 'tests/**'
+      - 'app/**'
+      - 'lex_domus/**'
+      - 'verdiktia/**'
+      - 'llm/**'
+      - 'metrics_eee/**'
+      - 'policies/**'
+      - 'requirements.api.txt'
+
+permissions:
+  contents: read
 
 jobs:
-  eval:
+  synthetic_evaluation:
     runs-on: ubuntu-24.04
-    permissions:
-      contents: read
+    env:
+      USE_LLM: '0'
+      OPENAI_API_KEY: ''
+      PYTHONPATH: .
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
-
+          persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version-file: '.python-version'
-
-      - name: Install deps
+          python-version: '3.11.16'  # Core lock; Vercel pilot uses Python 3.12.
+      - name: Install locked dependencies
         run: |
-          python -m pip install --require-hashes -r requirements.txt
+          python -m pip install --require-hashes -r requirements.api.txt
           python -m pip check
-
-      - name: Ensure chunks & indices exist
-        run: |
-          python scripts/ingest.py
-          python scripts/build_index.py
-
-      - name: Run LLM evaluation
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ inputs.model }}
-          CASES_PATH: ${{ inputs.cases_path }}
-          STRICT: ${{ inputs.strict == 'true' && '1' || '0' }}
-        run: |
-          python scripts/llm_eval.py
-
-      - name: Upload artifacts
+      - name: Verify evaluator failure and abstention handling
+        run: python -m unittest tests.test_evaluation tests.test_evaluation_export -v
+      - name: Evaluate fixed synthetic cases with network and provider blocked
+        run: python -m tests.evaluation_smoke --output-dir "$RUNNER_TEMP/synthetic-evaluation"
+      - name: Upload successful synthetic report only
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: llm-eval-results
-          path: |
-            llm_eval_results.csv
-            llm_eval_details.json
+          name: synthetic-evaluation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/synthetic-evaluation
+          if-no-files-found: error
+          retention-days: 7

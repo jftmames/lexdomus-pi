@@ -1,6 +1,8 @@
 # Default deny: do not copy credentials, worktrees, logs or local cases.
 **
 !requirements.api.txt
+!pilot/
+!pilot/**
 !api/
 !api/**
 !app/
@@ -18,6 +20,8 @@
 !scripts/
 !scripts/ingest.py
 !scripts/build_index.py
+!scripts/llm_eval.py
+!scripts/fetch_corpus.py
 !prompts/
 !prompts/**
 !templates/

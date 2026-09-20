@@ -44,7 +44,7 @@ jobs:
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version-file: '.python-version'
+          python-version: '3.11.16'  # Core lock; Vercel pilot uses Python 3.12.
 
       - name: Install deps
         run: |
@@ -56,6 +56,13 @@ jobs:
 
       - name: Run offline contract regression tests
         run: python -m unittest discover -s tests -p 'test*.py' -v
+
+      - name: Verify review-only BOE extraction and diagnostic reproducibility
+        run: |
+          python -m unittest tools.test_boe_review_extraction tools.test_boe_rankers tools.test_boe_paragraphs -v
+          python tools/evaluate_boe_review.py --check
+          python tools/compare_boe_rankers.py --check
+          python tools/compare_boe_paragraphs.py --check
 
       - name: Check source registry without promoting corpus
         run: python scripts/ingest.py --check

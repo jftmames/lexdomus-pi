@@ -97,7 +97,8 @@ def analyze(body: AnalyzeIn, request: Request):
     t0 = perf_counter()
     request_id = request_identifier(request)
     try:
-        res = analyze_clause(body.clause, body.jurisdiction)
+        analyzer = getattr(request.app.state, "analyzer", analyze_clause)
+        res = analyzer(body.clause, body.jurisdiction)
         no_evidence = res["gate"]["status"] == "NO_EVIDENCE"
         payload = dict(res)
         if no_evidence:
@@ -110,7 +111,7 @@ def analyze(body: AnalyzeIn, request: Request):
         payload.update(
             request_id=request_id,
             status="INSUFFICIENT_EVIDENCE" if no_evidence else "DRAFT_REVIEW_REQUIRED",
-            message=("No se ha recuperado evidencia admisible para preparar el borrador."
+            message=("No se ha recuperado evidencia suficiente para cubrir todas las preguntas."
                      if no_evidence else "Borrador pendiente de revisión profesional."),
             review_required=True,
             latency_ms=round((perf_counter() - t0) * 1000.0, 2),

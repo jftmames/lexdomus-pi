@@ -159,3 +159,11 @@ snapshot real seleccionado. El trabajo no habilita expedientes reales ni cierra
 T07–T13, el problema de previews Vercel o la validación del despacho. Esta fase
 documenta la mecánica técnica; no acredita transferencia efectiva ni un mérito
 ANECA por sí sola.
+
+## Actualización posterior: evidencia por cuestión
+
+La rama de integración elimina el reintento con la cláusula completa y exige
+candidatos en cada nodo antes de generar. El recuperador activo y el formato de
+snapshot no cambian. Los ensayos BM25/párrafos siguen siendo offline. Véase el
+[expediente consolidado](INTEGRATION-REVIEW.md) para resultados y bloqueos, incluida
+la limitación de Inquiry como plantilla fija.

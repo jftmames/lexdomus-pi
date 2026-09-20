@@ -141,11 +141,11 @@ export function parseAnalyzeResult(value: unknown): AnalyzeResult | null {
   }
 
   if (value.status === "INSUFFICIENT_EVIDENCE") {
-    if (value.gate.status !== "NO_EVIDENCE" || value.engine !== "NOT_RUN" || value.per_node.some(item => item.retrieval.status === "OK")
+    if (value.gate.status !== "NO_EVIDENCE" || value.engine !== "NOT_RUN" || value.per_node.every(item => item.retrieval.status === "OK")
         || value.opinion !== null || value.alternative_clause !== null || value.EEE !== null) return null;
   } else if (value.status === "DRAFT_REVIEW_REQUIRED") {
     if (value.gate.status !== "OK" || !["LLM", "MOCK"].includes(String(value.engine))
-        || !value.per_node.some(item => item.retrieval.status === "OK")
+        || !value.per_node.every(item => item.retrieval.status === "OK")
         || !record(value.opinion) || !nonempty(value.opinion.analysis_md)
         || !stringList(value.opinion.pros) || !stringList(value.opinion.cons)
         || (value.alternative_clause !== null && typeof value.alternative_clause !== "string")
