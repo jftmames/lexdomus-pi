@@ -7,7 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-def analyze_clause(clause: str, jurisdiction: str):
+def analyze_clause(clause: str, jurisdiction: str, *, policy=None, snapshot=None,
+                   writer=None, trace=True):
     """
     Orquesta el análisis: Inquiry -> RAG -> Flags -> Gate -> Opinión -> Alternativa -> EEE.
     Inquiry/RAG tienen firmas explícitas; flags, alternativa y EEE conservan adaptadores legacy.
@@ -144,11 +145,11 @@ def analyze_clause(clause: str, jurisdiction: str):
         return _safe_eee(per_node, flags, gate)
 
     # --- Policy ---
-    policy = load_policy()
+    policy = load_policy() if policy is None else policy
     from lex_domus.policy import validate_policy
     validate_policy(policy, jurisdiction)
     from lex_domus.snapshots import load_active_snapshot
-    snapshot = load_active_snapshot(policy)
+    snapshot = load_active_snapshot(policy) if snapshot is None else snapshot
 
     # --- Inquiry (descomposición) ---
     nodes = decompose_clause(clause, jurisdiction)
@@ -189,12 +190,12 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     # No generated advice or score when retrieval found no admissible evidence.
     if gate_status == "OK":
-        opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
+        opinion = (writer or draft_opinion_llm)(clause, jurisdiction, per_node, flags) or {}
         if "analysis_md" not in opinion and "analysis" in opinion:
             opinion["analysis_md"] = opinion.get("analysis")
         alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
         score = _eee_dispatch(_eee_real, per_node, flags, gate)
-        engine = "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK"
+        engine = "LLM" if writer is None and os.getenv("USE_LLM", "0") == "1" else "MOCK"
     else:
         opinion, alternative, score = {}, "", None
         engine = "NOT_RUN"
@@ -211,7 +212,8 @@ def analyze_clause(clause: str, jurisdiction: str):
     }
 
     try:
-        append_log(clause=clause, jurisdiction=jurisdiction, result=result)
+        if trace:
+            append_log(clause=clause, jurisdiction=jurisdiction, result=result)
     except Exception:
         pass
 

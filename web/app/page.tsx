@@ -6,6 +6,8 @@ import {
   MAX_CLAUSE_CHARACTERS, parseAnalyzeResult, resolveApiBase,
 } from "../lib/analyze-contract";
 
+const syntheticPilot = process.env.NEXT_PUBLIC_SYNTHETIC_PILOT === "1";
+
 export default function Page() {
   const [clause, setClause] = useState("");
   const [loading, setLoading] = useState(false);
@@ -85,8 +87,15 @@ export default function Page() {
       </header>
 
       <form onSubmit={analyze} className="max-w-5xl mx-auto card p-6 rounded-2xl space-y-4" aria-busy={loading}>
+        {syntheticPilot && <div className="space-y-3">
+          <p>Selecciona un ejemplo fijo para probar la recuperación. No se envían textos reales ni se genera asesoramiento jurídico.</p>
+          <div className="flex flex-wrap gap-3">
+            <button type="button" className="rounded-xl border px-4 py-2" onClick={() => editClause("zafiroqwerty")}>Ejemplo con evidencia</button>
+            <button type="button" className="rounded-xl border px-4 py-2" onClick={() => editClause("inexistenteqwerty")}>Ejemplo sin evidencia</button>
+          </div>
+        </div>}
         <label htmlFor="clause" className="text-sm text-muted">Cláusula de prueba</label>
-        <textarea id="clause" value={clause} onChange={event => editClause(event.target.value)}
+        <textarea id="clause" readOnly={syntheticPilot} value={clause} onChange={event => editClause(event.target.value)}
           aria-describedby="clause-count clause-validation" aria-invalid={Boolean(validationMessage)}
           className="w-full h-40 rounded-xl bg-black/20 p-3 outline-none border border-white/10"
           placeholder="Escribe una cláusula ficticia de cesión o licencia editorial." />

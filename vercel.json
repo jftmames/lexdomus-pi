@@ -1,19 +1,10 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "web/package.json",
-      "use": "@vercel/next@11.0.3",
-      "config": {
-        "installCommand": "npm ci --no-audit --no-fund",
-        "buildCommand": "npm run build"
-      }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "fastapi",
+  "functions": {
+    "pilot/main.py": {
+      "excludeFiles": "{web/**,tests/**,docs/**,data/**,indices/**,policies/**,scripts/**,prompts/**,templates/**,llm/**,.git/**}",
+      "maxDuration": 30
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/web/$1"
-    }
-  ]
+  }
 }

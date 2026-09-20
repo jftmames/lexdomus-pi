@@ -1,6 +1,8 @@
 # Default deny: do not copy credentials, worktrees, logs or local cases.
 **
 !requirements.api.txt
+!pilot/
+!pilot/**
 !api/
 !api/**
 !app/

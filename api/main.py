@@ -97,7 +97,8 @@ def analyze(body: AnalyzeIn, request: Request):
     t0 = perf_counter()
     request_id = request_identifier(request)
     try:
-        res = analyze_clause(body.clause, body.jurisdiction)
+        analyzer = getattr(request.app.state, "analyzer", analyze_clause)
+        res = analyzer(body.clause, body.jurisdiction)
         no_evidence = res["gate"]["status"] == "NO_EVIDENCE"
         payload = dict(res)
         if no_evidence:
