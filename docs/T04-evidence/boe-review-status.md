@@ -40,7 +40,10 @@ captura conserva su estructura para comparación. No hay reescritura mediante LL
 Se ha comprobado el conjunto exacto de 40 identificadores, unicidad, texto no
 vacío, conservación del marcador de derogación del artículo 54, los cinco
 apartados del artículo 43 y separación de las notas del artículo 48 bis.
-Los elementos adicionales observados son formularios de la interfaz. Estas
+La revisión posterior detectó 20 párrafos `parrafo_2` omitidos en 11 artículos.
+Se han recuperado y regenerado ambos archivos de extracción. El extractor ahora
+rechaza párrafos y elementos directos desconocidos en lugar de omitirlos. Tres
+pruebas de regresión cubren las omisiones, notas, derogación y marcado inesperado. Estas
 comprobaciones no equivalen al cotejo jurídico completo ni a evaluar recuperación.
 
 El artículo 54 no debe tratarse como una disposición sustantiva vigente. Su
@@ -64,3 +67,10 @@ conservar sólo la publicación inicial de 1996 no resuelve este requisito.
 
 Estos archivos permanecen en documentación y no son un candidato T05, un snapshot
 T06 ni un registro aprobado. Las 14 copias antiguas siguen en cuarentena.
+
+## Diagnóstico posterior
+
+La [evaluación reproducible](boe-retrieval-diagnostic.md) usa la extracción
+corregida. La comprobación previa de 40 identificadores no acreditaba integridad
+del texto; no debe citarse como si lo hiciera. La descarga directa se volvió a
+intentar y sigue sin completarse.

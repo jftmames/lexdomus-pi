@@ -57,6 +57,11 @@ jobs:
       - name: Run offline contract regression tests
         run: python -m unittest discover -s tests -p 'test*.py' -v
 
+      - name: Verify review-only BOE extraction and diagnostic reproducibility
+        run: |
+          python -m unittest tools.test_boe_review_extraction -v
+          python tools/evaluate_boe_review.py --check
+
       - name: Check source registry without promoting corpus
         run: python scripts/ingest.py --check
 

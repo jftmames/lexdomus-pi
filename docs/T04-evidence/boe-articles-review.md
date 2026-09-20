@@ -12,6 +12,8 @@ Redacción: 30/03/2022. Revisión pendiente. No incorporado al servicio.
 
 Corresponden al autor los siguientes derechos irrenunciables e inalienables:
 
+1.º Decidir si su obra ha de ser divulgada y en qué forma.
+
 2.º Determinar si tal divulgación ha de hacerse con su nombre, bajo seudónimo o signo, o anónimamente.
 
 3.º Exigir el reconocimiento de su condición de autor de la obra.
@@ -25,6 +27,8 @@ Corresponden al autor los siguientes derechos irrenunciables e inalienables:
 Si, posteriormente, el autor decide reemprender la explotación de su obra deberá ofrecer preferentemente los correspondientes derechos al anterior titular de los mismos y en condiciones razonablemente similares a las originarias.
 
 7.º Acceder al ejemplar único o raro de la obra, cuando se halle en poder de otro, a fin de ejercitar el derecho de divulgación o cualquier otro que le corresponda.
+
+Este derecho no permitirá exigir el desplazamiento de la obra y el acceso a la misma se llevará a efecto en el lugar y forma que ocasionen menos incomodidades al poseedor, al que se indemnizará, en su caso, por los daños y perjuicios que se le irroguen.
 
 ## Artículo 17. Derecho exclusivo de explotación y sus modalidades.
 
@@ -76,6 +80,8 @@ No se considerará pública la comunicación cuando se celebre dentro de un ámb
 
 2. Especialmente, son actos de comunicación pública:
 
+a) Las representaciones escénicas, recitaciones, disertaciones y ejecuciones públicas de las obras dramáticas, dramático-musicales, literarias y musicales mediante cualquier medio o procedimiento.
+
 b) La proyección o exhibición pública de las obras cinematográficas y de las demás audiovisuales.
 
 c) La emisión de cualesquiera obras por radiodifusión o por cualquier otro medio que sirva para la difusión inalámbrica de signos, sonidos o imágenes. El concepto de emisión comprende la producción de señales portadoras de programas hacia un satélite, cuando la recepción de las mismas por el público no es posible sino a través de entidad distinta de la de origen.
@@ -102,9 +108,19 @@ j) El acceso público en cualquier forma a las obras incorporadas a una base de 
 
 k) La realización de cualquiera de los actos anteriores, respecto a una base de datos protegida por el Libro I de la presente Ley.
 
+3. La comunicación al público vía satélite en el territorio de la Unión Europea se regirá por las siguientes disposiciones:
+
+a) La comunicación al público vía satélite se producirá únicamente en el Estado miembro de la Unión Europea en que, bajo el control y responsabilidad de la entidad radiodifusora, las señales portadoras de programas se introduzcan en la cadena ininterrumpida de comunicación a la que se refiere el párrafo d) del apartado 2 de este artículo.
+
 b) Cuando la comunicación al público vía satélite se produzca en el territorio de un Estado no perteneciente a la Unión Europea donde no exista el nivel de protección que para dicho sistema de comunicación al público establece este apartado 3, se tendrá en cuenta lo siguiente:
 
+1.º Si la señal portadora del programa se envía al satélite desde una estación de señal ascendente situada en un Estado miembro se considerará que la comunicación al público vía satélite se ha producido en dicho Estado miembro. En tal caso, los derechos que se establecen relativos a la radiodifusión vía satélite podrán ejercitarse frente a la persona que opere la estación que emite la señal ascendente.
+
 2.º Si no se utiliza una estación de señal ascendente situada en un Estado miembro pero una entidad de radiodifusión establecida en un Estado miembro ha encargado la emisión vía satélite, se considerará que dicho acto se ha producido en el Estado miembro en el que la entidad de radiodifusión tenga su establecimiento principal. En tal caso, los derechos que se establecen relativos a la radiodifusión vía satélite podrán ejercitarse frente a la entidad de radiodifusión.
+
+4. La retransmisión por cable definida en el párrafo segundo del apartado 2.f) de este artículo, dentro del territorio de la Unión Europea, se regirá por las siguientes disposiciones:
+
+a) La retransmisión en territorio español de emisiones, radiodifusiones vía satélite o transmisiones iniciales de programas procedentes de otros Estados miembros de la Unión Europea se realizará, en lo relativo a los derechos de autor, de acuerdo con lo dispuesto en la presente Ley y con arreglo a lo establecido en los acuerdos contractuales, individuales o colectivos, firmados entre los titulares de derechos y las empresas de retransmisión por cable.
 
 b) El derecho que asiste a los titulares de derechos de autor de autorizar la retransmisión por cable se ejercerá, exclusivamente, a través de una entidad de gestión de derechos de propiedad intelectual.
 
@@ -188,11 +204,15 @@ Toda cesión deberá formalizarse por escrito. Si, previo requerimiento fehacien
 
 2. Podrá estipularse, no obstante, una remuneración a tanto alzado para el autor en los siguientes casos:
 
+a) Cuando, atendida la modalidad de la explotación, exista dificultad grave en la determinación de los ingresos o su comprobación sea imposible o de un coste desproporcionado con la eventual retribución.
+
 b) Cuando la utilización de la obra tenga carácter accesorio respecto de la actividad o del objeto material a los que se destinen.
 
 c) Cuando la obra, utilizada con otras, no constituya un elemento esencial de la creación intelectual en la que se integre.
 
 d) En el caso de la primera o única edición de las siguientes obras no divulgadas previamente:
+
+1.º Diccionarios, antologías y enciclopedias.
 
 2.º Prólogos, anotaciones, introducciones y presentaciones.
 
@@ -357,6 +377,8 @@ Se modifica por el art. 80.5 del Real Decreto-ley 24/2021, de 2 de noviembre. Re
 
 El contrato de edición deberá formalizarse por escrito y expresar en todo caso:
 
+1.º Si la cesión del autor al editor tiene carácter de exclusiva.
+
 2.º Su ámbito territorial.
 
 3.º El número máximo y mínimo de ejemplares que alcanzará la edición o cada una de las que se convengan.
@@ -383,9 +405,13 @@ El contrato de edición deberá formalizarse por escrito y expresar en todo caso
 
 1. Cuando se trate de la edición de una obra en forma de libro, el contrato deberá expresar, además, los siguientes extremos:
 
+a) La lengua o lenguas en que ha de publicarse la obra.
+
 b) El anticipo a conceder, en su caso, por el editor al autor a cuenta de sus derechos.
 
 c) La modalidad o modalidades de edición y, en su caso, la colección de la que formarán parte.
+
+2. La falta de expresión de la lengua o lenguas en que haya de publicarse la obra sólo dará derecho al editor a publicarla en el idioma original de la misma.
 
 3. Cuando el contrato establezca la edición de una obra en varias lenguas españolas oficiales, la publicación en una de ellas no exime al editor de la obligación de su publicación en las demás.
 
@@ -399,6 +425,8 @@ Si transcurridos cinco años desde que el autor entregue la obra, el editor no l
 
 La limitación del plazo prevista en el apartado 6.º del artículo 60 no será de aplicación a las ediciones de los siguientes tipos de obras:
 
+1.º Antologías de obras ajenas, diccionarios, enciclopedias y colecciones análogas.
+
 2.º Prólogos, epílogos, presentaciones, introducciones, anotaciones, comentarios e ilustraciones de obras ajenas.
 
 ## Artículo 64. Obligaciones del editor.
@@ -406,6 +434,8 @@ La limitación del plazo prevista en el apartado 6.º del artículo 60 no será 
 [Fuente](https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a64)
 
 Son obligaciones del editor:
+
+1.º Reproducir la obra en la forma convenida, sin introducir ninguna modificación que el autor no haya consentido y haciendo constar en los ejemplares el nombre, firma o signo que lo identifique.
 
 2.º Someter las pruebas de la tirada al autor, salvo pacto en contrario.
 
@@ -422,6 +452,8 @@ Son obligaciones del editor:
 [Fuente](https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a65)
 
 Son obligaciones del autor:
+
+1.º Entregar al editor en debida forma para su reproducción y dentro del plazo convenido la obra objeto de la edición.
 
 2.º Responder ante el editor de la autoría y originalidad de la obra y del ejercicio pacífico de los derechos que le hubiese cedido.
 
@@ -449,6 +481,8 @@ El autor, durante el período de corrección de pruebas, podrá introducir en la
 
 1. Sin perjuicio de las indemnizaciones a que tenga derecho, el autor podrá resolver el contrato de edición en los casos siguientes:
 
+a) Si el editor no realiza la edición de la obra en el plazo y condiciones convenidos.
+
 b) Si el editor incumple alguna de las obligaciones mencionadas en los apartados 2.º, 4.º y 5.º del artículo 64, no obstante el requerimiento expreso del autor exigiéndole su cumplimiento.
 
 c) Si el editor procede a la venta como saldo o a la destrucción de los ejemplares que le resten de la edición, sin cumplir los requisitos establecidos en el artículo 67 de esta Ley.
@@ -459,11 +493,15 @@ e) Cuando, previstas varias ediciones y agotada la última realizada, el editor 
 
 f) En los supuestos de liquidación o cambio de titularidad de la empresa editorial, siempre que no se haya iniciado la reproducción de la obra, con devolución, en su caso, de las cantidades percibidas como anticipo.
 
+2. Cuando por cese de la actividad del editor o a consecuencia de un procedimiento concursal se suspenda la explotación de la obra, la autoridad judicial, a instancia del autor, podrá fijar un plazo para que se reanude aquélla, quedando resuelto el contrato de edición si así no se hiciere.
+
 ## Artículo 69. Causas de extinción.
 
 [Fuente](https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a69)
 
 El contrato de edición se extingue, además de por las causas generales de extinción de los contratos, por las siguientes:
+
+1.ª Por la terminación del plazo pactado.
 
 2.ª Por la venta de la totalidad de los ejemplares, si ésta hubiera sido el destino de la edición.
 
@@ -484,6 +522,8 @@ Dicha enajenación quedará sujeta a las condiciones establecidas en el contrato
 [Fuente](https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930&p=20220330&tn=1#a71)
 
 El contrato de edición de obras musicales o dramático-musicales por el que se conceden además al editor derechos de comunicación pública, se regirá por lo dispuesto en este capítulo, sin perjuicio de las siguientes normas:
+
+1.ª Será válido el contrato aunque no se exprese el número de ejemplares. No obstante, el editor deberá confeccionar y distribuir ejemplares de la obra en cantidad suficiente para atender las necesidades normales de la explotación concedida, de acuerdo con el uso habitual en el sector profesional de la edición musical.
 
 2.ª Para las obras sinfónicas y dramático-musicales el límite de tiempo previsto en el apartado 6.º del artículo 60 será de cinco años.
 

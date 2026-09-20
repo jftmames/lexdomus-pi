@@ -24,8 +24,15 @@ def extract(capture):
         if not match or match[1] not in expected:
             raise ValueError('Unexpected or duplicate article')
         expected.remove(match[1])
-        paragraphs = [p.get_text(' ', strip=True) for p in
-                      container.find_all('p', class_='parrafo', recursive=False)]
+        paragraphs = []
+        for element in container.find_all(recursive=False):
+            classes = set(element.get('class', []))
+            if element.name == 'p' and classes & {'parrafo', 'parrafo_2'}:
+                paragraphs.append(element.get_text(' ', strip=True))
+            elif element.name == 'p' and not classes & {'bloque', 'pie_unico'}:
+                raise ValueError('Unclassified direct paragraph: ' + str(classes))
+            elif element.name not in {'p', 'h5', 'blockquote', 'form'}:
+                raise ValueError('Unclassified article element: ' + element.name)
         if not paragraphs or any(not p for p in paragraphs):
             raise ValueError('Empty article')
         text = title + '\n\n' + '\n\n'.join(paragraphs)
