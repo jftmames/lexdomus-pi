@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 import json
+from .contracts import source_is_allowed
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "policies" / "policy.yaml"
@@ -16,11 +17,7 @@ def load_policy() -> Dict[str, Any]:
     return {"sources": {"allowed": ["BOE", "EUR-Lex", "WIPO", "USC"]}}
 
 def _allowed(policy: Dict[str, Any], meta: Dict[str, Any]) -> bool:
-    allow = set((policy.get("sources", {}) or {}).get("allowed", []))
-    if not allow:
-        return True
-    src = (meta or {}).get("source", "")
-    return (src in allow) if src else True
+    return source_is_allowed(policy, meta)
 
 def source_required_answer(question: str,
                            jurisdiction: Optional[str] = None,
@@ -28,14 +25,10 @@ def source_required_answer(question: str,
     """
     Recupera citas y aplica política. Firma flexible: admite 'jurisdiction' opcional.
     """
-    policy = policy or load_policy()
-    try:
-        from .retriever import retrieve_candidates
-        cands = retrieve_candidates(question, k=6) or []
-    except Exception:
-        cands = []
+    policy = load_policy() if policy is None else policy
+    from .retriever import retrieve_candidates
+    cands = retrieve_candidates(question, k=6, policy=policy)
 
     filtered = [c for c in cands if _allowed(policy, c.get("meta", {}))]
     status = "OK" if filtered else "NO_EVIDENCE"
     return {"status": status, "citations": filtered}
-
