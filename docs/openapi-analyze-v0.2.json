@@ -1,0 +1,591 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "LexDomus-PI API",
+    "version": "1.1.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Read Root",
+        "operationId": "read_root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analyze": {
+      "post": {
+        "summary": "Analyze",
+        "operationId": "analyze_analyze_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyzeIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyzeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyzeIn": {
+        "properties": {
+          "clause": {
+            "type": "string",
+            "maxLength": 5000,
+            "minLength": 1,
+            "title": "Clause"
+          },
+          "jurisdiction": {
+            "type": "string",
+            "enum": [
+              "ES"
+            ],
+            "const": "ES",
+            "title": "Jurisdiction"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "clause",
+          "jurisdiction"
+        ],
+        "title": "AnalyzeIn"
+      },
+      "AnalyzeResponse": {
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "enum": [
+              "0.2"
+            ],
+            "const": "0.2",
+            "title": "Contract Version",
+            "default": "0.2"
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Request Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT_REVIEW_REQUIRED",
+              "INSUFFICIENT_EVIDENCE"
+            ],
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "review_required": {
+            "type": "boolean",
+            "enum": [
+              true
+            ],
+            "const": true,
+            "title": "Review Required",
+            "default": true
+          },
+          "engine": {
+            "type": "string",
+            "enum": [
+              "LLM",
+              "MOCK",
+              "NOT_RUN"
+            ],
+            "title": "Engine"
+          },
+          "per_node": {
+            "items": {
+              "$ref": "#/components/schemas/NodeResult"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Per Node"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flags"
+          },
+          "gate": {
+            "$ref": "#/components/schemas/Gate"
+          },
+          "opinion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Opinion"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alternative_clause": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alternative Clause"
+          },
+          "EEE": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EeeMetrics"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "latency_ms": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Latency Ms"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "status",
+          "message",
+          "engine",
+          "per_node",
+          "gate",
+          "latency_ms"
+        ],
+        "title": "AnalyzeResponse"
+      },
+      "Citation": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Text"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/CitationMeta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "meta"
+        ],
+        "title": "Citation"
+      },
+      "CitationMeta": {
+        "properties": {
+          "doc_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Doc Id"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source"
+          },
+          "jurisdiction": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Jurisdiction"
+          },
+          "ref_url": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Ref Url"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "default": ""
+          },
+          "family": {
+            "type": "string",
+            "title": "Family",
+            "default": ""
+          },
+          "ref_label": {
+            "type": "string",
+            "title": "Ref Label",
+            "default": ""
+          },
+          "pinpoint": {
+            "type": "boolean",
+            "title": "Pinpoint",
+            "default": false
+          },
+          "line_start": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Line Start"
+          },
+          "line_end": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Line End"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "doc_id",
+          "source",
+          "jurisdiction",
+          "ref_url"
+        ],
+        "title": "CitationMeta"
+      },
+      "DevilsAdvocate": {
+        "properties": {
+          "hipotesis": {
+            "type": "string",
+            "title": "Hipotesis",
+            "default": ""
+          },
+          "lectura": {
+            "type": "string",
+            "title": "Lectura",
+            "default": ""
+          },
+          "cuando_mejor": {
+            "type": "string",
+            "title": "Cuando Mejor",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "DevilsAdvocate"
+      },
+      "EeeMetrics": {
+        "properties": {
+          "T": {
+            "type": "number",
+            "title": "T"
+          },
+          "J": {
+            "type": "number",
+            "title": "J"
+          },
+          "P": {
+            "type": "number",
+            "title": "P"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "T",
+          "J",
+          "P"
+        ],
+        "title": "EeeMetrics"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "enum": [
+              "0.2"
+            ],
+            "const": "0.2",
+            "title": "Contract Version",
+            "default": "0.2"
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Request Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "INVALID_INPUT",
+              "OUT_OF_SCOPE",
+              "TECHNICAL_ERROR"
+            ],
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/InputIssue"
+            },
+            "type": "array",
+            "title": "Errors"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "status",
+          "message"
+        ],
+        "title": "ErrorResponse"
+      },
+      "Gate": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "OK",
+              "NO_EVIDENCE"
+            ],
+            "title": "Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "Gate"
+      },
+      "InputIssue": {
+        "properties": {
+          "field": {
+            "type": "string",
+            "enum": [
+              "body",
+              "clause",
+              "jurisdiction"
+            ],
+            "title": "Field"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "field",
+          "code"
+        ],
+        "title": "InputIssue"
+      },
+      "InquiryNode": {
+        "properties": {
+          "pregunta": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Pregunta"
+          },
+          "encaje_ref": {
+            "type": "string",
+            "title": "Encaje Ref",
+            "default": ""
+          },
+          "principio": {
+            "type": "string",
+            "title": "Principio",
+            "default": ""
+          },
+          "evidencias_requeridas": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidencias Requeridas"
+          },
+          "alternativa": {
+            "type": "string",
+            "title": "Alternativa",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "pregunta"
+        ],
+        "title": "InquiryNode"
+      },
+      "NodeResult": {
+        "properties": {
+          "node": {
+            "$ref": "#/components/schemas/InquiryNode"
+          },
+          "retrieval": {
+            "$ref": "#/components/schemas/Retrieval"
+          },
+          "used_query": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Used Query"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "node",
+          "retrieval",
+          "used_query"
+        ],
+        "title": "NodeResult"
+      },
+      "Opinion": {
+        "properties": {
+          "analysis_md": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Analysis Md"
+          },
+          "pros": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Pros"
+          },
+          "cons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Cons"
+          },
+          "devils_advocate": {
+            "$ref": "#/components/schemas/DevilsAdvocate"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "analysis_md",
+          "pros",
+          "cons",
+          "devils_advocate"
+        ],
+        "title": "Opinion"
+      },
+      "Retrieval": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "OK",
+              "NO_EVIDENCE"
+            ],
+            "title": "Status"
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            },
+            "type": "array",
+            "title": "Citations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "citations"
+        ],
+        "title": "Retrieval"
+      }
+    }
+  }
+}
