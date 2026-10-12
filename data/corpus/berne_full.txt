@@ -117,7 +117,7 @@ Disputas sobre nombres de dominio
 Acceso centralizado a la búsqueda y el examen (CASE)
 Servicio de acceso digital (DAS)
 WIPO Pay
-Cuenta corriente en la OMPI
+WIPO Wallet
 Asambleas de la OMPI
 Comités permanentes
 Calendario de reuniones
@@ -128,7 +128,7 @@ Iniciativas y proyectos a medida
 Foros y diálogos de colaboración
 Programa de Aceleración de la Innovación, la Creatividad y el Desarrollo
 Historias sobre el impacto de la PI
-Estrategias nacionales de PI
+Estrategias nacionales de PI e innovación
 Centro de cooperación
 Centros de apoyo a la tecnología y la innovación (CATI)
 Transferencia de tecnología
