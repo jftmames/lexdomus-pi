@@ -32,6 +32,7 @@ def _gather_citations(per_node: List[Dict[str, Any]], max_per_node: int = 2):
             meta = c.get("meta", {})
             cites.append({
                 "id": idx,
+                "doc_id": meta.get("doc_id", ""),
                 "title": meta.get("title", ""),
                 "source": meta.get("source", ""),
                 "jurisdiction": meta.get("jurisdiction", ""),
