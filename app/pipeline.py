@@ -1,4 +1,4 @@
-# app/pipeline.py — robusto para firmas variadas (SRA, flags, alt, EEE) y entornos Streamlit/Actions
+# app/pipeline.py — contratos explícitos para Inquiry/RAG; adaptadores legacy para flags/alt/EEE
 from pathlib import Path
 import sys, os
 
@@ -10,23 +10,13 @@ if str(ROOT) not in sys.path:
 def analyze_clause(clause: str, jurisdiction: str):
     """
     Orquesta el análisis: Inquiry -> RAG -> Flags -> Gate -> Opinión -> Alternativa -> EEE.
-    Imports perezosos y dispatchers para soportar firmas distintas.
+    Inquiry/RAG tienen firmas explícitas; flags, alternativa y EEE conservan adaptadores legacy.
     """
-    # --- Imports perezosos + fallbacks seguros ---
-    try:
-        from verdiktia.inquiry_engine import decompose_clause
-    except Exception:
-        decompose_clause = None
+    # Inquiry and retrieval use explicit contracts; failures are not replaced.
+    from verdiktia.inquiry_engine import decompose_clause
 
-    # RAG + Policy
-    try:
-        from lex_domus.rag_pipeline import (
-            source_required_answer as _sra_real,
-            load_policy as _load_policy_real,
-        )
-    except Exception:
-        _sra_real = None
-        _load_policy_real = None
+    # RAG has one contract: failures must not retry retrieval without policy.
+    from lex_domus.rag_pipeline import source_required_answer, load_policy
 
     # Flags + alternativa (firmas variables según repo)
     try:
@@ -59,34 +49,7 @@ def analyze_clause(clause: str, jurisdiction: str):
                 "devils_advocate": {},
             }
 
-    # --- Helpers: load_policy & fallbacks SRA/flags/alt/EEE ---
-    def _safe_load_policy():
-        if _load_policy_real:
-            try:
-                return _load_policy_real()
-            except Exception:
-                pass
-        try:
-            import yaml  # type: ignore
-            policy_path = ROOT / "policies" / "policy.yaml"
-            if policy_path.exists():
-                return yaml.safe_load(policy_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
-        return {
-            "sources": {"allowed": ["BOE", "EUR-Lex", "WIPO", "USC"]},
-            "privacy": {"block_biometrics": True},
-        }
-
-    def _safe_sra(question: str, jurisdiction: str, policy: dict):
-        try:
-            from lex_domus.retriever import retrieve_candidates  # type: ignore
-            cands = retrieve_candidates(question, k=6) or []
-        except Exception:
-            cands = []
-        status = "OK" if cands else "NO_EVIDENCE"
-        return {"status": status, "citations": cands}
-
+    # --- Legacy fallbacks for flags/alternative/EEE (outside this change) ---
     def _safe_detect_flags(_clause, _jur=None, _per_node=None):
         return []
 
@@ -96,44 +59,7 @@ def analyze_clause(clause: str, jurisdiction: str):
     def _safe_eee(_per_node=None, _flags=None, _gate=None):
         return {"T": 0.0, "J": 0.0, "P": 0.0}
 
-    # --- Normalizadores/dispatchers ---
-    def _normalize_retrieval(ret):
-        if ret is None:
-            return {"status": "NO_EVIDENCE", "citations": []}
-        if isinstance(ret, list):
-            return {"status": "OK" if ret else "NO_EVIDENCE", "citations": ret}
-        if isinstance(ret, dict):
-            status = ret.get("status")
-            cits = ret.get("citations")
-            if isinstance(cits, list) and status:
-                return {"status": status, "citations": cits}
-            if "results" in ret and isinstance(ret["results"], list):
-                return {"status": "OK" if ret["results"] else "NO_EVIDENCE", "citations": ret["results"]}
-            inferred = ret.get("items") or ret.get("data") or []
-            if not isinstance(inferred, list):
-                inferred = []
-            st = status or ("OK" if inferred else "NO_EVIDENCE")
-            return {"status": st, "citations": inferred}
-        return {"status": "NO_EVIDENCE", "citations": []}
-
-    def _sra_dispatch(sra_fn, question: str, jurisdiction: str, policy: dict):
-        if sra_fn is None:
-            return _normalize_retrieval(_safe_sra(question, jurisdiction, policy))
-        for call in (
-            lambda: sra_fn(question, jurisdiction=jurisdiction, policy=policy),
-            lambda: sra_fn(question, jurisdiction, policy),
-            lambda: sra_fn(question, policy=policy),
-            lambda: sra_fn(question, policy),
-            lambda: sra_fn(question),
-        ):
-            try:
-                return _normalize_retrieval(call())
-            except TypeError:
-                continue
-            except Exception:
-                continue
-        return _normalize_retrieval(_safe_sra(question, jurisdiction, policy))
-
+    # --- Legacy dispatchers ---
     def _flags_dispatch(df_fn, clause: str, jurisdiction: str, per_node):
         if df_fn is None:
             return _safe_detect_flags(clause, jurisdiction, per_node)
@@ -218,21 +144,19 @@ def analyze_clause(clause: str, jurisdiction: str):
         return _safe_eee(per_node, flags, gate)
 
     # --- Policy ---
-    policy = _safe_load_policy()
+    policy = load_policy()
 
     # --- Inquiry (descomposición) ---
-    if callable(decompose_clause):
-        try:
-            nodes = decompose_clause(clause, jurisdiction)
-        except Exception:
-            nodes = [{"title": "Cláusula", "question": "Validez y alcance", "jurisdiction": jurisdiction}]
-    else:
-        nodes = [{"title": "Cláusula", "question": "Validez y alcance", "jurisdiction": jurisdiction}]
+    nodes = decompose_clause(clause, jurisdiction)
+    if not isinstance(nodes, list) or not nodes:
+        raise ValueError("Inquiry must produce a nonempty list of nodes")
 
     # --- RAG por nodo (2 intentos: pregunta del nodo -> cláusula completa) ---
     per_node = []
     for node in nodes:
-        q_base = node.get("question") if isinstance(node, dict) else str(node)
+        q_base = node.get("pregunta") if isinstance(node, dict) else None
+        if not isinstance(q_base, str) or not q_base.strip():
+            raise ValueError("Inquiry node must contain a nonempty 'pregunta'")
         tries = [
             q_base,
             f"{q_base}\n\n[Texto de la cláusula]\n{clause}\n\n[Jurisdicción objetivo] {jurisdiction}",
@@ -240,7 +164,7 @@ def analyze_clause(clause: str, jurisdiction: str):
         used_q = q_base
         retr = {"status": "NO_EVIDENCE", "citations": []}
         for q_try in tries:
-            r = _sra_dispatch(_sra_real, q_try, jurisdiction, policy)
+            r = source_required_answer(q_try, jurisdiction=jurisdiction, policy=policy)
             # nos quedamos con el primer intento que traiga citas
             if r.get("status") == "OK" and r.get("citations"):
                 retr = r
@@ -259,19 +183,20 @@ def analyze_clause(clause: str, jurisdiction: str):
     ) else "NO_EVIDENCE"
     gate = {"status": gate_status}
 
-    # --- Opinión LLM / MOCK ---
-    opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
-    if "analysis_md" not in opinion and "analysis" in opinion:
-        opinion["analysis_md"] = opinion.get("analysis")
-
-    # --- Cláusula alternativa ---
-    alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
-
-    # --- EEE (dispatcher robusto) ---
-    score = _eee_dispatch(_eee_real, per_node, flags, gate)
+    # No generated advice or score when retrieval found no admissible evidence.
+    if gate_status == "OK":
+        opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
+        if "analysis_md" not in opinion and "analysis" in opinion:
+            opinion["analysis_md"] = opinion.get("analysis")
+        alternative = _alt_dispatch(_pa_real, clause, jurisdiction, flags) or ""
+        score = _eee_dispatch(_eee_real, per_node, flags, gate)
+        engine = "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK"
+    else:
+        opinion, alternative, score = {}, "", None
+        engine = "NOT_RUN"
 
     result = {
-        "engine": "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK",
+        "engine": engine,
         "per_node": per_node,
         "flags": flags,
         "gate": gate,
