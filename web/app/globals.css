@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 
 :root { --bg: #0b0d10; --card: #12151a; --ink: #e6e9ef; --muted: #9aa4b2; --accent: #6ee7b7; }
