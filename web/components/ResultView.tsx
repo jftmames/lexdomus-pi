@@ -31,6 +31,11 @@ export default function ResultView({ data }: { data: Result | null }) {
 
   return (
     <div className="space-y-6">
+      {data.engine === "MOCK" && (
+        <div role="status" className="card p-4 rounded-xl border border-amber-400/30 text-amber-300">
+          Modo de demostración: el texto se ha generado mediante reglas heurísticas, no mediante un modelo de lenguaje. Revisa las fuentes y el resultado antes de utilizarlos.
+        </div>
+      )}
       <div className="grid md:grid-cols-3 gap-4">
         <div className="card p-4 rounded-2xl">
           <div className="text-sm text-muted">Engine</div>

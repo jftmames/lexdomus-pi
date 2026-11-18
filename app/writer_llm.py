@@ -93,11 +93,15 @@ def draft_opinion_llm(clause: str, jurisdiction: str, per_node: List[Dict[str, A
     Devuelve un dict con: analysis_md, pros, cons, devils_advocate.
     Intenta LLM si USE_LLM=1 y hay OPENAI_API_KEY; si falla, usa heurístico.
     """
-    use_llm = os.getenv("USE_LLM", "0") == "1" and bool(os.getenv("OPENAI_API_KEY", "").strip())
+    requested = os.getenv("USE_LLM", "0") == "1"
+    use_llm = requested and bool(os.getenv("OPENAI_API_KEY", "").strip())
     cites = _gather_citations(per_node, max_per_node=2)
 
     if not use_llm:
-        return _heuristic_analysis(clause, jurisdiction, per_node, flags)
+        result = _heuristic_analysis(clause, jurisdiction, per_node, flags)
+        result["_engine"] = "MOCK"
+        result["_engine_reason"] = "missing_api_key" if requested else "disabled"
+        return result
 
     # --- Construcción de prompt estructurado ---
     system = (
@@ -144,7 +148,12 @@ def draft_opinion_llm(clause: str, jurisdiction: str, per_node: List[Dict[str, A
             "lectura": dev.get("lectura", "-"),
             "cuando_mejor": dev.get("cuando_mejor", "-"),
         }
+        out["_engine"] = "LLM"
+        out["_engine_reason"] = "provider_response"
         return out
     except Exception:
         # Cualquier fallo → regreso heurístico
-        return _heuristic_analysis(clause, jurisdiction, per_node, flags)
+        result = _heuristic_analysis(clause, jurisdiction, per_node, flags)
+        result["_engine"] = "MOCK"
+        result["_engine_reason"] = "provider_error"
+        return result

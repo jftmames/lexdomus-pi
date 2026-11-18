@@ -54,6 +54,8 @@ def analyze_clause(clause: str, jurisdiction: str):
         def draft_opinion_llm(_clause, _jur, _per_node, _flags):
             return {
                 "analysis_md": "*LLM no disponible (modo MOCK)*",
+                "_engine": "MOCK",
+                "_engine_reason": "writer_unavailable",
                 "pros": [],
                 "cons": [],
                 "devils_advocate": {},
@@ -261,6 +263,8 @@ def analyze_clause(clause: str, jurisdiction: str):
 
     # --- Opinión LLM / MOCK ---
     opinion = draft_opinion_llm(clause, jurisdiction, per_node, flags) or {}
+    engine = opinion.pop("_engine", "MOCK")
+    engine_reason = opinion.pop("_engine_reason", "unknown")
     if "analysis_md" not in opinion and "analysis" in opinion:
         opinion["analysis_md"] = opinion.get("analysis")
 
@@ -271,7 +275,8 @@ def analyze_clause(clause: str, jurisdiction: str):
     score = _eee_dispatch(_eee_real, per_node, flags, gate)
 
     result = {
-        "engine": "LLM" if os.getenv("USE_LLM", "0") == "1" else "MOCK",
+        "engine": engine,
+        "engine_reason": engine_reason,
         "per_node": per_node,
         "flags": flags,
         "gate": gate,
